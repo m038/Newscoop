@@ -2,6 +2,8 @@
 
 <body>
 
+{{ include file="_ads/front-floating.tpl" }}
+
 	<div class="content-wrapper">
     
 {{ include file="_tpl/header-nav.tpl" }}
