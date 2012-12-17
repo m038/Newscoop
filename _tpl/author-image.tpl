@@ -1,0 +1,3 @@
+<figure>
+{{ if $author->user->defined }}<a href="{{ $author->url }}" title="{{ $author->user->uname }}"><img src="{{ include file="_tpl/user-image.tpl" user=$author->user width=$width height=$height }}" width="{{ $width }}" height="{{ $height }}" alt="{{ $author->user->uname }}" /></a>{{ else if $author->picture->imageurl }}<img src="{{ $author->picture->imageurl }}" alt="{{ $author->name }}" width="{{ $width }}" />{{ /if }}
+</figure>

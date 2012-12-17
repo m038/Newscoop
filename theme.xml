@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<theme name="Zentral+" designer="Sourcefabric" version="1.0" require="4.0.2">
+    <description>Zentral+ * Luzern</description>
+    
+    <presentation-img src="themethumbs/front.png" name="Front page"/>
+    <presentation-img src="themethumbs/section.png" name="Section page"/>
+    <presentation-img src="themethumbs/article.png" name="Article"/>
+    
+    <!-- =============================== -->
+    
+	<output name="Web">
+		
+		
+		
+		
+	<frontPage src="front.tpl"/><sectionPage src="section.tpl"/><articlePage src="article.tpl"/><errorPage src="front.tpl"/></output>
+	<renditions>
+   	<rendition name="artfull" width="723" height="362" specs="crop"/>	
+   	<rendition name="arthalf" width="346" height="173" specs="crop"/>
+      <rendition name="artthumb" width="158" height="79" specs="crop"/>
+      <rendition name="quarter" width="252" height="141" specs="crop"/>
+      <rendition name="dossierbig" width="1100" height="363" specs="crop"/>
+      <rendition name="slideshow" width="722" height="467" specs="crop"/>        	
+	</renditions>
+</theme>

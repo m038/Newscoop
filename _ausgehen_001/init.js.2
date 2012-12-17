@@ -1,0 +1,23 @@
+$(window).load(function() {
+
+	/* Sliders
+	---------------------------------------------------------------- */
+	$('.slides').each(function() {
+        var $this = $(this), $ss = $this.closest('.slideshow');
+        var prev = $ss.find('a.prev'), next = $ss.find('a.next'), cap = $ss.find('.caption');
+        $this.cycle({
+            prev: 		prev,
+            next: 		next,
+            fx: 		'scrollHorz',
+			fit:		true,
+			speed:		500,
+			timeout:	0,
+			after:     	onAfter
+        });
+		function onAfter(curr,next,opts) {
+			var caption = (opts.currSlide + 1) + ' von ' + opts.slideCount;
+			$(cap).html(caption);
+		}
+    });
+
+});
