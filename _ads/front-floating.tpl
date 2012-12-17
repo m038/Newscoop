@@ -7,11 +7,15 @@
   * to
   *   'https://openx.sourcefabric.net/delivery/...'
   *
+  *------------------------------------------------------------*
+  * This interstitial invocation code requires the images from:
+  * /www/images/layerstyles/simple/...
+  * To be accessible via: http(s)://openx.sourcefabric.net/images/layerstyles/simple/...
+  *------------------------------------------------------------*
   */-->
 
 <script type='text/javascript'><!--//<![CDATA[
-   var ox_u = 'http://openx.sourcefabric.net/delivery/al.php?zoneid=49&amp;layerstyle=floater&amp;ltr=f&amp;loop=5&amp;speed=3&amp;pause=10&amp;shiftv=0&amp;transparent=t&amp;limited=f';
+   var ox_u = 'http://openx.sourcefabric.net/delivery/al.php?zoneid=49&layerstyle=simple&align=center&valign=middle&padding=2&closetime=15&padding=2&shifth=0&shiftv=0&closebutton=t&backcolor=FFFFFF&bordercolor=000000';
    if (document.context) ox_u += '&context=' + escape(document.context);
    document.write("<scr"+"ipt type='text/javascript' src='" + ox_u + "'></scr"+"ipt>");
 //]]>--></script>
-
