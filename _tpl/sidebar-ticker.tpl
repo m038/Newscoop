@@ -5,7 +5,7 @@
                       
                       {{ assign var="mydate" value=strtotime('-1 days') }} 
                       {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}                       
-                      {{ list_articles columns="5" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate" }}
+                      {{ list_articles columns="5" length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate" }}
                       {{ if $gimme->current_list->at_beginning }}
                       <ul class="slides">
                       {{ /if }}
