@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ uri static_file="assets/css/skin.css" }}">
     <link rel="stylesheet" href="{{ uri static_file="assets/css/jquery.fancybox.css" }}">
     <!--link rel="stylesheet" href="{{ uri static_file="assets/js/libs/helpers/jquery.fancybox-thumbs.css?v=1.0.7" }}" /-->    
+    
+    {{ include file="_tpl/_head-openx-code.tpl" }}   
+    
     <script src="{{ uri static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

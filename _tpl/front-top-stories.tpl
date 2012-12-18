@@ -22,7 +22,7 @@
                  
                 <div class="ad bottom-line">
                   <small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-1.jpg" }}" alt="" /></a>
+                  {{ include file="_ads/front-middle.tpl" }}
                 </div>                
 {{ /if }} 
 
