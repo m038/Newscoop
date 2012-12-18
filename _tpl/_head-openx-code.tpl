@@ -1,14 +1,6 @@
-  {{ assign var="mob-device" value="0" }}
+{{ assign var="mob-device" value="0" }}
 {{ dynamic }}
-{{ if isset($smarty.request.mobile) ||
-      isset($smarty.request.tablet) ||
-      isset($smarty.request.phone) ||
-        $gimme->browser->browser_working == "webkit" && 
-        (
-          ($gimme->browser->ua_type == 'mobile' && (empty($smarty.cookies.app_mode) || $smarty.cookies.app_mode !== 'off')) || 
-          isset($smarty.cookies.app_mode) && $smarty.cookies.app_mode == 'on'
-        ) 
-}}
+{{ if $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
   {{ assign var="mob-device" value="1" }}
 {{ /if }}
 {{ /dynamic }}
