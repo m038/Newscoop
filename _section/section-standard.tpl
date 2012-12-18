@@ -24,6 +24,8 @@
             
             <div class="aside">
 
+{{ include file="_ads/section-sidebar.tpl" }}
+
             	<div class="box">
 
 {{ assign var="secname" value=$gimme->section->name }}
