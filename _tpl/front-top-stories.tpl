@@ -1,8 +1,3 @@
-{{ if isset($smarty.request.mobile) || isset($smarty.request.tablet) || isset($smarty.request.phone) || $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
-<p><strong>MOBILEEEEEEE</strong></p>
-{{ /if }}
-
-
           <div class="main">              
 
 {{ list_playlist_articles id="2" length="5" }} 
