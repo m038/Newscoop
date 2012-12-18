@@ -1,6 +1,12 @@
 {{ assign var="mob-device" value="0" }}
-{{ dynamic }}
+{{* dynamic }}
 {{ if $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
+  {{ assign var="mob-device" value="1" }}
+{{ /if }}
+{{ /dynamic *}}
+
+{{ dynamic }}
+{{ if isset($smarty.request.mobile) || isset($smarty.request.tablet) || isset($smarty.request.phone) || $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
   {{ assign var="mob-device" value="1" }}
 {{ /if }}
 {{ /dynamic }}
