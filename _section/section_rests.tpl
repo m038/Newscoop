@@ -381,12 +381,15 @@ function show_cuisines() {
 
     if (0 == checked_count) {
         $(".rest_all").show();
+        $(".rest_all").addClass("article_active");
     }
     else {
         $(".rest_all").hide();
+        $(".rest_all").removeClass("article_active");
         for (var cind = 0; cind < checked_count; cind++) {
             var cur_class = "cuisine_" + checked_cuisines[cind];
             $("." + cur_class).show();
+            $("." + cur_class).addClass("article_active");
         }
     }
 
@@ -880,7 +883,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 $template->assign('rest_cuisines_classes',$rest_cuisines_classes);
             {{ /php }}
 
-                <article class="rest_all {{ $rest_cuisines_classes }}">
+                <article class="article_active rest_all {{ $rest_cuisines_classes }}">
         {{* assign var="art_link_params" "?type=$usetype_link&region=$linkregion&date=$usedate_link&period=$useperiod_link" *}}
         {{ assign var="art_link_params" "?date=$usedate_link&period=$useperiod_link" }}
                     <figure>
