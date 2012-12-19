@@ -1,5 +1,5 @@
     
-    <script src="{{ uri static_file="assets/js/libs/jquery-ui-1.9.1.custom.min.js" }}"></script>
+    <script src="{{ uri static_file="assets/js/libs/jquery-ui-1.9.2.custom.min.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/jquery.cycle.all.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/jquery.jcarousel.min.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/jquery.dropdownized.min.js" }}"></script>
