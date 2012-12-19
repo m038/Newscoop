@@ -247,7 +247,7 @@ $(document).ready(function() {
                                 }
 
                                 if (cur_scr_date != last_date) {
-                                    screen_content += screen_row;
+                                    screen_content += screen_row + "<br />";
     
                                     screen_row = get_display_date(cur_scr_date) + " ";
                                     last_date = cur_scr_date;
