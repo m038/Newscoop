@@ -839,6 +839,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 <div id="restaurant_list" class="restaurant-list clearfix">
 
 {{ assign var="rest_rank" 0 }}
+{{ assign var="is_odd" 0 }}
 {{ assign var="max_text_len" 250 }}
 
 {{ assign var="rests_order_alphabetical" "" }}
@@ -854,6 +855,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
 {{ list_articles columns="$colcount" ignore_issue="true" ignore_section="true" constraints="$condate $contopic_region $contopic_type section is 73 type is restaurant matchalltopics " order="byname asc" }}
 
     {{ assign var="rest_rank" $rest_rank+1 }}
+    {{ assign var="is_odd" 1-$is_odd }}
 
             {{  assign var="rest_days_notice" "" }}
             {{  assign var="rest_days" $gimme->article->date_time_text }}
@@ -889,7 +891,12 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 $template->assign('rest_cuisines_classes',$rest_cuisines_classes);
             {{ /php }}
 
-                <article class="article_active rest_all {{ $rest_cuisines_classes }}">
+            {{ assign var="odd_class" " " }}
+            {{ if $is_odd }}
+                {{ assign var="odd_class" " article_odd " }}
+            {{ /if }}
+
+                <article class="article_active rest_all {{ $odd_class }} {{ $rest_cuisines_classes }}">
         {{* assign var="art_link_params" "?type=$usetype_link&region=$linkregion&date=$usedate_link&period=$useperiod_link" *}}
         {{ assign var="art_link_params" "?date=$usedate_link&period=$useperiod_link" }}
                     <figure>
