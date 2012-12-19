@@ -5,6 +5,11 @@
 {{ assign var="mob-device" value=1 scope="global" }}
 <!-- $mob-device == {{ $mob-device }} (should be 1) -->
 	var OA_zones = {'59':59,'60':60,'61':61,'62':62,'63':63};
+</script>
+<script type='text/javascript' src='http://openx.sourcefabric.net/delivery/spcjs.php?id=11'></script>	
+  {{ php }}
+    die();
+  {{ /php }}	
 {{ else }}
 {{ assign var="mob-device" value=0 scope="global" }}
 <!-- $mob-device == {{ $mob-device }} (should be 0) -->
