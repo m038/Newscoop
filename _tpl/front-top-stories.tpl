@@ -1,6 +1,6 @@
           <div class="main"> 
           
-          <p>$isMobDevice = {{ $isMobDevice }}</p>             
+          <!-- p>$isMobDevice = {{ $isMobDevice }}</p -->             
 
 {{ list_playlist_articles id="2" length="5" }} 
 {{ if $gimme->current_list->index == "1" }}             
