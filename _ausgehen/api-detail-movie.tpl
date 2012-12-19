@@ -41,10 +41,29 @@ console.log(window.api_detail);
 
 window.cinemas = window.api_detail.locations;
 
+function get_date_string(date_obj) {
+    date_day = date_obj.getDate();
+    if (10 > date_day) {
+        date_day = "0" + date_day;
+    }
+    date_month = date_obj.getMonth() + 1;
+    if (10 > date_month) {
+        date_month = "0" + date_month;
+    }
+    date_year = date_obj.getFullYear();
+    var date_str = date_year + "-" + date_month + "-" + date_day;
+
+    return date_str;
+};
+
+
 $(document).ready(function() {
     var detail_content = 'Movie not found';
 
     outline_type("kino");
+
+    var run_date_obj = new Date();
+    var run_date = get_date_string(run_date_obj);
 
     var cur_url = location.href;
     var cur_url_parts = cur_url.split("#");
@@ -224,6 +243,10 @@ $(document).ready(function() {
                         screen_content += "<p>";
                         screen_content += "<strong>" + cur_cin_name + "</strong><br />" + cur_cin_addr + "<br />";
 
+                        var date_min = null;
+                        var date_max = null;
+                        var date_arr = {};
+
                         var cur_scr_times = cur_screen['times'];
                         if (cur_scr_times) {
                             var cur_scr_times_count = cur_scr_times.length;
@@ -246,9 +269,19 @@ $(document).ready(function() {
                                     cur_scr_time = cur_scr_datetime[1];
                                 }
 
+                                if ((!date_min) || (cur_scr_date < date_min)) {
+                                    date_min = cur_scr_date;
+                                }
+                                if ((!date_max) || (cur_scr_date > date_max)) {
+                                    date_max = cur_scr_date;
+                                }
+
                                 if (cur_scr_date != last_date) {
                                     screen_content += screen_row + "<br />";
-    
+                                    if (last_date) {
+                                        date_arr[last_date] = screen_row;
+                                    }
+
                                     screen_row = get_display_date(cur_scr_date) + " ";
                                     last_date = cur_scr_date;
                                 }
@@ -265,7 +298,40 @@ $(document).ready(function() {
                             }
 
                             screen_content += screen_row;
+                            if (last_date) {
+                                date_arr[last_date] = screen_row;
+                            }
                         }
+
+                        var date_span = 1 + ((Date.parse(date_max) - Date.parse(date_min))/86400000);
+                        if (7 > date_span) {
+                            if (run_date < date_min) {
+                                date_min = get_date_string(new Date(Date.parse(date_min) - ((7 - date_span)*86400000)));
+                                if (run_date > date_min) {
+                                    date_min = run_date;
+                                }
+                            }
+                        }
+                        date_span = 1 + ((Date.parse(date_max) - Date.parse(date_min))/86400000);
+                        if (7 > date_span) {
+                            date_max = get_date_string(new Date(Date.parse(date_max) + ((7 - date_span)*86400000)));
+                        }
+
+                        date_arr["min_date"] = date_min;
+                        date_arr["max_date"] = date_max;
+
+                        var min_msec = Date.parse(date_min);
+                        var max_msec = Date.parse(date_max);
+
+                        for (var cur_msec = min_msec; cur_msec <= max_msec; cur_msec += 86400000) {
+                            var arr_date_str = get_date_string(new Date(cur_msec));
+                            if (!date_arr[arr_date_str]) {
+                                date_arr[arr_date_str] = null;
+                            }
+                        }
+
+                        console.log(date_arr); // DEBUG
+
 
                         screen_content += "</p>\n";
 
