@@ -15,9 +15,9 @@
 {{ $smarty.capture.image }}
 {{ /if }} 
                     {{ if $prazno }}<div class="inline-box left top">{{ else }}<header class="bottom-line top-line">{{ /if }}
-                      <h6>{{ $gimme->article->dateline }}</h6>
+                      <h6>{{ if $gimme->article->dateline }}{{ $gimme->article->dateline }}{{ else }}{{ $gimme->article->NewsLineText }}{{ /if }}</h6>
                         <h3>{{ $gimme->article->name }}</h3>
-                        <p>{{ $gimme->article->lede }}</p>
+                        <p>{{ if $gimme->article->lede }}{{ $gimme->article->lede }}{{ elseif $gimme->article->type_name == "newswire" }}{{ $gimme->article->DataLead }}{{ /if }}</p>
                     {{ if $prazno }}</div>{{ else }}</header>{{ /if }}
 
 {{ if $prazno }}                    
@@ -28,7 +28,7 @@
                    
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" class="right print-small">Print</a></p>
                               
-                    {{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->body }}
+                    {{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->body }}{{ $gimme->article->body }}{{ elseif $gimme->article->type_name == "newswire" }}{{ $gimme->article->DataContent|replace:"<p>":""|replace:"</p>":"<br />" }}{{ /if }}
 
 						  {{ include file="_tpl/article-slideshow.tpl" }}
 
