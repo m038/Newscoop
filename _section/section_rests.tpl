@@ -127,8 +127,73 @@ function get_kueche_list() {
     );
 }
 
+function get_kueche_list_reverted() {
+    return array(
+        'Italienisch' => array('label' => 'italian', 'display' => 'Italienisch', 'topic' => 'Küche:\\ Italienisch',), // id 4
+        'Spanisch' => array('label' => 'spanish', 'display' => 'Spanisch', 'topic' => 'Küche:\\ Spanisch',), // id 5
+        'Türkisch' => array('label' => 'turkish', 'display' => 'Türkisch', 'topic' => 'Küche:\\ Türkisch',), // id 6
+        'Asiatisch' => array('label' => 'asiatic', 'display' => 'Asiatisch', 'topic' => 'Küche:\\ Asiatisch',), // id 7
+        'Chinesisch' => array('label' => 'chinese', 'display' => 'Chinesisch', 'topic' => 'Küche:\\ Chinesisch',), // id 8
+        'Fisch' => array('label' => 'fish', 'display' => 'Fisch', 'topic' => 'Küche:\\ Fisch',), // id 10
+        'Französisch' => array('label' => 'french', 'display' => 'Französisch', 'topic' => 'Küche:\\ Französisch',), // id 11
+        'Gourmet' => array('label' => 'gourmet', 'display' => 'Gourmet', 'topic' => 'Küche:\\ Gourmet',), // id 12
+        'Griechisch' => array('label' => 'greek', 'display' => 'Griechisch', 'topic' => 'Küche:\\ Griechisch',), // id 13
+        'Gut bürgerlich' => array('label' => 'good_style', 'display' => 'Gut bürgerlich', 'topic' => 'Küche:\\ Gut\\ bürgerlich',), // id 15
+        'Hamburger' => array('label' => 'hamburger', 'display' => 'Hamburger', 'topic' => 'Küche:\\ Hamburger',), // id 16
+        'Indisch' => array('label' => 'indian', 'display' => 'Indisch', 'topic' => 'Küche:\\ Indisch',), // id 17
+        'Indonesisch' => array('label' => 'indonesian', 'display' => 'Indonesisch', 'topic' => 'Küche:\\ Indonesisch',), // id 18
+        'Japanisch' => array('label' => 'japanese', 'display' => 'Japanisch', 'topic' => 'Küche:\\ Japanisch',), // id 21
+        'Kreolisch (Karibik)' => array('label' => 'creole_caribbean', 'display' => 'Kreolisch (Karibik)', 'topic' => 'Küche:\\ Kreolisch\\ (Karibik)',), // id 23
+        'Koreanisch' => array('label' => 'korean', 'display' => 'Koreanisch', 'topic' => 'Küche:\\ Koreanisch',), // id 24
+        'Mexikanisch' => array('label' => 'mexican', 'display' => 'Mexikanisch', 'topic' => 'Küche:\\ Mexikanisch',), // id 27
+        'Mongolisch' => array('label' => 'mongolian', 'display' => 'Mongolisch', 'topic' => 'Küche:\\ Mongolisch',), // id 28
+        'Pizzeria' => array('label' => 'pizzeria', 'display' => 'Pizzeria', 'topic' => 'Küche:\\ Pizzeria',), // id 31
+        'Sushi' => array('label' => 'sushi', 'display' => 'Sushi', 'topic' => 'Küche:\\ Sushi',), // id 32
+        'Thailändisch' => array('label' => 'thai', 'display' => 'Thailändisch', 'topic' => 'Küche:\\ Thailändisch',), // id 35
+        'Vietnamesisch' => array('label' => 'vietnamese', 'display' => 'Vietnamesisch', 'topic' => 'Küche:\\ Vietnamesisch',), // id 37
+        'Marokkanisch' => array('label' => 'moroccan', 'display' => 'Marokkanisch', 'topic' => 'Küche:\\ Marokkanisch',), // id 42
+        'Brasserie' => array('label' => 'brasserie', 'display' => 'Brasserie', 'topic' => 'Küche:\\ Brasserie',), // id 43
+        'Portugiesisch' => array('label' => 'portuguese', 'display' => 'Portugiesisch', 'topic' => 'Küche:\\ Portugiesisch',), // id 44
+        'Vegetarisch' => array('label' => 'vegetarian', 'display' => 'Vegetarisch', 'topic' => 'Küche:\\ Vegetarisch',), // id 46
+        'Argentinisch' => array('label' => 'argentine', 'display' => 'Argentinisch', 'topic' => 'Küche:\\ Argentinisch',), // id 47
+        'Kuchen und Gebäck' => array('label' => 'pies_and_biscuits', 'display' => 'Kuchen und Gebäck', 'topic' => 'Küche:\\ Kuchen\\ und\\ Gebäck',), // id 51
+        'Balkan' => array('label' => 'balkan', 'display' => 'Balkan', 'topic' => 'Küche:\\ Balkan',), // id 53
+        'Fusion' => array('label' => 'fusion', 'display' => 'Fusion', 'topic' => 'Küche:\\ Fusion',), // id 62
+        'Ungarisch' => array('label' => 'hungarian', 'display' => 'Ungarisch', 'topic' => 'Küche:\\ Ungarisch',), // id 67
+        'Regional' => array('label' => 'regional', 'display' => 'Regional', 'topic' => 'Küche:\\ Regional',), // id 70
+        'Snacks' => array('label' => 'snacks', 'display' => 'Snacks', 'topic' => 'Küche:\\ Snacks',), // id 71
+        'Libanesisch' => array('label' => 'lebanese', 'display' => 'Libanesisch', 'topic' => 'Küche:\\ Libanesisch',), // id 72
+        'Andere' => array('label' => 'other', 'display' => 'Andere', 'topic' => 'Küche:\\ Andere',),
+    );
+}
+
 $kueche_list = get_kueche_list();
 $template->assign('kueche_list',$kueche_list);
+
+function get_current_cuisine_classes($topic_list) {
+
+    $used_cuisine_classes = '';
+
+    $cuisine_topics = get_kueche_list_reverted();
+
+    if (empty($topic_list)) {
+        $topic_list = array();
+    }
+
+    foreach($topic_list as $one_topic) {
+        $cur_name = (string) $one_topic;
+        if ("Küche: " == substr($cur_name, 0, strlen("Küche: "))) {
+            $cur_cuisine = substr($cur_name, strlen("Küche: "));
+            if (array_key_exists($cur_cuisine, $cuisine_topics)) {
+                $cur_class_name = 'cuisine_' . $cuisine_topics[$cur_cuisine][label];
+                $used_cuisine_classes .= ' ' . $cur_class_name;
+            }
+        }
+    }
+
+    return $used_cuisine_classes;
+}
+
 
 {{ /php }}
 
@@ -775,7 +840,16 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 $template->assign('ambiance_text',$ambiance_text);
             {{ /php }}
 
-                <article>
+            {{ assign var="rest_cuisines_classes" " " }}
+            {{ assign var="cur_topics" $gimme->article->topics }}
+
+            {{ php }}
+                $cur_topics = $template->get_template_vars('cur_topics');
+                $rest_cuisines_classes = get_current_cuisine_classes($cur_topics);
+                $template->assign('rest_cuisines_classes',$rest_cuisines_classes);
+            {{ /php }}
+
+                <article class="rest_all {{ $rest_cuisines_classes }}">
         {{* assign var="art_link_params" "?type=$usetype_link&region=$linkregion&date=$usedate_link&period=$useperiod_link" *}}
         {{ assign var="art_link_params" "?date=$usedate_link&period=$useperiod_link" }}
                     <figure>
