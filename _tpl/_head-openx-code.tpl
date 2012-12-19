@@ -2,10 +2,10 @@
 <script type='text/javascript'>
 {{ dynamic }}
 {{ if isset($smarty.request.mobile) || isset($smarty.request.tablet) || isset($smarty.request.phone) || $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
-{{ assign var="mob-device" value=1 scope="global" }}
+{{ assign var="mob-device" value=1 scope="parent" }}
 	var OA_zones = {'59':59,'60':60,'61':61,'62':62,'63':63};	
 {{ else }}
-{{ assign var="mob-device" value=0 scope="global" }}
+{{ assign var="mob-device" value=0 scope="parent" }}
 	var OA_zones = {'58':58,'35':35};
 {{ /if }}
 {{ /dynamic }}
