@@ -365,6 +365,34 @@ function outline_kueche(kueche) {
 
 };
 
+
+
+function show_cuisines() {
+
+    var checked_cuisines = [];
+
+    $(".kueche_check:checked").each(function(ind_elm, elm) {
+        //$(elm).removeClass('active');
+        var cur_name = $(elm).attr("name");
+        checked_cuisines.push(cur_name);
+    });
+
+    var checked_count = checked_cuisines.length;
+
+    if (0 == checked_count) {
+        $(".rest_all").show();
+    }
+    else {
+        $(".rest_all").hide();
+        for (var cind = 0; cind < checked_count; cind++) {
+            var cur_class = "cuisine_" + checked_cuisines[cind];
+            $("." + cur_class).show();
+        }
+    }
+
+};
+
+
 function load_kueche(kueche) {
 
     outline_kueche(kueche);
@@ -492,6 +520,9 @@ function create_end_date($start_date, $period) {
     {{ /if }}
 
 {{ /if }}
+{{ assign var="usetype" "" }}
+{{ assign var="usetype_link" "all" }}
+
 
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}

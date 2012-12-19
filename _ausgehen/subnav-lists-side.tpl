@@ -92,7 +92,9 @@
                         <h4>Küche</h4>
                         <ul class="categories">
                             {{ foreach from=$cuisin_list key=kueche_key item=kueche_info }}
-                                <li class="{{* active *}} li_kueche" id="li_{{ $kueche_info.label }}"><input type="checkbox" id="filter_{{ $kueche_info.label }}" onChange="load_cuisine('{{ $kueche_info.label }}');" /><label for="filter_{{ $kueche_info.label }}">{{*<a href="#" onClick="load_kueche('{{ $kueche_info.label }}'); return false;">*}}{{ $kueche_info.display }}{{*</a>*}}</label></li>
+                                {{ if $kueche_key ne "restaurant_cuisine" }}
+                                <li class="{{* active *}} li_kueche" id="li_{{ $kueche_info.label }}"><input class="kueche_check" name="{{ $kueche_info.label }}" value="off" type="checkbox" id="filter_{{ $kueche_info.label }}" onChange="show_cuisines();return true;" /><label for="filter_{{ $kueche_info.label }}">{{*<a href="#" onClick="load_kueche('{{ $kueche_info.label }}'); return false;">*}}{{ $kueche_info.display }}{{*</a>*}}</label></li>
+                                {{ /if }}
                             {{ /foreach }}
                         </ul>
                     <p>In Zusammenarbeit  <br />mit Lunchgate</p>
