@@ -28,7 +28,7 @@
                    
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" class="right print-small">Print</a></p>
                               
-                    {{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->body }}{{ $gimme->article->body }}{{ elseif $gimme->article->type_name == "newswire" }}{{ $gimme->article->DataContent }}{{ /if }}
+                    {{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->body }}{{ $gimme->article->body }}{{ elseif $gimme->article->type_name == "newswire" }}{{ $gimme->article->DataContent|replace:"<p>":""|replace:"</p>":"<br />" }}{{ /if }}
 
 						  {{ include file="_tpl/article-slideshow.tpl" }}
 
