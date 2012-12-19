@@ -372,27 +372,33 @@ function show_cuisines() {
     var checked_cuisines = [];
 
     $(".kueche_check:checked").each(function(ind_elm, elm) {
-        //$(elm).removeClass('active');
         var cur_name = $(elm).attr("name");
         checked_cuisines.push(cur_name);
     });
 
     var checked_count = checked_cuisines.length;
 
+    $(".rest_all").hide();
+    $(".rest_all").removeClass("article_active");
+    $(".rest_all").removeClass("article_odd");
+
     if (0 == checked_count) {
-        $(".rest_all").show();
         $(".rest_all").addClass("article_active");
     }
     else {
-        $(".rest_all").hide();
-        $(".rest_all").removeClass("article_active");
         for (var cind = 0; cind < checked_count; cind++) {
             var cur_class = "cuisine_" + checked_cuisines[cind];
-            $("." + cur_class).show();
             $("." + cur_class).addClass("article_active");
         }
     }
 
+    $(".article_active").each(function(ind_elm, elm) {
+        if (0 == (ind_elm % 2)) {
+            $(elm).addClass("article_odd");
+        }
+    });
+
+    $(".article_active").show();
 };
 
 

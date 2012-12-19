@@ -1215,7 +1215,7 @@ small {
 			margin:0 40px 20px 0;
 			border:0;
 			}
-			.restaurant-list article:nth-child(odd) {clear:left;}
+			.restaurant-list .article_odd {clear:left;}
 			.restaurant-list article h3 {font-size:18px; border:0; margin-bottom:5px;}
 			.restaurant-list article p {font-size:14px; line-height:19px;}
 			.restaurant-list article footer {position:absolute; left:0; bottom:0;}
