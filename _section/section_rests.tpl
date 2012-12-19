@@ -46,6 +46,8 @@ $(document).ready(function() {
         $("#wo").val("{{ $event_region }}");
         //$("#wo").dropdownized({fixed:true,reload:true});
     }
+
+    show_cuisines();
 });
 
 </script>
