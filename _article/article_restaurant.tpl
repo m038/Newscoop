@@ -925,9 +925,13 @@ function load_events(ev_type) {
                         <iframe style="display:none;" id="rest_panorama" name="lunchgate" src="http://www.lunchgate.ch/embed.php?name={{ $gimme->article->event_id }}&w=723&h=271&hash=c04e214f28485f34696c432c47b384e1&wmode=transparent" scrolling="no" frameborder="no" height="271" width="723" rel="resizable" /></iframe>
                         {{ /if }}
                             <div class="img-options clearfix">
-                                {{ if $reservation_link }}
-                                    <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left fancybox">Reservieren</a>
-                                    <!--<a href="#reserviren-popup" class="button red left fancybox">Reservieren</a>-->
+                                {{ if $reservation_link || $rest_days_notice }}
+                                    {{ if $rest_days_notice }}
+                                        <span class="event-info alert">{{ $rest_days_notice }}</span>
+                                    {{ else }}
+                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left fancybox">Reservieren</a>
+                                        <!--<a href="#reserviren-popup" class="button red left fancybox">Reservieren</a>-->
+                                    {{ /if }}
                                 {{ /if }}
                                 {{ if $gimme->article->rest_panorama_count }}
                                     <a href="#" id="link_fotos" onClick='$("#rest_panorama").hide();$("#rest_photo").show();$("#link_panos").removeClass("active");$("#link_fotos").addClass("active");return false;' class="button white active right">Fotos</a>
