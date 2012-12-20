@@ -1,0 +1,44 @@
+.rate_widget {
+    border:     1px solid #CCC;
+    overflow:   visible;
+    padding:    10px;
+    position:   relative;
+    width:      180px;
+    height:     30px;
+}
+.ratings_stars {
+    background: url('../img/rating/star_empty.png') no-repeat;
+    float:      left;
+    height:     30px;
+    padding:    2px;
+    width:      28px;
+}
+.ratings_vote {
+    background: url('../img/rating/star_full.png') no-repeat;
+}
+.ratings_over {
+    background: url('../img/rating/star_highlight.png') no-repeat;
+}
+
+.total_votes {
+    background: #eaeaea;
+    top: 58px;
+    left: 0;
+    padding: 5px;
+    position:   absolute;  
+} 
+.article_rating {
+    font: 10px verdana, sans-serif;
+    margin: 0px 0px 50px 550px;
+    width: 180px;
+}
+.rating_error {
+    top: 75px;
+    left: 0;
+    padding: 5px;
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    width: 200px;
+}
+

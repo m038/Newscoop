@@ -66,3 +66,5 @@ Anwohnern gegen die zeitlich unbeschränkte Betriebsbewilligung für das AKW Mü
                     </ul>                    
 {{ /if }}                                 
                 </article>
+
+{{ include file="_tpl/article-rating.tpl" }}
