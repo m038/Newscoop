@@ -21,7 +21,8 @@
                       <figure>
                       <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
                       </figure>
-              {{ /image }}                    
+              {{ /image }} 
+              				<h6><a href="{{ url options="article" }}">Dossier</a></h6>                   
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false|truncate:200 }} <a href="{{ url options="article" }}">zum Dossier</a></p>
                         <aside class="related">

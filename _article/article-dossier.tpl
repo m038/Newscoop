@@ -36,6 +36,7 @@
                               <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
                             {{ /image }}   
                             </figure>
+                            <h6><a href="{{ url options="article" }}">Innenansichten</a></h6>
                             <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                             <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                         
@@ -136,7 +137,7 @@
         
         <h2>Weitere Dossiers</h2>
         
-        <div class="three-columns clearfix equal-heights">
+        <div class="three-columns clearfix equal-heights text-in-caption-fix">
                 
             <article>
                 <figure>

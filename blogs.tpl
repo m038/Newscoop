@@ -60,6 +60,7 @@
                       </figure>
               {{ /image }}                            
                             <h3><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></h3>
+                            <h6>{{ $gimme->article->motto }}</h6>
                             <p>{{ $gimme->article->infolong|strip_tags:false }} <a href="{{ url options="section" }}">weiterlesen</a></p>
                         
                         </article>

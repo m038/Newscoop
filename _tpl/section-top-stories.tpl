@@ -30,7 +30,7 @@
                 {{ /list_article_topics }}
 {{ else }}
     {{ if $gimme->current_list->index == "2" }}                
-                <div class="left-thumb bottom-line article-spacing clearfix">
+                <div class="left-thumb bottom-line article-spacing clearfix phone-list-title-only">
     {{ /if }}            
                     <article>
                         <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
