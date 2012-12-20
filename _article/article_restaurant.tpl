@@ -403,107 +403,30 @@ $(document).ready(function() {
 </script>
 *}}
 
-{{ assign var="region_name" "" }}
-{{ assign var="region_link" "" }}
-
-{{ list_article_topics }}
-    {{ assign var="cur_topic" $gimme->topic->name }}
-
-    {{ if "Region Basel" eq $cur_topic }}
-        {{ if !$region_link }}
-            {{ assign var="region_link" "region-zentralschweiz" }}
-            {{ assign var="region_name" "Region Zentralschweiz" }}
-        {{ /if }}
-    {{ elseif "Kanton Basel-Stadt" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-basel-stadt" }}
-        {{ assign var="region_name" "Kanton Basel-Stadt" }}
-    {{ elseif "Kanton Basel-Landschaft" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-basel-landschaft" }}
-        {{ assign var="region_name" "Kanton Basel-Landschaft" }}
-    {{ elseif "Kanton Aargau" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-aargau" }}
-        {{ assign var="region_name" "Kanton Aargau" }}
-    {{ elseif "Kanton Appenzell Ausserrhoden" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-appenzell-ausserrhoden" }}
-        {{ assign var="region_name" "Kanton Appenzell Ausserrhoden" }}
-    {{ elseif "Kanton Appenzell Innerrhoden" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-appenzell-innerrhoden" }}
-        {{ assign var="region_name" "Kanton Appenzell Innerrhoden" }}
-    {{ elseif "Kanton Bern" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-bern" }}
-        {{ assign var="region_name" "Kanton Bern" }}
-    {{ elseif "Kanton Freiburg" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-freiburg" }}
-        {{ assign var="region_name" "Kanton Freiburg" }}
-    {{ elseif "Kanton Genf" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-genf" }}
-        {{ assign var="region_name" "Kanton Genf" }}
-    {{ elseif "Kanton Glarus" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-glarus" }}
-        {{ assign var="region_name" "Kanton Glarus" }}
-    {{ elseif "Kanton Graubünden" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-graubuenden" }}
-        {{ assign var="region_name" "Kanton Graubünden" }}
-    {{ elseif "Kanton Jura" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-jura" }}
-        {{ assign var="region_name" "Kanton Jura" }}
-    {{ elseif "Kanton Luzern" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-luzern" }}
-        {{ assign var="region_name" "Kanton Luzern" }}
-    {{ elseif "Kanton Neuenburg" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-neuenburg" }}
-        {{ assign var="region_name" "Kanton Neuenburg" }}
-    {{ elseif "Kanton Nidwalden" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-nidwalden" }}
-        {{ assign var="region_name" "Kanton Nidwalden" }}
-    {{ elseif "Kanton Obwalden" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-obwalden" }}
-        {{ assign var="region_name" "Kanton Obwalden" }}
-    {{ elseif "Kanton Schaffhausen" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-schaffhausen" }}
-        {{ assign var="region_name" "Kanton Schaffhausen" }}
-    {{ elseif "Kanton Schwyz" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-schwyz" }}
-        {{ assign var="region_name" "Kanton Schwyz" }}
-    {{ elseif "Kanton Solothurn" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-solothurn" }}
-        {{ assign var="region_name" "Kanton Solothurn" }}
-    {{ elseif "Kanton St. Gallen" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-st-gallen" }}
-        {{ assign var="region_name" "Kanton St. Gallen" }}
-    {{ elseif "Kanton Tessin" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-tessin" }}
-        {{ assign var="region_name" "Kanton Tessin" }}
-    {{ elseif "Kanton Thurgau" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-thurgau" }}
-        {{ assign var="region_name" "Kanton Thurgau" }}
-    {{ elseif "Kanton Uri" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-uri" }}
-        {{ assign var="region_name" "Kanton Uri" }}
-    {{ elseif "Kanton Waadt" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-waadt" }}
-        {{ assign var="region_name" "Kanton Waadt" }}
-    {{ elseif "Kanton Wallis" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-wallis" }}
-        {{ assign var="region_name" "Kanton Wallis" }}
-    {{ elseif "Kanton Zug" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-zug" }}
-        {{ assign var="region_name" "Kanton Zug" }}
-    {{ elseif "Kanton Zürich" eq $cur_topic }}
-        {{ assign var="region_link" "kanton-zuerich" }}
-        {{ assign var="region_name" "Kanton Zürich" }}
+{{ assign var="useregion" "Region\\ Zentralschweiz" }}
+{{ assign var="linkregion" "region-zentralschweiz" }}
+{{ if !empty($smarty.get.region) }}
+    {{ assign var="useregion_spec" $smarty.get.region }}
+    {{ if "kanton-luzern" eq $useregion_spec }}
+        {{ assign var="useregion" "Kanton\\ Luzern" }}
+        {{ assign var="linkregion" "kanton-luzern" }}
+    {{ elseif "kanton-nidwalden" eq $useregion_spec }}
+        {{ assign var="useregion" "Kanton\\ Nidwalden" }}
+        {{ assign var="linkregion" "kanton-nidwalden" }}
+    {{ elseif "kanton-obwalden" eq $useregion_spec }}
+        {{ assign var="useregion" "Kanton\\ Obwalden" }}
+        {{ assign var="linkregion" "kanton-obwalden" }}
+    {{ elseif "kanton-schwyz" eq $useregion_spec }}
+        {{ assign var="useregion" "Kanton\\ Schwyz" }}
+        {{ assign var="linkregion" "kanton-schwyz" }}
+    {{ elseif "kanton-uri" eq $useregion_spec }}
+        {{ assign var="useregion" "Kanton\\ Uri" }}
+        {{ assign var="linkregion" "kanton-uri" }}
+    {{ elseif "kanton-zug" eq $useregion_spec }}
+        {{ assign var="useregion" "Kanton\\ Zug" }}
+        {{ assign var="linkregion" "kanton-zug" }}
     {{ /if }}
-{{ /list_article_topics }}
-
-{{ if !$region_link }}
-    {{ assign var="region_name" "Region Zentralschweiz" }}
-    {{ assign var="region_link" "region-zentralschweiz" }}
 {{ /if }}
-
-{{*
-RN-{{ $region_name }}-RN
-RL-{{ $region_link }}-RL
-*}}
 
 {{ php }}
 
@@ -767,6 +690,8 @@ function get_menu_text($menu_data)
         {{ assign var="useperiod_link" $useperiod_tmp }}
     {{ /if }}
 {{ /if }}
+{{ assign var="useperiod" "1" }}
+{{ assign var="useperiod_link" "1" }}
 
 {{ assign var="date_time_text" $gimme->article->date_time_text }}
 {{ assign var="speciality_text" $gimme->article->rest_speciality }}
@@ -866,7 +791,7 @@ function get_menu_text($menu_data)
 <script type="text/javascript">
 $(document).ready(function() {
 //return;
-    update_subnav_links("{{ $usedate_link }}", "{{ $useperiod_link }}", "{{ $region_link }}");
+    update_subnav_links("{{ $usedate_link }}", "1", "{{ $linkregion }}");
 
     highlight_agenda_type("restaurants");
 
@@ -953,22 +878,8 @@ function load_events(ev_type) {
                     </p>
 {{ /if }}
 
-<!--
-{{ local }}
-{{ set_current_issue }}
-{{ set_section number="73" }}
-                <header class="mobile-header">
-                        <p><a href="{{ uri options="section" }}#/;type:all;date:{{ $usedate_link }};period:{{ $useperiod_link }};region:{{ $region_link }}" class="grey-button back-button">Zurück zur Restaurantübersicht</a></p>
-                </header>
-{{ /local }}
--->
 
                     <table cellpadding="0" cellspacing="0">
-<!--
-{{ if $rest_days_notice }}
-                        <tr class="event-top-info alert"><th>&nbsp;</th><td>{{$rest_days_notice }}</td></tr>
-{{ /if }}
--->
 {{ if $cuisine_text }}
                         <tr><th>Küche:</th><td>{{ $cuisine_text }}</td></tr>
 {{ /if }}
@@ -1118,7 +1029,7 @@ function load_events(ev_type) {
 {{ set_current_issue }}
 {{ set_section number="73" }}
                 <div class="mobile-hide">
-                <a href="{{ uri options="section" }}#/;type:all;date:{{ $usedate_link }};period:{{ $useperiod_link }};region:{{ $region_link }}" class="button white prev">‹</a> <a href="{{ uri options="section" }}#/;type:all;date:{{ $usedate_link }};period:{{ $useperiod_link }};region:{{ $region_link }}">Zurück zur Restaurantübersicht</a>
+                <a href="{{ uri options="section" }}?type=all&date={{ $usedate_link }}&region={{ $linkregion }}" class="button white prev">‹</a> <a href="{{ uri options="section" }}?type=all&date={{ $usedate_link }}&region={{ $linkregion }}">Zurück zur Restaurantübersicht</a>
                 </div>
 {{ /local }}
                         </div>

@@ -482,6 +482,8 @@ function load_area(area) {
         {{ assign var="useperiod_link" $useperiod_tmp }}
     {{ /if }}
 {{ /if }}
+{{ assign var="useperiod" "1" }}
+{{ assign var="useperiod_link" "1" }}
 
 {{ php }}
 function create_end_date($start_date, $period) {
@@ -539,87 +541,24 @@ function create_end_date($start_date, $period) {
 {{ assign var="linkregion" "region-zentralschweiz" }}
 {{ if !empty($smarty.get.region) }}
     {{ assign var="useregion_spec" $smarty.get.region }}
-    {{ if "region-basel" eq $useregion_spec }}
-        {{ assign var="useregion" "Region\\ Basel" }}
-        {{ assign var="linkregion" "region-basel" }}
-    {{ elseif "kanton-basel-stadt" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Basel-Stadt" }}
-        {{ assign var="linkregion" "kanton-basel-stadt" }}
-    {{ elseif "kanton-basel-landschaft" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Basel-Landschaft" }}
-        {{ assign var="linkregion" "kanton-basel-landschaft" }}
-    {{ elseif "kanton-aargau" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Aargau" }}
-        {{ assign var="linkregion" "kanton-aargau" }}
-    {{ elseif "kanton-appenzell-ausserrhoden" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Appenzell\\ Ausserrhoden" }}
-        {{ assign var="linkregion" "kanton-appenzell-ausserrhoden" }}
-    {{ elseif "kanton-appenzell-innerrhoden" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Appenzell\\ Innerrhoden" }}
-        {{ assign var="linkregion" "kanton-appenzell-innerrhoden" }}
-    {{ elseif "kanton-bern" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Bern" }}
-        {{ assign var="linkregion" "kanton-bern" }}
-    {{ elseif "kanton-freiburg" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Freiburg" }}
-        {{ assign var="linkregion" "kanton-freiburg" }}
-    {{ elseif "kanton-genf" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Genf" }}
-        {{ assign var="linkregion" "kanton-genf" }}
-    {{ elseif "kanton-glarus" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Glarus" }}
-        {{ assign var="linkregion" "kanton-glarus" }}
-    {{ elseif "kanton-graubuenden" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Graubünden" }}
-        {{ assign var="linkregion" "kanton-graubuenden" }}
-    {{ elseif "kanton-jura" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Jura" }}
-        {{ assign var="linkregion" "kanton-jura" }}
-    {{ elseif "kanton-luzern" eq $useregion_spec }}
+    {{ if "kanton-luzern" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Luzern" }}
         {{ assign var="linkregion" "kanton-luzern" }}
-    {{ elseif "kanton-neuenburg" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Neuenburg" }}
-        {{ assign var="linkregion" "kanton-neuenburg" }}
     {{ elseif "kanton-nidwalden" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Nidwalden" }}
         {{ assign var="linkregion" "kanton-nidwalden" }}
     {{ elseif "kanton-obwalden" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Obwalden" }}
         {{ assign var="linkregion" "kanton-obwalden" }}
-    {{ elseif "kanton-schaffhausen" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Schaffhausen" }}
-        {{ assign var="linkregion" "kanton-schaffhausen" }}
     {{ elseif "kanton-schwyz" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Schwyz" }}
         {{ assign var="linkregion" "kanton-schwyz" }}
-    {{ elseif "kanton-solothurn" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Solothurn" }}
-        {{ assign var="linkregion" "kanton-solothurn" }}
-    {{ elseif "kanton-st-gallen" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ St.\\ Gallen" }}
-        {{ assign var="linkregion" "kanton-st-gallen" }}
-    {{ elseif "kanton-tessin" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Tessin" }}
-        {{ assign var="linkregion" "kanton-tessin" }}
-    {{ elseif "kanton-thurgau" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Thurgau" }}
-        {{ assign var="linkregion" "kanton-thurgau" }}
     {{ elseif "kanton-uri" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Uri" }}
         {{ assign var="linkregion" "kanton-uri" }}
-    {{ elseif "kanton-waadt" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Waadt" }}
-        {{ assign var="linkregion" "kanton-waadt" }}
-    {{ elseif "kanton-wallis" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Wallis" }}
-        {{ assign var="linkregion" "kanton-wallis" }}
     {{ elseif "kanton-zug" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Zug" }}
         {{ assign var="linkregion" "kanton-zug" }}
-    {{ elseif "kanton-zuerich" eq $useregion_spec }}
-        {{ assign var="useregion" "Kanton\\ Zürich" }}
-        {{ assign var="linkregion" "kanton-zuerich" }}
     {{ /if }}
 {{ /if }}
 
@@ -899,8 +838,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
             {{ /if }}
 
                 <article class="article_active rest_all {{ $odd_class }} {{ $rest_cuisines_classes }}">
-        {{* assign var="art_link_params" "?type=$usetype_link&region=$linkregion&date=$usedate_link&period=$useperiod_link" *}}
-        {{ assign var="art_link_params" "?date=$usedate_link&period=$useperiod_link" }}
+        {{ assign var="art_link_params" "?date=$usedate_link&region=$linkregion" }}
                     <figure>
                     {{ if $rest_days_notice }}
                         <div class="rest-closed-info">{{ $rest_days_notice }}</div>
