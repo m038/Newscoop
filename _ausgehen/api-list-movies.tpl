@@ -180,6 +180,7 @@ $(document).ready(function() {
             var cur_detail_link = cur_url_base + "?date=" + "{{ $cinema_date }}" + "&movie_key=" + cur_movie_key + "&region=" + "{{ $cinema_region }}";
 
             list_content += "<h4><a href=\"" + cur_detail_link + "\">" + cur_movie.title + "</a></h4>";
+            list_content += '<div class="accordion-content">';
 
             list_content += '<figure class="right">';
             if (cur_movie.movie_poster_url) {
@@ -222,7 +223,7 @@ $(document).ready(function() {
                 list_content += cur_synopsis;
             }
 
-            list_content += ' <a href=\"" + cur_detail_link + "\">Details, Trailer & Bilder</a>';
+            list_content += ' <a href="' + cur_detail_link + '">Details, Trailer & Bilder</a>';
             list_content += "</p>\n";
 
             list_content += '<span class="details">';
@@ -307,6 +308,7 @@ $(document).ready(function() {
             }
 
             list_content += "</span>\n";
+            list_content += "</div>\n";
 
             list_content += "</article>";
         }
@@ -417,7 +419,7 @@ function load_type(ev_type) {
 
             {{ include file="_ausgehen/subnav-lists-side.tpl" list_type="movies" }}
 
-            <div id="event_list" class="main">
+            <div id="event_list" class="main phone-accordion">
                 &nbsp;
             </div><!-- / event_list -->
 
