@@ -56,6 +56,27 @@ function get_date_string(date_obj) {
     return date_str;
 };
 
+function get_day_display_info(date_str) {
+    var date_obj = new Date(date_str);
+
+    var week_days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+    var date_week_day = week_days[date_obj.getDay()];
+
+    date_day = date_obj.getDate();
+    if (10 > date_day) {
+        date_day = "0" + date_day;
+    }
+    date_month = date_obj.getMonth() + 1;
+    if (10 > date_month) {
+        date_month = "0" + date_month;
+    }
+
+    var date_simple = '' + date_day + '.' + date_month;
+
+    var date_info = {'week': date_week_day, 'simple': date_simple};
+
+    return date_info;
+};
 
 $(document).ready(function() {
     var detail_content = 'Movie not found';
@@ -64,6 +85,8 @@ $(document).ready(function() {
 
     var run_date_obj = new Date();
     var run_date = get_date_string(run_date_obj);
+
+    var sel_date = window.preset_date;
 
     var cur_url = location.href;
     var cur_url_parts = cur_url.split("#");
@@ -238,20 +261,21 @@ $(document).ready(function() {
                             continue;
                         }
                         var cur_cin_name = cur_cinema["location_name"];
-                        var cur_cin_addr = cur_cinema["street"] + ", " + cur_cinema["town"];
-
-                        screen_content += "<p>";
-                        screen_content += "<strong>" + cur_cin_name + "</strong><br />" + cur_cin_addr + "<br />";
+                        var cur_cin_addr = cur_cinema["street"] + "<br />" + cur_cinema["town"];
+                        var cur_cin_tel = cur_cinema["phone"];
+                        var cur_cin_tel_cost = cur_cinema["phone_costinformation"];
+                        var cur_cin_lat = cur_cinema["latitude"];
+                        var cur_cin_lon = cur_cinema["longitude"];
+                        var cur_cin_town = cur_cinema["town"];
 
                         var date_min = null;
                         var date_max = null;
                         var date_arr = {};
 
                         var cur_scr_times = cur_screen['times'];
+
                         if (cur_scr_times) {
                             var cur_scr_times_count = cur_scr_times.length;
-                            var last_date = "";
-                            var screen_row = "";
                             for (var cst_ind = 0; cst_ind < cur_scr_times_count; cst_ind++) {
                                 var cur_scr_time_info = cur_scr_times[cst_ind];
                                 var cur_scr_datetime_txt = cur_scr_time_info.date_time;
@@ -276,31 +300,18 @@ $(document).ready(function() {
                                     date_max = cur_scr_date;
                                 }
 
-                                if (cur_scr_date != last_date) {
-                                    screen_content += screen_row + "<br />";
-                                    if (last_date) {
-                                        date_arr[last_date] = screen_row;
-                                    }
-
-                                    screen_row = get_display_date(cur_scr_date) + " ";
-                                    last_date = cur_scr_date;
-                                }
-                                else {
-                                    screen_row += ", ";
+                                if (!date_arr[cur_scr_date]) {
+                                    date_arr[cur_scr_date] = [];
                                 }
 
+                                var one_scr_info = {'time': cur_scr_time, 'lang': null};
                                 if (cur_scr_time_info.languages) {
-                                    screen_row += cur_scr_time_info.languages + " ";
+                                    one_scr_info['lang'] = cur_scr_time_info.languages;
                                 }
-
-                                screen_row += cur_scr_time;
+                                date_arr[cur_scr_date].push(one_scr_info);
 
                             }
 
-                            screen_content += screen_row;
-                            if (last_date) {
-                                date_arr[last_date] = screen_row;
-                            }
                         }
 
                         var date_span = 1 + ((Date.parse(date_max) - Date.parse(date_min))/86400000);
@@ -317,8 +328,24 @@ $(document).ready(function() {
                             date_max = get_date_string(new Date(Date.parse(date_max) + ((7 - date_span)*86400000)));
                         }
 
-                        date_arr["min_date"] = date_min;
-                        date_arr["max_date"] = date_max;
+                        if (7 < date_span) {
+                            if (sel_date > date_max) {
+                                date_min = get_date_string(new Date(Date.parse(date_max) - (6*86400000)));
+                            }
+                            else if (sel_date < date_min) {
+                                date_max = get_date_string(new Date(Date.parse(date_min) + (6*86400000)));
+                            }
+                            else {
+                                var aux_span = 1 + ((Date.parse(date_max) - Date.parse(sel_date))/86400000);
+                                if (aux_span >= 7) {
+                                    date_min = sel_date;
+                                    date_max = get_date_string(new Date(Date.parse(date_min) + (6*86400000)));
+                                }
+                                else {
+                                    date_min = get_date_string(new Date(Date.parse(date_max) - (6*86400000)));
+                                }
+                            }
+                        }
 
                         var min_msec = Date.parse(date_min);
                         var max_msec = Date.parse(date_max);
@@ -330,10 +357,55 @@ $(document).ready(function() {
                             }
                         }
 
-                        console.log(date_arr); // DEBUG
+// console.log(date_arr); // DEBUG
+            
+                        var cinema_content = "";
 
+                        var map_param_q = cur_cin_lat + ',' + cur_cin_lon;
+                        if (cur_cin_name) {
+                            map_param_q += '+(' + encodeURIComponent(cur_cin_name) + ')';
+                        }
+                        var map_link = 'http://maps.google.com/maps?hl=de&q=' + map_param_q + '&ll=' + cur_cin_lat + ',' + cur_cin_lon +'&hnear=' + encodeURIComponent(cur_cin_town) + ',+Switzerland&t=m&ie=UTF8&z=16';
 
-                        screen_content += "</p>\n";
+                        var tel_title = "";
+                        if (cur_cin_tel_cost) {
+                            tel_title = 'title="' + cur_cin_tel_cost + '"';
+                        }
+
+                        cinema_content += '<div class="movie-table" style="margin-bottom:10px;">';
+                        cinema_content += '<table cellspacing="0" cellpadding="0"><tbody>';
+                        cinema_content += '<tr><td class="table-info" rowspan="2"><ul>';
+                        cinema_content += '<li><h5>' + cur_cin_name + '</h5></li>';
+                        cinema_content += '<li><p>' + cur_cin_addr + '</p><p><a href="' + map_link + '" class="gmap">Google Maps</a></p></li>';
+                        cinema_content += '<li><p ' + tel_title + '>Tel ' + cur_cin_tel + '</p></li>';
+                        cinema_content += '</ul></td>';
+                        for (var date_key in date_arr) {
+                            var date_info = get_day_display_info(date_key);
+                            cinema_content += '<td class="cinema_screen_list date_hl_all">' + date_info['week'] + '<br>' + date_info['simple'] + '</td>';
+                        }
+                        cinema_content += '</tr>';
+                        cinema_content += '<tr>';
+                        for (var date_key in date_arr) {
+                            cinema_content += '<td class="screen_time_list">';
+                            if (date_arr[date_key]) {
+                                var scr_count = date_arr[date_key].length;
+                                cinema_content += '<ul>';
+                                for (var sind = 0; sind < scr_count; sind++) {
+                                    var lang_title = "";
+                                    if (date_arr[date_key][sind]['lang']) {
+                                        lang_title = 'title="' + date_arr[date_key][sind]['lang'] + '"';
+                                    }
+                                    cinema_content += '<li ' + lang_title + '>' + date_arr[date_key][sind]['time'] + '</li>';
+                                }
+                                cinema_content += '</ul>';
+                            }
+                            cinema_content += '</td>';
+                        }
+                        cinema_content += '</tr>';
+                        cinema_content += '</tbody></table>' + "\n";
+                        cinema_content += '</div>';
+
+                        screen_content += cinema_content;
 
                     }
                 }
@@ -482,9 +554,8 @@ function load_area(area) {
                 {{*<small>Sie stellten beim Uvek das Gesuch, dem AKW die Betriebsbewilligung aus Sicherheitsgründen</small>*}}
             </figure>
 
-            <div id="movie_tables" class="movie-table">
-                <table cellspacing="0" cellpadding="0">
-                </table>
+            <div id="movie_tables">
+                &nbsp;
             </div>
 
         </article>
