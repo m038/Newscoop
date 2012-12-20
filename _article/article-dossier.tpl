@@ -30,14 +30,14 @@
                 <div class="two-columns-wide bottom-line clearfix equal-heights">
 {{ /if }}                    
                         <article>
-                        
+                        	{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                             <figure>
                             {{ image rendition="arthalf" }}                
                               <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
                             {{ /image }}   
                             </figure>
                             <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
-                            <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a></p>
+                            <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                         
                         </article>
 {{ if $gimme->current_list->column == 2 || $gimme->current_list->at_end }}                    

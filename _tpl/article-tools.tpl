@@ -4,7 +4,7 @@
                       <li class="fb"><a href="#">Facebook</a></li>
                       <li class="tw"><a href="#">Twitter</a></li>
                       <li class="gplus"><a href="#">Google+</a></li>
-                        <li class="activate"><a href="#">Social-Media Dienste aktivieren</a></li>
+                        <li class="activate"><a href="#"><span class="phone-hide">Social-Media Dienste aktivieren</span></a></li>
                     </ul>
                     
                     <ul class="article-options right">

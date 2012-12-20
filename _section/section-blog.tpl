@@ -31,13 +31,14 @@
 		{{ list_articles constraints="type is blog" }}             
                     <article>
                     	<p class="time-top"><time>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></p>
+                    		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                         <figure>
 		        {{ image rendition="quarter" }}                
               		    <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }}" />     
 		        {{ /image }}
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
-                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a></p>
+                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
 		{{ /list_articles }}                      
                 </div>

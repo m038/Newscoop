@@ -13,6 +13,7 @@
                     <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
             {{ /image }}
                         <figcaption>
+                          {{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                           <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
                             <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         </figcaption>
@@ -33,6 +34,7 @@
 {{ /if }}                 
 {{ if $gimme->current_list->index gte 2 && $gimme->current_list->index lte 3 }}
                   <article>
+                      {{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                       <figure>
               {{ image rendition="arthalf" }}                
                       <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
@@ -54,6 +56,7 @@
                     <article>
                     
                         <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
+                        {{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                         <figure>
                 {{ image rendition="artthumb" }}                
                         <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     

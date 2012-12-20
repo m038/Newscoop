@@ -92,7 +92,13 @@
                 </li>
             </ul><!-- / Footer list -->
             <p>zentral+ ist ein Projekt der MMV online AG – Medien, Meinung, Vielfalt</p>
-        
+
+            <ul class="phone-footer-nav">
+            	<li><a href="#">Kontakt</a></li>
+            	<li><a href="#">Impressum</a></li>
+            	<li><a href="#">AGB</a></li>
+            </ul>
+            
         </div><!-- / Content wrapper Footer -->
     
     </div><!-- / Wide wrapper -->
