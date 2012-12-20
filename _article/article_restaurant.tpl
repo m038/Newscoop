@@ -825,6 +825,8 @@ function load_events(ev_type) {
 
 <body>
 
+<div class="content-wrapper">
+
     <div id="content_wrapper" class="content-wrapper events-content restaurant-single">
 
 {{ include file="_tpl/header-nav.tpl" }}
@@ -1016,21 +1018,28 @@ function load_events(ev_type) {
 
 </div><!-- /content_wrapper -->
 
+</div><!-- /content-wrapper -->
 
 <div class="wide-wrapper internal-wrapper">
     <div class="content-wrapper">
         <div class="content no-bottom-line clearfix">
         <div class="main no-line">
             <div class="tabs comment-box">
+
+{{* comments should come here below *}}
+                        <ul class="tab-nav clearfix">
+                            &nbsp;
+                        </ul>
+                        <div class="comment-content">
+                            &nbsp;
+                        </div>
+{{* comments should come here above *}}
+
                         <div class="box top-line back-link bottom-line margin-top">
-
-
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="73" }}
-                <div class="mobile-hide">
                 <a href="{{ uri options="section" }}?type=all&date={{ $usedate_link }}&region={{ $linkregion }}" class="button white prev">‹</a> <a href="{{ uri options="section" }}?type=all&date={{ $usedate_link }}&region={{ $linkregion }}">Zurück zur Restaurantübersicht</a>
-                </div>
 {{ /local }}
                         </div>
 
