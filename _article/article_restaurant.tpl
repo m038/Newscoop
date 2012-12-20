@@ -849,15 +849,14 @@ function load_events(ev_type) {
                     <figure class="clearfix">
                         <img id="rest_photo" src="{{ url options="image 1 width 723 height 271 crop center" }}" alt="{{ $gimme->article->image1->description|replace:'"':'\'' }}" class="thumbnail" width="723" height="271" />
                         {{ if $gimme->article->rest_panorama_count }}
-                        <iframe style="display:none;" id="rest_panorama" name="lunchgate" src="http://www.lunchgate.ch/embed.php?name={{ $gimme->article->event_id }}&w=723&h=271&hash=c04e214f28485f34696c432c47b384e1&wmode=transparent" scrolling="no" frameborder="no" height="271" width="723" rel="resizable" /></iframe>
+                        <iframe style="display:none;" id="rest_panorama" name="lunchgate" src="http://www.lunchgate.ch/embed.php?name={{ $gimme->article->event_id }}&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08&wmode=transparent" scrolling="no" frameborder="no" height="271" width="723" rel="resizable" /></iframe>
                         {{ /if }}
                             <div class="img-options clearfix">
                                 {{ if $reservation_link || $rest_days_notice }}
                                     {{ if $rest_days_notice }}
                                         <span class="event-info alert">{{ $rest_days_notice }}</span>
                                     {{ else }}
-                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left fancybox">Reservieren</a>
-                                        <!--<a href="#reserviren-popup" class="button red left fancybox">Reservieren</a>-->
+                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left">Reservieren</a>
                                     {{ /if }}
                                 {{ /if }}
                                 {{ if $gimme->article->rest_panorama_count }}
@@ -1052,7 +1051,6 @@ function load_events(ev_type) {
 
 <script type="text/javascript">
 $(document).ready(function() {
-return;
     $("#rest_reservation_link_desktop").each(function() {
         $(this).fancybox({
             //modal: true,
@@ -1069,6 +1067,7 @@ return;
             type: 'iframe'
         });
     });
+return;
     var max_width_use = $(window).width() - 10;
     if (540 < max_width_use) {
         max_width_use = 540;
