@@ -36,7 +36,7 @@ window.movie_mode = "list";
 {{ else }}
     window.movie_list = {{ api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
 {{ /if }}
-console.log(window.movie_list);
+
 {{* assign var="cinema_region" value=$cinema_region_orig *}}
 window.cinemas = window.movie_list.locations;
 

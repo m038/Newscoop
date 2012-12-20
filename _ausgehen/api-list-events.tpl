@@ -34,8 +34,6 @@ window.event_mode = "list";
     window.event_list = {{ api_events event_genre=$event_type event_date=$event_date event_region=$event_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
     window.events_mixed = false;
 {{ /if }}
-console.log(window.event_list);
-
 
 $(document).ready(function() {
     var types_to_outlines = {

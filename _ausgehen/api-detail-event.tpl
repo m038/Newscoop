@@ -15,7 +15,6 @@ window.preset_date = "{{ $event_date }}";
 window.event_mode = "detail";
 window.event_key = "{{ $event_key }}";
 window.event_detail = {{ api_events event_key=$event_key event_date=$event_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
-console.log(window.event_detail);
 
 
 $(document).ready(function() {

@@ -37,7 +37,6 @@ window.movie_key = "{{ $movie_key }}";
         update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
     });
 {{ /if }}
-console.log(window.api_detail);
 
 window.cinemas = window.api_detail.locations;
 
@@ -356,8 +355,6 @@ $(document).ready(function() {
                                 date_arr[arr_date_str] = null;
                             }
                         }
-
-// console.log(date_arr); // DEBUG
             
                         var cinema_content = "";
 

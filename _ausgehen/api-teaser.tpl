@@ -1,10 +1,8 @@
 <script type="text/javascript">
 
 window.event_teaser = {{ api_events event_teaser=1 event_region="region-zentralschweiz" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
-console.log(window.event_teaser);
 
 window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_date="2012-10-26" cinema_region="region-basel" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
-console.log(window.movie_teaser);
 
 $(document).ready(function() {
 
