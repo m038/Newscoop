@@ -61,7 +61,7 @@ $(window).load(function() {
 	/* Tabs
 	---------------------------------------------------------------- */
 	$('.tabs').tabs();
-	//$('.spec-tabs').tabs2carousel();
+	$('.spec-tabs').tabs2carousel();
 	
 	
 	/* Carousel
