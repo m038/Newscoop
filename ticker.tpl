@@ -38,8 +38,22 @@
                     <ul class="ticker-accordion">
 
                       {{ assign var="mydate" value=strtotime('-1 days') }} 
-                      {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}                    
-{{ list_articles length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate"  }}                    
+                      {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}
+                      {{ assign var="artCond" value="" }}
+                      {{ if $gimme->default_article->defined }}
+                    	<li>
+                        	<a href="#" class="head">
+                            	<time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
+                            	<h3>{{ $gimme->article->name }}</h3>
+                            	<p>{{ $gimme->section->name }}</p>
+                            </a>
+                            <div>
+                                {{ $gimme->article->DataContent }}
+                            </div>
+                        </li>  
+                      {{ assign var="artCond" value="number not {{ $gimme->article->number }}" }}                     
+                      {{ /if }}                    
+{{ list_articles length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate $artCond"  }}                    
                     
                     	<li>
                         	<a href="#" class="head">

@@ -4,8 +4,13 @@
                     <div class="slideshow clearfix">
                       
                       {{ assign var="mydate" value=strtotime('-1 days') }} 
-                      {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}                       
-                      {{ list_articles columns="5" length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate" }}
+                      {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}    
+                      {{ if $gimme->default_section->defined }}     
+                      {{ assign var="secCond" value="section is {{ $gimme->section->number }}" }}
+                      {{ else }}
+                      {{ assign var="secCond" value="" }}
+                      {{ /if }}  
+                      {{ list_articles columns="5" length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate $secCond" }}
                       {{ if $gimme->current_list->at_beginning }}
                       <ul class="slides">
                       {{ /if }}
@@ -39,7 +44,7 @@
                       {{ /if }}
 
 
-                      <a href="#" class="button white right">Alle News</a>
+                      <a href="{{ url options="template ticker.tpl" }}" class="button white right">Alle News</a>
                     </div>
                 
                 </div>
