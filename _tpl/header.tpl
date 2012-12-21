@@ -157,7 +157,7 @@
                 </li>
                 <li>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</li>
             </ul>
-          <h2>{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}</h2>
+          <h2>{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}</h2>
             <fieldset class="search">
               <input type="text" placeholder="Suchbegriff">
                 <input type="submit" value="Go">

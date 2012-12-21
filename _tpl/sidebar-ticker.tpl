@@ -44,7 +44,7 @@
                       {{ /if }}
 
 
-                      <a href="{{ url options="template ticker.tpl" }}" class="button white right">Alle News</a>
+                      <a href="{{ url options="template ticker.tpl" }}{{ if $gimme->default_section->defined }}&sec={{ $gimme->default_section->name }}{{ /if }}" class="button white right">Alle News</a>
                     </div>
                 
                 </div>

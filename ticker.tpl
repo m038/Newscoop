@@ -28,7 +28,7 @@
                 		{{ assign var="tplId" value=$gimme->template->identifier }}
                     	<li{{ if !$smarty.get.sec }} class="active"{{ /if }}><a href="{{ url options="root_level" }}?tpl={{ $tplId }}">Alle Rubriken</a></li>
                     	{{ list_sections constraints="number smaller_equal 70" }}                    	
-                    	<li{{ if $smarty.get.sec == $gimme->section->name }} class="active"{{ /if }}><a href="{{ url options="root_level" }}?tpl={{ $tplId }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</a></li>
+                    	<li{{ if $smarty.get.sec == $gimme->section->name }} class="active"{{ /if }}><a href="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</a></li>
                     	{{ /list_sections }}
                     </ul>
                 
@@ -40,7 +40,13 @@
 
                       {{ assign var="mydate" value=strtotime('-1 days') }} 
                       {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}
-                      {{ assign var="artCond" value="" }}
+                      {{ assign var="secCond" value="" }}
+                      {{ if $smarty.get.sec }}
+                      {{ set_section name="{{ $smarty.get.sec }}" }}
+                      {{ assign var="secCond" value="section is {{ $gimme->section->number }}" }}
+                      {{ set_default_section }}
+                      {{ /if }}                      
+                      {{ assign var="artCond" value="" }} 
                       {{ if $gimme->default_article->defined }}
                     	<li>
                         	<a href="#" class="head">
@@ -54,7 +60,7 @@
                         </li>  
                       {{ assign var="artCond" value="number not {{ $gimme->article->number }}" }}                     
                       {{ /if }}                    
-{{ list_articles length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate $artCond"  }}                    
+{{ list_articles length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate $artCond $secCond"  }}                    
                     
                     	<li>
                         	<a href="#" class="head">
