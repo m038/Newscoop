@@ -25,9 +25,10 @@
                     </div>
                     
                 	<ul class="custom-list tag-list">
-                    	<li class="active"><a href="#">Alle Rubriken</a></li>
-                    	{{ list_sections constraints="number smaller_equal 70" }}
-                    	<li><a href="#">{{ $gimme->section->name }}</a></li>
+                		{{ assign var="tplId" value=$gimme->template->identifier }}
+                    	<li{{ if !$smarty.get.sec }} class="active"{{ /if }}><a href="{{ url options="root_level" }}?tpl={{ $tplId }}">Alle Rubriken</a></li>
+                    	{{ list_sections constraints="number smaller_equal 70" }}                    	
+                    	<li{{ if $smarty.get.sec == $gimme->section->name }} class="active"{{ /if }}><a href="{{ url options="root_level" }}?tpl={{ $tplId }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</a></li>
                     	{{ /list_sections }}
                     </ul>
                 
