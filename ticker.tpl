@@ -69,7 +69,7 @@
                             	<p>{{ $gimme->section->name }}</p>
                             </a>
                             <div>
-                                {{ $gimme->article->DataContent }}
+                                <p>{{ $gimme->article->DataContent }}</p>
                             </div>
                         </li>
 
