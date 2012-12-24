@@ -1,6 +1,6 @@
 {{ if $gimme->article->comments_enabled || $gimme->article->comments_locked  }}  
         
-                <div class="main no-line">
+                <div class="main no-line" id="comments">
                 
                   <div class="tabs margin-bottom comment-box">
                     
