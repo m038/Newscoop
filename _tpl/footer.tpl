@@ -4,17 +4,17 @@
         
         	<ul class="footer-list equal-heights clearfix">
             	<li>
-                	<h3>Über uns</h3>
+            		{{ local }}
+            		{{ set_publication identifier="2" }}
+            		{{ set_current_issue }}
+            		{{ set_section number="300" }}
+                	<h3>{{ $gimme->section->name }}</h3>
                     <ul>
-                    	<li><a href="#">Redaktion</a></li>
-                        <li><a href="#">Kontakt</a></li>
-                        <li><a href="#">Nettiquette</a></li>
-                        <li><a href="#">Inserieren</a></li>
-                        <li><a href="#">Unterstützen</a></li>
-                        <li><a href="#">Apps</a></li>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">AGBs</a></li>
+                     {{ list_articles }}
+                    	   <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+                    	{{ /list_articles }}
                     </ul>
+                  {{ /local }}
                 </li>
                 <li>
                 	<h3>Themen</h3>
