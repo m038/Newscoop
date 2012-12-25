@@ -35,13 +35,23 @@
                     <a href="#" class="icon-tag">Themen abonnieren</a></p>
                 </div>
                 
-              <article class="bottom-line">
-                  
+{{*** recommended links ***}}
+{{ set_default_article }}
+{{ if !($gimme->article->linklist|strip == "") }}            
+                <article class="bottom-line">
                     <h4>Links zum Thema</h4>
-                  <ul class="custom-list reply-list">
-                      <li>So stellt das die Luzerner Zeitung dar: <a href="#">SVP, SP und Grüne drohen mit Referendum</a></li>
-                      <li>So stellt das die Luzerner Zeitung dar: <a href="#">SVP, SP und Grüne drohen mit Referendum</a></li>
-                      <li>So stellt das die Luzerner Zeitung dar: <a href="#">SVP, SP und Grüne drohen mit Referendum</a></li>
-                    </ul>
+                    <ul class="custom-list reply-list">
                     
-                </article>                
+{{ $links=str_replace("<p>", "", explode("</p>", str_replace("<div>", "", str_replace("</div>", "", $gimme->article->linklist)))) }}
+{{ foreach $links as $link }}
+{{ $linkAry=explode("- ", $link, 2) }}
+{{ if count($linkAry) == 2 }}     
+               
+                    <li>{{ substr($linkAry[1], 0) }} {{ $linkAry[0] }}</li>
+
+{{ /if }} 
+{{ /foreach }}                    
+
+                    </ul>
+                </article>
+{{ /if }}                
