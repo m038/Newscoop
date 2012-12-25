@@ -1,4 +1,4 @@
-                <div class="two-columns clearfix equal-heights">
+                <div class="two-columns figcaption-highlight clearfix equal-heights">
                 
                 {{ assign var="secname" value=$gimme->section->name }}
                 {{ assign var="counter" value=0 }}

@@ -1,5 +1,5 @@
         <div id="header" class="clearfix">
-
+        
         	<ul class="mobile-nav hide">
             	<li class="calendar"><a href="#">Calendar</a></li>
             	<li class="user">
@@ -79,7 +79,6 @@
                     </div>
                 </li>
             </ul>
-
         
           <ul class="weather">
               <li><img src="{{ uri static_file="pictures/icon-weather-1.png" }}" alt=""> 25° Luzern</li>
@@ -155,7 +154,7 @@
                         </ul>
                     </div>
                 </li>
-                <li>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</li>
+                <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
           <h2>{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}</h2>
             <fieldset class="search">

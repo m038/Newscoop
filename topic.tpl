@@ -48,7 +48,8 @@
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <br />
-                        <time>Artikel, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time></p>
+                        </p>
+                        <time>Artikel, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                     </article>            
 
 {{ if $gimme->current_list->at_end }}                            
