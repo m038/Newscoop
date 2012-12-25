@@ -32,10 +32,10 @@
                {{ /if }}                 
 {{ /list_articles }}
 
-{{ assign var="noshow" value=0 }}
+{{ assign var="noshow" value=0 scope="global" }}
 {{ if $gimme->prev_list_empty }}
 	{{ include file="_tpl/sidebar-comment.tpl" }}
-		{{ assign var="noshow" value=1 }}
+		{{ assign var="noshow" value=1 scope="global" }}
 {{ /if }}
                 
                 </div>

@@ -1,4 +1,4 @@
-{{ list_articles ingore_issue="true" ignore_section="true" constraints="type is news section is 210" }}
+{{ list_articles ingore_issue="true" ignore_section="true" constraints="type is news section is 210 Kommentar is on" }}
 
                 <div class="box">
                 
@@ -11,3 +11,7 @@
                 
                 </div>
 {{ /list_articles }}
+{{ assign var="noComm" value=0 scope="global" }}
+{{ if $gimme->prev_list_empty }}
+{{ assign var="noComm" value=1 scope="global" }}
+{{ /if }}
