@@ -1257,6 +1257,7 @@ small {
 	.article-tabs .tab-nav li a {padding:10px 25px; color:#B40032;}
 		.article-tabs .tab-nav li.ui-tabs-active a {color:#000;}
 	.article-tabs-holder {border:#ccc solid 1px; padding:20px 6px 6px 6px;}
+	.tab-nav-dropdown {display:none;}
 	
 	.img-options {margin:15px 0 30px 0;}
 		.img-options .button.right {padding-left:15px; padding-right:15px; margin-left:5px;}
@@ -1979,6 +1980,9 @@ small {
 					color:#fff;
 					}
 
+
+
+
 /*
 = Popup content
 -------------------------------------------------------------------------------------- */
@@ -2000,6 +2004,7 @@ small {
 
 .phone-icon-dropdown,
 a.button.center.details-more {display:none;}
+
 
 /*
 = Mobile devices
@@ -2727,6 +2732,18 @@ a.button.center.details-more {display:none;}
 		
 		.weather-content .back-link {margin-bottom:10px; padding:10px;}
 		
+	
+	.img-options {padding:0 10px; margin-bottom:10px;}
+	.events-content.restaurant-single article {border-bottom:0;}
+		.events-content.restaurant-single article .back-link {border-bottom:#ccc dashed 1px; margin:0 -10px 10px; padding:10px;}
+		
+	.phone-map-fix {margin:0 -10px 10px; height:160px;}
+		.phone-map-fix iframe {height:160px;}
+		
+	.tab-nav-dropdown {display:block;}
+	.article-tabs {border:#ccc solid 1px; padding:10px;}
+		.article-tabs-holder {border:0; padding:0; margin-top:10px;}
+		
 		
 
 }
@@ -2972,6 +2989,14 @@ a.button.center.details-more {display:none;}
 	
 	.top-weather-info-detail ul li {font-size:16px;}
 		.top-weather-info-detail ul li img {width:48px; margin-top:5px;}
+		
+	
+	.img-options .button:first-child,
+	.img-options .button:nth-child(2) {width:45%; padding:0; margin:0 0 10px 0;}
+	
+	.img-options .button:nth-child(2) {float:left;}
+	
+	.img-options .button:last-child {float:none; width:auto; display:block; clear:both;}
 	
 
 }
