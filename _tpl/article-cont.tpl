@@ -65,7 +65,7 @@
                     </ul>                    
 {{ /if }}                 
 
-        {{ if $gimme->article->Kommentar }}<a class="button white center" href="{{ url options="template comments.tpl" }}">Alle Kommentare</a>{{ /if }}
+        {{ if $gimme->article->Kommentar }}<a class="button white center" href="{{ url options="section" }}">Alle Kommentare</a>{{ /if }}
                 
                 </article>
 
