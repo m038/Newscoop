@@ -1,4 +1,4 @@
-                <div class="social-bar bottom-line clearfix">
+                <div class="social-bar{{ if $gimme->publication->identifier == "2" }} bottom-line{{ /if }} clearfix">
                 
                   <ul class="soc-options left">
                       <li class="fb"><a href="#">Facebook</a></li>
@@ -13,6 +13,8 @@
                     </ul>
                 
                 </div>
+                
+{{ if $gimme->publication->identifier == "2" }}
                 
 		{{ include file="_tpl/article-payment.tpl" }}
 
@@ -42,3 +44,4 @@
                     {{ /list_related_articles }}                    
                     
                 </div>
+{{ /if }}
