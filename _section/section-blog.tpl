@@ -119,7 +119,7 @@
         
         </div>
         
-        <a class="button white center" href="#">Zu den Blogs</a>
+        <a class="button white center" href="{{ url options="issue" }}">Zu den Blogs</a>
     
     </div><!-- / Content Wrapper -->
 

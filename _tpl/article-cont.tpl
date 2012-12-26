@@ -63,7 +63,10 @@
                       <li{{ if ($gimme->article->current_subtitle_no(body)+1) == $gimme->current_list->index }} class="active"{{ /if }}><a href="{{ url }}">Teil {{ $gimme->current_list->index }} von {{ $gimme->current_list->count }} - {{ $gimme->subtitle->name }}</a></li>
             {{ /list_subtitles }}                     
                     </ul>                    
-{{ /if }}                                 
+{{ /if }}                 
+
+        {{ if $gimme->article->Kommentar }}<a class="button white center" href="{{ url options="template comments.tpl" }}">Alle Kommentare</a>{{ /if }}
+                
                 </article>
 
 {{ include file="_tpl/article-rating.tpl" }}
