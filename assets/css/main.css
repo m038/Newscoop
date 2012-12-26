@@ -889,7 +889,7 @@ small {
 				a.icon-email {background-image:url(../img/icon-email.png); padding-left:26px;}
 				a.icon-email-big {background:url(../img/icon-email-big.png) 0 -4px no-repeat; padding-left:33px;}
 				a.icon-twitter {background-image:url(../img/icon-twitter.png); padding-left:26px;}
-				a.icon-heart {background-image:url(../img/icon-heart.png); padding:5px 0 5px 34px; text-decoration:none; font-weight:bold;}
+				a.icon-heart {background-image:url(../img/icon-heart.png); padding:5px 0 5px 34px; text-decoration:none; font-family: UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal;}
 					a.icon-heart:hover {text-decoration:underline;}
 		
 		

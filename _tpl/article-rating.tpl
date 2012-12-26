@@ -1,13 +1,15 @@
 <div class='article_rating'>
-    Rate this article:
+    <p class="rating_label">Rate this article:</p>
     <div id="{{ $gimme->article->number }}" class="rate_widget">
-        <div class="star_1 ratings_stars"></div>
-        <div class="star_2 ratings_stars"></div>
-        <div class="star_3 ratings_stars"></div>
-        <div class="star_4 ratings_stars"></div>
-        <div class="star_5 ratings_stars"></div>
-        <div class="total_votes">vote data</div>
-        <div class="rating_error"></div>
+        <ul class="stars">
+            <li class="star_1 ratings_stars"></li>
+            <li class="star_2 ratings_stars"></li>
+            <li class="star_3 ratings_stars"></li>
+            <li class="star_4 ratings_stars"></li>
+            <li class="star_5 ratings_stars"></li>
+        </ul>
+        <p class="total_votes">vote data</p>
+        <p class="rating_error"></p>
     </div>
 </div>
 
