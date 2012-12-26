@@ -27,16 +27,16 @@
 {{ /if }}
                    
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" class="right print-small">Print</a></p>             
-                    {{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->body }}{{ $gimme->article->body }}{{ elseif $gimme->article->type_name == "newswire" }}{{ $gimme->article->DataContent|replace:"<p>":""|replace:"</p>":"<br />" }}{{ /if }}
+                    
+{{ if $gimme->article->greybox|strip !== "" }}
+                    <div class="inline-box right">
+                        <h3>{{ if $gimme->article->greybox_title }}{{ $gimme->article->greybox_title }}{{ /if }}</h3>
+                        {{ $gimme->article->greybox }}
+                    </div> 
+{{ /if }}                      
+                    {{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->body }}
 
-						  {{ include file="_tpl/article-slideshow.tpl" }}
-
-                    <!--div class="inline-box right">
-                        <h3>Uvek vom Urteil «nicht überrascht»</h3>
-                        <p>(sda) Das Eidgenössische Departement für Umwelt, Verkehr, Energie und Kommunikation (Uvek) ist vom Urteil des Bundesverwaltungsgerichts «nicht
-überrascht». Das Gericht liege damit auf der Linie eines früheren Entscheids. Am 1. März 2012 hatte das Bundesverwaltungsgericht nämlich bereits eine Beschwerde von
-Anwohnern gegen die zeitlich unbeschränkte Betriebsbewilligung für das AKW Mühleberg gutgeheissen.</p>
-                    </div-->        
+						  {{ include file="_tpl/article-slideshow.tpl" }}                         
                     
 {{ if $gimme->article->subtitles_count(body) gt 1 }} 
                     <ul class="paging center">
