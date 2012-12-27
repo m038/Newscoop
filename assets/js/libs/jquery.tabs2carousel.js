@@ -106,7 +106,7 @@
 					return false;
 				});	
 	
-				function windowWidthDetection() {
+				function windowWidthDetection2() {
 	
 					if (windowWidth<768) {
 						tabs.prepend('<div class="tabs-header">'+tabs.find('.ui-state-active a').html()+'</div>');
@@ -128,12 +128,12 @@
 				
 				};
 		
-				windowWidthDetection();
+				windowWidthDetection2();
 		
 				$(window).resize(function() {
 					$('.tabs-header').remove();
 					windowWidth = $(this).width();
-					windowWidthDetection();
+					windowWidthDetection2();
 				});
 				
 			};

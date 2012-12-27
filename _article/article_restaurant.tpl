@@ -913,12 +913,12 @@ function load_events(ev_type) {
                         </ul>
                         <div class="tab-nav-dropdown">
                             <select class="dropdownized">
-                                <option value="inner-tab-1">Tagesmenü</option>
-                                {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
+                                <option value="0">Tagesmenü</option>
+                                {{ if $speciality_count }}<option value="1">Hausspezialiäten</option>{{ /if }}
                             {{ if 0 }}
-                                <option value="inner-tab-3">Komplette Menükarte (PDF)</option>
-                                <option value="inner-tab-4">Weinkarte (PDF)</option>
-                                <option value="inner-tab-5">Kindermenüs (PDF)</option>
+                                <option value="2">Komplette Menükarte (PDF)</option>
+                                <option value="3">Weinkarte (PDF)</option>
+                                <option value="4">Kindermenüs (PDF)</option>
                             {{ /if }}
                             </select>
                         </div><!-- tab-nav-dropdown -->
