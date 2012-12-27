@@ -377,6 +377,8 @@ function show_cuisines_single(sel_cuisine) {
         };
     });
 
+    $(".kueche_check").button( "refresh" );
+
     show_cuisines();
 };
 
