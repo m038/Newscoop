@@ -26,12 +26,14 @@ window.preset_date = "{{ $cinema_date }}";
 window.api_mode = "detail";
 window.movie_key = "{{ $movie_key }}";
 {{ if $cinema_region eq "" }}
-    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
+    //window.api_detail = {{* api_cinema movie_key=$movie_key cinema_date=$cinema_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
+    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
     $(document).ready(function() {
         update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
     });
 {{ else }}
-    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
+    //window.api_detail = {{* api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
+    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
     $(document).ready(function() {
         //update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
         update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
