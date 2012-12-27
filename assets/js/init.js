@@ -62,6 +62,12 @@ $(window).load(function() {
 	---------------------------------------------------------------- */
 	$('.tabs').tabs();
 	$('.spec-tabs').tabs2carousel();
+
+	//restaurant tabs with dropdown
+    $(".dropdownized").change(function () {
+        var tabs_tag = $(this).parents().eq(2);
+        tabs_tag.tabs("option", "active",$(this).val());
+    });
 	
 	
 	/* Carousel
