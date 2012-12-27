@@ -367,7 +367,23 @@ function outline_kueche(kueche) {
 
 };
 
+function show_cuisines_single(sel_cuisine) {
+    $(".kueche_check").each(function(ind_elm, elm) {
+        $(elm).prop("checked", false);
 
+        var cur_name = $(elm).attr("name");
+        if (cur_name == sel_cuisine) {
+            $(elm).prop("checked", true);
+        };
+    });
+
+    show_cuisines();
+};
+
+function update_cuisines_single(one_cuisine) {
+    $("#cuisine_dropdown").val(one_cuisine);
+    $("#cuisine_dropdown").dropdownized({fixed:true,reload:true});
+};
 
 function show_cuisines() {
 
@@ -383,6 +399,13 @@ function show_cuisines() {
     $(".rest_all").hide();
     $(".rest_all").removeClass("article_active");
     $(".rest_all").removeClass("article_odd");
+
+    if (1 == checked_count) {
+        update_cuisines_single(checked_cuisines[0]);
+    }
+    else {
+        update_cuisines_single('all');
+    }
 
     if (0 == checked_count) {
         $(".rest_all").addClass("article_active");

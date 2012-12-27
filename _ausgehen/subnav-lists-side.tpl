@@ -88,12 +88,25 @@
 {{ if $list_type ne "restaurants" }}
                 <p><a href="mailto:agenda@zentralplus.ch">Ihre Veranstaltung fehlt?</a></p>
 {{ else }}
+
+                    <div class="box desktop-hide">
+                        <h4>Küche</h4>
+                        <select id="cuisine_dropdown" class="dropdownized" onChange="show_cuisines_single(this.options[this.selectedIndex].value);return true;">
+                            <option value="all">Alles</option>
+                            {{ foreach from=$cuisin_list key=kueche_key item=kueche_info }}
+                                {{ if $kueche_key ne "restaurant_cuisine" }}
+                                <option value="{{ $kueche_info.label }}">{{ $kueche_info.display }}</option>
+                                {{ /if }}
+                            {{ /foreach }}
+                        </select>
+                    </div>
+
                     <div class="box filter-side phone-hide mobile-hide">
                         <h4>Küche</h4>
                         <ul class="categories">
                             {{ foreach from=$cuisin_list key=kueche_key item=kueche_info }}
                                 {{ if $kueche_key ne "restaurant_cuisine" }}
-                                <li class="{{* active *}} li_kueche" id="li_{{ $kueche_info.label }}"><input class="kueche_check" name="{{ $kueche_info.label }}" value="off" type="checkbox" id="filter_{{ $kueche_info.label }}" onChange="show_cuisines();return true;" /><label for="filter_{{ $kueche_info.label }}">{{*<a href="#" onClick="load_kueche('{{ $kueche_info.label }}'); return false;">*}}{{ $kueche_info.display }}{{*</a>*}}</label></li>
+                                <li class="li_kueche" id="li_{{ $kueche_info.label }}"><input class="kueche_check" name="{{ $kueche_info.label }}" value="off" type="checkbox" id="filter_{{ $kueche_info.label }}" onChange="show_cuisines();return true;" /><label for="filter_{{ $kueche_info.label }}">{{ $kueche_info.display }}</label></li>
                                 {{ /if }}
                             {{ /foreach }}
                         </ul>
