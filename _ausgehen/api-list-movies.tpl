@@ -28,13 +28,15 @@ window.preset_date = "{{ $cinema_date }}";
 
 window.movie_mode = "list";
 {{* TODO: This date/region setting is just temporary, for testing purposes *}}
-{{ assign var="cinema_date" value="2012-10-26" }}
+{{* assign var="cinema_date" value="2012-10-26" *}}
 {{ assign var="cinema_region_orig" value=$cinema_region }}
-{{ assign var="cinema_region" value="region-basel" }}
+{{* assign var="cinema_region" value="region-basel" *}}
 {{ if $movie_type eq 'kino' }}
-    window.movie_list = {{ api_cinema cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
+    window.movie_list = {{* api_cinema cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
+    window.movie_list = {{ api_cinema cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 {{ else }}
-    window.movie_list = {{ api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
+    window.movie_list = {{* api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
+    window.movie_list = {{ api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 {{ /if }}
 
 {{* assign var="cinema_region" value=$cinema_region_orig *}}
@@ -75,8 +77,8 @@ $(document).ready(function() {
         use_outline_type = types_to_outlines["{{ $movie_type }}"];
     }
 
-    //update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
-    update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region_orig }}");
+    update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
+    //update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region_orig }}");
     outline_type("kino");
 
     if ("{{ $cinema_region }}") {
