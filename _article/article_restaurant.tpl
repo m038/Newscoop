@@ -1045,7 +1045,7 @@ function load_events(ev_type) {
 
         {{ include file="_tpl/article-comments.tpl" }}
 
-                        <div class="box top-line back-link bottom-line margin-top phone-hide">
+                        <div class="main box top-line back-link bottom-line margin-top phone-hide" style="border-right:0; margin-top:-15px; width:707px;">
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="73" }}
