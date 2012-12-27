@@ -93,13 +93,19 @@ $(document).ready(function() {
         }
 
         var have_details = false;
-        if (got_event.genre) {
+        if (got_event.genre || got_event.minimal_age || got_event.languages) {
             have_details = true;
         }
         if (have_details) {
             detail_content += '<dl class="details">';
             if (got_event.genre) {
                 detail_content += '<dt>Genre:</dt><dd>' + got_event.genre + "</dd>\n";
+            }
+            if (got_event.minimal_age) {
+                detail_content += '<dt>Mindestalter:</dt><dd>' + got_event.minimal_age + "</dd>\n";
+            }
+            if (got_event.languages) {
+                detail_content += '<dt>Sprache:</dt><dd>' + got_event.languages + "</dd>\n";
             }
             detail_content += "</dl>\n";
         }
