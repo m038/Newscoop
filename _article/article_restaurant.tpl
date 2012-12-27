@@ -1042,17 +1042,8 @@ function load_events(ev_type) {
 <div class="wide-wrapper internal-wrapper">
     <div class="content-wrapper">
         <div class="content no-bottom-line clearfix">
-        <div class="main no-line">
-            <div class="tabs comment-box">
 
-{{* comments should come here below *}}
-                        <ul class="tab-nav clearfix">
-                            &nbsp;
-                        </ul>
-                        <div class="comment-content">
-                            &nbsp;
-                        </div>
-{{* comments should come here above *}}
+        {{ include file="_tpl/article-comments.tpl" }}
 
                         <div class="box top-line back-link bottom-line margin-top phone-hide">
 {{ local }}
@@ -1062,8 +1053,6 @@ function load_events(ev_type) {
 {{ /local }}
                         </div>
 
-            </div>
-        </div>
         </div>
     </div>
 </div>
