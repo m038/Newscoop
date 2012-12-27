@@ -27,14 +27,28 @@
 {{ /if }}
                    
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" class="right print-small">Print</a></p>             
-                    
-{{ if $gimme->article->greybox|strip !== "" }}
+
+                    {{ include file="_tpl/_admin-edit.tpl" }}
+
+{{ if $gimme->article->greybox|strip !== "" }}                    
+{{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
+{{ if empty($bodyAry[1]) }}
+{{ $bodyAry=explode("</p>", $gimme->article->body, 2) }}
+{{ $bodyAryP=true }}
+{{ /if }}
+                     
+{{ $bodyAry[0] }}</p>
+
                     <div class="inline-box right">
                         <h3>{{ if $gimme->article->greybox_title }}{{ $gimme->article->greybox_title }}{{ /if }}</h3>
                         {{ $gimme->article->greybox }}
-                    </div> 
-{{ /if }}                      
-                    {{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->body }}
+                    </div>
+{{ if empty($bodyAryP) }}<p>{{ /if }}{{ $bodyAry[1] }}                     
+
+{{ else }}
+{{ $gimme->article->body }}
+{{ /if }} 
+
 
 						  {{ include file="_tpl/article-slideshow.tpl" }}                         
                     
