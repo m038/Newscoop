@@ -88,7 +88,7 @@
 {{ if $list_type ne "restaurants" }}
                 <p><a href="mailto:agenda@zentralplus.ch">Ihre Veranstaltung fehlt?</a></p>
 {{ else }}
-                    <div class="box filter-side">
+                    <div class="box filter-side phone-hide mobile-hide">
                         <h4>Küche</h4>
                         <ul class="categories">
                             {{ foreach from=$cuisin_list key=kueche_key item=kueche_info }}

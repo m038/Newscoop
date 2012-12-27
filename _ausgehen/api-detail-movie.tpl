@@ -232,7 +232,7 @@ $(document).ready(function() {
                 slide_content += "</div>\n";
 
                 var cur_thm_link = cur_img_link;
-                cur_thm_link = cur_thm_link.replace(/ImageHeight=\d*/, "ImageHeight=60");
+                cur_thm_link = cur_thm_link.replace(/ImageHeight=\d*/, "ImageHeight=53");
                 cur_thm_link = cur_thm_link.replace(/ImageWidth=\d*/, "ImageWidth=90");
 
                 thumb_content += '<li><a href="#tab-' + (cur_img_ind + 1) + '"><img src="' + cur_thm_link + '" alt="" /></a></li>';
@@ -369,7 +369,7 @@ $(document).ready(function() {
                             tel_title = 'title="' + cur_cin_tel_cost + '"';
                         }
 
-                        cinema_content += '<div class="movie-table" style="margin-bottom:10px;">';
+                        cinema_content += '<div class="movie-table">';
                         cinema_content += '<table cellspacing="0" cellpadding="0"><tbody>';
                         cinema_content += '<tr><td class="table-info" rowspan="2"><ul>';
                         cinema_content += '<li><h5>' + cur_cin_name + '</h5></li>';

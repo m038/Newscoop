@@ -837,7 +837,7 @@ function load_events(ev_type) {
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
 
-<div class="content no-bottom-line equal-heights clearfix">
+<div class="content no-bottom-line clearfix">
 
     <div class="main">
 
@@ -852,16 +852,16 @@ function load_events(ev_type) {
                         <iframe style="display:none;" id="rest_panorama" name="lunchgate" src="http://www.lunchgate.ch/embed.php?name={{ $gimme->article->event_id }}&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08&wmode=transparent" scrolling="no" frameborder="no" height="271" width="723" rel="resizable" /></iframe>
                         {{ /if }}
                             <div class="img-options clearfix">
+                                {{ if $gimme->article->rest_panorama_count }}
+                                    <a href="#" id="link_fotos" onClick='$("#rest_panorama").hide();$("#rest_photo").show();$("#link_panos").removeClass("active");$("#link_fotos").addClass("active");return false;' class="button white active right">Fotos</a>
+                                    <a href="#" id="link_panos" onClick='$("#rest_photo").hide();$("#rest_panorama").show();$("#link_fotos").removeClass("active");$("#link_panos").addClass("active");return false;' class="button white right">Panorama</a>
+                                {{ /if }}
                                 {{ if $reservation_link || $rest_days_notice }}
                                     {{ if $rest_days_notice }}
                                         <span class="event-info alert">{{ $rest_days_notice }}</span>
                                     {{ else }}
                                         <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left">Reservieren</a>
                                     {{ /if }}
-                                {{ /if }}
-                                {{ if $gimme->article->rest_panorama_count }}
-                                    <a href="#" id="link_fotos" onClick='$("#rest_panorama").hide();$("#rest_photo").show();$("#link_panos").removeClass("active");$("#link_fotos").addClass("active");return false;' class="button white active right">Fotos</a>
-                                    <a href="#" id="link_panos" onClick='$("#rest_photo").hide();$("#rest_panorama").show();$("#link_fotos").removeClass("active");$("#link_panos").addClass("active");return false;' class="button white right">Panorama</a>
                                 {{ /if }}
                             </div>
                     </figure>
@@ -911,6 +911,17 @@ function load_events(ev_type) {
                             {{ if $rest_kidscard_pdf }}<li><a class="rest_link_menu_any" href="{{ $rest_kidscard_pdf }}" target="_blank">Kindermenüs (PDF)</a></li>{{ /if }}
                         {{ /if }}
                         </ul>
+                        <div class="tab-nav-dropdown">
+                            <select class="dropdownized">
+                                <option value="inner-tab-1">Tagesmenü</option>
+                                {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
+                            {{ if 0 }}
+                                <option value="inner-tab-3">Komplette Menükarte (PDF)</option>
+                                <option value="inner-tab-4">Weinkarte (PDF)</option>
+                                <option value="inner-tab-5">Kindermenüs (PDF)</option>
+                            {{ /if }}
+                            </select>
+                        </div><!-- tab-nav-dropdown -->
                         <div class="article-tabs-holder">
                             <div class="rest_text_hidden" id="inner-tab-1">
                             {{ if $rest_menu_count }}
@@ -1000,9 +1011,18 @@ function load_events(ev_type) {
 {{ /if }}
 
                     {{ list_article_locations length="1" }}
+                    <div class="phone-map-fix">
                         <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=de&q={{ $gimme->location->latitude }},{{ $gimme->location->longitude }}+({{ $gimme->article->organizer|escape:'url' }})&ll={{ $gimme->location->latitude }},{{ $gimme->location->longitude }}&hnear={{ $gimme->article->town|escape:'url' }},+Switzerland&t=m&ie=UTF8&z=16&output=embed"></iframe>
+                    </div>
                     {{ /list_article_locations }}
 
+                    <div class="box top-line back-link bottom-line margin-top desktop-hide mobile-hide phone-show">
+{{ local }}
+{{ set_current_issue }}
+{{ set_section number="73" }}
+                <a href="{{ uri options="section" }}?type=all&date={{ $usedate_link }}&region={{ $linkregion }}" class="button white prev">‹</a> <a href="{{ uri options="section" }}?type=all&date={{ $usedate_link }}&region={{ $linkregion }}">Zurück zur Restaurantübersicht</a>
+{{ /local }}
+                    </div>
 
         </article>
 
@@ -1034,7 +1054,7 @@ function load_events(ev_type) {
                         </div>
 {{* comments should come here above *}}
 
-                        <div class="box top-line back-link bottom-line margin-top">
+                        <div class="box top-line back-link bottom-line margin-top phone-hide">
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="73" }}

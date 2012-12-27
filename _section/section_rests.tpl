@@ -795,6 +795,10 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
 {{ assign var=condate_real "publish_date is $today_date" }}
 {{ list_articles columns="$colcount" ignore_issue="true" ignore_section="true" constraints="$condate $contopic_region $contopic_type section is 73 type is restaurant matchalltopics " order="byname asc" }}
 
+    {{ if $rest_rank eq 0 }}
+        <h3 class="desktop-hide mobile-hide">Restaurants</h3>
+    {{ /if }}
+
     {{ assign var="rest_rank" $rest_rank+1 }}
     {{ assign var="is_odd" 1-$is_odd }}
 
