@@ -1190,7 +1190,7 @@ small {
 			.event-single article figure.left img {display:block; border:#ccc solid 1px;}
 		
 	
-	.movie-table table {width:100%;}
+	.movie-table table {width:100%; margin-bottom: 10px}
 		.movie-table ul {margin:0; list-style-type:none;}
 		.movie-table p {margin-bottom:5px; font-size:14px; line-height:normal;}
 		.movie-table table td {
