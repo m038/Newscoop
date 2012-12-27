@@ -913,12 +913,12 @@ function load_events(ev_type) {
                         </ul>
                         <div class="tab-nav-dropdown">
                             <select class="dropdownized">
-                                <option value="0">Tagesmenü</option>
-                                {{ if $speciality_count }}<option value="1">Hausspezialiäten</option>{{ /if }}
+                                <option value="inner-tab-1">Tagesmenü</option>
+                                {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
                             {{ if 0 }}
-                                <option value="2">Komplette Menükarte (PDF)</option>
-                                <option value="3">Weinkarte (PDF)</option>
-                                <option value="4">Kindermenüs (PDF)</option>
+                                <option value="inner-tab-3">Komplette Menükarte (PDF)</option>
+                                <option value="inner-tab-4">Weinkarte (PDF)</option>
+                                <option value="inner-tab-5">Kindermenüs (PDF)</option>
                             {{ /if }}
                             </select>
                         </div><!-- tab-nav-dropdown -->
@@ -1045,7 +1045,7 @@ function load_events(ev_type) {
 
         {{ include file="_tpl/article-comments.tpl" }}
 
-                        <div class="box top-line back-link bottom-line margin-top phone-hide">
+                        <div class="main box top-line back-link bottom-line margin-top phone-hide" style="border-right:0; margin-top:-15px; width:707px;">
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="73" }}
