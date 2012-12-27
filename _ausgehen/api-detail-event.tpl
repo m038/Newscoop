@@ -14,7 +14,8 @@ window.preset_date = "{{ $event_date }}";
 {{ assign var="event_key" value=$smarty.get.event_key|replace:" ":"\\ "|replace:'"':"" }}
 window.event_mode = "detail";
 window.event_key = "{{ $event_key }}";
-window.event_detail = {{ api_events event_key=$event_key event_date=$event_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" }};
+//window.event_detail = {{* api_events event_key=$event_key event_date=$event_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
+window.event_detail = {{ api_events event_key=$event_key event_date=$event_date service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 
 
 $(document).ready(function() {
