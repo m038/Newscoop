@@ -382,7 +382,7 @@ function show_cuisines_single(sel_cuisine) {
 
 function update_cuisines_single(one_cuisine) {
     $("#cuisine_dropdown").val(one_cuisine);
-    $("#cuisine_dropdown").dropdownized({fixed:true,reload:true});
+    setTimeout('$("#cuisine_dropdown").dropdownized({fixed:true,reload:true});', 100);
 };
 
 function show_cuisines() {
