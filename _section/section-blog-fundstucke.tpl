@@ -29,14 +29,25 @@
                        <p>von {{ list_article_authors }}{{ $gimme->author->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_authors }} <span>({{ list_article_images length="1" }}{{ $gimme->current_list->count }}{{ /list_article_images }} Bilder)</span></p>
                     </header>
 
+                    {{ if $gimme->article->fundstucke_two }}
                     <figure>
                     	<img src="{{ uri static_file="pictures/foto-blog-img-1.jpg" }}" class="left" alt="" />
                     	<img src="{{ uri static_file="pictures/foto-blog-img-2.jpg" }}" class="right" alt="" />
-		        {{* image rendition="quarter" }}                
-              		    <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }}" />     
-		        {{ /image *}}
                     </figure>                        
-
+                    {{ elseif $gimme->article->fundstucke_big }}
+                    <figure>
+                    	<img src="{{ uri static_file="pictures/foto-blog-img-3.jpg" }}" alt="" />
+                    </figure>
+                    {{ elseif $gimme->article->fundstucke_left }}
+                    <figure class="left">
+                    	<img src="{{ uri static_file="pictures/foto-blog-img-4.jpg" }}" alt="" />
+                    </figure>
+                    {{ elseif $gimme->article->fundstucke_right }}
+                    <figure class="right">
+                    	<img src="{{ uri static_file="pictures/foto-blog-img-4.jpg" }}" alt="" />
+                    </figure>
+                    {{ /if }}
+                                        
                         <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
 		{{ /list_articles }}   
