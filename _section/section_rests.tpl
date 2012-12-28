@@ -396,7 +396,6 @@ function update_menu_drop(rank) {
     try {
         $("#cuisine_dropdown").dropdownized({fixed:true,reload:true});
     } catch (e) {
-        console.log("no luck");
         setTimeout('update_menu_drop(' + rank + ');', 1000);
     }
 };
