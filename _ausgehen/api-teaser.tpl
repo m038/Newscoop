@@ -94,7 +94,7 @@ $(document).ready(function() {
             var event_link = event_base_dir + "?event_key=" + use_event['event_key'] + "&date=" + event_date;
 
             var event_display = "<h6><a href=\"" + event_link + "\">Tipps des Tages</a></h6>";
-            event_display += "<figure><img src=\"{{ uri static_file="pictures/" }}" + cur_icon_name + "\" alt=\"" + event_icon_alt + "\" " + teaser_img_sizes + " /></figure>\n";
+            event_display += "<figure><img src=\"{{ uri static_file="assets/img/" }}" + cur_icon_name + "\" alt=\"" + event_icon_alt + "\" " + teaser_img_sizes + " /></figure>\n";
             event_display += "<h3><a href=\"" + event_link + "\">" + use_event['title'] + "</a></h3>\n";
 
             event_display += "<p>" + event_desc;
@@ -133,7 +133,7 @@ $(document).ready(function() {
             var movie_link = movie_base_dir + "?movie_key=" + use_movie['movie_key'] + "&date=" + cinema_date + "&region=" + cinema_region;
 
             var movie_display = "<h6><a href=\"" + movie_link + "\">Neu im Kino</a></h6>";
-            movie_display += "<figure><img src=\"{{ uri static_file="pictures/" }}" + cur_icon_name + "\" alt=\"" + movie_icon_alt + "\" " + teaser_img_sizes + " /></figure>\n";
+            movie_display += "<figure><img src=\"{{ uri static_file="assets/img/" }}" + cur_icon_name + "\" alt=\"" + movie_icon_alt + "\" " + teaser_img_sizes + " /></figure>\n";
             movie_display += "<h3><a href=\"" + movie_link + "\">" + use_movie['title'] + "</a></h3>";
 
             movie_display += "<p>" + movie_desc;

@@ -58,48 +58,6 @@ function adapt_global_sizes(force) {
         }
     });
 
-
-    if (769 > doc_width) {
-        if (force || desktop_view) {
-            //$(".movie-table").each(function(ind_elm, elm) {
-            //    $(elm).addClass("movie-table_narrow");
-            //});
-/*
-            $("#datapicker-button").after($("#wo-mover"));
-            if (window.agenda_has_date_picker) {
-                $("#datapicker-button").addClass("datapicker-button_narrow");
-                $("#wo-mover").addClass("place_selector_narrow");
-            }
-            else {
-                $("#wo-mover").addClass("place_selector_narrow_alone");
-            }
-
-            if (window.agenda_has_select_tags) {
-                $("#events_nav").addClass("nav_events_narrow");
-            }
-            else {
-                $("#events_nav").addClass("nav_events_narrow_alone");
-            }
-*/
-        }
-        desktop_view = false;
-    }
-    else {
-        if (force || (!desktop_view)) {
-            //$(".movie-table").each(function(ind_elm, elm) {
-            //    $(elm).removeClass("movie-table_narrow");
-            //});
-/*
-            $("#wo-place").after($("#wo-mover"));
-            $("#wo-mover").removeClass("place_selector_narrow");
-            $("#events_nav").removeClass("nav_events_narrow");
-            $("#events_nav").removeClass("nav_events_narrow_alone");
-            $("#datapicker-button").removeClass("datapicker-button_narrow");
-*/
-        }
-        desktop_view = true;
-    }
-
 };
 
 
@@ -133,18 +91,6 @@ function update_subnav_links(link_date, link_period, link_region) {
             $(d_ident).attr("href", new_link);
         }
     }
-/*
-    if (/^([1-9]){1}$/.test(link_period)) {
-        for (var pind = 0; pind < repl_count; pind++) {
-            var p_ident = "#" + repl_links[pind];
-
-            old_link = $(p_ident).attr("href");
-            new_link = old_link.replace(/&period=[\d]+/i, "&period="+link_period);
-            new_link = new_link.replace(/\?period=[\d]+/i, "?period="+link_period);
-            $(p_ident).attr("href", new_link);
-        }
-    }
-*/
     if (/^[a-zA-Z-]+$/.test(link_region)) {
         for (var rind = 0; rind < repl_count; rind++) {
             var r_ident = "#" + repl_links[rind];
