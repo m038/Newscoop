@@ -952,12 +952,12 @@ function load_events(ev_type) {
                                 </div>
                             {{ /if }}
                             {{ if $rest_winecard_pdf }}
-                                <div class="rest_text_hidden" id="inner-tab-3">
+                                <div class="rest_text_hidden" id="inner-tab-4">
                                     <a class="rest_link_menu_any" href="{{ $rest_winecard_pdf }}" target="_blank">Weinkarte (PDF)</a>
                                 </div>
                             {{ /if }}
                             {{ if $rest_kidscard_pdf }}
-                                <div class="rest_text_hidden" id="inner-tab-3">
+                                <div class="rest_text_hidden" id="inner-tab-5">
                                     <a class="rest_link_menu_any" href="{{ $rest_kidscard_pdf }}" target="_blank">Kindermenüs (PDF)</a>
                                 </div>
                             {{ /if }}
