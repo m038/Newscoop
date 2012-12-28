@@ -859,6 +859,7 @@ function load_events(ev_type) {
 
             <h3>{{ $gimme->article->headline|replace:'\\':'\'' }}</h3>
 
+                {{ assign var="image_count" 0 }}
                 {{ if $gimme->article->has_image(1) }}
                     <figure class="clearfix">
 
