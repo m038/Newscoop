@@ -354,6 +354,9 @@ function load_area(area) {
 
         <div class="ad">
             <small>Werbung</small>
+{{*
+                {{ include file="_ads/section-sidebar.tpl" }}
+*}}
             <a href="#"><img src="{{ uri static_file="pictures/" }}ad-2.jpg" alt="" /></a>
         </div>
 

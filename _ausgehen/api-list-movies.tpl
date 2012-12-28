@@ -572,6 +572,9 @@ function load_events(ev_type) {
 
                 <div class="ad top-space">
                     <small>Werbung</small>
+{{*
+                {{ include file="_ads/section-sidebar.tpl" }}
+*}}
                     <a href="#"><img alt="" src="{{ uri static_file="pictures/" }}ad-2.jpg"></a>
                 </div>
 
