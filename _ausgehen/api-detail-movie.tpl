@@ -1,4 +1,9 @@
+{{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
+
+<script type="text/javascript">
+window.useCanonicalForSocialBar = true;
+</script>
 
 <script type="text/javascript">
 window.teaser_width = "158";
@@ -41,6 +46,8 @@ window.movie_key = "{{ $movie_key }}";
 {{ /if }}
 
 window.cinemas = window.api_detail.locations;
+
+<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}">
 
 function get_date_string(date_obj) {
     date_day = date_obj.getDate();
@@ -198,7 +205,7 @@ $(document).ready(function() {
     if (got_movie) {
 
         var vimeo_id = null;
-        if (true) { // TODO: debugging
+        if (false) { // TODO: debugging
             vimeo_id = '49214422';
         }
         if (got_movie.vimeo_id) {

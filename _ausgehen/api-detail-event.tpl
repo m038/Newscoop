@@ -1,4 +1,9 @@
+{{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
+
+<script type="text/javascript">
+window.useCanonicalForSocialBar = true;
+</script>
 
 <script type="text/javascript">
 window.agenda_has_select_tags = true;
@@ -17,6 +22,7 @@ window.event_key = "{{ $event_key }}";
 //window.event_detail = {{* api_events event_key=$event_key event_date=$event_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
 window.event_detail = {{ api_events event_key=$event_key event_date=$event_date service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 
+<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=event&key={{ $event_key|escape:'url' }}">
 
 $(document).ready(function() {
     var detail_content = 'Event not found';

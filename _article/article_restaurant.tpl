@@ -1,6 +1,10 @@
 {{ assign var="omit_canonical" true }}
-
 {{ include file="_tpl/_html-head.tpl" }}
+
+<script type="text/javascript">
+window.useCanonicalForSocialBar = true;
+</script>
+<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=restaurant&key={{ $gimme->article->location_id|escape:'url' }}">
 
 <!--
 {{*
