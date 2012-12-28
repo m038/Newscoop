@@ -4,7 +4,7 @@
 window.event_teaser = {{ api_events event_teaser=1 event_region="region-zentralschweiz" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 
 //window.movie_teaser = {{* api_cinema movie_teaser=1 movie_rating=3 cinema_date="2012-10-26" cinema_region="region-basel" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_region="region-basel" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_region="region-zentralschweiz" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 
 $(document).ready(function() {
 
@@ -56,8 +56,8 @@ $(document).ready(function() {
 
     var event_date = cur_year + '-' + cur_mon + '-' + cur_day;
 
-    var cinema_date = "2012-10-26";
-    var cinema_region = "region-basel";
+    var cinema_date = cur_year + '-' + cur_mon + '-' + cur_day;
+    var cinema_region = "region-zentralschweiz";
 
     var teaser_img_sizes = "";
     if (window.teaser_width) {
