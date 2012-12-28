@@ -15,6 +15,8 @@
                 </div>
                 
 {{ if $gimme->publication->identifier == "2" }}
+    {{ if ($gimme->section->number <= 70) || ($gimme->section->number > 80) }}
+
                 
 		{{ include file="_tpl/article-payment.tpl" }}
 
@@ -44,4 +46,5 @@
                     {{ /list_related_articles }}                    
                     
                 </div>
+    {{ /if }}
 {{ /if }}

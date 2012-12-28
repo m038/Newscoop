@@ -530,19 +530,7 @@ function load_area(area) {
             &nbsp;
         </article><!-- /movie_detail -->
 
-        <div class="social-bar bottom-line clearfix">
-            <ul class="soc-options left">
-                <li class="fb"><a href="#">Facebook</a></li>
-                <li class="tw"><a href="#">Twitter</a></li>
-                <li class="gplus"><a href="#">Google+</a></li>
-                <li class="activate"><a href="#">Social-Media Dienste aktivieren</a></li>
-            </ul>
-
-            <ul class="article-options right">
-                <li class="email"><a href="#">Email</a></li>
-                <li class="print"><a href="#">Print</a></li>
-            </ul>
-        </div>
+    {{ include file="_tpl/article-tools.tpl" }}
 
         <article class="bottom-line">
             <div id="image_gallery" class="thumb-gallery tabs">
