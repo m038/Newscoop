@@ -902,7 +902,7 @@ function load_events(ev_type) {
                     </table>
 
                     <div class="tabs article-tabs">
-                        <ul class="tab-nav clearfix">
+                        <ul class="tab-nav clearfix phone-hide">
                             <li><a href="#inner-tab-1">Tagesmenü</a></li>
                             {{ if $speciality_count }}<li><a href="#inner-tab-2">Hausspezialiäten</a></li>{{ /if }}
                             {{ if $rest_menucard_pdf }}<li><a href="#inner-tab-3">Komplette Menükarte</a></li>{{ /if }}
@@ -913,9 +913,9 @@ function load_events(ev_type) {
                             <select class="dropdownized">
                                 <option value="inner-tab-1">Tagesmenü</option>
                                 {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
-                                {{ if $rest_menucard_pdf }}<option value="inner-tab-3">Komplette Menükarte (PDF)</option>{{ /if }}
-                                {{ if $rest_winecard_pdf }}<option value="inner-tab-4">Weinkarte (PDF)</option>{{ /if }}
-                                {{ if $rest_kidscard_pdf }}<option value="inner-tab-5">Kindermenüs (PDF)</option>{{ /if }}
+                                {{ if $rest_menucard_pdf }}<option value="inner-tab-3">Komplette Menükarte</option>{{ /if }}
+                                {{ if $rest_winecard_pdf }}<option value="inner-tab-4">Weinkarte</option>{{ /if }}
+                                {{ if $rest_kidscard_pdf }}<option value="inner-tab-5">Kindermenüs</option>{{ /if }}
                             </select>
                         </div><!-- tab-nav-dropdown -->
                         <div class="article-tabs-holder">
