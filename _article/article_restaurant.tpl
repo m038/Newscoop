@@ -57,6 +57,12 @@ window.useCanonicalForSocialBar = true;
 .rest_text_hidden {
     display: none;
 }
+
+.rest_image_hidden {
+    display: none;
+}
+
+
 p a.rest_link_active, p a.rest_link_active:link, p a.rest_link_active:hover, p a.rest_link_active:active {
     color: #008148;
 /*
@@ -801,6 +807,7 @@ $(document).ready(function() {
 function load_events(ev_type) {
     return true;
 };
+
 </script>
 
             {{ assign var="cuisine_text" '' }}
@@ -847,14 +854,25 @@ function load_events(ev_type) {
 
                 {{ if $gimme->article->has_image(1) }}
                     <figure class="clearfix">
-                        <img id="rest_photo" src="{{ url options="image 1 width 723 height 271 crop center" }}" alt="{{ $gimme->article->image1->description|replace:'"':'\'' }}" class="thumbnail" width="723" height="271" />
+
+                        {{ assign var="image_desc" $gimme->article->image1->description|replace:'"':'\'' }}
+                        <img class="rest_photo_any" id="rest_photo_1" src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                        {{ assign var="list_img_rank" 2 }}
+                        {{ while $gimme->article->has_image($list_img_rank) }}
+                            {{ assign var="image_tpl" "image$list_img_rank" }}
+                            {{ assign var="image_desc" $gimme->article->$image_tpl->description|replace:'"':'\'' }}
+                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                            {{ assign var="list_img_rank" $list_img_rank+1 }}
+                        {{ /while }}
+                        {{ assign var="image_count" $list_img_rank-1 }}
+
                         {{ if $gimme->article->rest_panorama_count }}
                         <iframe style="display:none;" id="rest_panorama" name="lunchgate" src="http://www.lunchgate.ch/embed.php?name={{ $gimme->article->event_id }}&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08&wmode=transparent" scrolling="no" frameborder="no" height="271" width="723" rel="resizable" /></iframe>
                         {{ /if }}
                             <div class="img-options clearfix">
                                 {{ if $gimme->article->rest_panorama_count }}
-                                    <a href="#" id="link_fotos" onClick='$("#rest_panorama").hide();$("#rest_photo").show();$("#link_panos").removeClass("active");$("#link_fotos").addClass("active");return false;' class="button white active right">Fotos</a>
-                                    <a href="#" id="link_panos" onClick='$("#rest_photo").hide();$("#rest_panorama").show();$("#link_fotos").removeClass("active");$("#link_panos").addClass("active");return false;' class="button white right">Panorama</a>
+                                    <a href="#" id="link_fotos" onClick='show_photos();return false;' class="button white active right">Fotos</a>
+                                    <a href="#" id="link_panos" onClick='show_panorama();return false;' class="button white right">Panorama</a>
                                 {{ /if }}
                                 {{ if $reservation_link || $rest_days_notice }}
                                     {{ if $rest_days_notice }}
@@ -1071,7 +1089,44 @@ function load_events(ev_type) {
 
 
 <script type="text/javascript">
+
+window.last_shown_image = 1;
+
+function show_photos() {
+    $("#rest_panorama").hide();
+    $(".rest_photo_any").hide();
+    $("#rest_photo_" + window.last_shown_image).show();
+    $("#link_panos").removeClass("active");
+    $("#link_fotos").addClass("active");
+    return false;
+};
+
+function show_panorama() {
+    $(".rest_photo_any").hide();
+    $("#rest_panorama").show();
+    $("#link_fotos").removeClass("active");
+    $("#link_panos").addClass("active");
+    return false;
+};
+
+function show_next_image(cur_image_rank) {
+    var image_count = {{ $image_count }};
+
+    var next_image_rank = cur_image_rank + 1;
+    if (cur_image_rank == image_count) {
+        next_image_rank = 1;
+    }
+
+    window.last_shown_image = next_image_rank;
+
+    $(".rest_photo_any").hide();
+    $("#rest_photo_" + next_image_rank).show();
+
+};
+
 $(document).ready(function() {
+    show_photos();
+
     $("#rest_reservation_link_desktop").each(function() {
         $(this).fancybox({
             //modal: true,
