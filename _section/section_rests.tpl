@@ -402,7 +402,7 @@ function show_cuisines() {
     $(".rest_all").removeClass("article_active");
     $(".rest_all").removeClass("article_odd");
 
-    if (1 == checked_count) {
+    if (1 <= checked_count) {
         update_cuisines_single(checked_cuisines[0]);
     }
     else {

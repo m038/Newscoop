@@ -64,7 +64,7 @@ $(window).load(function() {
 	$('.spec-tabs').tabs2carousel();
 
 	//restaurant tabs with dropdown
-    $(".dropdownized").change(function () {
+    $(".rest_menu_sel").change(function () {
         var tabs_tag = $(this).parents().eq(2);
 		var indx = tabs_tag.find(".article-tabs-holder div").index($("#"+$(this).val()));
         tabs_tag.tabs("option", "active",indx);

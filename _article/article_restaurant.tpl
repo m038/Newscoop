@@ -928,7 +928,7 @@ function load_events(ev_type) {
                             {{ if $rest_kidscard_pdf }}<li><a href="#inner-tab-5">Kindermenüs</a></li>{{ /if }}
                         </ul>
                         <div class="tab-nav-dropdown">
-                            <select class="dropdownized">
+                            <select class="rest_menu_sel">
                                 <option value="inner-tab-1">Tagesmenü</option>
                                 {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
                                 {{ if $rest_menucard_pdf }}<option value="inner-tab-3">Komplette Menükarte</option>{{ /if }}
