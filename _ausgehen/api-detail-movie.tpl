@@ -1,12 +1,13 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
 
+{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":"\\ "|replace:'"':"" }}
+
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
+window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}";
 </script>
-
-{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":"\\ "|replace:'"':"" }}
-<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}">
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?movie_key={{ $movie_key }}" />
 
 <script type="text/javascript">
 window.teaser_width = "158";

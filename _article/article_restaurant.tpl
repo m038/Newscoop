@@ -3,8 +3,9 @@
 
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
+window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=restaurant&key={{ $gimme->article->event_id|escape:'url' }}";
 </script>
-<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=restaurant&key={{ $gimme->article->event_id|escape:'url' }}">
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/{{ $gimme->article->number }}/" />
 
 <!--
 {{*
@@ -38,7 +39,6 @@ Bei Fragen wenden Sie sich bitte an unseren Support.
 <script type="text/javascript">
 window.agenda_has_select_tags = false;
 window.agenda_has_date_picker = false;
-window.useCanonicalForSocialBar = true;
 </script>
 
 <style type="text/css">
@@ -402,7 +402,6 @@ function take_body_list($p_list, $p_separator)
 
 {{ /php }}
 
-<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/{{ $gimme->article->number }}/" />
 {{*
 <link rel="canonical" href="{{ uri options="article" }}" />
 <script type="text/javascript">

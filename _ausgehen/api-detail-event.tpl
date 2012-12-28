@@ -1,12 +1,14 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
 
+{{ assign var="event_key" value=$smarty.get.event_key|replace:" ":"\\ "|replace:'"':"" }}
+
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
+window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=event&key={{ $event_key|escape:'url' }}";
 </script>
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?event_key={{ $event_key }}" />
 
-{{ assign var="event_key" value=$smarty.get.event_key|replace:" ":"\\ "|replace:'"':"" }}
-<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=event&key={{ $event_key|escape:'url' }}">
 
 <script type="text/javascript">
 window.agenda_has_select_tags = true;
