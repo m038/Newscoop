@@ -21,7 +21,7 @@
         	<div class="main photo-blog-list">
 
 
-		{{ list_articles constraints="type is blog" }}             
+		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
                     <header>
                        <time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time>
@@ -32,7 +32,7 @@
                     {{ if $gimme->article->fundstucke_two }}
                     <figure>
                      {{ list_article_images length="2" }}
-                    	<img src="{{ uri options="image width 347 height 247 crop center" class="{{ if $gimme->current_list->index == 1 }}left{{ else }}right{{ /if }}" alt="" />
+                    	<img src="{{ uri options="image width 347 height 247 crop center" }}" class="{{ if $gimme->current_list->index == 1 }}left{{ else }}right{{ /if }}" alt="" />
                     	{{ /list_article_images }}
                     </figure>                        
                     {{ elseif $gimme->article->fundstucke_big }}
