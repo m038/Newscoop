@@ -31,20 +31,27 @@
 
                     {{ if $gimme->article->fundstucke_two }}
                     <figure>
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-1.jpg" }}" class="left" alt="" />
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-2.jpg" }}" class="right" alt="" />
+                     {{ list_article_images length="2" }}
+                    	<img src="{{ uri options="image width 347 height 247 crop center" class="{{ if $gimme->current_list->index == 1 }}left{{ else }}right{{ /if }}" alt="" />
+                    	{{ /list_article_images }}
                     </figure>                        
                     {{ elseif $gimme->article->fundstucke_big }}
                     <figure>
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-3.jpg" }}" alt="" />
+                     {{ list_article_images length="1" }}
+                    	<img src="{{ uri options="image width 722" }}" alt="" />
+                    	{{ /list_article_images }}
                     </figure>
                     {{ elseif $gimme->article->fundstucke_left }}
                     <figure class="left">
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-4.jpg" }}" alt="" />
+                     {{ list_article_images length="1" }}
+                    	<img src="{{ uri options="image width 347" }}" alt="" />
+                    	{{ /list_article_images }}
                     </figure>
                     {{ elseif $gimme->article->fundstucke_right }}
                     <figure class="right">
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-4.jpg" }}" alt="" />
+                     {{ list_article_images length="1" }}
+                    	<img src="{{ uri options="image width 347" }}" alt="" />
+                    	{{ /list_article_images }}
                     </figure>
                     {{ /if }}
                                         
@@ -52,79 +59,7 @@
                     </article>
 		{{ /list_articles }}   
 
-            
-            	<!--article>
-                
-                	<header>
-                    	<time>20.9.2012</time>
-                    	<h3>Impressionen aus Luzern</h3>
-                    	<p>von Peter Maier <span>(5 Bilder)</span></p>
-                    </header>
-                    <figure>
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-1.jpg" }}" class="left" alt="" />
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-2.jpg" }}" class="right" alt="" />
-                    </figure>
-                    <p>Em natibus. Facepedianda dolo enitass impedit poressint exceatem id modite res millore mpore, ex eostes sequatibus voluptatquat re nis min nis core nihil eossi doluptur sunditia simolut etuscia musciatis as a doluptas excerit rest ipsum audae sae si to maionsed. <a href="#">Zur Gallerie</a></p>
-                    
-                </article>
-                
-                <article>
-                
-                	<header>
-                    	<time>20.9.2012</time>
-                    	<h3>Impressionen aus Luzern</h3>
-                    	<p>von Peter Maier <span>(5 Bilder)</span></p>
-                    </header>
-                    <figure>
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-3.jpg" }}" alt="" />
-                    </figure>
-                    <p>Em natibus. Facepedianda dolo enitass impedit poressint exceatem id modite res millore mpore, ex eostes sequatibus voluptatquat re nis min nis core nihil eossi doluptur sunditia simolut etuscia musciatis as a doluptas excerit rest ipsum audae sae si to maionsed. <a href="#">Zur Gallerie</a></p>
-                    
-                </article>
-                
-                <article>
-                
-                	<header>
-                    	<time>20.9.2012</time>
-                    	<h3>Impressionen aus Luzern</h3>
-                    	<p>von Peter Maier <span>(5 Bilder)</span></p>
-                    </header>
-                    <figure class="left">
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-4.jpg" }}" alt="" />
-                    </figure>
-                    <p>Em natibus. Facepedianda dolo enitass impedit poressint exceatem id modite res millore mpore, ex eostes sequatibus voluptatquat re nis min nis core nihil eossi doluptur sunditia simolut etuscia musciatis as a doluptas excerit rest ipsum audae sae si to maionsed. <a href="#">Zur Gallerie</a></p>
-                    
-                </article>
-                
-                <article>
-                
-                	<header>
-                    	<time>20.9.2012</time>
-                    	<h3>Impressionen aus Luzern</h3>
-                    	<p>von Peter Maier <span>(5 Bilder)</span></p>
-                    </header>
-                    <figure class="right">
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-4.jpg" }}" alt="" />
-                    </figure>
-                    <p>Em natibus. Facepedianda dolo enitass impedit poressint exceatem id modite res millore mpore, ex eostes sequatibus voluptatquat re nis min nis core nihil eossi doluptur sunditia simolut etuscia musciatis as a doluptas excerit rest ipsum audae sae si to maionsed. <a href="#">Zur Gallerie</a></p>
-                    
-                </article>
-                
-                <article>
-                
-                	<header>
-                    	<time>20.9.2012</time>
-                    	<h3>Impressionen aus Luzern</h3>
-                    	<p>von Peter Maier <span>(5 Bilder)</span></p>
-                    </header>
-                    <figure>
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-1.jpg" }}" class="left" alt="" />
-                    	<img src="{{ uri static_file="pictures/foto-blog-img-2.jpg" }}" class="right" alt="" />
-                    </figure>
-                    <p>Em natibus. Facepedianda dolo enitass impedit poressint exceatem id modite res millore mpore, ex eostes sequatibus voluptatquat re nis min nis core nihil eossi doluptur sunditia simolut etuscia musciatis as a doluptas excerit rest ipsum audae sae si to maionsed. <a href="#">Zur Gallerie</a></p>
-                    
-                </article-->
-                
+                            
                 <ul class="paging center top-line">
                         <li><a class="button white prev" href="#">‹‹</a></li>
                         <li><a class="button white prev" href="#">‹</a></li>
