@@ -919,7 +919,7 @@ function load_events(ev_type) {
 {{ /if }}
                     </table>
 
-                    <div class="tabs_aus article-tabs">
+                    <div id="menu_tabs" class="tabs_aus article-tabs">
                         <ul class="tab-nav clearfix phone-hide">
                             <li><a href="#inner-tab-1">Tagesmenü</a></li>
                             {{ if $speciality_count }}<li><a href="#inner-tab-2">Hausspezialiäten</a></li>{{ /if }}
