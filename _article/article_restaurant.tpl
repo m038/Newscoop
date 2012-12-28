@@ -903,23 +903,19 @@ function load_events(ev_type) {
 
                     <div class="tabs article-tabs">
                         <ul class="tab-nav clearfix">
-                            <li><a href="#inner-tab-1" class="rest_link_menu_any" id="rest_menu_link" onClick="toggle_rest_menu(); return false;">Tagesmenü</a></li>
-                            {{ if $speciality_count }}<li><a href="#inner-tab-2" class="rest_link_menu_any" id="rest_speciality_link" onClick="toggle_rest_speciality(); return false;">Hausspezialiäten</a></li>{{ /if }}
-                        {{ if 0 }}
-                            {{ if $rest_menucard_pdf }}<li><a class="rest_link_menu_any" href="{{ $rest_menucard_pdf }}" target="_blank">Komplette Menükarte (PDF)</a></li>{{ /if }}
-                            {{ if $rest_winecard_pdf }}<li><a class="rest_link_menu_any" href="{{ $rest_winecard_pdf }}" target="_blank">Weinkarte (PDF)</a></li>{{ /if }}
-                            {{ if $rest_kidscard_pdf }}<li><a class="rest_link_menu_any" href="{{ $rest_kidscard_pdf }}" target="_blank">Kindermenüs (PDF)</a></li>{{ /if }}
-                        {{ /if }}
+                            <li><a href="#inner-tab-1">Tagesmenü</a></li>
+                            {{ if $speciality_count }}<li><a href="#inner-tab-2">Hausspezialiäten</a></li>{{ /if }}
+                            {{ if $rest_menucard_pdf }}<li><a href="#inner-tab-3">Komplette Menükarte</a></li>{{ /if }}
+                            {{ if $rest_winecard_pdf }}<li><a href="#inner-tab-4">Weinkarte</a></li>{{ /if }}
+                            {{ if $rest_kidscard_pdf }}<li><a href="#inner-tab-5">Kindermenüs</a></li>{{ /if }}
                         </ul>
                         <div class="tab-nav-dropdown">
                             <select class="dropdownized">
                                 <option value="inner-tab-1">Tagesmenü</option>
                                 {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
-                            {{ if 0 }}
-                                <option value="inner-tab-3">Komplette Menükarte (PDF)</option>
-                                <option value="inner-tab-4">Weinkarte (PDF)</option>
-                                <option value="inner-tab-5">Kindermenüs (PDF)</option>
-                            {{ /if }}
+                                {{ if $rest_menucard_pdf }}<option value="inner-tab-3">Komplette Menükarte (PDF)</option>{{ /if }}
+                                {{ if $rest_winecard_pdf }}<option value="inner-tab-4">Weinkarte (PDF)</option>{{ /if }}
+                                {{ if $rest_kidscard_pdf }}<option value="inner-tab-5">Kindermenüs (PDF)</option>{{ /if }}
                             </select>
                         </div><!-- tab-nav-dropdown -->
                         <div class="article-tabs-holder">
@@ -950,6 +946,22 @@ function load_events(ev_type) {
                                     {{ /foreach }}
                                 </div>
                             {{ /if }}
+                            {{ if $rest_menucard_pdf }}
+                                <div class="rest_text_hidden" id="inner-tab-3">
+                                    <a class="rest_link_menu_any" href="{{ $rest_menucard_pdf }}" target="_blank">Komplette Menükarte (PDF)</a>
+                                </div>
+                            {{ /if }}
+                            {{ if $rest_winecard_pdf }}
+                                <div class="rest_text_hidden" id="inner-tab-3">
+                                    <a class="rest_link_menu_any" href="{{ $rest_winecard_pdf }}" target="_blank">Weinkarte (PDF)</a>
+                                </div>
+                            {{ /if }}
+                            {{ if $rest_kidscard_pdf }}
+                                <div class="rest_text_hidden" id="inner-tab-3">
+                                    <a class="rest_link_menu_any" href="{{ $rest_kidscard_pdf }}" target="_blank">Kindermenüs (PDF)</a>
+                                </div>
+                            {{ /if }}
+
                         </div><!-- /article-tabs-holder -->
                     </div><!-- /article-tabs -->
 
