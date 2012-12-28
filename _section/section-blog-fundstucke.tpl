@@ -26,7 +26,7 @@
                     <header>
                        <time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time>
                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
-                       <p>von Peter Maier <span>(5 Bilder)</span></p>
+                       <p>von {{ list_article_authors }}{{ $gimme->author->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_authors }} <span>({{ list_article_images length="1" }}{{ $gimme->current_list->count }}{{ /list_article_images }} Bilder)</span></p>
                     </header>
 
                     <figure>
