@@ -32,25 +32,25 @@
                     {{ if $gimme->article->fundstucke_two }}
                     <figure>
                      {{ list_article_images length="2" }}
-                    	<img src="{{ uri options="image width 347 height 247 crop center" class="{{ if $gimme->current_list->index == 1 }}left{{ else }}right{{ /if }}" alt="{{ $gimme->article->image->description }}" />
+                    	<img src="{{ uri options="image width 347 height 247 crop center" class="{{ if $gimme->current_list->index == 1 }}left{{ else }}right{{ /if }}" alt="" />
                     	{{ /list_article_images }}
                     </figure>                        
                     {{ elseif $gimme->article->fundstucke_big }}
                     <figure>
                      {{ list_article_images length="1" }}
-                    	<img src="{{ uri options="image width 722" }}" alt="{{ $gimme->article->image->description }}" />
+                    	<img src="{{ uri options="image width 722" }}" alt="" />
                     	{{ /list_article_images }}
                     </figure>
                     {{ elseif $gimme->article->fundstucke_left }}
                     <figure class="left">
                      {{ list_article_images length="1" }}
-                    	<img src="{{ uri options="image width 347" }}" alt="{{ $gimme->article->image->description }}" />
+                    	<img src="{{ uri options="image width 347" }}" alt="" />
                     	{{ /list_article_images }}
                     </figure>
                     {{ elseif $gimme->article->fundstucke_right }}
                     <figure class="right">
                      {{ list_article_images length="1" }}
-                    	<img src="{{ uri options="image width 347" }}" alt="{{ $gimme->article->image->description }}" />
+                    	<img src="{{ uri options="image width 347" }}" alt="" />
                     	{{ /list_article_images }}
                     </figure>
                     {{ /if }}
