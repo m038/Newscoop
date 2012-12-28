@@ -66,7 +66,8 @@ $(window).load(function() {
 	//restaurant tabs with dropdown
     $(".dropdownized").change(function () {
         var tabs_tag = $(this).parents().eq(2);
-        tabs_tag.tabs("option", "active",$(this).val());
+		var indx = tabs_tag.find(".article-tabs-holder div").index($("#"+$(this).val()));
+        tabs_tag.tabs("option", "active",indx);
     });
 	
 	

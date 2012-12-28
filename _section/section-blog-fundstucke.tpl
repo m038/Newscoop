@@ -19,8 +19,30 @@
         <div class="content no-bottom-line equal-heights clearfix">
         
         	<div class="main photo-blog-list">
+
+
+		{{ list_articles constraints="type is blog" }}             
+                    <article>
+                    <header>
+                       <time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time>
+                       <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
+                       <p>von {{ list_article_authors }}{{ $gimme->author->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_authors }} <span>({{ list_article_images length="1" }}{{ $gimme->current_list->count }}{{ /list_article_images }} Bilder)</span></p>
+                    </header>
+
+                    <figure>
+                    	<img src="{{ uri static_file="pictures/foto-blog-img-1.jpg" }}" class="left" alt="" />
+                    	<img src="{{ uri static_file="pictures/foto-blog-img-2.jpg" }}" class="right" alt="" />
+		        {{* image rendition="quarter" }}                
+              		    <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }}" />     
+		        {{ /image *}}
+                    </figure>                        
+
+                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
+                    </article>
+		{{ /list_articles }}   
+
             
-            	<article>
+            	<!--article>
                 
                 	<header>
                     	<time>20.9.2012</time>
@@ -90,7 +112,7 @@
                     </figure>
                     <p>Em natibus. Facepedianda dolo enitass impedit poressint exceatem id modite res millore mpore, ex eostes sequatibus voluptatquat re nis min nis core nihil eossi doluptur sunditia simolut etuscia musciatis as a doluptas excerit rest ipsum audae sae si to maionsed. <a href="#">Zur Gallerie</a></p>
                     
-                </article>
+                </article-->
                 
                 <ul class="paging center top-line">
                         <li><a class="button white prev" href="#">‹‹</a></li>
