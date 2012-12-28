@@ -14,7 +14,7 @@
 
                 <div class="box desktop-hide">
                     <h4>Was</h4>
-                    <select id="sel_was" class="dropdownized" onChange="window.load_sel_events(this.options[this.selectedIndex].value); return true;">
+                    <select id="sel_was" class="dropdownized_aus" onChange="window.load_sel_events(this.options[this.selectedIndex].value); return true;">
                         <option value="event">Alles</option>
                         <option value="kino">Kino</option>
                         <option value="theater">Theater</option>
@@ -74,7 +74,7 @@
 
                 <div class="box">
                     <h4>Wo</h4>
-                    <select id="wo" class="dropdownized" onChange="window.load_area(this); return true;">
+                    <select id="wo" class="dropdownized_aus" onChange="window.load_area(this); return true;">
                         <option value="region-zentralschweiz" selected>Zentralschweiz</option>
                         <option value="kanton-luzern">Luzern</option>
                         <option value="kanton-nidwalden">Nidwalden</option>
@@ -91,7 +91,7 @@
 
                     <div class="box desktop-hide">
                         <h4>Küche</h4>
-                        <select id="cuisine_dropdown" class="dropdownized" onChange="show_cuisines_single(this.options[this.selectedIndex].value);return true;">
+                        <select id="cuisine_dropdown" class="dropdownized_aus" onChange="show_cuisines_single(this.options[this.selectedIndex].value);return true;">
                             <option value="all">Alles</option>
                             {{ foreach from=$cuisin_list key=kueche_key item=kueche_info }}
                                 {{ if $kueche_key ne "restaurant_cuisine" }}
@@ -116,3 +116,8 @@
 
             </div><!-- / events_aside_part -->
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.dropdownized_aus').dropdownized();
+});
+</script>

@@ -919,7 +919,7 @@ function load_events(ev_type) {
 {{ /if }}
                     </table>
 
-                    <div class="tabs article-tabs">
+                    <div class="tabs_aus article-tabs">
                         <ul class="tab-nav clearfix phone-hide">
                             <li><a href="#inner-tab-1">Tagesmenü</a></li>
                             {{ if $speciality_count }}<li><a href="#inner-tab-2">Hausspezialiäten</a></li>{{ /if }}
@@ -928,7 +928,7 @@ function load_events(ev_type) {
                             {{ if $rest_kidscard_pdf }}<li><a href="#inner-tab-5">Kindermenüs</a></li>{{ /if }}
                         </ul>
                         <div class="tab-nav-dropdown">
-                            <select class="rest_menu_sel">
+                            <select id="rest_menu_sel" class="rest_menu_sel">
                                 <option value="inner-tab-1">Tagesmenü</option>
                                 {{ if $speciality_count }}<option value="inner-tab-2">Hausspezialiäten</option>{{ /if }}
                                 {{ if $rest_menucard_pdf }}<option value="inner-tab-3">Komplette Menükarte</option>{{ /if }}
@@ -1143,6 +1143,9 @@ $(document).ready(function() {
             type: 'iframe'
         });
     });
+
+    $("#rest_menu_sel").dropdownized();
+
 return;
     var max_width_use = $(window).width() - 10;
     if (540 < max_width_use) {
@@ -1168,6 +1171,11 @@ return;
             type: 'iframe'
         });
     });
+});
+
+
+$(document).ready(function() {
+    $('.tabs_aus').tabs();
 });
 </script>
 

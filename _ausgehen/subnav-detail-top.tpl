@@ -30,7 +30,7 @@
 {{ /local }}
 
             <div class="desktop-hide">
-                    <select id="sel_was" class="dropdownized" onChange="window.load_sel_events(this.options[this.selectedIndex].value); return true;">
+                    <select id="sel_was" class="dropdownized_aus_detail" onChange="window.load_sel_events(this.options[this.selectedIndex].value); return true;">
                         <option value="event">Alles</option>
                         <option value="kino">Kino</option>
                         <option value="theater">Theater</option>
@@ -46,4 +46,10 @@
             </div><!-- /desktop-hide -->
 
             </div><!-- /event_type_select_row -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.dropdownized_aus_detail').dropdownized();
+});
+</script>
 
