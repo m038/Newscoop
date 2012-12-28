@@ -26,6 +26,36 @@ window.event_key = "{{ $event_key }}";
 //window.event_detail = {{* api_events event_key=$event_key event_date=$event_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
 window.event_detail = {{ api_events event_key=$event_key event_date=$event_date service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
 
+function display_date_time(date_time_str) {
+
+    var cur_time = null;
+    var cur_date = null;
+    if (date_time_str) {
+        date_time_str = '' + date_time_str;
+
+        var cur_datetime_parts = date_time_str.split(" ");
+        if (1 <= cur_datetime_parts.length) {
+            var cur_date_parts = cur_datetime_parts[0].split("-");
+            if (3 <= cur_date_parts.length) {
+                cur_date = cur_date_parts[2] + "." + cur_date_parts[1] + "." + cur_date_parts[0];
+            }
+        }
+        if (2 <= cur_datetime_parts.length) {
+            var cur_time_parts = cur_datetime_parts[1].split(":");
+            if (2 <= cur_time_parts.length) {
+                cur_time = cur_time_parts[0] + ":" + cur_time_parts[1];
+            }
+        }
+    }
+
+    var ret_vals = {
+        'date': cur_date,
+        'time': cur_time
+    };
+
+    return ret_vals;
+};
+
 $(document).ready(function() {
     var detail_content = 'Event not found';
 
@@ -101,14 +131,34 @@ $(document).ready(function() {
             }
         }
 
+        var date_time_str = null;
+        if (got_event.date_time) {
+            var date_time_info = display_date_time(got_event.date_time);
+            if (date_time_info['date'] || date_time_info['time']) {
+                date_time_str = '';
+            }
+            if (date_time_info['date']) {
+                date_time_str += date_time_info['date'];
+            }
+            if (date_time_info['date'] && date_time_info['time']) {
+                date_time_str += ', ';
+            }
+            if (date_time_info['time']) {
+                date_time_str += date_time_info['time'] + ' Uhr';
+            }
+        }
+
         var have_details = false;
-        if (got_event.genre || got_event.minimal_age || got_event.languages) {
+        if (got_event.genre || got_event.minimal_age || got_event.languages || date_time_str) {
             have_details = true;
         }
         if (have_details) {
             detail_content += '<dl class="details">';
             if (got_event.genre) {
                 detail_content += '<dt>Genre:</dt><dd>' + got_event.genre + "</dd>\n";
+            }
+            if (date_time_str) {
+                detail_content += '<dt>Wann:</dt><dd>' + date_time_str + "</dd>\n";
             }
             if (got_event.minimal_age) {
                 detail_content += '<dt>Mindestalter:</dt><dd>' + got_event.minimal_age + "</dd>\n";
