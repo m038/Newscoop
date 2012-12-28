@@ -186,7 +186,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
             $next_line_time = false;
 
             $matches = array();
-            if (preg_match('/(\d{2}):(\d{2})[\s]*-[\s]*(\d{2}):(\d{2})/', $one_date_time_str, $matches)) {
+            if (preg_match('/(\d{2}):(\d{2})[\s]*-[\s]*(\d{2}):(\d{2})/', $one_date_time_str, $matches) || ('open' == $one_date_time_str)) {
                 $some_info = true;
                 $found_open = true;
                 $found_open_days = array_merge($found_open_days, $current_day_dates);
@@ -517,6 +517,9 @@ function get_time_text($date_time_text)
 
             if (!isset($cur_date_values[$cur_date])) {
                 $cur_date_values[$cur_date] = array();
+            }
+            if ('open' == $one_date_time_str) {
+                $one_date_time_str = 'offen';
             }
             $cur_date_values[$cur_date][] = $one_date_time_str;
         }
