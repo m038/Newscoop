@@ -5,6 +5,9 @@
 window.useCanonicalForSocialBar = true;
 </script>
 
+{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":"\\ "|replace:'"':"" }}
+<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}">
+
 <script type="text/javascript">
 window.teaser_width = "158";
 window.teaser_height = "79";
@@ -27,7 +30,6 @@ window.preset_date = "{{ $cinema_date }}";
     {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
 {{ /if }}
 
-{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":"\\ "|replace:'"':"" }}
 window.api_mode = "detail";
 window.movie_key = "{{ $movie_key }}";
 {{ if $cinema_region eq "" }}
@@ -46,8 +48,6 @@ window.movie_key = "{{ $movie_key }}";
 {{ /if }}
 
 window.cinemas = window.api_detail.locations;
-
-<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}">
 
 function get_date_string(date_obj) {
     date_day = date_obj.getDate();

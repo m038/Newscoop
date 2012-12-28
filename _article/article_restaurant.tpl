@@ -4,7 +4,7 @@
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
 </script>
-<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=restaurant&key={{ $gimme->article->location_id|escape:'url' }}">
+<link rel="canonical" href="{{ url options="root_level" }}ausgehen/search?type=restaurant&key={{ $gimme->article->event_id|escape:'url' }}">
 
 <!--
 {{*
