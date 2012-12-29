@@ -65,11 +65,11 @@
 {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id())) }}
 {{ if $pages gt 1 }}
 <ul class="paging center top-line">
-    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ url options="previous_items" }}">‹</a></li>{{ /if }}
+    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ unset_article }}{{ url options="previous_items" }}">‹</a></li>{{ /if }}
 
-<li class="caption">{{ $curpage }} von {{ $pages }}</li>
+<li class="caption">{{ $curpage+1 }} von {{ $pages }}</li>
 
-    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ url options="next_items" }}">›</a></li>{{ /if }}
+    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ unset_article }}{{ url options="next_items" }}">›</a></li>{{ /if }}
 </ul>
 {{ $gimme->url->set_parameter($gimme->current_list_id(),$curpage) }}
 {{ /if }}
