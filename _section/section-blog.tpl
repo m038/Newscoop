@@ -28,7 +28,7 @@
 
                 <div class="left-thumb bottom-line article-spacing clearfix">
 
-		{{ list_articles constraints="type is blog" }}             
+		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
                     	<p class="time-top"><time>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></p>
                     		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
@@ -40,6 +40,25 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
+                    
+{{ if $gimme->current_list->at_end }}            
+
+{{* PAGINATION *}}
+{{ $pages=ceil($gimme->current_list->count/5) }}
+{{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id())) }}
+{{ if $pages gt 1 }}
+<ul class="paging center top-line">
+    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ url options="previous_items" }}">‹</a></li>{{ /if }}
+
+<li class="caption">{{ $curpage }} von {{ $pages }}</li>
+
+    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ url options="next_items" }}">›</a></li>{{ /if }}
+</ul>
+{{ $gimme->url->set_parameter($gimme->current_list_id(),$curpage) }}
+{{ /if }}
+
+{{ /if }}                     
+                    
 		{{ /list_articles }}                      
                 </div>
             

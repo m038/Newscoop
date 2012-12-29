@@ -57,16 +57,26 @@
                                         
                         <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
-		{{ /list_articles }}   
+                    
+{{ if $gimme->current_list->at_end }}            
 
-                            
-                <ul class="paging center top-line">
-                        <li><a class="button white prev" href="#">‹‹</a></li>
-                        <li><a class="button white prev" href="#">‹</a></li>
-                    	<li class="caption">1 von 2</li>
-                    	<li><a class="button white next" href="#">›</a></li>
-                    	<li><a class="button white next" href="#">››</a></li>
-                    </ul>
+{{* PAGINATION *}}
+{{ $pages=ceil($gimme->current_list->count/5) }}
+{{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id())) }}
+{{ if $pages gt 1 }}
+<ul class="paging center top-line">
+    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ url options="previous_items" }}">‹</a></li>{{ /if }}
+
+<li class="caption">{{ $curpage }} von {{ $pages }}</li>
+
+    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ url options="next_items" }}">›</a></li>{{ /if }}
+</ul>
+{{ $gimme->url->set_parameter($gimme->current_list_id(),$curpage) }}
+{{ /if }}
+
+{{ /if }}                     
+                    
+		{{ /list_articles }}   
             
             </div><!-- / Main -->
             
