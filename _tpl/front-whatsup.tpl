@@ -1,6 +1,9 @@
                     <div class="box left-thumb">
                     {{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo section is 25" }}
+                    {{ local }}
+                    {{ unset_article }}                    
                     {{ assign var="sectionUrl" value="{{ url }}" }}
+                    {{ /local }}
                     	<h4 class="box-title"><img src="{{ uri static_file="pictures/title-icons/bag.png" }}" alt="" />{{ $gimme->section->name }}</h4>
                     	   {{ list_articles length="1" constraints="type is blog" }}
                         <article class="bottom-line">
