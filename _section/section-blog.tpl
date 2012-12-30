@@ -8,11 +8,16 @@
         
 {{ include file="_tpl/header.tpl" }}
 
+{{ assign var="topicCond" value="" }}
+{{ if $gimme->topic->defined }}
+{{ assign var="topicCond" value="topic not {{ $gimme->topic->name }}" }}
+{{ /if }}
+
 		<div class="content bottom-line equal-heights clearfix">
         
         	<div class="main">
 
-		{{ list_articles length="1" constraints="type is bloginfo" }}            
+		{{ list_articles length="1" constraints="type is bloginfo $topicCond" }}            
             	<article class="bottom-line single-title">
                 	<figure>
 		        {{ image rendition="artfull" }}                
