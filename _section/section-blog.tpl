@@ -101,7 +101,7 @@
                         <h4>{{ $gimme->topic->name }}</h4>
                         <ul class="custom-list tag-list">
                         	{{ list_subtopics }}
-                            <li><a href="#">{{ $gimme->topic->name }}</a> {{ assign var="numpost" value=0 }}{{ list_articles length="1" }}{{ if $gimme->current_list->count }}{{ assign var="numpost" value=$gimme->current_list->count }}{{ /if }}{{ /list_articles }}({{ $numpost }})</li>
+                            <li><a href="{{ url }}">{{ $gimme->topic->name }}</a> {{ assign var="numpost" value=0 }}{{ list_articles length="1" }}{{ if $gimme->current_list->count }}{{ assign var="numpost" value=$gimme->current_list->count }}{{ /if }}{{ /list_articles }}({{ $numpost }})</li>
                            {{ /list_subtopics }}
                         </ul>
                     </div>
