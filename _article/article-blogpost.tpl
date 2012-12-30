@@ -41,7 +41,7 @@
 						  {{ include file="_tpl/article-tools.tpl" }}                
 
 					{{ assign var="curart" value=$gimme->article->number }}
-					{{ list_articles length="3" constraints="number not $curart" }}
+					{{ list_articles length="3" constraints="number not $curart type is blog" }}
 					{{ if $gimme->current_list->at_beginning }}                
                 <article class="single">
                   <h4>Weitere Blogbeiträge aus «{{ $gimme->section->name }}»</h4>
