@@ -97,7 +97,9 @@
 {{ /if }}
 
 {{ if $gimme->default_section->number == "25" }}
-            	<div class="two-columns clearfix equal-heights">
+            	{{ local }}
+            	<div class="two-columns clearfix equal-heights phone-hide">
+            	{{ unset_article }}
             	{{ set_topic name="Was gibts wo Blog:de" }}
             	{{ list_subtopics }}
                     <div class="box">
@@ -109,8 +111,23 @@
                         </ul>
                     </div>
                {{ /list_subtopics }}
-					{{ unset_topic }}              
+					{{ unset_topic }}                
                 </div>
+                
+                <ul class="phone-icon-dropdown top-line">
+                  {{ set_topic name="Was gibts wo Blog:de" }}
+                  {{ list_subtopics }}
+                	<li class="{{ if $gimme->topic->name == "Rubriken" }}tag{{ else }}place{{ /if }}">
+                        <select class="dropdownized">
+                        	<option value="{{ $gimme->topic->name }}">{{ $gimme->topic->name }}</option>
+                        	{{ list_subtopics }}
+                            <option value="{{ $gimme->topic->name }}">{{ $gimme->topic->name }}</option>
+									{{ /list_subtopics }}
+                        </select>
+                    </li>
+                    {{ /list_subtopics }}
+                </ul>               
+                {{ /local }} 
                 
             	<div class="box top-line bottom-line">
                 	<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zug,+Switzerland&amp;aq=0&amp;oq=zug&amp;sll=37.0625,-95.677068&amp;sspn=53.080379,39.726562&amp;ie=UTF8&amp;hq=&amp;hnear=Zug,+Canton+of+Zug,+Switzerland&amp;t=m&amp;z=12&amp;ll=47.174589,8.513854&amp;output=embed"></iframe>
