@@ -26,6 +26,12 @@
                 </article><!-- / Top fetured -->
                 {{ /list_articles }}
 
+					 {{ if $gimme->topic->defined }}
+                <article class="bottom-line">
+                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /if }} Postings in der Rubrik «{{ $gimme->topic->name }}»</p>
+                </article>
+                {{ /if }}
+
                 <div class="left-thumb bottom-line article-spacing clearfix">
 
 		{{ list_articles length="5" constraints="type is blog" }}             

@@ -58,6 +58,8 @@
               				{{ set_publication identifier="2" }}
                         	<li><a href="{{ url options="root_level" }}">Home</a></li>
                         {{ set_current_issue }}
+                        {{ set_section number="60" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ set_section number="10" }}
                         	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ set_section number="70" }}
