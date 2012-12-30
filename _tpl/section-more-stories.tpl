@@ -2,7 +2,7 @@
                 
                 <div class="left-thumb article-border-bottom margin-bottom clearfix">
 
-{{ list_articles length="10" }}
+{{ list_articles length="10" constraints="type is news" }}
 {{ if $gimme->current_list->index gt 5 }}            
                     <article>
                         <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
