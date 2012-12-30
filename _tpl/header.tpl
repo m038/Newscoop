@@ -54,19 +54,35 @@
                             <input type="submit" value="Go">
                         </fieldset>
                         <ul>
-                        	<li><a href="#">Home</a></li>
-                        	<li><a href="#">Freizeit</a></li>
-                        	<li><a href="#">Politik</a></li>
-                        	<li><a href="#">Wissen</a></li>
-                        	<li><a href="#">Wirtschaft</a></li>
-                        	<li><a href="#">Dossiers</a></li>
-                        	<li><a href="#">Kultur</a></li>
-                        	<li><a href="#">Dialog</a></li>
-                        	<li><a href="#">Gesellschaft</a></li>
-                        	<li><a href="#">Blogs</a></li>
-                        	<li><a href="#">Sport</a></li>
-                        	<li><a href="#">Ausgehen</a></li>
+                        {{ local }} 
+              				{{ set_publication identifier="2" }}
+                        	<li><a href="{{ url options="root_level" }}">Home</a></li>
+                        {{ set_current_issue }}
+                        {{ set_section number="10" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_section number="70" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_section number="20" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_section number="100" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_section number="30" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_section number="90" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_section number="40" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ set_publication identifier="4" }}
+                        {{ set_current_issue }}
+                        	<li><a href="{{ url options="issue" }}">{{ $gimme->issue->name }}</a></li>
+                        {{ set_publication identifier="2" }}
+                        {{ set_current_issue }}                        
+                        {{ set_section number="50" }}
+                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>	
+                        {{ set_section number="71" }}
+                        	<li><a href="{{ url options="section" }}">Ausgehen</a></li>
                             <li><a href="#">Wetter</a></li>
+                        {{ /local }}
                         </ul>
                         <div class="region-pick">
                             <label>Region:</label>
