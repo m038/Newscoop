@@ -1242,6 +1242,13 @@ small {
 				padding: 6px;
 				background: rgba(180, 0, 50, 0.85);
 			}
+
+		.wide-wrapper .main.back-link {
+			border-right: 0 none;
+		    float: left;
+		    margin-top: -15px;
+		    width: 707px;
+			}
 	
 	/*.restaurant-single .events-aside {width:150px; margin-right:15px;}
 	.restaurant-single .main {
@@ -2234,6 +2241,8 @@ a.button.center.details-more {display:none;}
 	.restaurant-list {padding:10px;}
 		.restaurant-list article {width:222px;}
 		.restaurant-list article:nth-child(3n+1) {margin-right:0;}
+
+	.restaurant-single #event_location.bottom-line {border-bottom:none;}
 	
 }
 
