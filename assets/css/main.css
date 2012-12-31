@@ -1145,8 +1145,8 @@ small {
 		padding-bottom:12px; margin-bottom:10px;
 		border-bottom:#dadada dashed 1px;
 		}
-		.events-content article figure.right {margin:0 2px 0 15px;}
-			.events-content article figure.right img {display:block; margin-bottom:5px; border:#ccc solid 1px; max-width: 200px;}
+		.events-content article figure.right {margin:0 2px 0 15px; max-width: 200px;}
+			.events-content article figure.right img {display:block; margin-bottom:5px; border:#ccc solid 1px;}
 			.events-content article figure.right figcaption {
 				padding:0;
 				font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#666;
@@ -1188,7 +1188,13 @@ small {
 			.back-link .button {margin-right:10px; padding:0 12px; color:#B40032; font-size:30px; float:left;}
 		.event-single article figure.left {margin:4px 15px 0 0; max-width: 200px;}
 			.event-single article figure.left img {display:block; border:#ccc solid 1px;}
-			.event-single figure figcaption {padding:10px 0 !important; background: none; font-family: Arial, Helvetica, sans-serif;}
+			.event-single figure figcaption {
+				padding:10px 0 !important; 
+				background: none; 
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px; line-height: 140%;
+				color: #666;
+				}
 		
 	
 	.movie-table table {width:100%; margin-bottom: 10px}
