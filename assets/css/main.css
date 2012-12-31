@@ -1145,7 +1145,7 @@ small {
 		padding-bottom:12px; margin-bottom:10px;
 		border-bottom:#dadada dashed 1px;
 		}
-		.events-content article figure.right {margin:0 2px 0 15px; max-width: 200px;}
+		.events-content article figure.right {margin:0 2px 20px 15px; max-width: 200px;}
 			.events-content article figure.right img {display:block; margin-bottom:5px; border:#ccc solid 1px;}
 			.events-content article figure.right figcaption {
 				padding:0;
@@ -3031,6 +3031,8 @@ a.button.center.details-more {display:none;}
 	.img-options .button:nth-child(2) {float:left;}
 	
 	.img-options .button:last-child {float:none; width:auto; display:block; clear:both;}
+
+	.event-single article figure.left {width: 45%; max-width: 160px;}
 	
 
 }
