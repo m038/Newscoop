@@ -896,7 +896,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                     <a href="{{ uri options="article" }}{{ $art_link_params }}"><img src="{{ uri static_file="assets/img/restaurant-icon.png" }}" alt="restaurant" class="thumbnail"  width="250" height="166" /></a>
                     {{ /if }}
                     </figure>
-                    <h3><a href="{{ uri options="article" }}{{ $art_link_params }}">{{ $gimme->article->headline }}</a></h3>
+                    <h3><a href="{{ uri options="article" }}{{ $art_link_params }}">{{ $gimme->article->headline|replace:'\\\'':'\'' }}</a></h3>
 {{ php }}
 /*
                     {{ assign var="cur_topic_kueche" "start" }}

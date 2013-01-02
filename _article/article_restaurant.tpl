@@ -856,7 +856,7 @@ function load_events(ev_type) {
 
         <article id="rest_detail">
 
-            <h3>{{ $gimme->article->headline|replace:'\\':'\'' }}</h3>
+            <h3>{{ $gimme->article->headline|replace:'\\\'':'\'' }}</h3>
 
                 {{ assign var="image_count" 0 }}
                 {{ if $gimme->article->has_image(1) }}
