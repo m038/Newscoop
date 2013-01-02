@@ -30,22 +30,6 @@ window.agenda_has_date_picker = false;
 </script>
 
 <style type="text/css">
-@media screen and (max-width: 1024px) {
-    .content-box .restaurant_comments section {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .content-box .restaurant_comments section {
-        width: auto;
-    }
-}
-
-.restaurant_comments {
-    margin-top: 32px;
-}
-
 .rest_text_hidden {
     display: none;
 }
@@ -54,17 +38,6 @@ window.agenda_has_date_picker = false;
     display: none;
 }
 
-
-p a.rest_link_active, p a.rest_link_active:link, p a.rest_link_active:hover, p a.rest_link_active:active {
-    color: #008148;
-/*
-    font-family: sans-serif;
-    font-weight: bold;
-*/
-}
-a.rest_link_menu_any, a.rest_link_menu_any:link, a.rest_link_menu_any:hover, a.rest_link_menu_any:active {
-    color: black;
-}
 </style>
 
 <script type="text/javascript">
@@ -389,16 +362,6 @@ function take_body_list($p_list, $p_separator)
 }
 
 {{ /php }}
-
-{{*
-<link rel="canonical" href="{{ uri options="article" }}" />
-<script type="text/javascript">
-$(document).ready(function() {
-    var canonical = $("link[rel=canonical]").attr("href");
-    //alert(canonical);
-});
-</script>
-*}}
 
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}

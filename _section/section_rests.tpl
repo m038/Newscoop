@@ -13,15 +13,7 @@
 {{ /if }}
 
 <script type="text/javascript">
-window.load_date_direct = true;
 window.preset_date = "{{ $event_date }}";
-
-function outline_type(ev_type) {
-
-    $(".nav_one").removeClass("active");
-    $("#nav_" + ev_type).addClass("active");
-
-};
 
 $(document).ready(function() {
     $("#date_picker_button_new").hide();
@@ -198,83 +190,12 @@ function get_current_cuisine_classes($topic_list) {
 {{ /php }}
 
 <style type="text/css">
-ul.partner-list li img.rest_partner {
-    float: left;
-    border: white solid 1px;
-}
-
-.rest_closed {
-    position: absolute;
-    margin-top: -45px;
-    width: 250px;
-    height: 28px;
-    background-color: rgba(250, 250, 250, 0.7);
-}
-
-.rest_closed_text {
-    margin-left: 10px;
-    margin-top: 7px;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: arial,helvetica,verdana;
-}
-
-.loading_block_rests {
-}
-.loading_image_rests {
-    margin-left: 25px;
-}
-.loading_text_rests {
-/*
-    float: left;
-*/
-    margin-top: -35px;
-    margin-bottom: 150px;
-    margin-left: 100px;
-}
-
-.top_label {
-    z-index: 1000;
-}
-
-.option_styled {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #A5A5A5;
-    float: left;
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 11px;
-    height: 18px;
-    line-height: 16px;
-    padding: 1px 1px 2px 4px;
-    width: 120px;
-}
-
-.rest_text_hidden {
-    display: none;
-}
-
 .no_rest_found {
     margin-left: 20px;
 }
 </style>
 
 <script type="text/javascript">
-
-window.list_spec = {
-    type: '',
-    date: '',
-    period: '',
-    region: ''
-};
-
-window.rest_sorting = 'alphabetical';
-
-function outline_kueche(kueche) {
-
-    $('.li_kueche').removeClass('active');
-    $('#li_' + kueche).addClass('active');
-
-};
 
 function show_cuisines_single(sel_cuisine) {
     $(".kueche_check").each(function(ind_elm, elm) {
@@ -797,57 +718,14 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
 </div><!-- end of newslist -->
 
 
-
-
 <script type="text/javascript">
-
-function show_highlight(date, period) {
-
-    period = 0 + period;
-
-    $('.date_hl_all').removeClass('current');
-    $('.date_hl_' + date).addClass('current');
-
-    var curDate = new Date(date);
-    for (var pind = 1; pind < period; pind++) {
-        curDate.setTime(curDate.getTime() + 86400000);
-
-        var month_str = "00" + (curDate.getMonth() + 1);
-        month_str = month_str.substr(month_str.length - 2, 2);
-
-        var day_str = "00" + curDate.getDate();
-        day_str = day_str.substr(day_str.length - 2, 2);
-
-        var date_hl = curDate.getFullYear() + "-" + month_str + "-" + day_str;
-        $('.date_hl_' + date_hl).addClass('current');
-    }
-};
-
-window.get_basic_path = function() {
-    return "{{ local }}{{ set_current_issue }}{{ set_section number="73" }}{{ uri options="section" }}{{ /local }}" + "?load=1";
-};
-
-window.last_search = window.get_basic_path();
-window.last_search_spec = "";
 
 function load_events(ev_type) {
     return true;
 };
 
 
-function load_cuisine(cuisine) {
-
-    var new_link = $("#nav_restaurants_link").attr("href");
-    new_link = new_link.replace("type=all", "type=" + cuisine);
-    location.href = new_link;
-
-};
-
-
 </script>
-<!--
-<script type="text/javascript" src="{{ uri static_file='_js/libs/json2.js' }}"></script>
--->
 
             <div class="aside">
 

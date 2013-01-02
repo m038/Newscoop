@@ -5,8 +5,6 @@
 <script type="text/javascript">
 window.agenda_has_select_tags = true;
 window.agenda_has_date_picker = true;
-window.load_date_direct = true;
-
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
@@ -208,18 +206,6 @@ $(document).ready(function() {
 });
 
 </script>
-
-<script type="text/javascript">
-
-function outline_type(ev_type) {
-
-    $(".nav_one").removeClass("active");
-    $("#nav_" + ev_type).addClass("active");
-
-};
-
-</script>
-
 
 <body>
 

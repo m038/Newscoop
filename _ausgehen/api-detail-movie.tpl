@@ -402,18 +402,6 @@ $(document).ready(function() {
 
 </script>
 
-<script type="text/javascript">
-
-function outline_type(ev_type) {
-
-    $(".nav_one").removeClass("active");
-    $("#nav_" + ev_type).addClass("active");
-
-};
-
-</script>
-
-
 <body>
 
     <div id="content_wrapper" class="content-wrapper">

@@ -59,6 +59,12 @@ function adapt_global_sizes(force) {
 
 };
 
+function outline_type(ev_type) {
+
+    $(".nav_one").removeClass("active");
+    $("#nav_" + ev_type).addClass("active");
+
+};
 
 function update_type_sel(event_type) {
     $("#sel_was").val(event_type);
