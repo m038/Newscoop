@@ -22,13 +22,9 @@
                         <option value="party">Partys</option>
                         <option value="exhibit">Ausstellungen</option>
                         <option value="misc">Diverse</option>
-{{ if 1 }}
                         <option value="restaurants">Restaurants</option>
-{{ /if }}
                     </select>
                 </div>
-
-{{ if 1 || $list_type ne "restaurants" }}
 
         <div id="calendar_placeholder_box" class="box calendar-placeholder">
             <h4>Wann</h4>
@@ -69,8 +65,6 @@
             <div class="popup-overlay"></div>
 
         </div><!-- / calendar_placeholder_box -->
-
-{{ /if }}
 
                 <div class="box">
                     <h4>Wo</h4>

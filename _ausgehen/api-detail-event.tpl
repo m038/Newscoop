@@ -1,13 +1,13 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
 
-{{ assign var="event_key" value=$smarty.get.event_key|replace:" ":"\\ "|replace:'"':"" }}
+{{ assign var="event_key" value=$smarty.get.event_key|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
 window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=event&key={{ $event_key|escape:'url' }}";
 </script>
-<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?event_key={{ $event_key }}" />
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?event_key={{ $event_key|escape:'url' }}" />
 
 
 <script type="text/javascript">
@@ -16,7 +16,7 @@ window.agenda_has_date_picker = false;
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="event_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $event_date }}";
@@ -234,7 +234,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="71" }}
-            <a href="{{ uri options="section" }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}">zur Ubersicht Veranstaltungen</a>
+            <a href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}">zur Ubersicht Veranstaltungen</a>
 {{ /local }}
         </div>
 

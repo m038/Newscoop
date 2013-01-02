@@ -23,9 +23,7 @@
 {{* restaurants *}}
 {{ set_current_issue }}
 {{ set_section number="73" }}
-{{ if 1 }}
                 <li id="nav_restaurants" class="nav_one"><a id="nav_restaurants_link" href="{{ uri options="section" }}?type=all&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Restaurants</a></li>
-{{ /if }}
             </ul><!-- /phone-hide -->
 {{ /local }}
 
@@ -38,9 +36,7 @@
                         <option value="party">Partys</option>
                         <option value="exhibit">Ausstellungen</option>
                         <option value="misc">Diverse</option>
-{{ if 1 }}
                         <option value="restaurants">Restaurants</option>
-{{ /if }}
                     </select>
 
             </div><!-- /desktop-hide -->

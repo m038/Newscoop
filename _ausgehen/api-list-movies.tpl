@@ -8,7 +8,7 @@ window.agenda_has_date_picker = true;
 
 {{ assign var="cinema_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $cinema_date }}";
@@ -16,12 +16,26 @@ window.preset_date = "{{ $cinema_date }}";
 
 {{ assign var="cinema_region" value="region-zentralschweiz" }}
 {{ if $smarty.get.region }}
-    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
+{{ /if }}
+
+{{ if $cinema_region != "kanton-luzern" }}
+    {{ if $cinema_region != "kanton-nidwalden" }}
+        {{ if $cinema_region != "kanton-obwalden" }}
+            {{ if $cinema_region != "kanton-schwyz" }}
+                {{ if $cinema_region != "kanton-uri" }}
+                    {{ if $cinema_region != "kanton-zug" }}
+                        {{ assign var="cinema_region" "region-zentralschweiz" }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
 {{ /if }}
 
 {{ assign var="movie_type" value="kino" }}
 {{ if $smarty.get.type }}
-    {{ assign var="movie_type" value=$smarty.get.type|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="movie_type" value=$smarty.get.type|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.movie_mode = "list";
@@ -128,7 +142,7 @@ $(document).ready(function() {
 
             list_content += "<article {{*style=\"min-height:300px;\"*}}>";
 
-            var cur_detail_link = cur_url_base + "?date=" + "{{ $cinema_date }}" + "&movie_key=" + cur_movie_key + "&region=" + "{{ $cinema_region }}";
+            var cur_detail_link = cur_url_base + "?date=" + "{{ $cinema_date|escape:'url' }}" + "&movie_key=" + encodeURIComponent(cur_movie_key) + "&region=" + "{{ $cinema_region|escape:'url' }}";
 
             list_content += "<h4><a href=\"" + cur_detail_link + "\">" + cur_movie.title + "</a></h4>";
             list_content += '<div class="accordion-content">';

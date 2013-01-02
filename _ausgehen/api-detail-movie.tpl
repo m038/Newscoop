@@ -1,13 +1,13 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
 
-{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":"\\ "|replace:'"':"" }}
+{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
 window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}";
 </script>
-<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?movie_key={{ $movie_key }}" />
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?movie_key={{ $movie_key|escape:'url' }}" />
 
 <script type="text/javascript">
 window.teaser_width = "158";
@@ -21,20 +21,34 @@ window.agenda_has_date_picker = false;
 
 {{ assign var="cinema_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $cinema_date }}";
 
 {{ assign var="cinema_region" value="" }}
 {{ if $smarty.get.region }}
-    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
+{{ /if }}
+
+{{ if $cinema_region != "kanton-luzern" }}
+    {{ if $cinema_region != "kanton-nidwalden" }}
+        {{ if $cinema_region != "kanton-obwalden" }}
+            {{ if $cinema_region != "kanton-schwyz" }}
+                {{ if $cinema_region != "kanton-uri" }}
+                    {{ if $cinema_region != "kanton-zug" }}
+                        {{ assign var="cinema_region" "region-zentralschweiz" }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
 {{ /if }}
 
 window.api_mode = "detail";
 window.movie_key = "{{ $movie_key }}";
 {{ if $cinema_region eq "" }}
-    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date }};
+    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region="region-zentralschweiz" }};
     $(document).ready(function() {
         update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
     });
@@ -422,7 +436,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
 {{ /local }}
         </div>
 
@@ -452,7 +466,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
 {{ /local }}
         </div>
 

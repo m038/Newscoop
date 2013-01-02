@@ -8,7 +8,7 @@ window.agenda_has_date_picker = true;
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="event_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $event_date }}";
@@ -16,12 +16,26 @@ window.preset_date = "{{ $event_date }}";
 
 {{ assign var="event_region" value="region-zentralschweiz" }}
 {{ if $smarty.get.region }}
-    {{ assign var="event_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
+{{ /if }}
+
+{{ if $event_region != "kanton-luzern" }}
+    {{ if $event_region != "kanton-nidwalden" }}
+        {{ if $event_region != "kanton-obwalden" }}
+            {{ if $event_region != "kanton-schwyz" }}
+                {{ if $event_region != "kanton-uri" }}
+                    {{ if $event_region != "kanton-zug" }}
+                        {{ assign var="event_region" "region-zentralschweiz" }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
 {{ /if }}
 
 {{ assign var="event_type" value="event" }}
 {{ if $smarty.get.type }}
-    {{ assign var="event_type" value=$smarty.get.type|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_type" value=$smarty.get.type|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.event_mode = "list";

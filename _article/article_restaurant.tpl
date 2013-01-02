@@ -366,7 +366,7 @@ function take_body_list($p_list, $p_separator)
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}
 {{ if !empty($smarty.get.region) }}
-    {{ assign var="useregion_spec" $smarty.get.region }}
+    {{ assign var="useregion_spec" $smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
     {{ if "kanton-luzern" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Luzern" }}
         {{ assign var="linkregion" "kanton-luzern" }}
@@ -629,7 +629,7 @@ function get_menu_text($menu_data)
 {{ assign var="usedate" $curdate }}
 {{ assign var="usedate_link" $usedate }}
 {{ if !empty($smarty.get.date) }}
-    {{ assign var="usedate" $smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="usedate" $smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 {{ assign var="usedate_test" $usedate|regex_replace:"/(\d){4}-(\d){2}-(\d){2}/":"ok" }}
@@ -639,20 +639,6 @@ function get_menu_text($menu_data)
     {{ /if }}
 {{ /if }}
 
-{{ assign var="useperiod" "1" }}
-{{ assign var="useperiod_link" $useperiod }}
-{{ assign var="useperiod_tmp" "" }}
-{{ if !empty($smarty.get.period) }}
-    {{ assign var="useperiod_tmp" $smarty.get.period|replace:" ":"\\ "|replace:'"':"" }}
-{{ /if }}
-
-{{ assign var="useperiod_test" $useperiod_tmp|regex_replace:"/([1-9]){1}/":"ok" }}
-{{ if "ok" != $useperiod_tmp }}
-    {{ if "ok" == $useperiod_test }}
-        {{ assign var="useperiod" $useperiod_tmp }}
-        {{ assign var="useperiod_link" $useperiod_tmp }}
-    {{ /if }}
-{{ /if }}
 {{ assign var="useperiod" "1" }}
 {{ assign var="useperiod_link" "1" }}
 
@@ -835,7 +821,7 @@ function load_events(ev_type) {
                                     {{ if $rest_days_notice }}
                                         <span class="event-info alert">{{ $rest_days_notice }}</span>
                                     {{ else }}
-                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left">Reservieren</a>
+                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" target="_blank" class="button red left">Reservieren</a>
                                     {{ /if }}
                                 {{ /if }}
                             </div>
@@ -849,7 +835,6 @@ function load_events(ev_type) {
 {{ /if }}
 {{ if $gimme->article->other }}
                     <p>
-                    {{* $gimme->article->other|replace:"<a href=":"<a target='_blank' href="|replace:">http://":">" *}}
                     {{ $gimme->article->other|strip_tags }}
                     </p>
 {{ /if }}
@@ -970,19 +955,6 @@ function load_events(ev_type) {
                     <a href="{{ $gimme->article->web }}" target="_blank">{{ $gimme->article->web|replace:"http://":"" }}</a>
 {{ /if }}
                     </p>
-
-{{ if 0 && $gemme->article->rest_fb_url }}
-        {{ assign var="field_start" $gimme->article->rest_fb_url|truncate:4:"" }}
-        {{ if field_start eq "http"}}
-                    <a href="{{ $gemme->article->rest_fb_url }} target="_blank"">Facebook</a><br />
-        {{ /if }}
-{{ /if }}
-{{ if 0 && $gemme->article->rest_twitteraccount }}
-        {{ assign var="field_start" $gimme->article->rest_twitteraccount|truncate:4:"" }}
-        {{ if field_start eq "http"}}
-                    <a href="{{ $gemme->article->rest_twitteraccount }}" target="_blank">Twitter</a></p>
-        {{ /if }}
-{{ /if }}
 
                     {{ list_article_locations length="1" }}
                     <div class="phone-map-fix">
@@ -1109,7 +1081,6 @@ $(document).ready(function() {
     </div><!-- /footer -->
 
 {{ include file="_tpl/_html-foot.tpl" }}
-{{* include file="_ausgehen/_html-foot.tpl" *}}
 
 </body>
 </html>

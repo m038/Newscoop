@@ -5,11 +5,11 @@
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="event_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 {{ assign var="event_region" value="region-zentralschweiz" }}
 {{ if $smarty.get.region }}
-    {{ assign var="event_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 <script type="text/javascript">
@@ -304,17 +304,10 @@ function show_cuisines() {
             {{ include file="_ausgehen/subnav-lists-side.tpl" list_type="restaurants" cuisin_list=$kueche_list }}
 
 
-{{ assign var="load_list" 0 }}
-{{ if !empty($smarty.get.load) }}
-    {{ if 1 eq $smarty.get.load }}
-        {{ assign var="load_list" 1 }}
-    {{ /if }}
-{{ /if }}
-
 {{ assign var="usedate" $smarty.now|camp_date_format:"%Y-%m-%d" }}
 {{ assign var="usedate_link" $usedate }}
 {{ if !empty($smarty.get.date) }}
-    {{ assign var="usedate" $smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="usedate" $smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 {{ assign var="usedate_test" $usedate|regex_replace:"/(\d){4}-(\d){2}-(\d){2}/":"ok" }}
@@ -363,7 +356,7 @@ function create_end_date($start_date, $period) {
 {{ assign var="usetype" "" }}
 {{ assign var="usetype_link" "all" }}
 {{ if !empty($smarty.get.type) }}
-    {{ assign var="usetype_spec" $smarty.get.type }}
+    {{ assign var="usetype_spec" $smarty.get.type|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
     {{ if $usetype_spec ne 'all' }}
     {{ foreach from=$kueche_list key=kueche_key item=kueche_info }}
@@ -382,7 +375,7 @@ function create_end_date($start_date, $period) {
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}
 {{ if !empty($smarty.get.region) }}
-    {{ assign var="useregion_spec" $smarty.get.region }}
+    {{ assign var="useregion_spec" $smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
     {{ if "kanton-luzern" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Luzern" }}
         {{ assign var="linkregion" "kanton-luzern" }}
