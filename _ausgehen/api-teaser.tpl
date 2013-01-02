@@ -1,10 +1,8 @@
 <script type="text/javascript">
 
-//window.event_teaser = {{* api_events event_teaser=1 event_region="region-zentralschweiz" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-window.event_teaser = {{ api_events event_teaser=1 event_region="region-zentralschweiz" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+window.event_teaser = {{ api_events event_teaser=1 event_region="region-zentralschweiz" }};
 
-//window.movie_teaser = {{* api_cinema movie_teaser=1 movie_rating=3 cinema_date="2012-10-26" cinema_region="region-basel" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_region="region-zentralschweiz" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_region="region-zentralschweiz" }};
 
 $(document).ready(function() {
 
@@ -111,12 +109,6 @@ $(document).ready(function() {
         var use_movie = window.movie_teaser.films[0];
 
         if (use_movie && use_movie['title'] && use_movie['movie_key']) {
-/*
-            var movie_display = "<h4><a href=\"" + movie_base_dir + "?movie_key=" + use_movie['movie_key'] + "&date=" + cinema_date + "&region=" + cinema_region + "\">" + use_movie['title'] + "</a></h4>";
-            if (use_movie['director']) {
-                movie_display += " by " + use_movie['director'];
-            }
-*/
 
             var movie_icon_alt = "Kino";
             cur_icon_name = default_icon_movie;

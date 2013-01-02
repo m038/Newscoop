@@ -8,7 +8,6 @@ window.last_pano_width = 640;
 window.last_pano_height = 240;
 
 function adapt_global_sizes(force) {
-    //var doc_width = $(document).width();
     var doc_width = $(window).width();
 
     if (last_doc_width != doc_width) {
@@ -60,6 +59,12 @@ function adapt_global_sizes(force) {
 
 };
 
+function outline_type(ev_type) {
+
+    $(".nav_one").removeClass("active");
+    $("#nav_" + ev_type).addClass("active");
+
+};
 
 function update_type_sel(event_type) {
     $("#sel_was").val(event_type);
@@ -120,41 +125,6 @@ function format_day_string(dateObj) {
     return dateText;
 };
 
-window.agenda_day_span = 1;
-window.agenda_day_span_tmp = 1;
-
-function agenda_sync_span() {
-    window.agenda_day_span = window.agenda_day_span_tmp;
-};
-
-function agenda_get_span(tmp) {
-    if (tmp) {
-        return window.agenda_day_span_tmp;
-    }
-
-    return window.agenda_day_span;
-};
-
-function agenda_set_span(days, tmp) {
-    var allowed_spans = {1:1, 2:2, 7:7};
-
-    days = parseInt("" + days);
-    if (!days in allowed_spans) {
-        days = 1;
-    }
-
-    $(".agenda_span").removeClass("agenda_span_selected");
-    $("#agenda_span_" + days).addClass("agenda_span_selected");
-
-    window.agenda_day_span_tmp = days;
-    if (!tmp) {
-        window.agenda_day_span = days;
-    }
-
-    //alert("" + days + " days");
-    return days;
-};
-
 function load_sel_events(link_type) {
 
     var link_tag_ids = {
@@ -173,6 +143,53 @@ function load_sel_events(link_type) {
         location.href = new_link;
     }
 
+};
+
+window.used_date = function(separator, value_only) {
+    var when = "" + $("#wann").val();
+    when = escape(when.replace(/^\s+|\s+$/g, ""));
+
+    var evdate = "";
+    var evdateobj = null;
+    var evdate_day = "";
+    var evdate_month = "";
+    var evdate_year = "";
+
+    if ("" != when) {
+        if (!evdateobj) {
+            evdateobj = $("#wann").datepicker("getDate");
+        }
+    }
+    if (!evdateobj) {
+        evdateobj = new Date();
+    }
+    var has_get_date = false;
+    if ('getDate' in evdateobj) {
+        has_get_date = true;
+    }
+    if (!has_get_date) {
+        evdateobj = new Date();
+    }
+
+    evdate_day = evdateobj.getDate();
+    if (10 > evdate_day) {
+        evdate_day = "0" + evdate_day;
+    }
+    evdate_month = evdateobj.getMonth() + 1;
+    if (10 > evdate_month) {
+        evdate_month = "0" + evdate_month;
+    }
+    evdate_year = evdateobj.getFullYear();
+
+    $("#wann").datepicker("setDate" , evdateobj);
+    update_datepicker_visible();
+
+    var date_value = evdate_year + "-" + evdate_month + "-" + evdate_day;
+    if (value_only) {
+        return date_value;
+    }
+
+    return separator + "date=" + date_value;
 };
 
 window.load_date = function() {

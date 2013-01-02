@@ -9,30 +9,18 @@ window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=restau
 
 <!--
 {{*
-
 For Z+ site:
 pano_hash=a2cb391aa5cb95f0e0f054c151ed1d08
 
-
-
 Panorama Embed-Code
 Kopieren Sie den Embed-Code in den Quellcode Ihrer Webseite.
-
 <iframe name="lunchgate" src="http://www.lunchgate.ch/embed.php?name=bakery-bistro-im-nira-alpina&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08" scrolling="no" frameborder="no" height="271" width="723"></iframe>
 
-
-
 Direkter Link zum Profil bei Lunchgate:
-
 <a href="http://www.lunchgate.ch/restaurants/bakery-bistro-im-nira-alpina" title="Lunchgate Gastro-Profil">Lunchgate Profil</a>
 
-
-
 Direkter Link zum Panorama ohne Profil:
-
 <a href="http://www.lunchgate.ch/tour/bakery-bistro-im-nira-alpina" title="Lunchgate-Panorama">Panorama</a>
-
-Bei Fragen wenden Sie sich bitte an unseren Support.
 *}}
 -->
 
@@ -42,22 +30,6 @@ window.agenda_has_date_picker = false;
 </script>
 
 <style type="text/css">
-@media screen and (max-width: 1024px) {
-    .content-box .restaurant_comments section {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .content-box .restaurant_comments section {
-        width: auto;
-    }
-}
-
-.restaurant_comments {
-    margin-top: 32px;
-}
-
 .rest_text_hidden {
     display: none;
 }
@@ -66,17 +38,6 @@ window.agenda_has_date_picker = false;
     display: none;
 }
 
-
-p a.rest_link_active, p a.rest_link_active:link, p a.rest_link_active:hover, p a.rest_link_active:active {
-    color: #008148;
-/*
-    font-family: sans-serif;
-    font-weight: bold;
-*/
-}
-a.rest_link_menu_any, a.rest_link_menu_any:link, a.rest_link_menu_any:hover, a.rest_link_menu_any:active {
-    color: black;
-}
 </style>
 
 <script type="text/javascript">
@@ -401,16 +362,6 @@ function take_body_list($p_list, $p_separator)
 }
 
 {{ /php }}
-
-{{*
-<link rel="canonical" href="{{ uri options="article" }}" />
-<script type="text/javascript">
-$(document).ready(function() {
-    var canonical = $("link[rel=canonical]").attr("href");
-    //alert(canonical);
-});
-</script>
-*}}
 
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}
@@ -802,7 +753,6 @@ function get_menu_text($menu_data)
 
 <script type="text/javascript">
 $(document).ready(function() {
-//return;
     update_subnav_links("{{ $usedate_link }}", "1", "{{ $linkregion }}");
 
     highlight_agenda_type("restaurants");
@@ -856,19 +806,19 @@ function load_events(ev_type) {
 
         <article id="rest_detail">
 
-            <h3>{{ $gimme->article->headline|replace:'\\':'\'' }}</h3>
+            <h3>{{ $gimme->article->headline|replace:'\\\'':'\'' }}</h3>
 
                 {{ assign var="image_count" 0 }}
                 {{ if $gimme->article->has_image(1) }}
                     <figure class="clearfix">
 
                         {{ assign var="image_desc" $gimme->article->image1->description|replace:'"':'\'' }}
-                        <img class="rest_photo_any" id="rest_photo_1" src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                        <img class="rest_photo_any" id="rest_photo_1" {{ if $gimme->article->has_image(2) }}style="cursor:pointer;"{{ /if }} src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
                         {{ assign var="list_img_rank" 2 }}
                         {{ while $gimme->article->has_image($list_img_rank) }}
                             {{ assign var="image_tpl" "image$list_img_rank" }}
                             {{ assign var="image_desc" $gimme->article->$image_tpl->description|replace:'"':'\'' }}
-                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" style="cursor:pointer;" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
                             {{ assign var="list_img_rank" $list_img_rank+1 }}
                         {{ /while }}
                         {{ assign var="image_count" $list_img_rank-1 }}
@@ -1002,7 +952,7 @@ function load_events(ev_type) {
 
                     <p>
 {{ if $gimme->article->organizer }}
-                    <strong>{{ $gimme->article->organizer|replace:'\\':'\'' }}</strong><br />
+                    <strong>{{ $gimme->article->organizer|replace:'\\\'':'\'' }}</strong><br />
 {{ /if }}
 {{ if $gimme->article->town }}
                     {{ if $gimme->article->street }}{{ $gimme->article->street|regex_replace:"/\"(.*?)\"/":"&#171;$1&#187;" }},{{ /if }} {{ $gimme->article->zipcode }} {{ $gimme->article->town }}
@@ -1090,17 +1040,17 @@ function load_events(ev_type) {
 window.last_shown_image = 1;
 
 function show_photos() {
-    $("#rest_panorama").hide();
-    $(".rest_photo_any").hide();
-    $("#rest_photo_" + window.last_shown_image).show();
+    $("#rest_panorama").css('display', 'none');
+    $(".rest_photo_any").css('display', 'none');
+    $("#rest_photo_" + window.last_shown_image).css('display', 'block');
     $("#link_panos").removeClass("active");
     $("#link_fotos").addClass("active");
     return false;
 };
 
 function show_panorama() {
-    $(".rest_photo_any").hide();
-    $("#rest_panorama").show();
+    $(".rest_photo_any").css('display', 'none');
+    $("#rest_panorama").css('display', 'block');
     $("#link_fotos").removeClass("active");
     $("#link_panos").addClass("active");
     return false;
@@ -1116,8 +1066,8 @@ function show_next_image(cur_image_rank) {
 
     window.last_shown_image = next_image_rank;
 
-    $(".rest_photo_any").hide();
-    $("#rest_photo_" + next_image_rank).show();
+    $(".rest_photo_any").css('display', 'none');
+    $("#rest_photo_" + next_image_rank).css('display', 'block');
 
 };
 
@@ -1143,31 +1093,6 @@ $(document).ready(function() {
 
     $("#rest_menu_sel").dropdownized();
 
-return;
-    var max_width_use = $(window).width() - 10;
-    if (540 < max_width_use) {
-        max_width_use = 540;
-    }
-    var max_height_use = $(window).height() - 10;
-    if (560 < max_height_use) {
-        max_height_use = 560;
-    }
-    $("#rest_reservation_link_mobile").each(function() {
-        $(this).fancybox({
-            //modal: true,
-            hideOnContentClick: false,
-            hideOnOverlayClick: false,
-            enableEscapeButton: false,
-            showCloseButton: true,
-            closeClick: false,
-            helpers: {
-                overlay: {closeClick: false}
-            },
-            width: max_width_use,
-            height: max_height_use,
-            type: 'iframe'
-        });
-    });
 });
 
 

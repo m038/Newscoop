@@ -13,16 +13,7 @@
 {{ /if }}
 
 <script type="text/javascript">
-window.load_date_direct = true;
 window.preset_date = "{{ $event_date }}";
-
-function outline_type(ev_type) {
-
-    window.what_val = ev_type;
-    $(".nav_one").removeClass("active");
-    $("#nav_" + ev_type).addClass("active");
-
-};
 
 $(document).ready(function() {
     $("#date_picker_button_new").hide();
@@ -44,7 +35,6 @@ $(document).ready(function() {
 
     if ("{{ $event_region }}") {
         $("#wo").val("{{ $event_region }}");
-        //$("#wo").dropdownized({fixed:true,reload:true});
     }
 
     show_cuisines();
@@ -200,172 +190,12 @@ function get_current_cuisine_classes($topic_list) {
 {{ /php }}
 
 <style type="text/css">
-ul.partner-list li img.rest_partner {
-    float: left;
-    border: white solid 1px;
-}
-
-.rest_closed {
-    position: absolute;
-    margin-top: -45px;
-    width: 250px;
-    height: 28px;
-    background-color: rgba(250, 250, 250, 0.7);
-}
-
-.rest_closed_text {
-    margin-left: 10px;
-    margin-top: 7px;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: arial,helvetica,verdana;
-}
-
-.loading_block_rests {
-}
-.loading_image_rests {
-    margin-left: 25px;
-}
-.loading_text_rests {
-/*
-    float: left;
-*/
-    margin-top: -35px;
-    margin-bottom: 150px;
-    margin-left: 100px;
-}
-
-.top_label {
-    z-index: 1000;
-}
-
-.option_styled {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #A5A5A5;
-    float: left;
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 11px;
-    height: 18px;
-    line-height: 16px;
-/*
-    line-height: 16px;
-    margin-left: 4px;
-    padding: 1px 6px;
-*/
-    padding: 1px 1px 2px 4px;
-    width: 120px;
-    /*width: 70px;*/
-}
-
-.rest_text_hidden {
-    display: none;
-}
-
 .no_rest_found {
     margin-left: 20px;
 }
 </style>
 
 <script type="text/javascript">
-
-window.list_spec = {
-    type: '',
-    date: '',
-    period: '',
-    region: ''
-};
-
-window.update_list_on_params = function(params) {
-    var differ = false;
-    //var newpage = 0;
-
-    var new_spec = {
-        type: 'all',
-        date: window.used_date('', true),
-        period: 1,
-        region: 'region-zentralschweiz'
-    };
-
-    var params_array = params.split(";");
-    var params_count = params_array.length;
-    for (var pind = 0; pind < params_count; pind++) {
-        var one_param = params_array[pind];
-        one_param = one_param.replace(/^\s+|\s+$/g, "");
-        var one_values_array = one_param.split(":");
-        var one_values_count = one_values_array.length;
-        if (2 != one_values_count) {
-            continue;
-        }
-        var one_key = one_values_array[0];
-        if (one_key in window.list_spec) {
-            new_spec[one_key] = one_values_array[1];
-        }
-    }
-
-    for (var pkey in new_spec) {
-        if (new_spec[pkey] != window.list_spec[pkey]) {
-            //if ("page" != pkey) {
-                differ = true;
-            //} else {
-            //  newpage = parseInt(new_spec[pkey]);
-            //}
-        }
-    }
-
-    //if ((0 != newpage) && (!differ)) {
-    //    window.paginate(newpage - 1);
-    //    return;
-    //}
-
-    if (!differ) {
-        return;
-    }
-
-    if ('' != new_spec['type']) {
-        //$("#was").val(new_spec['type']);
-        outline_kueche(new_spec['type']);
-    }
-
-    if ('' != new_spec['region']) {
-        $("#wo").val(new_spec['region']);
-        $("#wo").dropdownized({fixed:true,reload:true});
-    }
-
-    if ('' != new_spec['period']) {
-        new_spec['period'] = agenda_set_span(new_spec['period']);
-    }
-
-    if ('' != new_spec['date']) {
-        //$(".datepicker").datepicker("setDate" , new Date(new_spec['date']));
-        $("#wann").datepicker("setDate" , new Date(new_spec['date']));
-        update_datepicker_visible();
-    }
-
-    //window.reload(new_spec['page']);
-    window.reload();
-};
-
-window.rest_sorting = 'alphabetical';
-
-$(document).ready(function() {
-return;
-    $.address.change(function(event) {
-        window.update_list_on_params($.address.value());
-    });
-    $("#was").val('all');
-    $("#wo").val('region-zentralschweiz');
-    $("#wo").dropdownized({fixed:true,reload:true});
-
-    $("#datapicker-button").show();
-
-});
-
-function outline_kueche(kueche) {
-    window.what_val = kueche;
-    $('.li_kueche').removeClass('active');
-    $('#li_' + kueche).addClass('active');
-
-};
 
 function show_cuisines_single(sel_cuisine) {
     $(".kueche_check").each(function(ind_elm, elm) {
@@ -446,22 +276,6 @@ function show_cuisines() {
     $(".article_active").show();
 };
 
-
-function load_kueche(kueche) {
-
-    outline_kueche(kueche);
-
-    window.reload();
-
-    return false;
-};
-
-function load_area(area) {
-    window.reload();
-
-    return false;
-};
-
 </script>
 
 <body>
@@ -497,7 +311,6 @@ function load_area(area) {
     {{ /if }}
 {{ /if }}
 
-{{* by default we gonna limit event list to those happening today *}} 
 {{ assign var="usedate" $smarty.now|camp_date_format:"%Y-%m-%d" }}
 {{ assign var="usedate_link" $usedate }}
 {{ if !empty($smarty.get.date) }}
@@ -511,20 +324,6 @@ function load_area(area) {
     {{ /if }}
 {{ /if }}
 
-{{ assign var="useperiod" "1" }}
-{{ assign var="useperiod_link" $useperiod }}
-{{ assign var="useperiod_tmp" "" }}
-{{ if !empty($smarty.get.period) }}
-    {{ assign var="useperiod_tmp" $smarty.get.period|replace:" ":"\\ "|replace:'"':"" }}
-{{ /if }}
-
-{{ assign var="useperiod_test" $useperiod_tmp|regex_replace:"/([1-9]){1}/":"ok" }}
-{{ if "ok" != $useperiod_tmp }}
-    {{ if "ok" == $useperiod_test }}
-        {{ assign var="useperiod" $useperiod_tmp }}
-        {{ assign var="useperiod_link" $useperiod_tmp }}
-    {{ /if }}
-{{ /if }}
 {{ assign var="useperiod" "1" }}
 {{ assign var="useperiod_link" "1" }}
 
@@ -661,7 +460,6 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
 
     $use_week_day_names = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
     $use_week_day_rank = gmdate('N', $usedate_timestamp) - 1;
-    //$use_week_day = strtolower($use_week_day_names[$use_week_day_rank]);
 
     $use_week_days_arr = array();
     $cur_week_day_rank = $use_week_day_rank;
@@ -682,7 +480,6 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
     $next_line_holiday_start = false;
     $next_line_holiday_end = false;
     $found_open = false;
-    //$at_holiday = false;
     $after_holiday_start = false;
     $before_holiday_end = false;
     $holiday_start_date = '';
@@ -896,30 +693,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                     <a href="{{ uri options="article" }}{{ $art_link_params }}"><img src="{{ uri static_file="assets/img/restaurant-icon.png" }}" alt="restaurant" class="thumbnail"  width="250" height="166" /></a>
                     {{ /if }}
                     </figure>
-                    <h3><a href="{{ uri options="article" }}{{ $art_link_params }}">{{ $gimme->article->headline }}</a></h3>
-{{ php }}
-/*
-                    {{ assign var="cur_topic_kueche" "start" }}
-                    {{ assign var="cur_topic_ambiance" "start" }}
-                    {{ list_article_topics }}
-                        {{ assign var="cur_topic" $gimme->topic->name }}
-                        {{ assign var="cur_topic_short" $cur_topic|replace:"Küche: ":"" }}
-                        {{ if $cur_topic ne $cur_topic_short }}
-                            {{ assign var="cur_topic_kueche" "$cur_topic_kueche, $cur_topic_short" }}
-                        {{ /if }}
-                        {{ assign var="cur_topic_short" $cur_topic|replace:"Ambiance: ":"" }}
-                        {{ if $cur_topic ne $cur_topic_short }}
-                            {{ assign var="cur_topic_ambiance" "$cur_topic_ambiance, $cur_topic_short" }}
-                        {{ /if }}
-                    {{ /list_article_topics }}
-                    {{ if $cur_topic_kueche ne "start" }}
-                        <h6>Küche: {{ $cur_topic_kueche|replace:"start,":"" }} </h6>
-                    {{ /if }}
-                    {{ if $cur_topic_ambiance ne "start" }}
-                        <h6>Ambiance: {{ $cur_topic_ambiance|replace:"start,":"" }} </h6>
-                    {{ /if }}
-*/
-{{ /php }}
+                    <h3><a href="{{ uri options="article" }}{{ $art_link_params }}">{{ $gimme->article->headline|replace:'\\\'':'\'' }}</a></h3>
                     {{ if $cuisine_text || $ambiance_text }}
                         <p>{{ $cuisine_text }}{{ if $cuisine_text && $ambiance_text }}, {{ /if }}{{ $ambiance_text }}</p>
                     {{ /if }}
@@ -944,317 +718,14 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
 </div><!-- end of newslist -->
 
 
-
-
 <script type="text/javascript">
-
-function sort_rests(way) {
-return;
-    var json_cont = "" + $("#movie_order_" + way).html();
-    if ("" == json_cont) {
-        return;
-    }
-
-    var movie_order = {};
-    try {
-        movie_order = JSON.parse(json_cont);
-    }
-    catch (e) {
-        //alert(JSON.stringify(e));
-        return;
-    }
-
-    $(".movie_sort_all").each(function(ind_elm, elm) {
-        $(elm).removeClass('active');
-    });
-    $("#movie_sort_" + way).addClass('active');
-    window.movie_sorting = way;
-
-    if (!movie_order) {
-        return;
-    }
-
-    var mov_count = movie_order.length;
-    for (var mind = movie_order.length; mind >= 0; mind--) {
-        var mkey = movie_order[mind];
-        var movie_id = "#movie_" + mkey;
-        $("#movies_place").after($(movie_id));
-    }
-
-};
-
-window.used_date = function(separator, value_only) {
-    var when = "" + $("#wann").val();
-    when = escape(when.replace(/^\s+|\s+$/g, ""));
-
-    var evdate = "";
-    var evdateobj = null;
-    var evdate_day = "";
-    var evdate_month = "";
-    var evdate_year = "";
-
-    if ("" != when) {
-        if (!evdateobj) {
-            //evdateobj = $(".datepicker").datepicker("getDate");
-            evdateobj = $("#wann").datepicker("getDate");
-        }
-    }
-
-    if (!evdateobj) {
-        evdateobj = new Date();
-    }
-    var has_get_date = false;
-    if ('getDate' in evdateobj) {
-        has_get_date = true;
-    }
-    if (!has_get_date) {
-        evdateobj = new Date();
-    }
-
-    evdate_day = evdateobj.getDate();
-    if (10 > evdate_day) {
-        evdate_day = "0" + evdate_day;
-    }
-    evdate_month = evdateobj.getMonth() + 1;
-    if (10 > evdate_month) {
-        evdate_month = "0" + evdate_month;
-    }
-    evdate_year = evdateobj.getFullYear();
-
-    //$(".datepicker").datepicker("setDate" , evdateobj);
-    $("#wann").datepicker("setDate" , evdateobj);
-    update_datepicker_visible();
-
-    var date_value = evdate_year + "-" + evdate_month + "-" + evdate_day;
-    if (value_only) {
-        return date_value;
-    }
-
-    return separator + "date=" + date_value;
-};
-
-window.used_period = function(separator, value_only) {
-    var span = "" + agenda_get_span();
-
-    var spec = "";
-
-    if ("" == span) {
-        span = "1";
-    }
-
-    if (value_only) {
-        return span;
-    }
-
-    spec = separator + "period=" + span;
-
-    return spec;
-};
-
-window.used_place = function(separator, value_only) {
-    var where = "" + $("#wo").val();
-    where = escape(where.replace(/^\s+|\s+$/g, ""));
-
-    var spec = "";
-
-    if ("" == where) {
-        where = "region-zentralschweiz";
-        //return "";
-    }
-
-
-    if (value_only) {
-        return where;
-    }
-
-    spec = separator + "region=" + where;
-
-    return spec;
-};
-
-window.set_cufon_fonts = function() {
-    // TODO
-};
-
-
-function show_highlight(date, period) {
-//alert("" + date + " - " + period);
-    period = 0 + period;
-
-    $('.date_hl_all').removeClass('current');
-    $('.date_hl_' + date).addClass('current');
-
-    var curDate = new Date(date);
-    for (var pind = 1; pind < period; pind++) {
-        curDate.setTime(curDate.getTime() + 86400000);
-
-        var month_str = "00" + (curDate.getMonth() + 1);
-        month_str = month_str.substr(month_str.length - 2, 2);
-
-        var day_str = "00" + curDate.getDate();
-        day_str = day_str.substr(day_str.length - 2, 2);
-
-        var date_hl = curDate.getFullYear() + "-" + month_str + "-" + day_str;
-        $('.date_hl_' + date_hl).addClass('current');
-    }
-};
-
-window.set_list_content = function(data, direct) {
-    //$("#kino_sel_part").remove();
-
-    if (direct) {
-        $('#event_rests_results').html(data);
-    }
-    else {
-        var dom = $(data);
-        $('#event_rests_results').html($('#event_rests_results', dom).html());
-    }
-
-    //$("#kino_selector").after($("#kino_sel_part"));
-    //$("#kino_sel_part").removeClass('agenda_hidden');
-
-    //window.set_cufon_fonts();
-    //Cufon.now(); // TODO!!!
-
-    if (!direct) {
-        //sort_rests(window.rest_sorting);
-
-        show_highlight(window.list_spec['date'], window.list_spec['period']);
-    }
-
-    //adapt_global_sizes(true);
-};
-
-window.get_basic_path = function() {
-    return "{{ local }}{{ set_current_issue }}{{ set_section number="73" }}{{ uri options="section" }}{{ /local }}" + "?load=1";
-};
-
-window.what_val = 'all';
-
-window.reload = function(page) {
-    if (undefined === page) {
-        page = 1;
-    }
-    page = parseInt(page);
-
-
-    var path = window.get_basic_path();
-    var path_spec = "";
-    var separator = "&";
-
-    //var what = "" + $("#was").val();
-    var what = window.what_val;
-    what = escape(what.replace(/^\s+|\s+$/g, ""));
-
-    var what_val = "all";
-    if ("" != what) {
-        path += separator + "type=" + what;
-        path_spec += separator + "type=" + what;
-        what_val = what;
-    }
-
-    var evdate = window.used_date(separator);
-    if ("" != evdate) {
-        path += evdate;
-        path_spec += evdate;
-    }
-    var when_val = window.used_date('', true);
-
-    var evperiod = window.used_period(separator);
-    if ("" != evperiod) {
-        path += evperiod;
-        path_spec += evperiod;
-    }
-    var while_val = window.used_period('', true);
-
-    var evplace = window.used_place(separator);
-    if ("" != evplace) {
-        path += evplace;
-        path_spec += evplace;
-    }
-    var where_val = window.used_place('', true);
-
-    window.last_search = path;
-
-    if ("" != path_spec) {
-        path_spec = path_spec.replace(/&/g, ";");
-        path_spec = path_spec.replace(/=/g, ":");
-    }
-
-    window.last_search_spec = path_spec;
-
-    $('#suchen').attr("disabled", true);
-    $('#suchen').addClass('ui-state-disabled');
-
-    ini_data = "";
-    //ini_data += '<html><body><div id="event_rests_results" class="event-rests-results">' + "\n";
-    ini_data += '<figure class="loading_block_rests">' + "\n";
-    ini_data += '  <div class="loading_image_rests">' + "\n";
-    ini_data += '    <img src="{{ uri static_file='_css/tw2011/img/loading_big.gif' }}">' + "\n";
-    ini_data += '  </div>' + "\n";
-    ini_data += '  <div class="loading_text_rests">' + "\n";
-    ini_data += '    Restaurants werden geladen.' + "\n";
-    ini_data += '  </div>' + "\n";
-    ini_data += '</figure>' + "\n";
-    //ini_data += '</div></body></html>' + "\n";
-
-    window.set_list_content(ini_data, true);
-
-    $.get(path, {}, function (data, textStatus, jqXHR) {
-        //if (path != window.last_search) {
-        //    return;
-        //}
-
-        window.list_spec['type'] = what_val;
-        window.list_spec['date'] = when_val;
-        window.list_spec['period'] = while_val;
-        window.list_spec['region'] = where_val;
-
-// TODO: put period into the links
-        update_subnav_links(window.list_spec['date'], window.list_spec['period'], window.list_spec['region']);
-
-        $.address.value(path_spec);
-        window.set_list_content(data);
-        $('#suchen').attr("disabled", false);
-        $('#suchen').removeClass('ui-state-disabled');
-    });
-};
-
-window.last_search = window.get_basic_path();
-window.last_search_spec = "";
-
-$(document).ready(function() {
-return;
-    $( "#suchen" ).click(function() {
-        window.reload();
-    });
-
-    //$("#date_picker_button_new").hide();
-    //$("#datapicker-button").hide();
-    //$("#top-calendar").hide();
-
-    $(".nav_one").removeClass("active");
-    $("#nav_restaurants").addClass("active");
-});
 
 function load_events(ev_type) {
     return true;
 };
 
 
-function load_cuisine(cuisine) {
-
-    var new_link = $("#nav_restaurants_link").attr("href");
-    new_link = new_link.replace("type=all", "type=" + cuisine);
-    location.href = new_link;
-
-};
-
-
 </script>
-<!--
-<script type="text/javascript" src="{{ uri static_file='_js/libs/json2.js' }}"></script>
--->
 
             <div class="aside">
 
