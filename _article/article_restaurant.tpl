@@ -1002,7 +1002,7 @@ function load_events(ev_type) {
 
                     <p>
 {{ if $gimme->article->organizer }}
-                    <strong>{{ $gimme->article->organizer|replace:'\\':'\'' }}</strong><br />
+                    <strong>{{ $gimme->article->organizer|replace:'\\\'':'\'' }}</strong><br />
 {{ /if }}
 {{ if $gimme->article->town }}
                     {{ if $gimme->article->street }}{{ $gimme->article->street|regex_replace:"/\"(.*?)\"/":"&#171;$1&#187;" }},{{ /if }} {{ $gimme->article->zipcode }} {{ $gimme->article->town }}
