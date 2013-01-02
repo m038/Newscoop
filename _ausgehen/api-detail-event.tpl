@@ -23,8 +23,7 @@ window.preset_date = "{{ $event_date }}";
 
 window.event_mode = "detail";
 window.event_key = "{{ $event_key }}";
-//window.event_detail = {{* api_events event_key=$event_key event_date=$event_date service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-window.event_detail = {{ api_events event_key=$event_key event_date=$event_date service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+window.event_detail = {{ api_events event_key=$event_key event_date=$event_date }};
 
 function display_date_time(date_time_str) {
 

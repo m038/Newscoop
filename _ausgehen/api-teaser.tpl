@@ -1,10 +1,8 @@
 <script type="text/javascript">
 
-//window.event_teaser = {{* api_events event_teaser=1 event_region="region-zentralschweiz" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-window.event_teaser = {{ api_events event_teaser=1 event_region="region-zentralschweiz" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+window.event_teaser = {{ api_events event_teaser=1 event_region="region-zentralschweiz" }};
 
-//window.movie_teaser = {{* api_cinema movie_teaser=1 movie_rating=3 cinema_date="2012-10-26" cinema_region="region-basel" service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_region="region-zentralschweiz" service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+window.movie_teaser = {{ api_cinema movie_teaser=1 movie_rating=3 cinema_region="region-zentralschweiz" }};
 
 $(document).ready(function() {
 

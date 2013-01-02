@@ -32,11 +32,9 @@ window.movie_mode = "list";
 {{ assign var="cinema_region_orig" value=$cinema_region }}
 {{* assign var="cinema_region" value="region-basel" *}}
 {{ if $movie_type eq 'kino' }}
-    //window.movie_list = {{* api_cinema cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-    window.movie_list = {{ api_cinema cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+    window.movie_list = {{ api_cinema cinema_date=$cinema_date cinema_region=$cinema_region }};
 {{ else }}
-    //window.movie_list = {{* api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-    window.movie_list = {{ api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+    window.movie_list = {{ api_cinema movie_genre=$movie_type cinema_date=$cinema_date cinema_region=$cinema_region }};
 {{ /if }}
 
 {{* assign var="cinema_region" value=$cinema_region_orig *}}

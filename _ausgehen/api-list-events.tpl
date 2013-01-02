@@ -28,12 +28,10 @@ window.preset_date = "{{ $event_date }}";
 
 window.event_mode = "list";
 {{ if $event_type eq 'event' }}
-    //window.event_list = {{* api_events event_date=$event_date event_region=$event_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-    window.event_list = {{ api_events event_date=$event_date event_region=$event_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+    window.event_list = {{ api_events event_date=$event_date event_region=$event_region }};
     window.events_mixed = true;
 {{ else }}
-    //window.event_list = {{* api_events event_genre=$event_type event_date=$event_date event_region=$event_region service_provider="http://edge.sourcefabric.org/newscoop/wobs-motm-13-events-for-luzern" http_userpwd="dev:SoFab" *}};
-    window.event_list = {{ api_events event_genre=$event_type event_date=$event_date event_region=$event_region service_provider="http://tw-reloaded.lab.sourcefabric.org" http_userpwd="tw-dev:SoFab" }};
+    window.event_list = {{ api_events event_genre=$event_type event_date=$event_date event_region=$event_region }};
     window.events_mixed = false;
 {{ /if }}
 
