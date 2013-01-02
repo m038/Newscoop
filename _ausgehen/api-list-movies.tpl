@@ -189,7 +189,7 @@ $(document).ready(function() {
                 list_content += "<img src=\"" + cur_movie.movie_poster_url + "\">";
 
                 if (cur_movie.image_copyright) {
-                    list_content += '<figcaption style="width:200px;">' + cur_movie.image_copyright + "</figcaption>\n";
+                    list_content += '<figcaption>' + cur_movie.image_copyright + "</figcaption>\n";
                 }
                 else {
                     list_content += "<figcaption>Copyrighted</figcaption>\n";

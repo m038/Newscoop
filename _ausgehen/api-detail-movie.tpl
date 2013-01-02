@@ -158,7 +158,7 @@ $(document).ready(function() {
             detail_content += '<figure class="left">';
             detail_content += '<img src="' + got_movie.movie_poster_url + '" alt="" />';
             if (got_movie.image_copyright) {
-                detail_content += '<figcaption style="padding-left:20px;padding-right:10px;width:170px;">' + got_movie.image_copyright + "</figcaption>\n";
+                detail_content += '<figcaption>' + got_movie.image_copyright + "</figcaption>\n";
             }
             detail_content += '</figure>';
         }
