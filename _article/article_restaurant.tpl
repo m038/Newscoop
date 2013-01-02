@@ -9,30 +9,18 @@ window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=restau
 
 <!--
 {{*
-
 For Z+ site:
 pano_hash=a2cb391aa5cb95f0e0f054c151ed1d08
 
-
-
 Panorama Embed-Code
 Kopieren Sie den Embed-Code in den Quellcode Ihrer Webseite.
-
 <iframe name="lunchgate" src="http://www.lunchgate.ch/embed.php?name=bakery-bistro-im-nira-alpina&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08" scrolling="no" frameborder="no" height="271" width="723"></iframe>
 
-
-
 Direkter Link zum Profil bei Lunchgate:
-
 <a href="http://www.lunchgate.ch/restaurants/bakery-bistro-im-nira-alpina" title="Lunchgate Gastro-Profil">Lunchgate Profil</a>
 
-
-
 Direkter Link zum Panorama ohne Profil:
-
 <a href="http://www.lunchgate.ch/tour/bakery-bistro-im-nira-alpina" title="Lunchgate-Panorama">Panorama</a>
-
-Bei Fragen wenden Sie sich bitte an unseren Support.
 *}}
 -->
 
@@ -802,7 +790,6 @@ function get_menu_text($menu_data)
 
 <script type="text/javascript">
 $(document).ready(function() {
-//return;
     update_subnav_links("{{ $usedate_link }}", "1", "{{ $linkregion }}");
 
     highlight_agenda_type("restaurants");
@@ -1143,31 +1130,6 @@ $(document).ready(function() {
 
     $("#rest_menu_sel").dropdownized();
 
-return;
-    var max_width_use = $(window).width() - 10;
-    if (540 < max_width_use) {
-        max_width_use = 540;
-    }
-    var max_height_use = $(window).height() - 10;
-    if (560 < max_height_use) {
-        max_height_use = 560;
-    }
-    $("#rest_reservation_link_mobile").each(function() {
-        $(this).fancybox({
-            //modal: true,
-            hideOnContentClick: false,
-            hideOnOverlayClick: false,
-            enableEscapeButton: false,
-            showCloseButton: true,
-            closeClick: false,
-            helpers: {
-                overlay: {closeClick: false}
-            },
-            width: max_width_use,
-            height: max_height_use,
-            type: 'iframe'
-        });
-    });
 });
 
 

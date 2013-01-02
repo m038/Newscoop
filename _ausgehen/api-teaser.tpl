@@ -109,12 +109,6 @@ $(document).ready(function() {
         var use_movie = window.movie_teaser.films[0];
 
         if (use_movie && use_movie['title'] && use_movie['movie_key']) {
-/*
-            var movie_display = "<h4><a href=\"" + movie_base_dir + "?movie_key=" + use_movie['movie_key'] + "&date=" + cinema_date + "&region=" + cinema_region + "\">" + use_movie['title'] + "</a></h4>";
-            if (use_movie['director']) {
-                movie_display += " by " + use_movie['director'];
-            }
-*/
 
             var movie_icon_alt = "Kino";
             cur_icon_name = default_icon_movie;
