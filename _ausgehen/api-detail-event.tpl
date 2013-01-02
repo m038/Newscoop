@@ -14,6 +14,9 @@ window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=event&
 window.agenda_has_select_tags = true;
 window.agenda_has_date_picker = false;
 
+window.use_region = "region-zentralschweiz";
+window.use_type = "all";
+
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
     {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
@@ -96,13 +99,13 @@ $(document).ready(function() {
 
         var got_event = window.event_detail.event;
 
-        var use_outline_type = "all";
         if (got_event['type'] in types_to_outlines) {
-            use_outline_type = types_to_outlines[got_event['type']];
+            window.use_type = types_to_outlines[got_event['type']];
         }
 
-        update_subnav_links("{{ $event_date }}", 1, got_event['canton']);
-        outline_type(use_outline_type);
+        if (got_event['canton'] && ("" != got_event['canton'])) {
+            window.use_region = got_event['canton'];
+        }
 
         detail_content += "<h3>" + got_event.title + "</h3>\n";
 
@@ -170,9 +173,13 @@ $(document).ready(function() {
 
     }
 
+    update_subnav_links("{{ $event_date }}", 1, window.use_region);
+    outline_type(window.use_type);
+
+    $("#list_back_link_icon").attr("href", $("#list_back_link_icon").attr("href") + "&region=" + window.use_region)
+    $("#list_back_link_text").attr("href", $("#list_back_link_text").attr("href") + "&region=" + window.use_region)
+
     $("#event_detail").html(detail_content);
-
-
 
     var location_content = "";
 

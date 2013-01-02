@@ -55,8 +55,7 @@ window.movie_key = "{{ $movie_key }}";
 {{ else }}
     window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region=$cinema_region }};
     $(document).ready(function() {
-        //update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
-        update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
+        update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
     });
 {{ /if }}
 
