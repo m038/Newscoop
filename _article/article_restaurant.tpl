@@ -1090,17 +1090,17 @@ function load_events(ev_type) {
 window.last_shown_image = 1;
 
 function show_photos() {
-    $("#rest_panorama").hide();
-    $(".rest_photo_any").hide();
-    $("#rest_photo_" + window.last_shown_image).show();
+    $("#rest_panorama").css('display', 'none');
+    $(".rest_photo_any").css('display', 'none');
+    $("#rest_photo_" + window.last_shown_image).css('display', 'block');
     $("#link_panos").removeClass("active");
     $("#link_fotos").addClass("active");
     return false;
 };
 
 function show_panorama() {
-    $(".rest_photo_any").hide();
-    $("#rest_panorama").show();
+    $(".rest_photo_any").css('display', 'none');
+    $("#rest_panorama").css('display', 'block');
     $("#link_fotos").removeClass("active");
     $("#link_panos").addClass("active");
     return false;
@@ -1116,8 +1116,8 @@ function show_next_image(cur_image_rank) {
 
     window.last_shown_image = next_image_rank;
 
-    $(".rest_photo_any").hide();
-    $("#rest_photo_" + next_image_rank).show();
+    $(".rest_photo_any").css('display', 'none');
+    $("#rest_photo_" + next_image_rank).css('display', 'block');
 
 };
 
