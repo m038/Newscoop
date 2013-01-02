@@ -1040,7 +1040,7 @@ function load_events(ev_type) {
                     </div>
                     {{ /list_article_locations }}
 
-                    <div class="box top-line back-link bottom-line margin-top desktop-hide mobile-hide phone-show">
+                    <div class="box top-line back-link bottom-line margin-top desktop-hide phone-show">
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="73" }}
@@ -1072,7 +1072,7 @@ function load_events(ev_type) {
 
         {{ include file="_tpl/article-comments.tpl" }}
 
-                        <div class="main box top-line back-link bottom-line margin-top phone-hide" style="border-right:0; margin-top:-15px; width:707px;">
+                        <div class="main box top-line back-link bottom-line margin-top mobile-hide">
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="73" }}
