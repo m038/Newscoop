@@ -1,4 +1,4 @@
-                <div class="social-bar{{ if $gimme->publication->identifier == "2" }} bottom-line{{ /if }} clearfix">
+                <div class="social-bar{{ if $gimme->publication->identifier == "2" || $gimme->publication->identifier == "4" }} bottom-line{{ /if }} clearfix">
                 
                   <ul class="soc-options left">
                       <li class="fb"><a href="#">Facebook</a></li>
@@ -16,7 +16,6 @@
                 
 {{ if $gimme->publication->identifier == "2" }}
     {{ if ($gimme->section->number <= 70) || ($gimme->section->number > 80) }}
-
                 
 		{{ include file="_tpl/article-payment.tpl" }}
 

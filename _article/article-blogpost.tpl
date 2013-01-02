@@ -38,28 +38,21 @@
                     
                 </article>
                 
-                <div class="bottom-line social-bar clearfix">
-                
-                  <ul class="soc-options left">
-                      <li class="fb"><a href="#">Facebook</a></li>
-                      <li class="tw"><a href="#">Twitter</a></li>
-                      <li class="gplus"><a href="#">Google+</a></li>
-                        <li class="activate"><a href="#">Social-Media Dienste aktivieren</a></li>
-                    </ul>
-                    
-                    <ul class="article-options right">
-                      <li class="email"><a href="#">Email</a></li>
-                      <li class="print"><a href="#">Print</a></li>
-                    </ul>
-                
-                </div>
-                
+						  {{ include file="_tpl/article-tools.tpl" }}                
+
+					{{ assign var="curart" value=$gimme->article->number }}
+					{{ list_articles length="3" constraints="number not $curart type is blog" }}
+					{{ if $gimme->current_list->at_beginning }}                
                 <article class="single">
-                  <h4>Weitere Blogbeiträge aus «Was gibt’s wo»</h4>
-                    <p>In Sachen Genuss Lokale<br />
-                    Ein echtes Erlebnis<br />
-                    Alle Jahre wieder</p>
-                </article>
+                  <h4>Weitere Blogbeiträge aus «{{ $gimme->section->name }}»</h4>
+                    <p>
+               {{ /if }}
+                    <a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ if $gimme->current_list->at_end }}{{ else }}<br />{{ /if }}
+               {{ if $gimme->current_list->at_end }}
+                    </p>
+               </article>
+               {{ /if }}
+               {{ /list_articles }}
             
             </div><!-- / Main -->
             
@@ -85,14 +78,16 @@
 {{ /if }}
 
 {{ if $gimme->default_section->number == "25" }}
+            	{{ local }}
             	<div class="two-columns clearfix equal-heights phone-hide">
+            	{{ unset_article }}
             	{{ set_topic name="Was gibts wo Blog:de" }}
             	{{ list_subtopics }}
                     <div class="box">
                         <h4>{{ $gimme->topic->name }}</h4>
                         <ul class="custom-list tag-list">
                         	{{ list_subtopics }}
-                            <li><a href="#">{{ $gimme->topic->name }}</a> {{ assign var="numpost" value=0 }}{{ list_articles length="1" }}{{ if $gimme->current_list->count }}{{ assign var="numpost" value=$gimme->current_list->count }}{{ /if }}{{ /list_articles }}({{ $numpost }})</li>
+                            <li><a href="{{ url }}">{{ $gimme->topic->name }}</a> {{ assign var="numpost" value=0 }}{{ list_articles length="1" }}{{ if $gimme->current_list->count }}{{ assign var="numpost" value=$gimme->current_list->count }}{{ /if }}{{ /list_articles }}({{ $numpost }})</li>
                            {{ /list_subtopics }}
                         </ul>
                     </div>
@@ -101,36 +96,24 @@
                 </div>
                 
                 <ul class="phone-icon-dropdown top-line">
-                	<li class="tag">
+                  {{ set_topic name="Was gibts wo Blog:de" }}
+                  {{ list_subtopics }}
+                	<li class="{{ if $gimme->topic->name == "Rubriken" }}tag{{ else }}place{{ /if }}">
                         <select class="dropdownized">
-                        	<option value="Rubriken">Rubriken</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
+                        	<option value="{{ $gimme->topic->name }}">{{ $gimme->topic->name }}</option>
+                        	{{ list_subtopics }}
+                            <option value="{{ $gimme->topic->name }}">{{ $gimme->topic->name }}</option>
+									{{ /list_subtopics }}
                         </select>
                     </li>
-                    <li class="place">
-                        <select class="dropdownized">
-                        	<option value="Orte">Orte</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                    </li>
-                </ul>                
+                    {{ /list_subtopics }}
+                </ul>               
+                {{ /local }} 
                 
             	<div class="box top-line bottom-line">
                 	<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zug,+Switzerland&amp;aq=0&amp;oq=zug&amp;sll=37.0625,-95.677068&amp;sspn=53.080379,39.726562&amp;ie=UTF8&amp;hq=&amp;hnear=Zug,+Canton+of+Zug,+Switzerland&amp;t=m&amp;z=12&amp;ll=47.174589,8.513854&amp;output=embed"></iframe>
                 </div>               
-{{ else }}                
-                <div class="box bottom-line">
-                	<h4>Rubriken</h4>
-                	<ul class="custom-list tag-list">
-                        <li><a href="#">lokale Spezialitäten</a> (4)</li>
-                        <li><a href="#">Alles Bio</a> (4)</li>
-                        <li><a href="#">Märkte</a> (4)</li>
-                        <li><a href="#">Handwerk</a> (4)</li>
-                        <li><a href="#">Wein und Brand</a> (4)</li>
-                    </ul>
-                </div>
+
 {{ /if }}
         
                 <div class="ad">

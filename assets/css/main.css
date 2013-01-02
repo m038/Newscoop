@@ -1145,7 +1145,7 @@ small {
 		padding-bottom:12px; margin-bottom:10px;
 		border-bottom:#dadada dashed 1px;
 		}
-		.events-content article figure.right {margin:0 2px 0 15px;}
+		.events-content article figure.right {margin:0 2px 20px 15px; max-width: 200px;}
 			.events-content article figure.right img {display:block; margin-bottom:5px; border:#ccc solid 1px;}
 			.events-content article figure.right figcaption {
 				padding:0;
@@ -1186,8 +1186,15 @@ small {
 		.back-link {overflow:hidden; line-height:30px;}
 			.back-link a {color:#000; text-decoration:none;}
 			.back-link .button {margin-right:10px; padding:0 12px; color:#B40032; font-size:30px; float:left;}
-		.event-single article figure.left {margin:4px 15px 0 0;}
+		.event-single article figure.left {margin:4px 15px 0 0; max-width: 200px;}
 			.event-single article figure.left img {display:block; border:#ccc solid 1px;}
+			.event-single figure figcaption {
+				padding:10px 0 !important; 
+				background: none; 
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px; line-height: 140%;
+				color: #666;
+				}
 		
 	
 	.movie-table table {width:100%; margin-bottom: 10px}
@@ -1234,6 +1241,13 @@ small {
 				text-align: center;
 				padding: 6px;
 				background: rgba(180, 0, 50, 0.85);
+			}
+
+		.wide-wrapper .main.back-link {
+			border-right: 0 none;
+		    float: left;
+		    margin-top: -15px;
+		    width: 707px;
 			}
 	
 	/*.restaurant-single .events-aside {width:150px; margin-right:15px;}
@@ -2227,6 +2241,8 @@ a.button.center.details-more {display:none;}
 	.restaurant-list {padding:10px;}
 		.restaurant-list article {width:222px;}
 		.restaurant-list article:nth-child(3n+1) {margin-right:0;}
+
+	.restaurant-single #event_location.bottom-line {border-bottom:none;}
 	
 }
 
@@ -3024,6 +3040,8 @@ a.button.center.details-more {display:none;}
 	.img-options .button:nth-child(2) {float:left;}
 	
 	.img-options .button:last-child {float:none; width:auto; display:block; clear:both;}
+
+	.event-single article figure.left {width: 45%; max-width: 160px;}
 	
 
 }

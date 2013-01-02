@@ -12,6 +12,8 @@
         
         	<div class="main">
 
+      {{ local }}
+      {{ unset_topic }}
 		{{ list_articles length="1" constraints="type is bloginfo" }}            
             	<article class="bottom-line single-title">
                 	<figure>
@@ -24,11 +26,18 @@
                     </figure>
                     <p>{{ $gimme->article->infolong|strip_tags:false }}</p>
                 </article><!-- / Top fetured -->
-                {{ /list_articles }}
+       {{ /list_articles }}
+       {{ /local }}
+
+					 {{ if $gimme->topic->defined }}
+                <article class="bottom-line">
+                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Postings in der Rubrik «{{ $gimme->topic->name }}»</p>
+                </article>
+                {{ /if }}
 
                 <div class="left-thumb bottom-line article-spacing clearfix">
 
-		{{ list_articles constraints="type is blog" }}             
+		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
                     	<p class="time-top"><time>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></p>
                     		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
@@ -40,6 +49,25 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
+                    
+{{ if $gimme->current_list->at_end }}            
+
+{{* PAGINATION *}}
+{{ $pages=ceil($gimme->current_list->count/5) }}
+{{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id())) }}
+{{ if $pages gt 1 }}
+<ul class="paging center top-line">
+    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ unset_article }}{{ url options="previous_items" }}">‹</a></li>{{ /if }}
+
+<li class="caption">{{ ceil($curpage/5)+1 }} von {{ $pages }}</li>
+
+    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ unset_article }}{{ url options="next_items" }}">›</a></li>{{ /if }}
+</ul>
+{{ $gimme->url->set_parameter($gimme->current_list_id(),$curpage) }}
+{{ /if }}
+
+{{ /if }}                       
+                    
 		{{ /list_articles }}                      
                 </div>
             
@@ -69,20 +97,37 @@
 {{ /if }}
 
 {{ if $gimme->default_section->number == "25" }}
-            	<div class="two-columns clearfix equal-heights">
+            	{{ local }}
+            	<div class="two-columns clearfix equal-heights phone-hide">
+            	{{ unset_article }}
             	{{ set_topic name="Was gibts wo Blog:de" }}
             	{{ list_subtopics }}
                     <div class="box">
                         <h4>{{ $gimme->topic->name }}</h4>
                         <ul class="custom-list tag-list">
                         	{{ list_subtopics }}
-                            <li><a href="#">{{ $gimme->topic->name }}</a> {{ assign var="numpost" value=0 }}{{ list_articles length="1" }}{{ if $gimme->current_list->count }}{{ assign var="numpost" value=$gimme->current_list->count }}{{ /if }}{{ /list_articles }}({{ $numpost }})</li>
+                            <li><a href="{{ url }}">{{ $gimme->topic->name }}</a> {{ assign var="numpost" value=0 }}{{ list_articles length="1" }}{{ if $gimme->current_list->count }}{{ assign var="numpost" value=$gimme->current_list->count }}{{ /if }}{{ /list_articles }}({{ $numpost }})</li>
                            {{ /list_subtopics }}
                         </ul>
                     </div>
                {{ /list_subtopics }}
-					{{ unset_topic }}              
+					{{ unset_topic }}                
                 </div>
+                
+                <ul class="phone-icon-dropdown top-line">
+                  {{ set_topic name="Was gibts wo Blog:de" }}
+                  {{ list_subtopics }}
+                	<li class="{{ if $gimme->topic->name == "Rubriken" }}tag{{ else }}place{{ /if }}">
+                        <select class="dropdownized">
+                        	<option value="{{ $gimme->topic->name }}">{{ $gimme->topic->name }}</option>
+                        	{{ list_subtopics }}
+                            <option value="{{ $gimme->topic->name }}">{{ $gimme->topic->name }}</option>
+									{{ /list_subtopics }}
+                        </select>
+                    </li>
+                    {{ /list_subtopics }}
+                </ul>               
+                {{ /local }} 
                 
             	<div class="box top-line bottom-line">
                 	<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zug,+Switzerland&amp;aq=0&amp;oq=zug&amp;sll=37.0625,-95.677068&amp;sspn=53.080379,39.726562&amp;ie=UTF8&amp;hq=&amp;hnear=Zug,+Canton+of+Zug,+Switzerland&amp;t=m&amp;z=12&amp;ll=47.174589,8.513854&amp;output=embed"></iframe>
