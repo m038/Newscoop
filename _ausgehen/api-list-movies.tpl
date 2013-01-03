@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var list_content = 'Ihre Suche ergab keine Treffer';
+    var list_content = '<div class="no-event-found">Ihre Suche ergab keine Treffer.</div>';
 
     var cur_url = location.href;
     var cur_url_parts = cur_url.split("#");

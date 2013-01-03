@@ -59,7 +59,7 @@ function display_date_time(date_time_str) {
 };
 
 $(document).ready(function() {
-    var detail_content = 'Event not found';
+    var detail_content = '<div class="event-not-found">Veranstaltung nicht gefunden.</div>';
 
     var types_to_outlines = {
         theater: "theater",

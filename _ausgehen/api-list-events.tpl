@@ -75,7 +75,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var list_content = 'Ihre Suche ergab keine Treffer';
+    var list_content = '<div class="no-event-found">Ihre Suche ergab keine Treffer.</div>';
 
     var types_to_display = {
         theater: "Theater",
