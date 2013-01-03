@@ -80,7 +80,7 @@
                 </div>
 
 {{ if $list_type ne "restaurants" }}
-                <p><a href="mailto:agenda@zentralplus.ch">Ihre Veranstaltung fehlt?</a></p>
+                <p><a href="mailto:events@zentralplus.ch">Ihre Veranstaltung fehlt?</a></p>
 {{ else }}
 
                     <div class="box desktop-hide">
