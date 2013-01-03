@@ -125,7 +125,7 @@ $(document).ready(function() {
 
         var date_time_str = null;
         if (got_event.postponed) {
-            date_time_str = 'verschoben';
+            date_time_str = '<div class="event_postponed">verschoben</div>';
         }
 
         if (got_event.date_time && (!got_event.postponed)) {

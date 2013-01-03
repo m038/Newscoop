@@ -16,4 +16,8 @@
     margin-left: 20px;
 }
 
+.event_postponed {
+    color: #B40032;
+}
+
 </style>
