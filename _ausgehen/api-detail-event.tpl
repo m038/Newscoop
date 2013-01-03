@@ -59,7 +59,7 @@ function display_date_time(date_time_str) {
 };
 
 $(document).ready(function() {
-    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found">Veranstaltung nicht gefunden.</div></div>';
+    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Veranstaltung nicht gefunden.</p></div></div>';
 
     var types_to_outlines = {
         theater: "theater",
@@ -95,7 +95,7 @@ $(document).ready(function() {
     }
 
     if (window.event_detail && window.event_detail.event && window.event_detail.event['canceled']) {
-        detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-canceled">Veranstaltung abgesagt.</div></div>';
+        detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-canceled"><p>Veranstaltung abgesagt.</p></div></div>';
     }
 
     if (window.event_detail && window.event_detail.event && (!window.event_detail.event['canceled'])) {

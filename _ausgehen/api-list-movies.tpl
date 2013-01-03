@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var list_content = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found">Ihre Suche ergab keine Treffer.</div></div>';
+    var list_content = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found"><p>Ihre Suche ergab keine Treffer.</p></div></div>';
 
     var cur_url = location.href;
     var cur_url_parts = cur_url.split("#");

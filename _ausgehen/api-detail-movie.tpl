@@ -99,7 +99,7 @@ function get_day_display_info(date_str) {
 };
 
 $(document).ready(function() {
-    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found">Film nicht gefunden.</div></div>';
+    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Film nicht gefunden.</p></div></div>';
 
     outline_type("kino");
 
