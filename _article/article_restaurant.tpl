@@ -7,23 +7,6 @@ window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=restau
 </script>
 <link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/{{ $gimme->article->number }}/" />
 
-<!--
-{{*
-For Z+ site:
-pano_hash=a2cb391aa5cb95f0e0f054c151ed1d08
-
-Panorama Embed-Code
-Kopieren Sie den Embed-Code in den Quellcode Ihrer Webseite.
-<iframe name="lunchgate" src="http://www.lunchgate.ch/embed.php?name=bakery-bistro-im-nira-alpina&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08" scrolling="no" frameborder="no" height="271" width="723"></iframe>
-
-Direkter Link zum Profil bei Lunchgate:
-<a href="http://www.lunchgate.ch/restaurants/bakery-bistro-im-nira-alpina" title="Lunchgate Gastro-Profil">Lunchgate Profil</a>
-
-Direkter Link zum Panorama ohne Profil:
-<a href="http://www.lunchgate.ch/tour/bakery-bistro-im-nira-alpina" title="Lunchgate-Panorama">Panorama</a>
-*}}
--->
-
 <script type="text/javascript">
 window.agenda_has_select_tags = false;
 window.agenda_has_date_picker = false;
@@ -729,7 +712,7 @@ function get_menu_text($menu_data)
     $rest_days_notice = get_rest_days_notice($rest_days, $usedate, $useperiod);
     $template->assign('rest_days_notice',$rest_days_notice);
 
-    $partner_hash_key = '341cbc516c320cad372bbedfadd941f7';
+    $partner_hash_key = '9ae6dbb54e90fc01fdec2263457fd40e';
     $rest_id = '' . $template->get_template_vars('rest_id');
     $reservation_link = load_reservation_link($rest_id, $partner_hash_key);
     if (!empty($reservation_link)) {
