@@ -705,10 +705,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 </article>
 
 {{ /list_articles }}
-{{ if $rest_rank eq 0 }}
-    <div class="no_rest_found" id="loading_empty"><p>Leider haben wir zu diesen Suchkriterien kein Restaurant gefunden.</p></div>
-{{ else}}
-{{ /if }}
+    <div class="no_rest_found" id="loading_empty" {{ if $rest_rank != 0 }}style="display:none;"{{ /if }}><p>Leider haben wir zu diesen Suchkriterien kein Restaurant gefunden.</p></div>
 
                 </div><!-- /restaurant_list -->
 
