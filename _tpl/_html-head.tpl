@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>Zentral+</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    
+    {{ include file="_tpl/_meta-description.tpl" }}
+    {{ include file="_tpl/_meta-keywords.tpl" }}    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ uri static_file="assets/img/favicon.ico" }}">
