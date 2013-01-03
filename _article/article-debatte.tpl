@@ -73,21 +73,7 @@
                 
                 </div>
                 
-                <div class="social-bar top-line clearfix">
-                
-                  <ul class="soc-options left">
-                      <li class="fb"><a href="#">Facebook</a></li>
-                      <li class="tw"><a href="#">Twitter</a></li>
-                      <li class="gplus"><a href="#">Google+</a></li>
-                        <li class="activate"><a href="#">Social-Media Dienste aktivieren</a></li>
-                    </ul>
-                    
-                    <ul class="article-options right">
-                      <li class="email"><a href="#">Email</a></li>
-                      <li class="print"><a href="#">Print</a></li>
-                    </ul>
-                
-                </div>
+{{ include file="_tpl/article-tools.tpl" }}
             
             </div><!-- / Main -->
             
@@ -98,21 +84,18 @@
                 <h4 class="center-title">Abgeschlossene Debatten</h4>
                 
                 <div class="clearfix">
-                
-                    <article class="mobile-half">
+                {{ list_articles length="3" constraints="type is debatte" }}
+                {{ if $gimme->current_list->index gt 1 }}
+                    <article class="mobile-half{{ if $gimme->current_list->index == 3 }} last{{ /if }}">
                         <figure>
-                            <img src="{{ uri static_file="pictures/article-img-1.jpg" }}" alt="" />
+              				{{ image rendition="arthalf" }}                
+                      		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              				{{ /image }}
                         </figure>
-                        <h3><a href="#">Für einmal freiwillig Spitallu! schnuppern</a></h3>
+                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
-                    
-                    <article class="mobile-half last">
-                        <figure>
-                            <img src="{{ uri static_file="pictures/article-img-2.jpg" }}" alt="" />
-                        </figure>
-                        <h3><a href="#">Komax kau! deutsche Kabelprüfspezialistin</a></h3>
-                    </article>
-                
+                {{ /if }}
+                {{ /list_articles }}
                 </div>
             
             </div><!-- / Aside -->
