@@ -124,7 +124,11 @@ $(document).ready(function() {
         }
 
         var date_time_str = null;
-        if (got_event.date_time) {
+        if (got_event.postponed) {
+            date_time_str = 'verschoben';
+        }
+
+        if (got_event.date_time && (!got_event.postponed)) {
             var date_time_info = display_date_time(got_event.date_time);
             if (date_time_info['date'] || date_time_info['time']) {
                 date_time_str = '';
