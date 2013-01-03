@@ -59,7 +59,7 @@ function display_date_time(date_time_str) {
 };
 
 $(document).ready(function() {
-    var detail_content = '<div class="event-not-found">Veranstaltung nicht gefunden.</div>';
+    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found">Veranstaltung nicht gefunden.</div></div>';
 
     var types_to_outlines = {
         theater: "theater",
@@ -95,7 +95,7 @@ $(document).ready(function() {
     }
 
     if (window.event_detail && window.event_detail.event && window.event_detail.event['canceled']) {
-        detail_content = '<div class="event-canceled">Veranstaltung abgesagt.</div>';
+        detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-canceled">Veranstaltung abgesagt.</div></div>';
     }
 
     if (window.event_detail && window.event_detail.event && (!window.event_detail.event['canceled'])) {
@@ -236,6 +236,8 @@ $(document).ready(function() {
 {{ include file="_tpl/header-nav.tpl" }}
 
 {{ include file="_tpl/header.tpl" }}
+
+{{ include file="_ausgehen/other-common.tpl" }}
 
 {{ include file="_ausgehen/subnav-common-func.tpl" }}
 

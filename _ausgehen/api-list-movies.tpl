@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var list_content = '<div class="no-event-found">Ihre Suche ergab keine Treffer.</div>';
+    var list_content = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found">Ihre Suche ergab keine Treffer.</div></div>';
 
     var cur_url = location.href;
     var cur_url_parts = cur_url.split("#");
@@ -294,6 +294,8 @@ $(document).ready(function() {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/api-teaser-place.tpl" }}
 
     </div><!-- / content_wrapper -->
@@ -314,13 +316,6 @@ $(document).ready(function() {
             <div id="event_list" class="main phone-accordion">
                 &nbsp;
             </div><!-- / event_list -->
-
-
-<div id="newslist" style="display:none;">
-    <div class="no_movie_found"><p>Ihre Suche ergab keine Treffer</p></div>
-</div><!-- end of newslist -->
-
-
 
 <script type="text/javascript">
 

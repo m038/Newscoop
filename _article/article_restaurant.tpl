@@ -765,6 +765,8 @@ function load_events(ev_type) {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/subnav-common-func.tpl" }}
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}

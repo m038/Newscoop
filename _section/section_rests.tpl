@@ -294,6 +294,8 @@ function show_cuisines() {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/api-teaser-place.tpl" }}
 
     </div><!-- / content_wrapper -->

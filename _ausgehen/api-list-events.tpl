@@ -75,7 +75,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var list_content_none = '<div class="no-event-found">Ihre Suche ergab keine Treffer.</div>';
+    var list_content_none = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found">Ihre Suche ergab keine Treffer.</div></div>';
     var list_content = "";
     var some_regular_event = false;
 
@@ -239,6 +239,8 @@ $(document).ready(function() {
 {{ include file="_tpl/header-nav.tpl" }}
 
 {{ include file="_tpl/header.tpl" }}
+
+{{ include file="_ausgehen/other-common.tpl" }}
 
 {{ include file="_ausgehen/api-teaser-place.tpl" }}
 
