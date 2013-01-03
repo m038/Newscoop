@@ -40,12 +40,26 @@
 
     {{ elseif $gimme->article->defined }}    
     
-    {{ if $gimme->article->defined }}
     		{{ if $gimme->article->lede|strip_tags:false !== "" }}
     			{{ $gimme->article->lede|strip_tags|escape:'html'|trim }}
+    		{{ elseif $gimme->article->teaser|strip_tags:false !== "" }}
+    			{{ $gimme->article->teaser|strip_tags|escape:'html'|trim }}
+    		{{ else }}
+    			{{ $gimme->article->body|strip_tags|escape:'html'|trim|truncate:150 }}
     		{{ /if }}
-    {{ /if }}
+    		
     {{ /if }} 
-    
+
+{{ elseif $gimme->publication->identifier == 4 }}
+		{{ if $gimme->template->name == "blogs.tpl" }}  
+
+		{{ elseif $gimme->template->name == "section.tpl" }}
+			{{ list_articles length="1" constraints="type is bloginfo" }}
+				{{ $gimme->article->infolong|strip_tags|escape:'html'|trim }}
+			{{ /list_articles }}
+
+		{{ elseif $gimme->article->defined }}			
+				{{ $gimme->article->lede|strip_tags|escape:'html'|trim }}	
+		{{ /if }}    
 {{ /if }}    
     {{ /strip }}">

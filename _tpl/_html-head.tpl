@@ -7,7 +7,10 @@
     <title>Zentral+</title>
     
     {{ include file="_tpl/_meta-description.tpl" }}
-    {{ include file="_tpl/_meta-keywords.tpl" }}    
+    {{ include file="_tpl/_meta-keywords.tpl" }}
+    <meta name="author" content="zentral+, MMV online AG, Hirschengraben 43, 6003 Luzern">
+    <meta name="copyright" content="zentral+, MMV online AG, Hirschengraben 43, 6003 Luzern">
+    <meta name="email" content="info@zentralplus.ch">    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ uri static_file="assets/img/favicon.ico" }}">
