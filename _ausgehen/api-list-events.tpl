@@ -75,7 +75,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var list_content = '<div class="no-event-found">Ihre Suche ergab keine Treffer.</div>';
+    var list_content_none = '<div class="no-event-found">Ihre Suche ergab keine Treffer.</div>';
+    var list_content = "";
+    var some_regular_event = false;
 
     var types_to_display = {
         theater: "Theater",
@@ -131,6 +133,11 @@ $(document).ready(function() {
             if ((!cur_event) || (!cur_event.title)) {
                 continue;
             }
+            if (cur_event['canceled']) {
+                continue;
+            }
+
+            some_regular_event = true;
 
             var cur_time = null;
             var cur_date = null;
@@ -213,6 +220,10 @@ $(document).ready(function() {
             list_content += "</article>";
         }
 
+    }
+
+    if (!some_regular_event) {
+        list_content = list_content_none;
     }
 
     $("#event_list").html(list_content);
