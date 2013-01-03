@@ -1,22 +1,25 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
 
-{{ assign var="event_key" value=$smarty.get.event_key|replace:" ":"\\ "|replace:'"':"" }}
+{{ assign var="event_key" value=$smarty.get.event_key|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
 window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=event&key={{ $event_key|escape:'url' }}";
 </script>
-<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?event_key={{ $event_key }}" />
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?event_key={{ $event_key|escape:'url' }}" />
 
 
 <script type="text/javascript">
 window.agenda_has_select_tags = true;
 window.agenda_has_date_picker = false;
 
+window.use_region = "region-zentralschweiz";
+window.use_type = "all";
+
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="event_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $event_date }}";
@@ -56,7 +59,7 @@ function display_date_time(date_time_str) {
 };
 
 $(document).ready(function() {
-    var detail_content = 'Event not found';
+    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Veranstaltung nicht gefunden.</p></div></div>';
 
     var types_to_outlines = {
         theater: "theater",
@@ -91,18 +94,22 @@ $(document).ready(function() {
         }
     }
 
-    if (window.event_detail && window.event_detail.event) {
+    if (window.event_detail && window.event_detail.event && window.event_detail.event['canceled']) {
+        detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-canceled"><p>Veranstaltung abgesagt.</p></div></div>';
+    }
+
+    if (window.event_detail && window.event_detail.event && (!window.event_detail.event['canceled'])) {
         detail_content = '';
 
         var got_event = window.event_detail.event;
 
-        var use_outline_type = "all";
         if (got_event['type'] in types_to_outlines) {
-            use_outline_type = types_to_outlines[got_event['type']];
+            window.use_type = types_to_outlines[got_event['type']];
         }
 
-        update_subnav_links("{{ $event_date }}", 1, got_event['canton']);
-        outline_type(use_outline_type);
+        if (got_event['canton'] && ("" != got_event['canton'])) {
+            window.use_region = got_event['canton'];
+        }
 
         detail_content += "<h3>" + got_event.title + "</h3>\n";
 
@@ -117,7 +124,11 @@ $(document).ready(function() {
         }
 
         var date_time_str = null;
-        if (got_event.date_time) {
+        if (got_event.postponed) {
+            date_time_str = '<div class="event_postponed">verschoben</div>';
+        }
+
+        if (got_event.date_time && (!got_event.postponed)) {
             var date_time_info = display_date_time(got_event.date_time);
             if (date_time_info['date'] || date_time_info['time']) {
                 date_time_str = '';
@@ -170,9 +181,13 @@ $(document).ready(function() {
 
     }
 
+    update_subnav_links("{{ $event_date }}", 1, window.use_region);
+    outline_type(window.use_type);
+
+    $("#list_back_link_icon").attr("href", $("#list_back_link_icon").attr("href") + "&region=" + window.use_region)
+    $("#list_back_link_text").attr("href", $("#list_back_link_text").attr("href") + "&region=" + window.use_region)
+
     $("#event_detail").html(detail_content);
-
-
 
     var location_content = "";
 
@@ -222,6 +237,8 @@ $(document).ready(function() {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/subnav-common-func.tpl" }}
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
@@ -234,7 +251,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="71" }}
-            <a href="{{ uri options="section" }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}">zur Ubersicht Veranstaltungen</a>
+            <a href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}">zur Ubersicht Veranstaltungen</a>
 {{ /local }}
         </div>
 
@@ -253,11 +270,7 @@ $(document).ready(function() {
         </article>
 
         <div class="ad">
-            <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-            <a href="#"><img src="{{ uri static_file="pictures/" }}ad-2.jpg" alt="" /></a>
+            {{ include file="_ads/ausgehen-detail-event.tpl" }}
         </div>
 
     </div><!-- /aside -->

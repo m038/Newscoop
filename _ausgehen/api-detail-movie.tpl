@@ -1,13 +1,13 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
 
-{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":"\\ "|replace:'"':"" }}
+{{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
 <script type="text/javascript">
 window.useCanonicalForSocialBar = true;
 window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=movie&key={{ $movie_key|escape:'url' }}";
 </script>
-<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?movie_key={{ $movie_key }}" />
+<link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/?movie_key={{ $movie_key|escape:'url' }}" />
 
 <script type="text/javascript">
 window.teaser_width = "158";
@@ -21,28 +21,41 @@ window.agenda_has_date_picker = false;
 
 {{ assign var="cinema_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $cinema_date }}";
 
 {{ assign var="cinema_region" value="" }}
 {{ if $smarty.get.region }}
-    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
+{{ /if }}
+
+{{ if $cinema_region != "kanton-luzern" }}
+    {{ if $cinema_region != "kanton-nidwalden" }}
+        {{ if $cinema_region != "kanton-obwalden" }}
+            {{ if $cinema_region != "kanton-schwyz" }}
+                {{ if $cinema_region != "kanton-uri" }}
+                    {{ if $cinema_region != "kanton-zug" }}
+                        {{ assign var="cinema_region" "region-zentralschweiz" }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
 {{ /if }}
 
 window.api_mode = "detail";
 window.movie_key = "{{ $movie_key }}";
 {{ if $cinema_region eq "" }}
-    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date }};
+    window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region="region-zentralschweiz" }};
     $(document).ready(function() {
         update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
     });
 {{ else }}
     window.api_detail = {{ api_cinema movie_key=$movie_key cinema_date=$cinema_date cinema_region=$cinema_region }};
     $(document).ready(function() {
-        //update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
-        update_subnav_links("{{ $cinema_date }}", 1, "region-zentralschweiz");
+        update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
     });
 {{ /if }}
 
@@ -86,7 +99,7 @@ function get_day_display_info(date_str) {
 };
 
 $(document).ready(function() {
-    var detail_content = 'Movie not found';
+    var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Film nicht gefunden.</p></div></div>';
 
     outline_type("kino");
 
@@ -410,6 +423,8 @@ $(document).ready(function() {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/subnav-common-func.tpl" }}
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
@@ -422,7 +437,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
 {{ /local }}
         </div>
 
@@ -438,7 +453,6 @@ $(document).ready(function() {
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">
                 <iframe id="trailer_link" ar="0.5625" width="722" height="406" src="#" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                {{*<small>Sie stellten beim Uvek das Gesuch, dem AKW die Betriebsbewilligung aus Sicherheitsgründen</small>*}}
             </figure>
 
             <div id="movie_tables">
@@ -452,7 +466,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
 {{ /local }}
         </div>
 
@@ -468,11 +482,7 @@ $(document).ready(function() {
         </div>
 
         <div class="ad">
-            <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-            <a href="#"><img src="{{ uri static_file="pictures/" }}ad-2.jpg" alt="" /></a>
+            {{ include file="_ads/ausgehen-detail-movie.tpl" }}
         </div>
 
     </div><!-- /aside -->

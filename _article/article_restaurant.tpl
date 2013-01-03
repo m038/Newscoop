@@ -7,23 +7,6 @@ window.ausgehen_url = "{{ url options="root_level" }}ausgehen/search?type=restau
 </script>
 <link rel="canonical" href="{{ url options="root_level" }}{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/{{ $gimme->article->number }}/" />
 
-<!--
-{{*
-For Z+ site:
-pano_hash=a2cb391aa5cb95f0e0f054c151ed1d08
-
-Panorama Embed-Code
-Kopieren Sie den Embed-Code in den Quellcode Ihrer Webseite.
-<iframe name="lunchgate" src="http://www.lunchgate.ch/embed.php?name=bakery-bistro-im-nira-alpina&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08" scrolling="no" frameborder="no" height="271" width="723"></iframe>
-
-Direkter Link zum Profil bei Lunchgate:
-<a href="http://www.lunchgate.ch/restaurants/bakery-bistro-im-nira-alpina" title="Lunchgate Gastro-Profil">Lunchgate Profil</a>
-
-Direkter Link zum Panorama ohne Profil:
-<a href="http://www.lunchgate.ch/tour/bakery-bistro-im-nira-alpina" title="Lunchgate-Panorama">Panorama</a>
-*}}
--->
-
 <script type="text/javascript">
 window.agenda_has_select_tags = false;
 window.agenda_has_date_picker = false;
@@ -366,7 +349,7 @@ function take_body_list($p_list, $p_separator)
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}
 {{ if !empty($smarty.get.region) }}
-    {{ assign var="useregion_spec" $smarty.get.region }}
+    {{ assign var="useregion_spec" $smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
     {{ if "kanton-luzern" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Luzern" }}
         {{ assign var="linkregion" "kanton-luzern" }}
@@ -629,7 +612,7 @@ function get_menu_text($menu_data)
 {{ assign var="usedate" $curdate }}
 {{ assign var="usedate_link" $usedate }}
 {{ if !empty($smarty.get.date) }}
-    {{ assign var="usedate" $smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="usedate" $smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 {{ assign var="usedate_test" $usedate|regex_replace:"/(\d){4}-(\d){2}-(\d){2}/":"ok" }}
@@ -639,20 +622,6 @@ function get_menu_text($menu_data)
     {{ /if }}
 {{ /if }}
 
-{{ assign var="useperiod" "1" }}
-{{ assign var="useperiod_link" $useperiod }}
-{{ assign var="useperiod_tmp" "" }}
-{{ if !empty($smarty.get.period) }}
-    {{ assign var="useperiod_tmp" $smarty.get.period|replace:" ":"\\ "|replace:'"':"" }}
-{{ /if }}
-
-{{ assign var="useperiod_test" $useperiod_tmp|regex_replace:"/([1-9]){1}/":"ok" }}
-{{ if "ok" != $useperiod_tmp }}
-    {{ if "ok" == $useperiod_test }}
-        {{ assign var="useperiod" $useperiod_tmp }}
-        {{ assign var="useperiod_link" $useperiod_tmp }}
-    {{ /if }}
-{{ /if }}
 {{ assign var="useperiod" "1" }}
 {{ assign var="useperiod_link" "1" }}
 
@@ -743,7 +712,7 @@ function get_menu_text($menu_data)
     $rest_days_notice = get_rest_days_notice($rest_days, $usedate, $useperiod);
     $template->assign('rest_days_notice',$rest_days_notice);
 
-    $partner_hash_key = '341cbc516c320cad372bbedfadd941f7';
+    $partner_hash_key = '9ae6dbb54e90fc01fdec2263457fd40e';
     $rest_id = '' . $template->get_template_vars('rest_id');
     $reservation_link = load_reservation_link($rest_id, $partner_hash_key);
     if (!empty($reservation_link)) {
@@ -796,6 +765,8 @@ function load_events(ev_type) {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/subnav-common-func.tpl" }}
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
@@ -813,12 +784,15 @@ function load_events(ev_type) {
                     <figure class="clearfix">
 
                         {{ assign var="image_desc" $gimme->article->image1->description|replace:'"':'\'' }}
-                        <img class="rest_photo_any" id="rest_photo_1" {{ if $gimme->article->has_image(2) }}style="cursor:pointer;"{{ /if }} src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                        {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
+
+                        <img class="rest_photo_any" id="rest_photo_1" {{ if $gimme->article->has_image(2) }}style="cursor:pointer;"{{ /if }} src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
                         {{ assign var="list_img_rank" 2 }}
                         {{ while $gimme->article->has_image($list_img_rank) }}
                             {{ assign var="image_tpl" "image$list_img_rank" }}
                             {{ assign var="image_desc" $gimme->article->$image_tpl->description|replace:'"':'\'' }}
-                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" style="cursor:pointer;" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                            {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
+                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" style="cursor:pointer;" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
                             {{ assign var="list_img_rank" $list_img_rank+1 }}
                         {{ /while }}
                         {{ assign var="image_count" $list_img_rank-1 }}
@@ -835,7 +809,7 @@ function load_events(ev_type) {
                                     {{ if $rest_days_notice }}
                                         <span class="event-info alert">{{ $rest_days_notice }}</span>
                                     {{ else }}
-                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" {{*onClick='window.open("{{ $reservation_link }}", "rest_reservation", "width=540,height=560,location=0"); return false;'*}} target="_blank" class="button red left">Reservieren</a>
+                                        <a id="rest_reservation_link_desktop" href="{{ $reservation_link }}" target="_blank" class="button red left">Reservieren</a>
                                     {{ /if }}
                                 {{ /if }}
                             </div>
@@ -849,7 +823,6 @@ function load_events(ev_type) {
 {{ /if }}
 {{ if $gimme->article->other }}
                     <p>
-                    {{* $gimme->article->other|replace:"<a href=":"<a target='_blank' href="|replace:">http://":">" *}}
                     {{ $gimme->article->other|strip_tags }}
                     </p>
 {{ /if }}
@@ -915,7 +888,6 @@ function load_events(ev_type) {
                                         {{ if $spec_part.desc }}
                                             {{ $spec_part.desc }}{{ if $spec_part.price }}<br />{{ /if }}
                                         {{ /if }}
-                                        {{* $gimme->article->rest_speciality *}}
                                         {{ if $spec_part.type }}{{ $spec_part.type }}<br />{{ /if }}
                                         {{ if $spec_part.price }}{{ $spec_part.price }}{{ /if }}</p>
                                     {{ /foreach }}
@@ -971,19 +943,6 @@ function load_events(ev_type) {
 {{ /if }}
                     </p>
 
-{{ if 0 && $gemme->article->rest_fb_url }}
-        {{ assign var="field_start" $gimme->article->rest_fb_url|truncate:4:"" }}
-        {{ if field_start eq "http"}}
-                    <a href="{{ $gemme->article->rest_fb_url }} target="_blank"">Facebook</a><br />
-        {{ /if }}
-{{ /if }}
-{{ if 0 && $gemme->article->rest_twitteraccount }}
-        {{ assign var="field_start" $gimme->article->rest_twitteraccount|truncate:4:"" }}
-        {{ if field_start eq "http"}}
-                    <a href="{{ $gemme->article->rest_twitteraccount }}" target="_blank">Twitter</a></p>
-        {{ /if }}
-{{ /if }}
-
                     {{ list_article_locations length="1" }}
                     <div class="phone-map-fix">
                         <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=de&q={{ $gimme->location->latitude }},{{ $gimme->location->longitude }}+({{ $gimme->article->organizer|escape:'url' }})&ll={{ $gimme->location->latitude }},{{ $gimme->location->longitude }}&hnear={{ $gimme->article->town|escape:'url' }},+Switzerland&t=m&ie=UTF8&z=16&output=embed"></iframe>
@@ -1001,11 +960,7 @@ function load_events(ev_type) {
         </article>
 
         <div class="ad top-space">
-            <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-            <a href="#"><img src="{{ uri static_file="pictures/" }}ad-4.gif" alt="" /></a>
+            {{ include file="_ads/ausgehen-detail-restaurant.tpl" }}
         </div>
 
     </div><!-- /aside -->
@@ -1109,7 +1064,6 @@ $(document).ready(function() {
     </div><!-- /footer -->
 
 {{ include file="_tpl/_html-foot.tpl" }}
-{{* include file="_ausgehen/_html-foot.tpl" *}}
 
 </body>
 </html>

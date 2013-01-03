@@ -22,13 +22,9 @@
                         <option value="party">Partys</option>
                         <option value="exhibit">Ausstellungen</option>
                         <option value="misc">Diverse</option>
-{{ if 1 }}
                         <option value="restaurants">Restaurants</option>
-{{ /if }}
                     </select>
                 </div>
-
-{{ if 1 || $list_type ne "restaurants" }}
 
         <div id="calendar_placeholder_box" class="box calendar-placeholder">
             <h4>Wann</h4>
@@ -70,8 +66,6 @@
 
         </div><!-- / calendar_placeholder_box -->
 
-{{ /if }}
-
                 <div class="box">
                     <h4>Wo</h4>
                     <select id="wo" class="dropdownized_aus" onChange="window.load_area(this); return true;">
@@ -86,7 +80,7 @@
                 </div>
 
 {{ if $list_type ne "restaurants" }}
-                <p><a href="mailto:agenda@zentralplus.ch">Ihre Veranstaltung fehlt?</a></p>
+                <p><a href="mailto:events@zentralplus.ch">Ihre Veranstaltung fehlt?</a></p>
 {{ else }}
 
                     <div class="box desktop-hide">

@@ -8,7 +8,7 @@ window.agenda_has_date_picker = true;
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="event_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $event_date }}";
@@ -16,12 +16,26 @@ window.preset_date = "{{ $event_date }}";
 
 {{ assign var="event_region" value="region-zentralschweiz" }}
 {{ if $smarty.get.region }}
-    {{ assign var="event_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
+{{ /if }}
+
+{{ if $event_region != "kanton-luzern" }}
+    {{ if $event_region != "kanton-nidwalden" }}
+        {{ if $event_region != "kanton-obwalden" }}
+            {{ if $event_region != "kanton-schwyz" }}
+                {{ if $event_region != "kanton-uri" }}
+                    {{ if $event_region != "kanton-zug" }}
+                        {{ assign var="event_region" "region-zentralschweiz" }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
 {{ /if }}
 
 {{ assign var="event_type" value="event" }}
 {{ if $smarty.get.type }}
-    {{ assign var="event_type" value=$smarty.get.type|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_type" value=$smarty.get.type|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.event_mode = "list";
@@ -61,7 +75,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var list_content = 'Ihre Suche ergab keine Treffer';
+    var list_content_none = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found"><p>Ihre Suche ergab keine Treffer.</p></div></div>';
+    var list_content = "";
+    var some_regular_event = false;
 
     var types_to_display = {
         theater: "Theater",
@@ -117,6 +133,11 @@ $(document).ready(function() {
             if ((!cur_event) || (!cur_event.title)) {
                 continue;
             }
+            if (cur_event['canceled']) {
+                continue;
+            }
+
+            some_regular_event = true;
 
             var cur_time = null;
             var cur_date = null;
@@ -201,6 +222,10 @@ $(document).ready(function() {
 
     }
 
+    if (!some_regular_event) {
+        list_content = list_content_none;
+    }
+
     $("#event_list").html(list_content);
 
 });
@@ -214,6 +239,8 @@ $(document).ready(function() {
 {{ include file="_tpl/header-nav.tpl" }}
 
 {{ include file="_tpl/header.tpl" }}
+
+{{ include file="_ausgehen/other-common.tpl" }}
 
 {{ include file="_ausgehen/api-teaser-place.tpl" }}
 
@@ -236,13 +263,6 @@ $(document).ready(function() {
                 &nbsp;
             </div><!-- / event_list -->
 
-
-<div id="newslist" style="display:none;">
-    <div class="no_movie_found"><p>Ihre Suche ergab keine Treffer</p></div>
-</div><!-- end of newslist -->
-
-
-
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -261,11 +281,7 @@ function load_events(ev_type) {
             <div class="aside">
 
                 <div class="ad top-space">
-                    <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-                    <a href="#"><img alt="" src="{{ uri static_file="pictures/" }}ad-2.jpg"></a>
+                    {{ include file="_ads/ausgehen-list-events.tpl" }}
                 </div>
 
             </div><!-- / aside -->

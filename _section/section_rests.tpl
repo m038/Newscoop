@@ -5,11 +5,11 @@
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="event_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 {{ assign var="event_region" value="region-zentralschweiz" }}
 {{ if $smarty.get.region }}
-    {{ assign var="event_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="event_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 <script type="text/javascript">
@@ -237,6 +237,8 @@ function update_cuisines_single(one_cuisine) {
 
 function show_cuisines() {
 
+    $("#loading_empty").hide();
+
     var checked_cuisines = [];
 
     $(".kueche_check:checked").each(function(ind_elm, elm) {
@@ -267,13 +269,19 @@ function show_cuisines() {
         }
     }
 
+    var some_rest_shown = false;
     $(".article_active").each(function(ind_elm, elm) {
+        some_rest_shown = true;
         if (0 == (ind_elm % 2)) {
             $(elm).addClass("article_odd");
         }
     });
 
     $(".article_active").show();
+
+    if (!some_rest_shown) {
+        $("#loading_empty").show();
+    }
 };
 
 </script>
@@ -285,6 +293,8 @@ function show_cuisines() {
 {{ include file="_tpl/header-nav.tpl" }}
 
 {{ include file="_tpl/header.tpl" }}
+
+{{ include file="_ausgehen/other-common.tpl" }}
 
 {{ include file="_ausgehen/api-teaser-place.tpl" }}
 
@@ -304,17 +314,10 @@ function show_cuisines() {
             {{ include file="_ausgehen/subnav-lists-side.tpl" list_type="restaurants" cuisin_list=$kueche_list }}
 
 
-{{ assign var="load_list" 0 }}
-{{ if !empty($smarty.get.load) }}
-    {{ if 1 eq $smarty.get.load }}
-        {{ assign var="load_list" 1 }}
-    {{ /if }}
-{{ /if }}
-
 {{ assign var="usedate" $smarty.now|camp_date_format:"%Y-%m-%d" }}
 {{ assign var="usedate_link" $usedate }}
 {{ if !empty($smarty.get.date) }}
-    {{ assign var="usedate" $smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="usedate" $smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 {{ assign var="usedate_test" $usedate|regex_replace:"/(\d){4}-(\d){2}-(\d){2}/":"ok" }}
@@ -363,7 +366,7 @@ function create_end_date($start_date, $period) {
 {{ assign var="usetype" "" }}
 {{ assign var="usetype_link" "all" }}
 {{ if !empty($smarty.get.type) }}
-    {{ assign var="usetype_spec" $smarty.get.type }}
+    {{ assign var="usetype_spec" $smarty.get.type|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
     {{ if $usetype_spec ne 'all' }}
     {{ foreach from=$kueche_list key=kueche_key item=kueche_info }}
@@ -382,7 +385,7 @@ function create_end_date($start_date, $period) {
 {{ assign var="useregion" "Region\\ Zentralschweiz" }}
 {{ assign var="linkregion" "region-zentralschweiz" }}
 {{ if !empty($smarty.get.region) }}
-    {{ assign var="useregion_spec" $smarty.get.region }}
+    {{ assign var="useregion_spec" $smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
     {{ if "kanton-luzern" eq $useregion_spec }}
         {{ assign var="useregion" "Kanton\\ Luzern" }}
         {{ assign var="linkregion" "kanton-luzern" }}
@@ -704,19 +707,11 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 </article>
 
 {{ /list_articles }}
-{{ if $rest_rank eq 0 }}
-    <div class="no_rest_found" id="loading_empty"><p>Leider haben wir zu diesen Suchkriterien kein Restaurant gefunden.</p></div>
-{{ else}}
-{{ /if }}
+    <div class="no_rest_found" id="loading_empty" {{ if $rest_rank != 0 }}style="display:none;"{{ /if }}><p>Leider haben wir zu diesen Suchkriterien kein Restaurant gefunden.</p></div>
 
                 </div><!-- /restaurant_list -->
 
             </div><!-- /restaurant_holder -->
-
-<div id="newslist" style="display:none;">
-    <div class="no_movie_found"><p>Ihre Suche ergab keine Treffer</p></div>
-</div><!-- end of newslist -->
-
 
 <script type="text/javascript">
 
@@ -730,11 +725,7 @@ function load_events(ev_type) {
             <div class="aside">
 
                 <div class="ad top-space">
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-                    <small>Werbung</small>
-                    <a href="#"><img alt="" src="{{ uri static_file="pictures/" }}ad-2.jpg"></a>
+                    {{ include file="_ads/ausgehen-list-restaurants.tpl" }}
                 </div>
 
             </div><!-- / aside -->

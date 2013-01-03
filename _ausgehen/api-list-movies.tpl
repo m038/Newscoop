@@ -8,7 +8,7 @@ window.agenda_has_date_picker = true;
 
 {{ assign var="cinema_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
-    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_date" value=$smarty.get.date|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.preset_date = "{{ $cinema_date }}";
@@ -16,12 +16,26 @@ window.preset_date = "{{ $cinema_date }}";
 
 {{ assign var="cinema_region" value="region-zentralschweiz" }}
 {{ if $smarty.get.region }}
-    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="cinema_region" value=$smarty.get.region|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
+{{ /if }}
+
+{{ if $cinema_region != "kanton-luzern" }}
+    {{ if $cinema_region != "kanton-nidwalden" }}
+        {{ if $cinema_region != "kanton-obwalden" }}
+            {{ if $cinema_region != "kanton-schwyz" }}
+                {{ if $cinema_region != "kanton-uri" }}
+                    {{ if $cinema_region != "kanton-zug" }}
+                        {{ assign var="cinema_region" "region-zentralschweiz" }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
 {{ /if }}
 
 {{ assign var="movie_type" value="kino" }}
 {{ if $smarty.get.type }}
-    {{ assign var="movie_type" value=$smarty.get.type|replace:" ":"\\ "|replace:'"':"" }}
+    {{ assign var="movie_type" value=$smarty.get.type|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 {{ /if }}
 
 window.movie_mode = "list";
@@ -83,7 +97,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var list_content = 'Ihre Suche ergab keine Treffer';
+    var list_content = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found"><p>Ihre Suche ergab keine Treffer.</p></div></div>';
 
     var cur_url = location.href;
     var cur_url_parts = cur_url.split("#");
@@ -126,9 +140,9 @@ $(document).ready(function() {
 
             var cur_movie_key = cur_movie["movie_key"];
 
-            list_content += "<article {{*style=\"min-height:300px;\"*}}>";
+            list_content += "<article>";
 
-            var cur_detail_link = cur_url_base + "?date=" + "{{ $cinema_date }}" + "&movie_key=" + cur_movie_key + "&region=" + "{{ $cinema_region }}";
+            var cur_detail_link = cur_url_base + "?date=" + "{{ $cinema_date|escape:'url' }}" + "&movie_key=" + encodeURIComponent(cur_movie_key) + "&region=" + "{{ $cinema_region|escape:'url' }}";
 
             list_content += "<h4><a href=\"" + cur_detail_link + "\">" + cur_movie.title + "</a></h4>";
             list_content += '<div class="accordion-content">';
@@ -280,6 +294,8 @@ $(document).ready(function() {
 
 {{ include file="_tpl/header.tpl" }}
 
+{{ include file="_ausgehen/other-common.tpl" }}
+
 {{ include file="_ausgehen/api-teaser-place.tpl" }}
 
     </div><!-- / content_wrapper -->
@@ -301,13 +317,6 @@ $(document).ready(function() {
                 &nbsp;
             </div><!-- / event_list -->
 
-
-<div id="newslist" style="display:none;">
-    <div class="no_movie_found"><p>Ihre Suche ergab keine Treffer</p></div>
-</div><!-- end of newslist -->
-
-
-
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -326,11 +335,7 @@ function load_events(ev_type) {
             <div class="aside">
 
                 <div class="ad top-space">
-                    <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-                    <a href="#"><img alt="" src="{{ uri static_file="pictures/" }}ad-2.jpg"></a>
+                    {{ include file="_ads/ausgehen-list-movies.tpl" }}
                 </div>
 
             </div><!-- / aside -->
