@@ -1,7 +1,7 @@
-{{ if !$user->is_active }}
-{{ url static_file="user_inactive_`$width`x`$height`.png" }}
-{{ else if $user->image() }}
-{{ $user->image($width, $height) }}
-{{ else }}
-{{ url static_file="user_blank_`$width`x`$height`.png" }}
-{{ /if }}
+{{strip}}
+    {{ if !$user->is_active || !$user->image() }}
+        {{ uri static_file="pictures/user-thumb-big-default.jpg" }}
+    {{ else }}
+        {{ $user->image($width, $height) }}
+    {{ /if }}
+{{/strip}}

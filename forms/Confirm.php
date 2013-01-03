@@ -4,7 +4,7 @@
 
 /**
  */
-class Theme_Form_Confirm extends Zend_Form
+class Theme_Form_Confirm extends Application_Form_Confirm
 {
     public function init()
     {
@@ -32,7 +32,6 @@ class Theme_Form_Confirm extends Zend_Form
         ));
 
         $this->addElement('password', 'password_confirm', array(
-            'label' => 'Password Confirmation*:',
             'required' => true,
             'filters' => array('stringTrim'),
             'validators' => array(
@@ -41,10 +40,6 @@ class Theme_Form_Confirm extends Zend_Form
                 }),
             ),
             'errorMessages' => array("Password confirmation does not match your password."),
-        ));
-
-        $this->addElement('file', 'image', array(
-            'maxFileSize' => 1024000,
         ));
 
         $this->addElement('checkbox', 'terms', array(
@@ -57,9 +52,25 @@ class Theme_Form_Confirm extends Zend_Form
             ),
         ));
 
-        $attributes = new Zend_Form_SubForm();
+        $this->addAttributesForm();
 
-        $attributes->addElement('radio', 'region', array(
+        $this->addElement('submit', 'submit', array(
+            'label' => 'Login',
+            'ignore' => true,
+            'order' => 100,
+        ));
+    }
+
+    /**
+     * Add attributes form
+     *
+     * @return void
+     */
+    private function addAttributesForm()
+    {
+        $form = new Zend_Form_SubForm();
+
+        $form->addElement('radio', 'region', array(
             'multioptions' => array(
                 '' => 'any',
                 'zug' => 'Zug',
@@ -67,11 +78,6 @@ class Theme_Form_Confirm extends Zend_Form
             ),
         ));
 
-        $this->addSubForm($attributes, 'attributes');
-
-        $this->addElement('submit', 'submit', array(
-            'label' => 'Login',
-            'ignore' => true,
-        ));
+        $this->addSubForm($form, 'attributes');
     }
 }

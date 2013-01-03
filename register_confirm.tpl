@@ -42,15 +42,6 @@
                                 	<small class="right"><i>*</i>Pflichtfeld</small>
                                 </li>
                             </ul>
-                            <div class="clearfix upload-avatar simple">
-                            	<img src="{{ uri static_file="pictures/user-thumb-big-default.jpg" }}" alt="" class="left" />
-                            	<h5>Laden Sie ein eigenes Profilbild hoch.</h5>
-                                <div class="input-file">
-                                	<div class="show-value">keine Datei ausgewählt</div>
-									<input type="file" name="image" value="{{ $form->image->getValue()|escape }}" class="upload" />
-                                </div>
-                                <p>Bitte verwenden Sie keine Bilder, an denen Sie die Rechte nicht besitzenoder auf denen andere Personen als Sie selber abgebildet sind.</p>
-                            </div>
 
                             <h4>Lokale Präferenz</h4>
                             <ul class="form bottom-line">
@@ -68,27 +59,10 @@
                                         </li>
                                     </ul>
                                 </li>
-                            	<li class="bottom-line">Inhalte aus den entsprechenden Regionen werden gemäss Ihrer Auswahl bevorzugt angezeigt.</li>
-                                <li>
-                                	<input type="submit" class="button red center" value="Speichern" />
-                                </li>
+                            	<li>Inhalte aus den entsprechenden Regionen werden gemäss Ihrer Auswahl bevorzugt angezeigt.</li>
                             </ul>
 
-
-                            <h4>Newsletter abonnieren</h4>
-                            <ul class="form bottom-line">
-                            	<li class="checkboxes"><input type="checkbox" id="nletter" /><label for="nletter">Ich möchte regelmässig die aktuellsten News erhalten</label></li>
-                                <li>
-                                	<ul class="radio-horizontal-list">
-                                    	<li>
-                                        	<input type="radio" name="radios2" id="radios21" /><label for="radios21">täglich</label>
-                                        </li>
-                                    	<li>
-                                        	<input type="radio" name="radios2" id="radios22" /><label for="radios22">wöchentlich</label>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            {{ include file="_tpl/_newsletter_frequency.tpl" }}
                             
                             <ul class="form terms">
                             	<li>

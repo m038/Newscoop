@@ -3,8 +3,8 @@
 {{block name="header_h2"}}Community{{/block}}
 
 {{block content}}
+<form method="POST" action="" enctype="multipart/form-data">
 <div class="tabs top-line">
-                    
                     <ul class="tab-nav clearfix three-tabs">
                         <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profill</strong></a></li>
                         <li><a href="#tabs-2"><strong>Meine Themen</strong></a></li>
@@ -15,8 +15,6 @@
                         <div id="tabs-1">
                         
                         	<h4>Login</h4>
-                            
-                            <form method="POST" action="" enctype="multipart/form-data">
                             
                             <ul class="form bottom-line">
                             	<li>
@@ -74,7 +72,7 @@
                             <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Pro"l sichtbar sind und von Suchmaschinen gefunden werden können.</p>
                             
                             <div class="clearfix upload-avatar">
-                            	<img src="pictures/user-thumb-big-default.jpg" alt="" class="left" />
+                                <img src="{{ include file="_tpl/user-image.tpl" user=$user width=113 height=113 }}" alt="" class="left" width="113" />
                             	<h5>Neues Profilbild hochladen</h5>
                                 <div class="input-file">
                                 	<div class="show-value">keine Datei ausgewählt</div>
@@ -122,8 +120,6 @@
                                 </li>
                             </ul>
 
-                            </form>
-                        
                         </div>
                         <div id="tabs-2" class="info-tab">
                         
@@ -135,51 +131,29 @@
                         </div>
                         <div id="tabs-3" class="info-tab">
                         
-                        	<h4>Newsletter abonnieren</h4>
+                            {{ include file="_tpl/_newsletter_frequency.tpl" }}
+
+                            {{ if $newsletter->id }}
+                            <h4>Themen im Newsletter folgen</h4>
                             <ul class="form bottom-line">
-                            	<li class="checkboxes"><input type="checkbox" id="nletter" /><label for="nletter">Ich möchte regelmässig die aktuellsten News erhalten</label></li>
-                                <li>
-                                	<ul class="radio-horizontal-list">
-                                    	<li>
-                                        	<input type="radio" name="radios2" id="radios21" /><label for="radios21">täglich</label>
-                                        </li>
-                                    	<li>
-                                        	<input type="radio" name="radios2" id="radios22" /><label for="radios22">wöchentlich</label>
-                                        </li>
-                                    </ul>
+                                {{ $checked = $form->newsletter->Topics->getValue() }}
+                                {{ foreach $form->newsletter->Topics->getMultiOptions() as $key => $val }}
+                            	<li class="checkboxes">
+                                    <input type="checkbox" id="nletter{{ $key|escape }}" name="newsletter[Topics][]" value="{{ $val|escape }}" {{ if $checked && in_array($val, $checked) }}checked{{ /if }} />
+                                    <label for="nletter{{ $val|escape }}">{{ $key|escape }}</label>
                                 </li>
+                                {{ /foreach }}
                             </ul>
-                            
-                            <h4>Themen im Newsletter folgen</h4>
-                            <ul class="form bottom-line">
-                            	<li class="checkboxes"><input type="checkbox" id="nletter2" /><label for="nletter2">Ich möchte meine Themen im Newsletter verfolgen</label></li>
-                            	<li>
-                            		<p>Sie folgen diesen Themen:<br />
-                            		<a href="#">Wirtscha!</a>, <a href="#">Konsum</a>, <a href="#">Telekommunikation</a>, <a href="#">Lifestyle</a></p>
-                            		<a href="#" class="button white">Themen verwalten</a>
-                            	</li>
-                            </ul>
-                            
-                            <h4>AutorInnen im Newsletter folgen</h4>
-                            <ul class="form bottom-line">
-                            	<li class="checkboxes"><input type="checkbox" id="nletter3" /><label for="nletter3">Ich möchte AutorInnen im Newsletter folgen</label></li>
-                            	<li>
-                            		<p>Sie folgen diese AutorInnen:<br />
-                            		<a href="#">Wirtscha!</a>, <a href="#">Konsum</a>, <a href="#">Telekommunikation</a></p>
-                            		<a href="#" class="button white">AutorInnen verwalten</a>
-                            	</li>
-                            </ul>
-                            
-                            <h4>Themen im Newsletter folgen</h4>
-                            <p class="bottom-line">Sie haben noch keine Themen abonniert. Um ein Thema zu abonnieren, klicken Sie auf die entsprechende Funktion bei einem Artikel. (<a href="#" class="icon-tag">Themen abonnieren</a>)</p>
-                            
-                            <h4>AutorInnen im Newsletter folgen</h4>
-                            <p class="bottom-line">Um AutorInnen im Newsletter folgen, klicken Sie auf die entsprechende Funktion bei einem Artikel (<a href="#" class="icon-email">AutorIn im Newsletter folgen</a>)</p>
                             
                             <input type="submit" class="button red center" value="Speichern" />
-                        
+
+                            {{ else }}
+                                {{* newsletter list not found *}}
+                            {{ /if }}
                         </div>
                     </div>
-                
-                </div>
+                            
+
+</div>
+</form>
 {{/block}}
