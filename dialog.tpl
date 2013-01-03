@@ -69,7 +69,7 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
                 {{ /if }}
-                {{ if $gimme->current_list->index == 3 }}
+                {{ if $gimme->current_list->index == 3 || $gimme->current_list->at_end }}
                 </div><!-- / 2 columns -->
                 {{ /if }}
                 {{ /list_articles }}                
