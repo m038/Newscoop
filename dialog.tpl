@@ -54,25 +54,25 @@
                 
                 </div>
                 
-                <h4 class="center-title"><a href="#">Abgeschlossene Debatten</a></h4>
-                
-                <div class="two-columns clearfix margin-bottom equal-heights">
-                
-                	<article>
-                    	<figure>
-                        	<img src="{{ uri static_file="pictures/article-img-1.jpg" }}" alt="" />
+                {{ list_articles length="3" constraints="type is debatte" }}
+                {{ if $gimme->current_list->index gt 1 }}
+                {{ if $gimme->current_list->index == 2 }}
+                <h4 class="center-title">Abgeschlossene Debatten</h4>
+                <div class="two-columns clearfix margin-bottom equal-heights">              
+                {{ /if }}
+                    <article class="mobile-half{{ if $gimme->current_list->index == 3 }} last{{ /if }}">
+                        <figure>
+              				{{ image rendition="arthalf" }}                
+                      		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              				{{ /image }}
                         </figure>
-                        <h3><a href="#">Für einmal freiwillig Spitallu! schnuppern</a></h3>
+                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
-                    
-                    <article>
-                    	<figure>
-                        	<img src="{{ uri static_file="pictures/article-img-2.jpg" }}" alt="" />
-                        </figure>
-                        <h3><a href="#">Komax kau! deutsche Kabelprüfspezialistin</a></h3>
-                    </article>
-                
+                {{ /if }}
+                {{ if $gimme->current_list->index == 3 }}
                 </div><!-- / 2 columns -->
+                {{ /if }}
+                {{ /list_articles }}                
 
 {{ include file="_tpl/front-gallery.tpl" where="dialog" }} 
             

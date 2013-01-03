@@ -81,11 +81,12 @@
             
 {{ include file="_tpl/sidebar-community.tpl" }}
                 
-                <h4 class="center-title">Abgeschlossene Debatten</h4>
-                
-                <div class="clearfix">
                 {{ list_articles length="3" constraints="type is debatte" }}
                 {{ if $gimme->current_list->index gt 1 }}
+                {{ if $gimme->current_list->index == 2 }}
+                <h4 class="center-title">Abgeschlossene Debatten</h4>
+                <div class="clearfix">                
+                {{ /if }}
                     <article class="mobile-half{{ if $gimme->current_list->index == 3 }} last{{ /if }}">
                         <figure>
               				{{ image rendition="arthalf" }}                
@@ -95,8 +96,10 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
                 {{ /if }}
-                {{ /list_articles }}
+                {{ if $gimme->current_list->index == 3 }}
                 </div>
+                {{ /if }}
+                {{ /list_articles }}
             
             </div><!-- / Aside -->
         
