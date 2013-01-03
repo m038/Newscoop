@@ -782,12 +782,15 @@ function load_events(ev_type) {
                     <figure class="clearfix">
 
                         {{ assign var="image_desc" $gimme->article->image1->description|replace:'"':'\'' }}
-                        <img class="rest_photo_any" id="rest_photo_1" {{ if $gimme->article->has_image(2) }}style="cursor:pointer;"{{ /if }} src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                        {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
+
+                        <img class="rest_photo_any" id="rest_photo_1" {{ if $gimme->article->has_image(2) }}style="cursor:pointer;"{{ /if }} src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
                         {{ assign var="list_img_rank" 2 }}
                         {{ while $gimme->article->has_image($list_img_rank) }}
                             {{ assign var="image_tpl" "image$list_img_rank" }}
                             {{ assign var="image_desc" $gimme->article->$image_tpl->description|replace:'"':'\'' }}
-                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" style="cursor:pointer;" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" title="{{ $image_desc }}" alt="{{ $image_desc }}" />
+                            {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
+                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" style="cursor:pointer;" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
                             {{ assign var="list_img_rank" $list_img_rank+1 }}
                         {{ /while }}
                         {{ assign var="image_count" $list_img_rank-1 }}
