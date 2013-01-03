@@ -451,7 +451,6 @@ $(document).ready(function() {
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">
                 <iframe id="trailer_link" ar="0.5625" width="722" height="406" src="#" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                {{*<small>Sie stellten beim Uvek das Gesuch, dem AKW die Betriebsbewilligung aus Sicherheitsgründen</small>*}}
             </figure>
 
             <div id="movie_tables">
@@ -481,11 +480,7 @@ $(document).ready(function() {
         </div>
 
         <div class="ad">
-            <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-            <a href="#"><img src="{{ uri static_file="pictures/" }}ad-2.jpg" alt="" /></a>
+            {{ include file="_ads/ausgehen-detail-movie.tpl" }}
         </div>
 
     </div><!-- /aside -->

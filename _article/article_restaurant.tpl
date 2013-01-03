@@ -886,7 +886,6 @@ function load_events(ev_type) {
                                         {{ if $spec_part.desc }}
                                             {{ $spec_part.desc }}{{ if $spec_part.price }}<br />{{ /if }}
                                         {{ /if }}
-                                        {{* $gimme->article->rest_speciality *}}
                                         {{ if $spec_part.type }}{{ $spec_part.type }}<br />{{ /if }}
                                         {{ if $spec_part.price }}{{ $spec_part.price }}{{ /if }}</p>
                                     {{ /foreach }}
@@ -959,11 +958,7 @@ function load_events(ev_type) {
         </article>
 
         <div class="ad top-space">
-            <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-            <a href="#"><img src="{{ uri static_file="pictures/" }}ad-4.gif" alt="" /></a>
+            {{ include file="_ads/ausgehen-detail-restaurant.tpl" }}
         </div>
 
     </div><!-- /aside -->

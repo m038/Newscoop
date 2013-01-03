@@ -268,11 +268,7 @@ $(document).ready(function() {
         </article>
 
         <div class="ad">
-            <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-            <a href="#"><img src="{{ uri static_file="pictures/" }}ad-2.jpg" alt="" /></a>
+            {{ include file="_ads/ausgehen-detail-event.tpl" }}
         </div>
 
     </div><!-- /aside -->

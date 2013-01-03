@@ -140,7 +140,7 @@ $(document).ready(function() {
 
             var cur_movie_key = cur_movie["movie_key"];
 
-            list_content += "<article {{*style=\"min-height:300px;\"*}}>";
+            list_content += "<article>";
 
             var cur_detail_link = cur_url_base + "?date=" + "{{ $cinema_date|escape:'url' }}" + "&movie_key=" + encodeURIComponent(cur_movie_key) + "&region=" + "{{ $cinema_region|escape:'url' }}";
 
@@ -340,11 +340,7 @@ function load_events(ev_type) {
             <div class="aside">
 
                 <div class="ad top-space">
-                    <small>Werbung</small>
-{{*
-                {{ include file="_ads/section-sidebar.tpl" }}
-*}}
-                    <a href="#"><img alt="" src="{{ uri static_file="pictures/" }}ad-2.jpg"></a>
+                    {{ include file="_ads/ausgehen-list-movies.tpl" }}
                 </div>
 
             </div><!-- / aside -->
