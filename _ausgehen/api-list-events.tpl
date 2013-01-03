@@ -75,7 +75,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var list_content_none = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found">Ihre Suche ergab keine Treffer.</div></div>';
+    var list_content_none = '<div class="ausgehen-message-holder clearfix"><div class="no-event-found"><p>Ihre Suche ergab keine Treffer.</p></div></div>';
     var list_content = "";
     var some_regular_event = false;
 
@@ -262,13 +262,6 @@ $(document).ready(function() {
             <div id="event_list" class="main event-list">
                 &nbsp;
             </div><!-- / event_list -->
-
-
-<div id="newslist" style="display:none;">
-    <div class="no_movie_found"><p>Ihre Suche ergab keine Treffer</p></div>
-</div><!-- end of newslist -->
-
-
 
 <script type="text/javascript">
 

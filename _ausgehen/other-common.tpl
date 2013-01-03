@@ -1,3 +1,4 @@
+<style type="text/css">
 
 .ausgehen-message-holder {
     padding: 20px 0 0 70px;
@@ -15,3 +16,4 @@
     margin-left: 20px;
 }
 
+</style>
