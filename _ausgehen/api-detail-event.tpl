@@ -94,7 +94,11 @@ $(document).ready(function() {
         }
     }
 
-    if (window.event_detail && window.event_detail.event) {
+    if (window.event_detail && window.event_detail.event && window.event_detail.event['canceled']) {
+        detail_content = '<div class="event-canceled">Veranstaltung abgesagt.</div>';
+    }
+
+    if (window.event_detail && window.event_detail.event && (!window.event_detail.event['canceled'])) {
         detail_content = '';
 
         var got_event = window.event_detail.event;

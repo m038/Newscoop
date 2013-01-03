@@ -237,6 +237,8 @@ function update_cuisines_single(one_cuisine) {
 
 function show_cuisines() {
 
+    $("#loading_empty").hide();
+
     var checked_cuisines = [];
 
     $(".kueche_check:checked").each(function(ind_elm, elm) {
@@ -267,13 +269,19 @@ function show_cuisines() {
         }
     }
 
+    var some_rest_shown = false;
     $(".article_active").each(function(ind_elm, elm) {
+        some_rest_shown = true;
         if (0 == (ind_elm % 2)) {
             $(elm).addClass("article_odd");
         }
     });
 
     $(".article_active").show();
+
+    if (!some_rest_shown) {
+        $("#loading_empty").show();
+    }
 };
 
 </script>
@@ -705,11 +713,6 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
                 </div><!-- /restaurant_list -->
 
             </div><!-- /restaurant_holder -->
-
-<div id="newslist" style="display:none;">
-    <div class="no_movie_found"><p>Ihre Suche ergab keine Treffer</p></div>
-</div><!-- end of newslist -->
-
 
 <script type="text/javascript">
 
