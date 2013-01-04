@@ -11,5 +11,39 @@
     <!--[if (gte IE 6)&(lte IE 8)]>
       <script type="text/javascript" src="{{ uri static_file="assets/js/libs/selectivizr-min.js" }}"></script>
     <![endif]-->
+
+    <script type="text/javascript" src="{{ url static_file="assets/js/libs/jquery.socialshareprivacy.js" }}"></script>
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+        $.address.tracker(null); // disable google tracking via address
+
+	    $('.social_bookmarks').each(function() {
+            $(this).socialSharePrivacy({
+		        services: {
+			        facebook: {
+                        'app_id': '204329636307540',
+			            'dummy_img': '{{ url static_file="assets/img/icon-soc-bar-fb.png" }}'
+			        }, 
+                    twitter: {
+                        'dummy_img': '{{ url static_file="assets/img/icon-soc-bar-tw.png" }}',
+                        'related': {{ json_encode(implode(',', $related)) }}
+                    },
+                    gplus: {
+                        'display_name': 'Google Plus',
+                        'dummy_img': '{{ url static_file="assets/img/icon-soc-bar-gplus.png" }}'
+                    }
+		        },
+                'cookie_path': '/',
+                'cookie_domain': document.location.host,
+                'cookie_expires': 365,
+                'css_path' : '{{ url static_file="assets/js/libs/socialshareprivacy/socialshareprivacy.css" }}',
+                'settings_perma': 'Button dauerhaft aktivieren',
+                'info_button': ' Die Sharing-Buttons können Benutzungsdaten an Facebook, Twitter oder Google übermitteln. Wir haben sie deshalb standardmässig deaktiviert. Bitte aktivieren Sie sie, um sie zu nutzen.'
+            });
+        });
+        
+    });
+	</script>
+
     
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
