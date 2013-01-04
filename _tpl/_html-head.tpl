@@ -4,7 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Zentral+</title>
+    <title>{{ strip }}
+    {{ if $gimme->article->defined }}{{ $gimme->article->name|escape:'html'|trim }}&nbsp;|&nbsp;
+	 {{ elseif $gimme->section->defined }}
+    {{ $gimme->section->name|escape:'html'|trim }}&nbsp;|&nbsp;    
+    {{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse&nbsp;|&nbsp;{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker&nbsp;|&nbsp;{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}&nbsp;|&nbsp;{{ elseif $gimme->publication->identifier == "4" }}Blogs&nbsp;|&nbsp;{{ /if }} 
+    Zentral+
+    {{ /strip }}</title>
+    
+    
+   
+    
     
     {{ include file="_tpl/_meta-description.tpl" }}
     {{ include file="_tpl/_meta-keywords.tpl" }}
