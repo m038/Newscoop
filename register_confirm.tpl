@@ -30,6 +30,7 @@
                                     <p class="indented">Dieser Name wird bei Ihren Beiträgen auf zentral+ angezeigt. Wir empfehlen, dass Sie Ihren echten Namen verwenden, erlauben aber auch Pseudonyme</p>
                                 	
                                 </li>
+                                {{ if $form->getElement('password') }}
                                 <li>
                                 	<label>Passwort <i>*</i></label>
                                     <input type="password" name="password" value="{{ $form->password->getValue()|escape }}" />
@@ -38,6 +39,7 @@
                                 	<label class="multi-line">Passwort wiederholen <i>*</i></label>
                                     <input type="password" name="password_confirm" value="{{ $form->password_confirm->getValue()|escape }}" />
                                 </li>
+                                {{ /if }}
                                 <li>
                                 	<small class="right"><i>*</i>Pflichtfeld</small>
                                 </li>
