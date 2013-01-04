@@ -11,13 +11,10 @@
     {{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse&nbsp;|&nbsp;{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker&nbsp;|&nbsp;{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}&nbsp;|&nbsp;{{ elseif $gimme->publication->identifier == "4" }}Blogs&nbsp;|&nbsp;{{ /if }} 
     Zentral+
     {{ /strip }}</title>
-    
-    
-   
-    
-    
+
     {{ include file="_tpl/_meta-description.tpl" }}
     {{ include file="_tpl/_meta-keywords.tpl" }}
+
     <meta name="author" content="zentral+, MMV online AG, Hirschengraben 43, 6003 Luzern">
     <meta name="copyright" content="zentral+, MMV online AG, Hirschengraben 43, 6003 Luzern">
     <meta name="email" content="info@zentralplus.ch">    
@@ -30,6 +27,28 @@
     <link rel="stylesheet" href="{{ uri static_file="assets/css/skin.css" }}">
     <link rel="stylesheet" href="{{ uri static_file="assets/css/jquery.fancybox.css" }}">
     <!--link rel="stylesheet" href="{{ uri static_file="assets/js/libs/helpers/jquery.fancybox-thumbs.css?v=1.0.7" }}" /-->    
+    
+{{*  OPEN GRAPH TAGS FOR FACEBOOK  *}}
+{{ if $gimme->article->defined }}
+  {{*<meta property="og:locale" content="de_CH" /> *}}
+  <meta property="og:title" content="{{$gimme->article->name|html_entity_decode|regex_replace:'/&(.*?)quo;/':'&quot;'}}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://{{ $gimme->publication->site }}/{{ $gimme->language->code }}/{{ $gimme->issue->url_name }}/{{ $gimme->section->url_name }}/{{ $gimme->article->number }}/" />
+  <meta property="og:site_name" content="{{ $gimme->publication->name }}" />
+  <meta property="og:description" content="{{ if $gimme->article->type_name == "news" || $gimme->article->type_name == "dossier" || $gimme->article->type_name == "blog" }}{{$gimme->article->lede|strip_tags:false|strip|escape:'html':'utf-8' }}{{ elseif $gimme->article->type_name == "newswire" }}{{$gimme->article->DataLead|strip_tags:false|strip|escape:'html':'utf-8' }}{{ elseif $gimme->article->type_name == "static_page" }}{{$gimme->article->body|strip_tags:false|strip|escape:'html':'utf-8'|truncate:200 }}{{ elseif $gimme->article->type_name == "debatte" }}{{$gimme->article->teaser|strip_tags:false|strip|escape:'html':'utf-8' }}{{ elseif $gimme->article->type_name == "event" }}{{$gimme->article->description|strip_tags:false|strip|escape:'html':'utf-8' }}{{ /if }}" />
+  {{ for $i=0 to 99 }}
+  {{ if $gimme->article->has_image($i) }}
+  <meta property="og:image" content="{{ $gimme->article->image($i)->imageurl }}" />
+  {{ /if }}
+  {{ /for }}
+{{ /if }}
+
+{{ if $gimme->article->defined }}
+    {{ if $gimme->article->type_name == "blog" }}
+        <meta itemprop="name" content="{{ $gimme->article->name }}">
+        <meta itemprop="description" content="{{ $gimme->article->body|strip_tags|truncate:400 }}">
+    {{ /if }}
+{{ /if }}    
     
     {{ include file="_tpl/_head-openx-code.tpl" }}   
     
