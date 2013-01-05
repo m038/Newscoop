@@ -1,6 +1,6 @@
                 <div class="social-bar{{ if $gimme->publication->identifier == "2" || $gimme->publication->identifier == "4" }} bottom-line{{ /if }} clearfix">
                   
-                  <div id="social_bookmarks" class="soc-options left"></div>
+                  <ul id="social_bookmarks" class="soc-options left"></ul>
                   <ul class="soc-options left">
                       <li class="fb"><a href="#">Facebook</a></li>
                       <li class="tw"><a href="#">Twitter</a></li>

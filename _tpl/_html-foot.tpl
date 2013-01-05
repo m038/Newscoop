@@ -17,13 +17,13 @@
 	jQuery(document).ready(function($) {
         $.address.tracker(null); // disable google tracking via address
 
-	    $('.social_bookmarks').each(function() {
+	    $('#social_bookmarks').each(function() {
             $(this).socialSharePrivacy({
 		        services: {
-			        facebook: {
+			        	  facebook: {
                         'app_id': '204329636307540',
-			            'dummy_img': '{{ url static_file="assets/img/icon-soc-bar-fb.png" }}'
-			        }, 
+			            	'dummy_img': '{{ url static_file="assets/img/icon-soc-bar-fb.png" }}'
+			        	  }, 
                     twitter: {
                         'dummy_img': '{{ url static_file="assets/img/icon-soc-bar-tw.png" }}',
                         'related': {{ json_encode(implode(',', $related)) }}
