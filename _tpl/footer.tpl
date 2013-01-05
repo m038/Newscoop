@@ -3,8 +3,8 @@
     	<div class="content-wrapper" id="footer">
         
         	<ul class="footer-list equal-heights clearfix">
+            	{{ local }}        	
             	<li>
-            		{{ local }}
             		{{ set_publication identifier="2" }}
             		{{ set_current_issue }}
             		{{ set_section number="300" }}
@@ -14,50 +14,47 @@
                     	   <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
                     	{{ /list_articles }}
                     </ul>
-                  {{ /local }}
+
                 </li>
                 <li>
                 	<h3>Themen</h3>
                     <ul>
-                    	<li><a href="#">Meine Themen</a></li>
-                        <li><a href="#">Politik</a></li>
-                        <li><a href="#">Wirtscha</a></li>
-                        <li><a href="#">Kultur</a></li>
-                        <li><a href="#">Gesellscha</a></li>
-                        <li><a href="#">Sport</a></li>
-                        <li><a href="#">Freizeit</a></li>
-                        <li><a href="#">Wissen</a></li>
-                        <li><a href="#">Dossiers</a></li>
-                        <li><a href="#">Wetter</a></li>
+                    		<!-- Delete asterisk (*) when link is created -->
+                    	   <li><a href="#">Meine Themen*</a></li>
+                    		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
+                        <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
+                        {{ /list_sections }}
+                        <li><a href="#">Wetter*</a></li>
                     </ul>
-                </li>
+                </li>               
                 <li>
                 	<h3>Dialog</h3>
                     <ul>
-                    	<li><a href="#">Pro + Contra</a></li>
-                        <li><a href="#">Umfrage</a></li>
-                        <li><a href="#">Fundstücke</a></li>
-                        <li><a href="#">Kommentare</a></li>
-                        <li><a href="#">Community</a></li>
+                    		{{ list_articles length="1" ignore_section="true" constraints="type is debatte" }}
+                    		<li><a href="{{ url options="article" }}">Pro + Contra</a></li>
+                    		{{ /list_articles }}
+                        <li><a href="#">Umfrage*</a></li>
+                 		   {{ set_publication identifier="4" }}
+            				{{ set_current_issue }}
+            				{{ set_section number="100" }}
+                        <li><a href="{{ url options="section" }}">Fundstücke</a></li>
+                        <li><a href="#">Kommentare*</a></li>
+                        <li><a href="#">Community*</a></li>
                     </ul>
-                </li>
+                </li>                 
                 <li>
                 	<h3>Blogs</h3>
                     <ul>
-                    	<li><a href="#">Agenda</a></li>
-                        <li><a href="#">Was gibt’s wo</a></li>
-                        <li><a href="#">Olympiablog</a></li>
-                        <li><a href="#">GO FC Luzern</a></li>
-                        <li><a href="#">Analog und Digital</a></li>
-                        <li><a href="#">Netzgemeinde</a></li>
-                        <li><a href="#">Freizeitblog</a></li>
-                        <li><a href="#">Fotoblog</a></li>
+                    		<li><a href="#">Agenda*</a></li>
+                    		{{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo" }}
+                        <li><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></li>
+								{{ /list_articles }}
                     </ul>
-                </li>
+                </li>              
                 <li>
                 	<h3>Ausgehen</h3>
                     <ul>
-{{ local }}
+
 {{* events *}}
 {{ set_current_issue }}
 {{ set_section number="71" }}
@@ -78,9 +75,9 @@
 {{ set_current_issue }}
 {{ set_section number="73" }}
                         <li><a id="footer_restaurants_link" href="{{ uri options="section" }}?type=all&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Restaurants</a></li>
-{{ /local }}
                     </ul>
                 </li>
+					 {{ /local }}                
                 <li>
                 	<h3>Folgen Sie uns</h3>
                     <ul class="social">
