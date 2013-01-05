@@ -125,7 +125,7 @@ $(window).load(function() {
 	/* Accordion */
 	$('.ticker-accordion').accordion({ header: '.head' });
 	
-	/* Article recommend button */
+	/** Article recommend button **/
    $('#article-recommend-button').fancybox({
         type: 'iframe',
         width: 600,
