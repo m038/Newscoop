@@ -12,6 +12,10 @@
       <script type="text/javascript" src="{{ uri static_file="assets/js/libs/selectivizr-min.js" }}"></script>
     <![endif]-->
 
+    {{ if empty($related) }}
+        {{ $related = array() }}
+    {{ /if }}
+
     <script type="text/javascript" src="{{ uri static_file="assets/js/libs/jquery.socialshareprivacy.js" }}"></script>
       <script type="text/javascript">
     jQuery(document).ready(function($){
