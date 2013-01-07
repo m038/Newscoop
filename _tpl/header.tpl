@@ -97,11 +97,81 @@
                     </div>
                 </li>
             </ul>
-        
+
           <ul class="weather">
-              <li><img src="{{ uri static_file="pictures/icon-weather-1.png" }}" alt=""> 25° Luzern</li>
-                <li><img src="{{ uri static_file="pictures/icon-weather-2.png" }}" alt=""> 18° Zug</li>
+                <li class="expandable">
+                    <a href="#">
+                        {{ weather location="luzern" }}
+                        {{ weather location="zug" }}
+                    </a>
+                    <div class="popup">
+                        <div class="weather-popup clearfix">
+                            <div class="info">
+                                <p><strong>Das Wetter heute in Luzern</strong> <a href="#" class="button white">Details</a></p>
+                                <ul>
+                                    <li>
+                                        <small>12:00</small>
+                                        {{ weather location="luzern" hour="12" }}
+                                    </li>
+                                    <li>
+                                        <small>15:00</small>
+                                        {{ weather location="luzern" hour="15" }}
+                                    </li>
+                                    <li>
+                                        <small>18:00</small>
+                                        {{ weather location="luzern" hour="18" }}
+                                    </li>
+                                    <li>
+                                        <small>21:00</small>
+                                        {{ weather location="luzern" hour="21" }}
+                                    </li>
+                                    <li>
+                                        <small>00:00</small>
+                                        {{ weather location="luzern" hour="0" }}
+                                    </li>
+                                </ul>
+                                <p><strong>Das Wetter heute in Zug</strong> <a href="#" class="button white">Details</a></p>
+                                <ul>
+                                    <li>
+                                        <small>12:00</small>
+                                        {{ weather location="zug" hour="12" }}
+                                    </li>
+                                    <li>
+                                        <small>15:00</small>
+                                        {{ weather location="zug" hour="15" }}
+                                    </li>
+                                    <li>
+                                        <small>18:00</small>
+                                        {{ weather location="zug" hour="18" }}
+                                    </li>
+                                    <li>
+                                        <small>21:00</small>
+                                        {{ weather location="zug" hour="21" }}
+                                    </li>
+                                    <li>
+                                        <small>00:00</small>
+                                        {{ weather location="zug" hour="0" }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sidebar">
+                                <fieldset class="search">
+                                    <input type="text" placeholder="Ort, PLZ, Ausflugsziel">
+                                    <input type="submit" value="Go">
+                                </fieldset>
+                                <p>Geben Sie hier einen Ort oder Region nach Wunsch in der Zentralschweiz ein</p>
+                                <ul>
+                                    <li><a href="#">Prognosen Zentralschweiz</a></li>
+                                    <li><a href="#">Lokalwetter</a></li>
+                                    <li><a href="#">Pistenbericht</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
+
+
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige OnlineMagazin der Zentralschweiz</a></h1>
             <ul class="header-menu">
               <li><a href="#" class="icon-tag">Meine Themen</a></li>
