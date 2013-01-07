@@ -2,9 +2,13 @@
           <!-- p>$isMobDevice = {{ $isMobDevice }}</p -->             
 
 {{ $region = $gimme->user['region'] }}
-{{ $articleCount = 0 }}
+{{ $length = 15 }}
+{{ if !$region }}
+    {{ $length = 5 }}
+{{ /if }}
 
-{{ list_playlist_articles id=2 length=15 }}{{* workaround to filter playlist articles by region *}}
+{{ $articleCount = 0 }}
+{{ list_playlist_articles id=2 length=$length }}{{* workaround to filter playlist articles by region *}}
 {{ if $articleCount < 5 && (!$region || $gimme->article->$region) }}
     {{ $articleCount = $articleCount + 1 }}{{* can't use ++ *}}
 
