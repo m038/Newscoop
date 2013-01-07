@@ -1267,6 +1267,7 @@ $('#mn-header-location-title').live('click', function() {
 });
 
 // autocompletes
+/*
 $('#mn-search-text').autocomplete({
     source: function (request, response) {
         meteonews.autoCompleteLookup(request, response);
@@ -1300,3 +1301,5 @@ $('#mn-lokkalwetter-search-text').autocomplete({
         $('#mn-search-text').val('');
     }
 });
+
+*/
