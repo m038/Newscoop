@@ -1,22 +1,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
-<title>{{$gimme->publication->name}}</title>
+{{ if $smarty.get.topic }}
+    {{ set_topic name=sprintf("%s:de", $smarty.get.topic) }}
+{{ /if }}
+<title>{{ if $gimme->topic->defined }}{{ $gimme->topic->name|escape }} {{ /if }}{{ $gimme->publication->name|escape }}</title>
 <link>{{ url options="root_level" }}</link>
-<description>{{$siteinfo.description}}</description>
+<description>{{ $siteinfo.description|escape }}</description>
 <language>{{ $gimme->language->code }}</language>
-<copyright>Copyright {{$smarty.now|date_format:"%Y"}}, {{$gimme->publication->name}}</copyright>
+<copyright>Copyright {{$smarty.now|date_format:"%Y"}}, {{ $gimme->publication->name|escape }}</copyright>
 <lastBuildDate>{{$smarty.now|date_format:"%a, %d %b %Y %H:%M:%S"}} +0000</lastBuildDate>
 <ttl>60</ttl>
 <generator>Newscoop</generator>
 <image>
-<url>{{ uri static_file="assets/img/logo-rss.png" }}</url>
-<title>{{$gimme->publication->name}}</title>
+<url>{{ url static_file="assets/img/logo-rss.png" }}</url>
+<title>{{ $gimme->publication->name|escape }}</title>
 <link>{{ url options="root_level" }}</link>
 <width>144</width>
 <height>30</height>
 </image>
 <atom:link href="{{ url options="root_level" }}de/pages/rss_all" rel="self" type="application/rss+xml" />
-{{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type not bloginfo type not debatte type not dossier type not editor_message type not event type not poll type not restaurant type not screening type not newswire" }}
+{{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type is news type is blog" }}
 <item>
 <title>{{ $gimme->article->name|escape }}</title>
 <link>{{ url options="article" }}</link>
