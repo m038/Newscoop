@@ -24,7 +24,7 @@
                   {{ include file="_tpl/author-image.tpl" author=$gimme->author width=120 height=120 }}
                   {{ /if }}
                   <p><strong>Autor</strong>: {{ include file="_tpl/author-name.tpl" author=$gimme->author }}<br />
-                    {{* include file="_tpl/author-bio.tpl" author=$gimme->author *}}</p>
+                    {{ include file="_tpl/author-bio.tpl" author=$gimme->author }}</p>
                     <p class="author-contact"><a href="#" class="icon-email">Autor im Newsletter folgen</a><br />
                     {{ if !empty($gimme->author->user['twitter']) }}
                     <a href="http://twitter.com/{{ trim($gimme->author->user['twitter'], '@') }}" class="icon-twitter" data-show-count="false" data-lang="de" data-show-screen-name="false">@{{ trim($gimme->author->user['twitter'], '@') }} folgen</a>
