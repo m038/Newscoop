@@ -26,7 +26,7 @@ window.preset_date = "{{ $event_date }}";
 
 window.event_mode = "detail";
 window.event_key = "{{ $event_key }}";
-window.event_detail = {{ api_events event_key=$event_key event_date=$event_date }};
+window.event_detail = {{ api_events event_key=$event_key event_date=$event_date event_region="region-zentralschweiz" }};
 
 function display_date_time(date_time_str) {
 

@@ -1,15 +1,10 @@
-                <div class="social-bar{{ if $gimme->publication->identifier == "2" || $gimme->publication->identifier == "4" }} bottom-line{{ /if }} clearfix">
-                
-                  <ul class="soc-options left">
-                      <li class="fb"><a href="#">Facebook</a></li>
-                      <li class="tw"><a href="#">Twitter</a></li>
-                      <li class="gplus"><a href="#">Google+</a></li>
-                        <li class="activate"><a href="#"><span class="phone-hide">Social-Media Dienste aktivieren</span></a></li>
-                    </ul>
+                <div id="social-bookmarks-bar" class="social-bar{{ if $gimme->publication->identifier == "2" || $gimme->publication->identifier == "4" }} bottom-line{{ /if }} clearfix">
+                  
+                  <ul id="social_bookmarks" class="soc-options left"></ul>
                     
                     <ul class="article-options right">
-                      <li class="email"><a href="#">Email</a></li>
-                      <li class="print"><a href="#">Print</a></li>
+            		  		<li class="email"><a href="{{ $view->serverUrl() }}{{ $view->baseUrl({{ $view->url(['controller' => 'article-recommendation', 'action' => 'index', 'article_number' => {{ $gimme->article->number }}], 'default') }}) }}"  id="article-recommend-button">Email</a></li>                     
+            		  		<li class="print"><a href="#" onclick="window.print();return false">Print</a></li>
                     </ul>
                 
                 </div>
