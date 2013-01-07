@@ -1,5 +1,12 @@
               <article class="bottom-line single">
 
+{{* This is to check is article is divided into pages *}}
+{{ assign var="showStaff" value=0 }}
+{{ if !($gimme->article->subtitles_count(body) gt 1) || ($gimme->article->subtitles_count(body) gt 1 && $gimme->article->current_subtitle_no(body) == 0) }} 
+{{ assign var="showStaff" value=1 }} 
+{{ /if }}
+
+{{* This is to check if article has big image *}}
 {{ assign var="prazno" value=1 }}
 {{ capture name="image" }}
 {{ image rendition="artfull" }}                
@@ -9,7 +16,7 @@
 {{ /image }} 
 {{ /capture }}
 
-{{ if trim($smarty.capture.image) == "" }}
+{{ if trim($smarty.capture.image) == "" || !$showStaff }}
 {{ assign var="prazno" value=0 }} 
 {{ else }} 
 {{ $smarty.capture.image }}
@@ -30,7 +37,7 @@
 
                     {{ include file="_tpl/_admin-edit.tpl" }}
 
-{{ if $gimme->article->greybox|strip !== "" }}                    
+{{ if $gimme->article->greybox|strip !== "" && $shoStaff }}                    
 {{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
 {{ if empty($bodyAry[1]) }}
 {{ $bodyAry=explode("</p>", $gimme->article->body, 2) }}
@@ -48,9 +55,9 @@
 {{ else }}
 {{ $gimme->article->body }}
 {{ /if }} 
-
-
-						  {{ include file="_tpl/article-slideshow.tpl" }}                         
+						  {{ if $showStaff }}  
+						  {{ include file="_tpl/article-slideshow.tpl" }}   
+						  {{ /if }}                       
                     
 {{ if $gimme->article->subtitles_count(body) gt 1 }} 
                     <ul class="paging center">
