@@ -70,4 +70,8 @@
   })(); 
 
 </script>    
+
+  <!-- metoenews weeather widget -->
+  <script src="{{ url static_file="assets/js/meteonews.js" }}"></script>
+
 </head>
