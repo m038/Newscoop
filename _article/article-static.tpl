@@ -10,7 +10,7 @@
     
     	<div class="content-wrapper top-line static-info-page events-content">
         
-        	<h2>Statische Seite</h2>
+        	<h2>{{ $gimme->article->name }}</h2>
         
         	<div class="content no-bottom-line clearfix">
             

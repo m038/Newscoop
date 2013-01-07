@@ -125,6 +125,12 @@ $(window).load(function() {
 	/* Accordion */
 	$('.ticker-accordion').accordion({ header: '.head' });
 	
+	/** Article recommend button **/
+   $('#article-recommend-button').fancybox({
+        type: 'iframe',
+        width: 600,
+        height: 500
+    });
 	
 	/* Poll Ajaxified
 	-------------------------------------------------------*/

@@ -37,10 +37,30 @@
         Luzern, Zug, Zentralschweiz, Dossier, Verkehr, Asylwesen, Bildung, Steuern, Steuerwettbewerb, Nationaler Finanzausgleich, Raumplanung, Verkehrsplanung, soziale Durchmischung, Sozialstruktur, Kultur, Politik, Gesellschaft, Sport, Wirtschaft  
         {{ /if }}    		
     		{{ elseif $gimme->article->defined }}
-    		
+    			{{ if $gimme->article->keywords|strip_tags|trim !== "" }}
+    				{{ $gimme->article->keywords|strip_tags|escape:'html'|trim }}
+				{{ else }}
+    				{{ list_article_topics }}{{ $gimme->topic->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_topics }}
+    			{{ /if }}
     		{{ /if }}
     {{ elseif $gimme->publication->identifier == 4 }}
-    
+        	{{ if $gimme->article->defined }}
+    			{{ if $gimme->article->keywords|strip_tags|trim !== "" }}
+    				{{ $gimme->article->keywords|strip_tags|escape:'html'|trim }}
+				{{ else }}
+    				{{ list_article_topics }}{{ $gimme->topic->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_topics }}
+    			{{ /if }}
+    		{{ elseif $gimme->section->defined }}
+    			{{ list_articles length="1" constraints="type is bloginfo" }}
+    				{{ if $gimme->article->keywords|strip_tags|trim !== "" }}
+    					{{ $gimme->article->keywords|strip_tags|escape:'html'|trim }}
+					{{ else }}
+    					{{ list_article_topics }}{{ $gimme->topic->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_topics }}
+    				{{ /if }}    				
+    			{{ /list_articles }}
+    		{{ else }}
+    			{{*** here come keywords for blogs overview page ***}}
+    		{{ /if }}
     {{ /if }}
     {{ /strip }}">
     

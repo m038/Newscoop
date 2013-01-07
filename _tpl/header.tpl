@@ -27,7 +27,7 @@
                                     </li>
                                 </ul>
                             </fieldset>
-                        	<a class="button large fb-loggin-button" href="#"><span>Login mit Facebook</span></a>
+                        	<a class="button large fb-loggin-button" href="{{ $view->url(['controller' => 'auth', 'action' => 'social', 'provider' => 'facebook']) }}"><span>Login mit Facebook</span></a>
                         </div>
                         <div class="forgot-pass-inner-box">
                         	<p>Mit Ihrem Benutzerkonto können Sie Artikel kommentieren und mit anderen Leserinnen undLesern in Kontakt treten.</p>
@@ -151,7 +151,7 @@
                             </ul>
                         </fieldset>
                         <p class="center">oder</p>
-                        <a href="#" class="button large fb-loggin-button"><span>Login mit Facebook</span></a>
+                        <a href="{{ $view->url(['controller' => 'auth', 'action' => 'social', 'provider' => 'Facebook'], 'default') }}" class="button large fb-loggin-button"><span>Login mit Facebook</span></a>
                     </div>
                 </li>
             </ul>
