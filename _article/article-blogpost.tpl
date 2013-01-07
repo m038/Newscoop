@@ -64,17 +64,7 @@
                     <p>Lokale Spezialitägen haben noch inverero ipsant que labo. Ro idiande rferion sectus et accum facesti nctiatiis evendae.</p>
                 </div>
 {{ else }}  
-{{ list_article_authors columns="2" }}               
-                <div class="box{{ if $gimme->current_list->index == "2" }} margin-bottom{{ /if }} left-thumb{{ if $gimme->current_list->index == "2" }} bottom-line{{ /if }} mobile-half">
-                  {{ if $gimme->author->user->defined || $gimme->author->picture->imageurl }}
-                  {{ include file="_tpl/author-image.tpl" author=$gimme->author width=120 height=120 }}
-                  {{ /if }}
-                  <p><strong>Autor</strong>: <a href="#">{{ $gimme->author->name }}</a><br />
-                    hat noch inverero ipsant que labo. Ro idiande rferion sectus et accum.</p>
-                    <p class="author-contact"><a href="#" class="icon-email">Autor im Newsletter folgen</a><br />
-                    <a href="#" class="icon-twitter">@u_meier folgen</a></p>
-                </div>
-{{ /list_article_authors }}
+{{ include file="_tpl/article-aside-authors.tpl" }}
 {{ /if }}
 
 {{ if $gimme->default_section->number == "25" }}

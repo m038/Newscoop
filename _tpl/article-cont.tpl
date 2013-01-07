@@ -37,7 +37,7 @@
 
                     {{ include file="_tpl/_admin-edit.tpl" }}
 
-{{ if $gimme->article->greybox|strip !== "" && $shoStaff }}                    
+{{ if $gimme->article->greybox|strip !== "" && $showStaff }}                    
 {{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
 {{ if empty($bodyAry[1]) }}
 {{ $bodyAry=explode("</p>", $gimme->article->body, 2) }}
