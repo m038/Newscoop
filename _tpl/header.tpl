@@ -97,7 +97,7 @@
                     </div>
                 </li>
             </ul>
-
+<!--
           <ul class="weather">
                 <li class="expandable">
                     <a href="#">
@@ -170,7 +170,7 @@
                     </div>
                 </li>
             </ul>
-
+-->
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige OnlineMagazin der Zentralschweiz</a></h1>
             <ul class="header-menu">

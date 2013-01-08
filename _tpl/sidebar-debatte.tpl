@@ -1,4 +1,4 @@
-{{ list_articles ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type is debatte" }}
+{{ list_articles length="1" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type is debatte" }}
 
                 <div class="box highlight-box clearfix debatte-widget">
                 

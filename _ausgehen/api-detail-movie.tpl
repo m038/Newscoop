@@ -211,7 +211,7 @@ $(document).ready(function() {
         var thumb_content = "";
 
         if (got_movie.movie_image_urls && (0 != got_movie.movie_image_urls.length)) {
-            thumb_content += '<ul class="carousel jcarousel-skin-gallery clearfix">';
+            thumb_content += '<ul class="carousel_mov jcarousel-skin-gallery clearfix">';
 
             var img_count = got_movie.movie_image_urls.length;
             for (var cur_img_ind = 0; cur_img_ind < img_count; cur_img_ind++) {
@@ -220,10 +220,14 @@ $(document).ready(function() {
                 cur_img_link = cur_img_link.replace(/ImageHeight=\d*/, "ImageHeight=480");
                 cur_img_link = cur_img_link.replace(/ImageWidth=\d*/, "ImageWidth=720");
 
+                var class_img_hidden = "";
+                if (0 < cur_img_ind) {
+                    class_img_hidden = " mov_img_part_hidden ";
+                }
 
-                slide_content += '<div id="tab-' + (cur_img_ind + 1) + '" class="gall-box">';
+                slide_content += '<div id="tab-' + (cur_img_ind + 1) + '" class="gall-box' + class_img_hidden + '">';
                 slide_content += '<figure>';
-                slide_content += '<a href="' + cur_img_link + '" rel="fancybox-thumb" class="zoom fancybox-thumb">Zoom</a>';
+                slide_content += '<a href="' + cur_img_link + '" rel="fancybox-thumb_mov" class="zoom fancybox-thumb_mov" style="display:none">Zoom</a>';
                 slide_content += '<img alt="" src="' + cur_img_link + '">';
                 if (got_movie.image_copyright) {
                     slide_content += '<small>' + got_movie.image_copyright + '</small>';
@@ -411,6 +415,7 @@ $(document).ready(function() {
 
     }
 
+    setTimeout("set_slideshow();", 10);
 });
 
 </script>
@@ -448,7 +453,7 @@ $(document).ready(function() {
     {{ include file="_tpl/article-tools.tpl" }}
 
         <article class="bottom-line">
-            <div id="image_gallery" class="thumb-gallery tabs">
+            <div id="image_gallery" class="thumb-gallery tabs_mov">
             </div>
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">

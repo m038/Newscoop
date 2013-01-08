@@ -20,4 +20,38 @@
     color: #B40032;
 }
 
+.class_img_hidden {
+    display: none;
+}
+
 </style>
+
+
+<script type="text/javascript">
+
+function set_slideshow() {
+
+    $(".carousel_mov").jcarousel();
+
+    $(".fancybox-thumb_mov").each(function() {
+        $(this).fancybox({
+            type: "image",
+            prevEffect      : 'none',
+            nextEffect      : 'none',
+            helpers : {
+                title   : {
+                        type: 'outside'
+                },
+                thumbs  : {
+                        width   : 50,
+                        height  : 50
+                }
+            }
+        });
+    });
+
+    $(".tabs_mov").tabs();
+
+};
+
+</script>
