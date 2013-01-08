@@ -1,5 +1,6 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
+{{ include file="_tpl/auto_playlists.tpl" }}
 
 {{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
