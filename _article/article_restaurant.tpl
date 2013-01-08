@@ -783,19 +783,48 @@ function load_events(ev_type) {
                 {{ if $gimme->article->has_image(1) }}
                     <figure class="clearfix">
 
-                        {{ assign var="image_desc" $gimme->article->image1->description|replace:'"':'\'' }}
-                        {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
-
-                        <img class="rest_photo_any" id="rest_photo_1" {{ if $gimme->article->has_image(2) }}style="cursor:pointer;"{{ /if }} src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image(1); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
-                        {{ assign var="list_img_rank" 2 }}
+                        {{ assign var="list_img_rank" 1 }}
+                        {{ assign var="list_img_rank_out" 0 }}
                         {{ while $gimme->article->has_image($list_img_rank) }}
                             {{ assign var="image_tpl" "image$list_img_rank" }}
-                            {{ assign var="image_desc" $gimme->article->$image_tpl->description|replace:'"':'\'' }}
-                            {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
-                            <img class="rest_photo_any rest_image_hidden" id="rest_photo_{{ $list_img_rank }}" style="cursor:pointer;" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank }}); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
+                            {{ assign var="image_path" $gimme->article->$image_tpl->filerpath }}
+                            {{ assign var="image_width" 0 }}
+
+                            {{ php }}
+                                $image_width = 0;
+                                $image_sizes = getimagesize($template->get_template_vars('image_path'));
+                                if ((!empty($image_sizes)) && (isset($image_sizes[0]))) {
+                                    $image_width = $image_sizes[0];
+                                }
+                                $template->assign('image_width', $image_width);
+                            {{ /php }}
+
+                            {{ if 400 < $image_width }}
+                                {{ assign var="list_img_rank_out" $list_img_rank_out+1 }}
+                                {{ assign var="image_desc" $gimme->article->$image_tpl->description|replace:'"':'\'' }}
+                                {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
+                                <img class="rest_photo_any {{ if $list_img_rank_out > 1 }}rest_image_hidden{{ /if }}" id="rest_photo_{{ $list_img_rank_out }}" src="{{ url options="image $list_img_rank width 723 height 271 crop center" }}" width="723" height="271" onClick="show_next_image({{ $list_img_rank_out }}); return false;" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
+                            {{ /if }}
+
                             {{ assign var="list_img_rank" $list_img_rank+1 }}
+
                         {{ /while }}
-                        {{ assign var="image_count" $list_img_rank-1 }}
+                        {{ assign var="image_count" $list_img_rank_out }}
+
+                        {{ if $image_count <= 0 }}
+                            {{ assign var="image_desc" $gimme->article->image1->description|replace:'"':'\'' }}
+                            {{ if $image_desc|substr:0:10 eq "plain rest" }}{{ assign var="image_desc" "" }}{{ /if }}
+                            <img class="rest_photo_any" id="rest_photo_1" src="{{ url options="image 1 width 723 height 271 crop center" }}" width="723" height="271" {{ if $image_desc != "" }}title="{{ $image_desc }}" alt="{{ $image_desc }}"{{ /if }} />
+                            {{ assign var="image_count" 1 }}
+                        {{ /if }}
+
+                        {{ if $image_count > 1 }}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.rest_photo_any').css('cursor', 'pointer');
+});
+</script>
+                        {{ /if }}
 
                         {{ if $gimme->article->rest_panorama_count }}
                         <iframe style="display:none;" id="rest_panorama" name="lunchgate" src="http://www.lunchgate.ch/embed.php?name={{ $gimme->article->event_id }}&w=723&h=271&hash=a2cb391aa5cb95f0e0f054c151ed1d08&wmode=transparent" scrolling="no" frameborder="no" height="271" width="723" rel="resizable" /></iframe>
