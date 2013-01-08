@@ -227,7 +227,7 @@ $(document).ready(function() {
 
                 slide_content += '<div id="tab-' + (cur_img_ind + 1) + '" class="gall-box' + class_img_hidden + '">';
                 slide_content += '<figure>';
-                slide_content += '<a href="' + cur_img_link + '" rel="fancybox-thumb_mov" class="zoom fancybox-thumb_mov">Zoom</a>';
+                slide_content += '<a href="' + cur_img_link + '" rel="fancybox-thumb_mov" class="zoom fancybox-thumb_mov" style="display:none">Zoom</a>';
                 slide_content += '<img alt="" src="' + cur_img_link + '">';
                 if (got_movie.image_copyright) {
                     slide_content += '<small>' + got_movie.image_copyright + '</small>';
