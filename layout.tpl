@@ -6,7 +6,7 @@
     
 {{ include file="_tpl/header-nav.tpl" }}
         
-{{ include file="_tpl/header.tpl" }}
+{{ include file="_tpl/header.tpl" inline }}
 
         <div class="content equal-heights no-bottom-line clearfix">
             <div class="main">
