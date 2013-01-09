@@ -12,7 +12,7 @@
 {{ if $gimme->publication->identifier == "2" }}
     {{ if ($gimme->section->number <= 70) || ($gimme->section->number > 90) }}
                 
-		{{ include file="_tpl/article-payment.tpl" }}
+		{{ include file="_tpl/article-payment-link.tpl" }}
                 
                 <div class="article-border-bottom short-article-list margin-bottom clearfix">
             
