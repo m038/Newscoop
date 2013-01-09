@@ -13,10 +13,6 @@
     {{ if ($gimme->section->number <= 70) || ($gimme->section->number > 90) }}
                 
 		{{ include file="_tpl/article-payment.tpl" }}
-
-                <div class="box bottom-line centered-list">
-                  <p><a href="#" class="icon-heart">Spenden an zentral+</a>
-                </p></div>
                 
                 <div class="article-border-bottom short-article-list margin-bottom clearfix">
             
