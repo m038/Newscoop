@@ -30,6 +30,12 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    #top-calendar ul.calendar-options {
+        overflow: visible;
+    }
+}
+
 </style>
 
 <script type="text/javascript">
