@@ -57,7 +57,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='{{ uri static_file="assets/js/libs/jquery.min.js" }}'>\x3C/script>")</script>
 
-	 <script src='http://dds1.getunik.net/dds/widgetserver/widget/api/666/1/key/lebzozlgyb/widget.js?language=de&container=pwyl-widget' type='text/javascript' ></script>
+	 <script src='http://dds1.getunik.net/dds/widgetserver/widget/api/666/1/key/lebzozlgyb/widget.js?language=de&container=pwyl-widget' type='text/javascript'></script>
 
 <script type="text/javascript"> 
 
