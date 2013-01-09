@@ -9,7 +9,7 @@
                     	<img src="{{ uri static_file="pictures/payment-cards.png" }}" alt="" />
                         <div class="side-by-side clearfix">
                             <a class="button white left" href="#">Vielleicht später</a>
-                            <a class="button red right" href="#">Jetzt spenden</a-->
-                        </div>
+                            <a class="button red right" href="#">Jetzt spenden</a>
+                        </div-->
                     </div>
                 </div>
