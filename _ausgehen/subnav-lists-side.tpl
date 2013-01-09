@@ -42,7 +42,7 @@
                 $template->assign('month_str', $month_str);
             {{ /php }}
             <a style="display:none;cursor:pointer;" id="datapicker-button" href="#" class="button white datepicker-trigger">Heute, {{ $smarty.now|date_format:"%e" }}.{{ $month_str }}.</a>
-            <div id="top-calendar" class="clearfix calendar-popup" style="position:relative;">
+            <div id="top-calendar" class="clearfix calendar-popup">
 
                 <ul class="calendar-options">
                     <li><a href="#" onClick="agenda_set_today(); return false;">Heute</a></li>

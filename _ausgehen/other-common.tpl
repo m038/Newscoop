@@ -24,8 +24,13 @@
     display: none;
 }
 
-</style>
+@media screen and (max-width: 640px) {
+    #top-calendar {
+        position: relative;
+    }
+}
 
+</style>
 
 <script type="text/javascript">
 
