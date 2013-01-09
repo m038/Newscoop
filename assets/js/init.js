@@ -269,7 +269,7 @@ var windowWidth = $(window).width();
 		
 	$('.phone-tabs').tabs();
 	
-	$('.phone-accordion').accordion({header: 'h4', icons: false});
+	$('.phone-accordion').accordion({header: 'h4', icons: false, autoHeight: false});
 		
 	$('.weather-loctions ul.level-1 li a').click(function(){
 		$('.weather-loctions').addClass('no-map');
