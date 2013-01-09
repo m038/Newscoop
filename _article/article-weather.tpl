@@ -8,7 +8,7 @@
         
 {{ include file="_tpl/header.tpl" }}
 
-{{ include file="_tpl/weather_page.tpl" }}
+{{ include file="_tpl/weather-page.tpl" }}
 
 {{ include file="_tpl/footer.tpl" }}
   
