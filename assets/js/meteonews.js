@@ -44,7 +44,7 @@ var meteonews = {
         'mn-forecast-overview', 'mn-primary-regions', 'mn-secondary-regions', 'mn-prognosen-regions',
         'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-pistenbericht-important-slopes',
         'mn-pistenbericht-all-regions', 'mn-pistenbericht-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
-        'mn-slope-webcam', 'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map' ],
+        'mn-slope-webcam', 'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-pistenbericht-details-prognosen' ],
 
     init: function(cb) {
         this.hideAllElements();
@@ -699,6 +699,7 @@ var meteonews = {
         $('#mn-slope-webcam').show();
         $('#mn-region-webcam').show();
         $('#mn-slope-map').show();
+        $('#mn-pistenbericht-details-prognosen').show();
     },
 
     showLoading: function() {
