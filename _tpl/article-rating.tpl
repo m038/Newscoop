@@ -44,7 +44,7 @@ $(document).ready(function() {
         function() {
             $(this).prevAll().andSelf().removeClass('ratings_over');
             // can't use 'this' because it wont contain the updated data
-            set_votes($(this).closest('.rate_widget');
+            set_votes($(this).closest('.rate_widget'));
         }
     );
     
@@ -52,12 +52,12 @@ $(document).ready(function() {
     // This actually records the vote
     $('.ratings_stars').bind('click', function() {
         var star = this;
-        var widget = $(this).parent();
+        var widget = $(this).closest('.rate_widget');
         var score = $(star).attr('class').match(/star_(\d+)/)[1];
  
         var clicked_data = {
             f_rating_score : score,
-            f_article_number : $(star).parent().attr('id')
+            f_article_number : widget.attr('id')
         };
         $.post(
             '/rating/save',
@@ -75,16 +75,17 @@ $(document).ready(function() {
 });
 
 function set_votes(widget) {
+    if ($(widget).data('fsr')) {
+        var avg = $(widget).data('fsr').whole_avg;
+        var votes = $(widget).data('fsr').number_votes;
+        var exact = $(widget).data('fsr').dec_avg;
+        var error = $(widget).data('fsr').error;
 
-    var avg = $(widget).data('fsr').whole_avg;
-    var votes = $(widget).data('fsr').number_votes;
-    var exact = $(widget).data('fsr').dec_avg;
-    var error = $(widget).data('fsr').error;
-
-    $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratings_vote');
-    $(widget).find('.star_' + avg).nextAll().removeClass('ratings_vote'); 
-    $(widget).find('.total_votes').text( votes + ' Bewertungen abgegeben (' + exact + ' Bewertung)' );
-    $(widget).find('.rating_error').text( error );
+        $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratings_vote');
+        $(widget).find('.star_' + avg).nextAll().removeClass('ratings_vote'); 
+        $(widget).find('.total_votes').text( votes + ' Bewertungen abgegeben (' + exact + ' Bewertung)' );
+        $(widget).find('.rating_error').text( error );
+    }
 }
 
 </script>
