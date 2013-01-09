@@ -2024,6 +2024,11 @@ small {
 .cs_img img {max-width: 100% !important; height: auto;}
 .cs_img_caption {max-width: 100% !important;}
 
+
+/* Error page */
+.error-page h2 {color:#000; font-size: 20px;}
+.error-page article {text-align: center; max-width: 680px; margin: 0 auto;}
+
 /*
 = Popup content
 -------------------------------------------------------------------------------------- */
@@ -2247,7 +2252,7 @@ a.button.center.details-more {display:none;}
 	
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 	
 	.phone-show {display:block;}
 	
@@ -2786,8 +2791,13 @@ a.button.center.details-more {display:none;}
 	.tab-nav-dropdown {display:block;}
 	.article-tabs {border:#ccc solid 1px; padding:10px;}
 		.article-tabs-holder {border:0; padding:0; margin-top:10px;}
-		
-		
+
+
+
+	/* Error page */
+
+	.content-wrapper.error-page {margin: 0 -10px; padding: 0 10px; width: auto;}
+	.error-page h2 {text-align: center; margin-top: 20px; font-size: 18px;}
 
 }
 
