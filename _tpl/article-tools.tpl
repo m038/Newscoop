@@ -2,9 +2,9 @@
                   
                   <ul id="social_bookmarks" class="soc-options left"></ul>
                     
-                    <ul class="article-options right">
+                    <ul class="article-options right phone-hide">
             		  		<li class="email"><a href="{{ $view->serverUrl() }}{{ $view->baseUrl({{ $view->url(['controller' => 'article-recommendation', 'action' => 'index', 'article_number' => {{ $gimme->article->number }}], 'default') }}) }}"  id="article-recommend-button">Email</a></li>                     
-            		  		<li class="print"><a href="#" onclick="window.print();return false">Print</a></li>
+            		  		<li class="print mobile-hide"><a href="#" onclick="window.print();return false">Print</a></li>
                     </ul>
                 
                 </div>
