@@ -18,5 +18,5 @@
                   <p><a href="#" class="icon-heart">Spenden an zentral+</a>
                 </p></div-->   
                 
-                <div id="pwyl-widget" style="width:100%; max-width:100%;">
+                <div id="pwyl-widget" style="width:350px; max-width:350px;">
                 </div>             
