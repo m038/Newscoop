@@ -1408,19 +1408,21 @@ small {
 	.static-info-page p {margin-bottom:23px;}
 	.static-info-page article figure.left {clear:left; margin-right:15px;}
 	
-	.static-info-page table {
+	.static-info-page table,
+	.single table {
 		width:100%;
 		margin-bottom:30px;
 		background:#efefef;
 		}
-		.static-info-page table td {
+		.static-info-page table td,
+		.single table td {
 			padding:10px 3px;
 			font-size:15px; color:#000;
 			border-left:#fff solid 1px; border-bottom:#dadbd5 solid 1px;
 			}
-			.static-info-page table td:first-child {border-left:0;}
-			.static-info-page table tbody tr:last-child td {border-bottom:0;}
-		.static-info-page table thead td {background:#d5d4cf;}
+			.static-info-page table td:first-child, .single table td:first-child{border-left:0;}
+			.static-info-page table tbody tr:last-child td, .single table tbody tr:last-child td {border-bottom:0;}
+		.static-info-page table thead td, .single table thead td {background:#d5d4cf;}
 	
 	
 	.profile-tabs {
