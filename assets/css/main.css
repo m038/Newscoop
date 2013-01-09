@@ -1415,14 +1415,19 @@ small {
 		background:#efefef;
 		}
 		.static-info-page table td,
-		.single table td {
+		.single table td,
+		.static-info-page table th,
+		.single table th {
 			padding:10px 3px;
 			font-size:15px; color:#000;
 			border-left:#fff solid 1px; border-bottom:#dadbd5 solid 1px;
+			text-align: left;
 			}
-			.static-info-page table td:first-child, .single table td:first-child{border-left:0;}
+			.static-info-page table td:first-child, .single table td:first-child,
+			.static-info-page table th:first-child, .single table th:first-child {border-left:0;}
 			.static-info-page table tbody tr:last-child td, .single table tbody tr:last-child td {border-bottom:0;}
-		.static-info-page table thead td, .single table thead td {background:#d5d4cf;}
+		.static-info-page table thead td, .single table thead td,
+		.static-info-page table th, .single table th {background:#d5d4cf;}
 	
 	
 	.profile-tabs {
