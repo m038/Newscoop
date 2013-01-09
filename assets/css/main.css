@@ -2039,7 +2039,8 @@ small {
 	display: block;
 	font-family: Arial,Helvetica,sans-serif;
 	font-size: 12px;
-	padding-top: 6px;
+	line-height: 140%;
+	padding-top: 4px;
 	}
 
 
