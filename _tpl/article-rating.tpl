@@ -1,5 +1,5 @@
 <div class='article_rating'>
-    <p class="rating_label">Rate this article:</p>
+    <p class="rating_label">Artikel bewerten:</p>
     <div id="{{ $gimme->article->number }}" class="rate_widget">
         <ul class="stars">
             <li class="star_1 ratings_stars"></li>
@@ -83,7 +83,7 @@ function set_votes(widget) {
 
     $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratings_vote');
     $(widget).find('.star_' + avg).nextAll().removeClass('ratings_vote'); 
-    $(widget).find('.total_votes').text( votes + ' votes recorded (' + exact + ' rating)' );
+    $(widget).find('.total_votes').text( votes + ' Bewertungen abgegeben (' + exact + ' Bewertung)' );
     $(widget).find('.rating_error').text( error );
 }
 
