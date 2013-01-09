@@ -1,4 +1,4 @@
-                <div class="box bottom-line">
+                <!--div class="box bottom-line">
                 	<div class="payment-box">
                     	<href="#" class="close-box">close</a>
                 		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
@@ -12,11 +12,11 @@
                             <a class="button red right" href="#">Jetzt spenden</a>
                         </div>
                     </div>
-                </div>
+                </div-->
                 
-                <div class="box bottom-line centered-list">
+                <!--div class="box bottom-line centered-list">
                   <p><a href="#" class="icon-heart">Spenden an zentral+</a>
-                </p></div>   
+                </p></div-->   
                 
-                <div id="pwyl-widget" style="width:350px; max-width:350px;">
+                <div id="pwyl-widget" style="width:100%; max-width:100%;">
                 </div>             
