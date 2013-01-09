@@ -58,7 +58,7 @@
                         </article>
                     </div>
                     
-                    <a href="#" class="button red center">Zur Debatte</a>
+                    <a href="{{ url options="article" }}" class="button red center">Zur Debatte</a>
                 
                 </div>
 
