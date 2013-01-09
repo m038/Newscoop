@@ -44,7 +44,7 @@ $(document).ready(function() {
         function() {
             $(this).prevAll().andSelf().removeClass('ratings_over');
             // can't use 'this' because it wont contain the updated data
-            set_votes($(this).parent());
+            set_votes($(this).closest('.rate_widget');
         }
     );
     
