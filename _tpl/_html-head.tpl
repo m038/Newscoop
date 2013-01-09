@@ -75,6 +75,7 @@
   <script src="{{ url static_file="assets/js/meteonews.js" }}"></script>
 
   <!-- 'pay what you like' micro payment widget -->    
+<!-- this kills jquery, since they do evel things on it
 	 <script src='http://dds1.getunik.net/dds/widgetserver/widget/api/666/1/key/lebzozlgyb/widget.js?language=de&container=pwyl-widget' type='text/javascript'></script>
-
+-->
 </head>
