@@ -101,6 +101,8 @@ blockquote {
 	margin-bottom:10px;
 	font-size:30px; color:#b40032; text-align:center;
 	}
+
+
 	blockquote:before {content:"«";}
 	blockquote:after {content:"»";}
 	cite {
@@ -117,6 +119,12 @@ blockquote {
 		font-size:26px; line-height:32px; color:#000;
 		border-bottom:#c74068 dashed 1px; border-top:#c74068 dashed 1px;
 		}
+		.single blockquote p {
+			margin:0; padding:0;
+			font-size:26px; line-height:32px; color:#000;
+			}
+		.single blockquote:before {content:"";}
+		.single blockquote:after {content:"";}
 
 
 .button,
