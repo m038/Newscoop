@@ -315,7 +315,7 @@ var meteonews = {
         // header row
         $('#mn-pistenbericht-details-list').empty();
 
-        item += "<img src='" + this.symbolsPath + slope.symb + ".png' class='mn-symbol-small' alt>";
+        item += "<img src='" + this.symbolsPath + slope.symb + ".png' class='mn-symbol-medium' alt>";
         item += "<span>" + slope.temp + ", ";
         item += "<small>" + slope.txt + "</small></span></li>";
 

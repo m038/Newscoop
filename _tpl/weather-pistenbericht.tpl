@@ -183,7 +183,7 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table cellpadding="0" cellspacing="0">
+                                    <table id='mn-pistenbericht-prognosen-table-1' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
@@ -215,27 +215,14 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table cellpadding="0" cellspacing="0">
+                                    <table id='mn-pistenbericht-prognosen-table-2' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
                                         </colgroup>
-                                        <tbody><tr>
-                                            <td colspan="2"><p><strong>In der Nähe</strong></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                    </tbody></table>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 
                                 </div>
                             
@@ -247,27 +234,14 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table cellpadding="0" cellspacing="0">
+                                    <table id='mn-pistenbericht-prognosen-table-3' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
                                         </colgroup>
-                                        <tbody><tr>
-                                            <td colspan="2"><p><strong>In der Nähe</strong></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                    </tbody></table>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 
                                 </div>
                             
@@ -279,27 +253,14 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table cellpadding="0" cellspacing="0">
+                                    <table id='mn-pistenbericht-prognosen-table-4' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
                                         </colgroup>
-                                        <tbody><tr>
-                                            <td colspan="2"><p><strong>In der Nähe</strong></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                    </tbody></table>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 
                                 </div>
                             
@@ -311,27 +272,14 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table cellpadding="0" cellspacing="0">
+                                    <table id='mn-pistenbericht-prognosen-table-5' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
                                         </colgroup>
-                                        <tbody><tr>
-                                            <td colspan="2"><p><strong>In der Nähe</strong></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                    </tbody></table>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 
                                 </div>
                             
@@ -339,4 +287,10 @@
                         
                         </div>
                     </div><!-- mn-pistenbericht-details-prognosen -->
+
+                    <div class="back-link">
+                        <a class="button white prev" href="#">‹</a> <a href="#">zur Übersicht</a>
+                    </div>
                 </div><!-- / mn-pistenbericht-details -->
+
+                
