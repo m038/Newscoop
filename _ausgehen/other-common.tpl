@@ -24,7 +24,7 @@
     display: none;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
     #top-calendar {
         position: relative;
     }

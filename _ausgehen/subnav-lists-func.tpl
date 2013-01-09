@@ -4,7 +4,7 @@
 function get_month_view_count() {
     var month_num = 3;
     var doc_width = $(document).width();
-    if (640 > doc_width) {
+    if (1100 >= doc_width) {
         month_num = 1;
     }
 
