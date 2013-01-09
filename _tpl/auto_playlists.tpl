@@ -44,9 +44,14 @@ window.playlists_auto_stage1 = function() {
                     var set_box = set_gal['boxes'][set_ind]['box'];
                     var set_img = set_gal['boxes'][set_ind]['img'];
                     $(set_box).hide();
-                    $(set_img).fadeTo(0, 1, function() {});
                     if (sub_rank == set_ind) {
                         $(set_box).show();
+                        $(set_img).fadeTo(0, 1, function() {});
+                    }
+                    else {
+                        $(set_img).fadeTo(0, 1, function() {
+                            $(set_box).hide();
+                        });
                     }
 
                     var set_thumb = set_gal['thumbs'][set_ind];
