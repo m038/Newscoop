@@ -172,7 +172,7 @@
             </ul>
 -->
 
-            <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige OnlineMagazin der Zentralschweiz</a></h1>
+            <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
             <ul class="header-menu">
               <li><a href="#" class="icon-tag">Meine Themen</a></li>
               <li class="expandable">
