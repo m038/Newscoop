@@ -24,7 +24,9 @@
                     		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
-                        <li><a href="#">Wetter*</a></li>
+                        {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+                        <li><a href="{{ url option="article"}}?pg=local">Wetter</a></li>
+                        {{ /list_articles }}
                     </ul>
                 </li>               
                 <li>
