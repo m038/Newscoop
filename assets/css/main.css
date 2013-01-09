@@ -1933,13 +1933,13 @@ small {
 					.footer-list > li > ul > li a:hover {text-decoration:underline;}
 					
 			.footer-list > li > ul.social > li a {
-				padding-left:22px;
+				padding-left:24px;
 				background-image:url(../img/icons-footer-social.png); background-repeat:no-repeat;
 				}
-				.footer-list > li > ul.social > li.facebook a {background-position:0 6px;}
-				.footer-list > li > ul.social > li.twitter a {background-position:0 -23px;}
-				.footer-list > li > ul.social > li.vimeo a {background-position:0 -52px;}
-				.footer-list > li > ul.social > li.nletter a {background-position:0 -79px;}
+				.footer-list > li > ul.social > li.facebook a {background-position:0 2px;}
+				.footer-list > li > ul.social > li.twitter a {background-position:0 -27px;}
+				.footer-list > li > ul.social > li.vimeo a {background-position:0 -56px;}
+				.footer-list > li > ul.social > li.nletter a {background-position:0 -83px;}
 			
 	#footer p {text-align:center;}
 
