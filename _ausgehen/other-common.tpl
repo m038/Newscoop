@@ -46,6 +46,7 @@
 
     #top-calendar ul.calendar-options {
         margin-left: 28px;
+        overflow: hidden;
     }
 }
 
