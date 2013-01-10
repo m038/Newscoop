@@ -9,9 +9,9 @@
         
 		-->
 
-		<div class="box bottom-line" id="payment-box">
+		<div class="box bottom-line" id="payment-box" style="display:none;">
         	<div class="payment-box">
-            	<a href="#" id="close_micropayment" class="close-box">close</a>
+            	<a id="close_micropayment" class="close-box">close</a>
         		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
             	MVV – Medien, Meinung, Vielfalt machen Sie unsere Arbeit möglich.</p>
             	<!--
@@ -29,8 +29,8 @@
         </div>
                 
         <div class="box bottom-line centered-list">
-          <p><a id="micropayment_button" href="#" class="icon-heart">Spenden an zentral+</a>
-        </p></div>   
+          <p><a id="micropayment_button" class="icon-heart">Spenden an zentral+</a></p>
+        </div>   
 
     </div>
 

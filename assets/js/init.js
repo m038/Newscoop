@@ -93,7 +93,7 @@ $(window).load(function() {
 
 	/* Micropayment article button */
 	$("#micropayment_button").click(function(){
-		$(this).hide();
+		$(this).parent().parent().hide();
 		$("#payment-box").show();
 	});
 	$("#close_micropayment").click(function(){
