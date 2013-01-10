@@ -2625,7 +2625,13 @@ a.button.center.details-more {display:none;}
 	.community-mobile-fix .events-aside .mobile-hide .search {display:block; margin:0;}
 	.community-mobile-fix .events-aside .mobile-hide .search {position:relative; left:0; top:0; width:100%; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box}
 	
-	.events-content .events-aside {overflow:hidden;}
+	.events-content .events-aside {}
+	.top-calendar-narrow {width: 280px !important;}
+	.calendar-popup {
+		top:30px;
+		left:auto;
+		right: 14px;
+		}
 	
 	.community-list article {border-bottom:#ccc dashed 1px;}
 	.community-list article figure {display:none;}
@@ -2995,7 +3001,8 @@ a.button.center.details-more {display:none;}
 	.thumb-gallery .jcarousel-skin-gallery .jcarousel-prev-horizontal {display:none !important;}
 	
 	.events-content .events-aside {padding:10px; margin:0 -10px 20px}
-		.events-content .events-aside .box {float:none; width:auto; padding:0; overflow:hidden;}
+		.events-content .events-aside .box {float:none; width:auto; padding:0; height:40px;}
+		/*.events-content .events-aside .box.calendar-placeholder {}*/
 			.events-content .events-aside .box h4 {text-align:left; width:20%;}
 			.events-content .events-aside .ui-dropdownized,
 			.events-content .events-aside .button.datepicker-trigger {width:70%; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
