@@ -3103,6 +3103,7 @@ a.button.center.details-more {display:none;}
   .header-menu,
   .content-top .search,
   .content-top .place-date,
+  .content .aside,
   .article_rating,
   .social-bar,
   .payment-box-outer,
@@ -3117,6 +3118,7 @@ a.button.center.details-more {display:none;}
   	display: list-item;
   	list-style-image: url("../img/logo/png");
   	list-style-position: inside;
+  	left:0;
   }
 
   #header h1 a {
@@ -3141,5 +3143,6 @@ a.button.center.details-more {display:none;}
   .inline-box {
   	border: 2px solid #777;
   }
+
 
 }
