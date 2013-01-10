@@ -237,7 +237,7 @@ $(document).ready(function() {
                 slide_content += "</div>\n";
 
                 var cur_thm_link = cur_img_link;
-                cur_thm_link = cur_thm_link.replace(/ImageHeight=\d*/, "ImageHeight=53");
+                cur_thm_link = cur_thm_link.replace(/ImageHeight=\d*/, "ImageHeight=43");
                 cur_thm_link = cur_thm_link.replace(/ImageWidth=\d*/, "ImageWidth=90");
 
                 thumb_content += '<li><a href="#tab-' + (cur_img_ind + 1) + '"><img src="' + cur_thm_link + '" alt="" /></a></li>';

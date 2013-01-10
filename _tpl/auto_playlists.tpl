@@ -1,5 +1,7 @@
 <script type="text/javascript">
 
+window.playlists_thumb_classes = ['ui-tabs-active', 'ui-state-active', 'ui-state-focus'];
+
 window.playlists_autos = [];
 
 window.playlists_auto_stage1 = function() {
@@ -28,6 +30,9 @@ window.playlists_auto_stage1 = function() {
 
             $(li_obj).click({'gal': cur_gal, 'sub': li_ind}, function(ev_obj) {
 
+                var thumb_classes = window.playlists_thumb_classes;
+                var thumb_classes_count = thumb_classes.length;
+
                 var gal_rank = ev_obj.data['gal']['rank'];
                 window.playlists_autos[gal_rank]['stopped'] = true;
 
@@ -43,6 +48,15 @@ window.playlists_auto_stage1 = function() {
                     if (sub_rank == set_ind) {
                         $(set_box).show();
                     }
+
+                    var set_thumb = set_gal['thumbs'][set_ind];
+                    for (var set_thm_ind = 0; set_thm_ind < thumb_classes_count; set_thm_ind += 1) {
+                        $(set_thumb).removeClass(thumb_classes[set_thm_ind]);
+                        if (sub_rank == set_ind) {
+                            $(set_thumb).addClass(thumb_classes[set_thm_ind]);
+                        }
+                    }
+
                 }
 
             });
@@ -84,7 +98,7 @@ window.playlists_image_switch = function(gal_index) {
         var old_box = use_gal.boxes[use_gal['index']]['box'];
         $(old_box).css('display', "none");
 
-        var thumb_classes = ['ui-tabs-active', 'ui-state-active', 'ui-state-focus'];
+        var thumb_classes = window.playlists_thumb_classes;
         var thumb_classes_count = thumb_classes.length;
 
         var old_thumb = use_gal.thumbs[use_gal['index']];
