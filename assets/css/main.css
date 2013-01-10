@@ -3085,8 +3085,8 @@ a.button.center.details-more {display:none;}
 = Print
 -------------------------------------------------------------------------------------- */
 @media print {
-  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
-  a, a:visited { color: #444 !important; text-decoration: underline; }
+  * { color: #000 !important; text-shadow: none !important; }
+  a, a:visited { color: #000 !important; text-decoration: underline; }
   a:after { content: " (" attr(href) ")"; }
   abbr:after { content: " (" attr(title) ")"; }
   .ir a:after { content: ""; }
@@ -3096,4 +3096,8 @@ a.button.center.details-more {display:none;}
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
+  .top { display:none; }
+  .header-menu { display:none; }
+  .content-top .search { display:none; }
+  .wide-wrapper { display:none; }
 }
