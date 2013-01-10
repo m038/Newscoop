@@ -2270,7 +2270,7 @@ a.button.center.details-more {display:none;}
 	
 	.restaurant-list {padding:10px;}
 		.restaurant-list article {width:222px;}
-		.restaurant-list article:nth-child(3n+1) {margin-right:0;}
+		/*.restaurant-list article:nth-child(3n+1) {margin-right:0;}*/
 
 	.restaurant-single #event_location.bottom-line {border-bottom:none;}
 	

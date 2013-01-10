@@ -311,7 +311,7 @@ function show_cuisines() {
 
             {{ include file="_ausgehen/subnav-lists-top.tpl" }}
 
-            <div class="content no-bottom-line equal-heights clearfix">
+            <div class="content no-bottom-line {{*equal-heights*}} clearfix">
 
             {{ include file="_ausgehen/subnav-lists-side.tpl" list_type="restaurants" cuisin_list=$kueche_list }}
 
