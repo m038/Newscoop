@@ -51,6 +51,8 @@
 								{{ /list_articles }}
                     </ul>
                 </li>              
+				{{ /local }}                
+				{{ local }}        	
                 <li>
                 	<h3>Ausgehen</h3>
                     <ul>
@@ -77,7 +79,7 @@
                         <li><a id="footer_restaurants_link" href="{{ uri options="section" }}?type=all&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Restaurants</a></li>
                     </ul>
                 </li>
-					 {{ /local }}                
+				{{ /local }}                
                 <li>
                 	<h3>Folgen Sie uns</h3>
                     <ul class="social">
