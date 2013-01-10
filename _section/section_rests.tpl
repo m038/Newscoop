@@ -189,12 +189,6 @@ function get_current_cuisine_classes($topic_list) {
 
 {{ /php }}
 
-<style type="text/css">
-.no_rest_found {
-    margin-left: 20px;
-}
-</style>
-
 <script type="text/javascript">
 
 function show_cuisines_single(sel_cuisine) {

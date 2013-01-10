@@ -287,4 +287,30 @@ function get_display_date(std_date) {
     return display_date;
 };
 
+function set_slideshow() {
+
+    $(".carousel_mov").jcarousel();
+
+    $(".fancybox-thumb_mov").each(function() {
+        $(this).fancybox({
+            type: "image",
+            prevEffect      : 'none',
+            nextEffect      : 'none',
+            helpers : {
+                title   : {
+                        type: 'outside'
+                },
+                thumbs  : {
+                        width   : 50,
+                        height  : 50
+                }
+            }
+        });
+    });
+
+    $(".tabs_mov").tabs();
+
+};
+
 </script>
+

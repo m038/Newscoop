@@ -50,33 +50,25 @@
     }
 }
 
+.top-calendar-narrow {
+    width: 280px !important;
+}
+
+.agenda-datepicker-narrow {
+    width: 300px !important;
+    margin-left: -12px !important;
+}
+
+.rest_text_hidden {
+    display: none;
+}
+
+.rest_image_hidden {
+    display: none;
+}
+
+.no_rest_found {
+    margin-left: 20px;
+}
+
 </style>
-
-<script type="text/javascript">
-
-function set_slideshow() {
-
-    $(".carousel_mov").jcarousel();
-
-    $(".fancybox-thumb_mov").each(function() {
-        $(this).fancybox({
-            type: "image",
-            prevEffect      : 'none',
-            nextEffect      : 'none',
-            helpers : {
-                title   : {
-                        type: 'outside'
-                },
-                thumbs  : {
-                        width   : 50,
-                        height  : 50
-                }
-            }
-        });
-    });
-
-    $(".tabs_mov").tabs();
-
-};
-
-</script>

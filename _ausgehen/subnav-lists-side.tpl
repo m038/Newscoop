@@ -1,15 +1,4 @@
 
-<style type="text/css">
-.top-calendar-narrow {
-    width: 280px !important;
-}
-
-.agenda-datepicker-narrow {
-    width: 300px !important;
-    margin-left: -12px !important;
-}
-</style>
-
             <div id="events_aside_part" class="events-aside clearfix">
 
                 <div class="box desktop-hide">
