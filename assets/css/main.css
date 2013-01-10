@@ -3110,13 +3110,14 @@ a.button.center.details-more {display:none;}
   .short-article-list,
   .page-content-nav,
   .paging,
+  .thumb-gallery,
   .wide-wrapper { display:none; }
 
   #header h1 {
   	position: relative;
   	margin: 0;
   	display: list-item;
-  	list-style-image: url("../img/logo/png");
+  	list-style-image: url("../img/logo.png");
   	list-style-position: inside;
   	left:0;
   }
