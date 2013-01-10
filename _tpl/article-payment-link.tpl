@@ -11,7 +11,7 @@
 
 		<div class="box bottom-line" id="pwyl-widget">
         	<div class="payment-box">
-            	<href="#" class="close-box">close</a>
+            	<a href="#" class="close-box">close</a>
         		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
             	MVV – Medien, Meinung, Vielfalt machen Sie unsere Arbeit möglich.</p>
             	<!--
@@ -24,7 +24,7 @@
                     <a class="button red right" href="#">Jetzt spenden</a>
                 </div>
             -->
-            	<iframe class="payment-box-iframe" src="{{ uri options="section" }}?iframe_holder=1&iframe_type=article-payment" height="150" allowtransparency="true" scrolling="no" frameborder="0" style="width:100%;" /></iframe>
+            	<iframe class="payment-box-iframe" src="{{ uri options="section" }}?iframe_holder=1&iframe_type=article-payment" /></iframe>
             </div>
         </div>
                 
