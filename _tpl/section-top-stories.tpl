@@ -1,4 +1,10 @@
-{{ list_articles length="5" constraints="type not newswire" }}
+{{ $region = $gimme->user['region'] }}
+{{ $condition = "$region is on" }} 
+{{ if !$region }}
+    {{ $condition = "" }}
+{{ /if }}
+
+{{ list_articles length="5" constraints="type not newswire `$condition`" }}
 {{ if $gimme->current_list->at_beginning }}
               <article class="bottom-line featured">
                  

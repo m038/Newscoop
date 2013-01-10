@@ -4,7 +4,7 @@
 function get_month_view_count() {
     var month_num = 3;
     var doc_width = $(document).width();
-    if (640 > doc_width) {
+    if (1100 >= doc_width) {
         month_num = 1;
     }
 
@@ -69,9 +69,6 @@ function close_calendar() {
 /* German initialisation for the jQuery UI date picker plugin. */
 /* Written by Milian Wolff (mail@milianw.de). */
 $(document).ready(function() {
-
-    adapt_global_sizes();
-    setInterval("adapt_global_sizes();", 1000);
 
     $.datepicker.regional['de'] = {
         closeText: 'schließen',

@@ -1,5 +1,6 @@
 {{ assign var="omit_canonical" true }}
 {{ include file="_tpl/_html-head.tpl" }}
+{{ include file="_tpl/auto_playlists.tpl" }}
 
 {{ assign var="movie_key" value=$smarty.get.movie_key|replace:" ":""|replace:'"':""|replace:"'":""|replace:"<":""|replace:">":""|replace:"\\":"" }}
 
@@ -102,6 +103,7 @@ $(document).ready(function() {
     var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Film nicht gefunden.</p></div></div>';
 
     outline_type("kino");
+    update_type_sel("kino");
 
     var run_date_obj = new Date();
     var run_date = get_date_string(run_date_obj);
@@ -209,21 +211,29 @@ $(document).ready(function() {
 
         var slide_content = "";
         var thumb_content = "";
+		var having_images = false;
 
         if (got_movie.movie_image_urls && (0 != got_movie.movie_image_urls.length)) {
-            thumb_content += '<ul class="carousel jcarousel-skin-gallery clearfix">';
+            thumb_content += '<ul class="carousel_mov jcarousel-skin-gallery clearfix">';
 
             var img_count = got_movie.movie_image_urls.length;
+			if (img_count && (0 < img_count)) {
+				having_images = true;
+			}
             for (var cur_img_ind = 0; cur_img_ind < img_count; cur_img_ind++) {
                 var cur_img_link = got_movie.movie_image_urls[cur_img_ind];
 
                 cur_img_link = cur_img_link.replace(/ImageHeight=\d*/, "ImageHeight=480");
                 cur_img_link = cur_img_link.replace(/ImageWidth=\d*/, "ImageWidth=720");
 
+                var class_img_hidden = "";
+                if (0 < cur_img_ind) {
+                    class_img_hidden = " mov_img_part_hidden ";
+                }
 
-                slide_content += '<div id="tab-' + (cur_img_ind + 1) + '" class="gall-box">';
+                slide_content += '<div id="tab-' + (cur_img_ind + 1) + '" class="gall-box' + class_img_hidden + '">';
                 slide_content += '<figure>';
-                slide_content += '<a href="' + cur_img_link + '" rel="fancybox-thumb" class="zoom fancybox-thumb">Zoom</a>';
+                slide_content += '<a href="' + cur_img_link + '" rel="fancybox-thumb_mov" class="zoom fancybox-thumb_mov" style="display:none">Zoom</a>';
                 slide_content += '<img alt="" src="' + cur_img_link + '">';
                 if (got_movie.image_copyright) {
                     slide_content += '<small>' + got_movie.image_copyright + '</small>';
@@ -232,7 +242,7 @@ $(document).ready(function() {
                 slide_content += "</div>\n";
 
                 var cur_thm_link = cur_img_link;
-                cur_thm_link = cur_thm_link.replace(/ImageHeight=\d*/, "ImageHeight=53");
+                cur_thm_link = cur_thm_link.replace(/ImageHeight=\d*/, "ImageHeight=43");
                 cur_thm_link = cur_thm_link.replace(/ImageWidth=\d*/, "ImageWidth=90");
 
                 thumb_content += '<li><a href="#tab-' + (cur_img_ind + 1) + '"><img src="' + cur_thm_link + '" alt="" /></a></li>';
@@ -244,6 +254,12 @@ $(document).ready(function() {
 
         $("#image_gallery").html(slide_content + thumb_content);
 
+		if (having_images) {
+			$("#image_gallery").show();
+		}
+		else {
+			$("#image_gallery").hide();
+		}
 
         var screen_content = "";
 
@@ -411,6 +427,7 @@ $(document).ready(function() {
 
     }
 
+    setTimeout("set_slideshow();", 10);
 });
 
 </script>
@@ -448,7 +465,7 @@ $(document).ready(function() {
     {{ include file="_tpl/article-tools.tpl" }}
 
         <article class="bottom-line">
-            <div id="image_gallery" class="thumb-gallery tabs">
+            <div id="image_gallery" class="thumb-gallery tabs_mov">
             </div>
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">

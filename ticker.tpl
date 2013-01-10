@@ -27,7 +27,7 @@
                 	<ul class="custom-list tag-list">
                 		{{ assign var="tplId" value=$gimme->template->identifier }}
                     	<li{{ if !$smarty.get.sec }} class="active"{{ /if }}><a href="{{ url options="root_level" }}?tpl={{ $tplId }}">Alle Rubriken</a></li>
-                    	{{ list_sections constraints="number smaller_equal 70" }}                    	
+                    	{{ list_sections constraints="number smaller_equal 50" }}                    	
                     	<li{{ if $smarty.get.sec == $gimme->section->name }} class="active"{{ /if }}><a href="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</a></li>
                     	{{ /list_sections }}
                     </ul>

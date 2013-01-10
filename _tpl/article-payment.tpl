@@ -1,6 +1,6 @@
-                <div class="box bottom-line">
+                <div class="box bottom-line" id="pwyl-widget">
                 	<div class="payment-box">
-                    	<a href="#" class="close-box">close</a>
+                    	<href="#" class="close-box">close</a>
                 		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
                     	MVV – Medien, Meinung, Vielfalt machen Sie unsere Arbeit möglich.</p>
                     	<h4>Spenden Sie 5 CHF per SMS</h4>
@@ -13,3 +13,9 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="box bottom-line centered-list">
+                  <p><a href="#" class="icon-heart">Spenden an zentral+</a>
+                </p></div>   
+                
+

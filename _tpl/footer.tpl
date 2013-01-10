@@ -88,7 +88,7 @@
                     </ul>
                 </li>
             </ul><!-- / Footer list -->
-            <p>zentral+ ist ein Projekt der MMV online AG – Medien, Meinung, Vielfalt</p>
+            <p><a href="http://www.mmv-online.ch">© MMVonline AG - Alle Rechte vorbehalten</a></p>
 
             <ul class="phone-footer-nav">
             	<li><a href="#">Kontakt</a></li>

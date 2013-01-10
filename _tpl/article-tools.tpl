@@ -2,9 +2,9 @@
                   
                   <ul id="social_bookmarks" class="soc-options left"></ul>
                     
-                    <ul class="article-options right">
+                    <ul class="article-options right phone-hide">
             		  		<li class="email"><a href="{{ $view->serverUrl() }}{{ $view->baseUrl({{ $view->url(['controller' => 'article-recommendation', 'action' => 'index', 'article_number' => {{ $gimme->article->number }}], 'default') }}) }}"  id="article-recommend-button">Email</a></li>                     
-            		  		<li class="print"><a href="#" onclick="window.print();return false">Print</a></li>
+            		  		<li class="print mobile-hide"><a href="#" onclick="window.print();return false">Print</a></li>
                     </ul>
                 
                 </div>
@@ -12,11 +12,7 @@
 {{ if $gimme->publication->identifier == "2" }}
     {{ if ($gimme->section->number <= 70) || ($gimme->section->number > 90) }}
                 
-		{{ include file="_tpl/article-payment.tpl" }}
-
-                <div class="box bottom-line centered-list">
-                  <p><a href="#" class="icon-heart">Spenden an zentral+</a>
-                </p></div>
+		{{ include file="_tpl/article-payment-link.tpl" }}
                 
                 <div class="article-border-bottom short-article-list margin-bottom clearfix">
             

@@ -1,6 +1,6 @@
 {{extends file="layout.tpl"}}
 
-{{block name="header_h2"}}Community{{/block}}
+{{block page_name}}Community{{/block}}
 
 {{block content}}
 <form method="POST" action="" enctype="multipart/form-data">

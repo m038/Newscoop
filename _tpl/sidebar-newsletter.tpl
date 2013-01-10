@@ -1,4 +1,4 @@
-{{ if ! isset($gimme->user) || !$gimme->user->logged_id == true }}
+{{ if !is_object($gimme->user) || !$gimme->user->logged_in }}
 <div class="box highlight-box">
 	<h4 class="box-title icon-letter"><a href="#">zentral+ Newsletter</a></h4>
   <form method="get" action="/register">
