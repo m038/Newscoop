@@ -154,10 +154,10 @@ var meteonews = {
         });
     },
 
-    getForecastOverview: function(cb) {
+    getForecastOverview: function(locationType, locationId, cb) {
         var feed = 'forecasts/' +
-            this.locationType + '/' + 
-            this.locationId + '.' +
+            locationType + '/' + 
+            locationId + '.' +
             this.format;
 
         var params = [];
@@ -263,8 +263,9 @@ var meteonews = {
         }
     },
 
-    getWinterSportsReport: function(id, cb) {
-        var feed = 'wintersports/mexs/' +
+    getWinterSportsReport: function(type, id, cb) {
+        var feed = 'wintersports/' +
+            type + '/' +
             id + '.' +
             this.format;
 
@@ -310,7 +311,11 @@ var meteonews = {
     showWinterSportsReport: function(slope) {
         var now = this.formatDateTime(new Date()); 
         $('#mn-pistenbericht-details-time').html('Aktuell '+now);
-        var item = '<li>';
+        var item = "<li style='width: 300px'>";
+        
+        // update location header
+        meteonews.setLocationTitle(slope.name);
+        $('#mn-header-location-title').show();
 
         // header row
         $('#mn-pistenbericht-details-list').empty();
@@ -338,6 +343,7 @@ var meteonews = {
             var items = slope.slope_results[section];
             if (section != '@attributes') {
                 output += "<h4 class='table-collapse-trigger'>";
+                // TODO: translate section
                 output += "<a href='#'>" + section + "</a></h4>";
                 output += "<div class='table-wrapper'><table cellpadding='0' cellspacing='0'>";
 
@@ -388,7 +394,8 @@ var meteonews = {
                     } else {
                         displayValue = items[item];
                     }
-
+                    
+                    // TODO: translate displayItem
                     output += "<th>" + displayItem + "</th>" + "<td>" + displayValue + "</td>";
                     fcount++;
 
@@ -404,8 +411,53 @@ var meteonews = {
 
                 output += "<tbody>";
                 output += "</table></div>";
-                }
             }
+        }
+        
+        // get forecasts for slopes in the near
+        var headerRow = "<tr><td colspan='2'><p><strong>In der Nähe</strong></p></td></tr>"
+        for (var i=1;i<6;i++) {
+            $('#mn-pistenbericht-prognosen-table-' + i + ' tbody').empty();
+            $('#mn-pistenbericht-prognosen-table-' + i + ' tbody').append(headerRow);
+        }
+        var rowTemplate = "<tr><td><p><strong>$name</strong><br>$text</p></td><td>$image $temp</td></tr>";
+
+        for (s in slope.all_slope_results) {
+            var areaSlope = slope.all_slope_results[s];
+            var slopeId = areaSlope['@attributes']['mexs_id'];
+            var slopeName = areaSlope['@attributes']['name'];
+            
+            for (var i=1;i<6;i++) {
+                var rowId = "mn-slope-tbl" + i + "-" + slopeId;
+                var rowTemplate = "<tr id='" + rowId + "'></tr>";
+                $('#mn-pistenbericht-prognosen-table-' + i + ' tbody').append(rowTemplate);
+            }
+
+            (function(slopeId, slopeName){
+                meteonews.getForecastOverview('mexs', slopeId, function(response) {
+                    var results = response.forecasts.content.timeperiod;
+                    var day = 0;
+
+                    for (var r in results) {
+                        var result = results[r];
+                        var temp = (result.temp['@text']) ? result.temp['@text'] : 0;
+                        var txt = result['txt'];
+                        var date = meteonews.getDate(result['@attributes']['end_datetime']);
+                        var displayDate = meteonews.formatDisplayDate(date);
+                        var image = "<img src='" + meteonews.symbolsPath + result.symb +".png' class='mn-symbol-small' alt>";
+                        var link = "<a href='#'  class='mn-pistenbericht-link' data-type='mexs' data-id='" + slopeId + "' data-name='" + slopeName + "'>"
+                        var row = "<td><p><strong>" + link + slopeName + "</a></strong><br>" + txt + "</p></td><td>" + image + " " +  temp + "</td>";
+                        day++;
+                        var matchRowId = "#mn-slope-tbl" + day + "-" + slopeId;
+                        var buttonText = "<span class='mobile-hide'>Details</span> "+displayDate;
+ 
+                        $('#mn-header-day'+day).html('Pronose '+displayDate);
+                        $('#mn-ui-id-'+day).html(buttonText);
+                        $(matchRowId).html(row);
+                    }
+                });
+            })(slopeId, slopeName);
+        }
 
         $('#mn-pistenbericht-details-container').html(output);
         $('#mn-pistenbericht-details').show();
@@ -440,7 +492,8 @@ var meteonews = {
             var temp_max_unit = result.temp_max['@attributes']['unit'];
             var txt = result['txt'];
             var date = meteonews.getDate(result['@attributes']['end_datetime']);
-            var displayDate = meteonews.formatDate(date);
+            var displayDate = meteonews.formatDisplayDate(date);
+            var linkDate = meteonews.formatDate(date);
             var item = "<li style='height: 254px;'>";
 
             // add the overview
@@ -457,7 +510,7 @@ var meteonews = {
                 "tabindex='0' " +
                 "aria-controls='tab-" + (day+1) + "' " +
                 "aria-labelledby='ui-id-"+(day+1)+"' " +
-                "data-date='" + displayDate + "' " +
+                "data-date='" + linkDate + "' " +
                 "aria-selected='true'>";
             button += "<a href='#tab-1' " +
                 "class='button white ui-tabs-anchor' " +
@@ -483,7 +536,7 @@ var meteonews = {
         var headerFields = ['temp', 'sun', 'precip', 'precip_prob', 'winddir', 'windforce'];
 
         // create date row
-        var date = this.formatDate(new Date(this.startDate));
+        var date = this.formatDisplayDate(new Date(this.startDate));
         $('#mn-prognose-date').html("Prognose " + date);
 
         // clear details table
@@ -670,7 +723,7 @@ var meteonews = {
         meteonews.makeActive('mn-lokalwetter');
         $('#mn-searchform').show();
         meteonews.setLocation(id, zip, name);
-        meteonews.getForecastOverview(meteonews.showForecastOverview);
+        meteonews.getForecastOverview(meteonews.locationType, meteonews.locationId, meteonews.showForecastOverview);
         meteonews.getDailyForecastDetails(new Date());
         meteonews.getAstronomy();
         $('#mn-primary-regions').show();
@@ -690,10 +743,10 @@ var meteonews = {
         $('#mn-pistenbericht-all-regions').show();
     },
 
-    showPistenberichtDetailPage: function(id, name) {
+    showPistenberichtDetailPage: function(type, id, name) {
         meteonews.hideAllElements();
         meteonews.setLocation(id,name);
-        meteonews.getWinterSportsReport(id, function(slope) {
+        meteonews.getWinterSportsReport(type, id, function(slope) {
             meteonews.showWinterSportsReport(slope);
         });
         $('#mn-slope-webcam').show();
@@ -775,6 +828,12 @@ var meteonews = {
         dateString = date.getFullYear() + '-' + 
             ('0' + (date.getMonth()+1)).slice(-2) + '-' + 
             ('0' + date.getDate()).slice(-2);
+        return dateString;
+    },
+
+    formatDisplayDate: function(date) {
+        dateString = ('0' + date.getDate()).slice(-2) + '.' +
+            ('0' + (date.getMonth()+1)).slice(-2);
         return dateString;
     },
 
@@ -870,7 +929,7 @@ $(function(){
     });
 
     $('.mn-pistenbericht-link').live('click', function() {
-        meteonews.showPistenberichtDetailPage($(this).attr('data-id'), '', $(this).attr('data-name'));
+        meteonews.showPistenberichtDetailPage($(this).attr('data-type'), $(this).attr('data-id'), '', $(this).attr('data-name'));
     });
 
 

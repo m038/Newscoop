@@ -170,16 +170,16 @@
                         <div class="spec-tabs ui-tabs ui-widget ui-widget-content ui-corner-all">
                 
                             <ul class="button-nav bottom-line ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist" style="display: block;">
-                                <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="table-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="#table-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"><span class="mobile-hide">Details</span> 15.10</a></li>
-                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-2" aria-labelledby="ui-id-2" aria-selected="false"><a href="#table-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2"><span class="mobile-hide">Details</span> 16.10</a></li>
-                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-3" aria-labelledby="ui-id-3" aria-selected="false"><a href="#table-3" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3"><span class="mobile-hide">Details</span> 17.10</a></li>
-                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-4" aria-labelledby="ui-id-4" aria-selected="false"><a href="#table-4" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4"><span class="mobile-hide">Details</span> 18.10</a></li>
-                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-5" aria-labelledby="ui-id-5" aria-selected="false"><a href="#table-5" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-5"><span class="mobile-hide">Details</span> 19.10</a></li>
+                                <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="table-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="#table-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="mn-ui-id-1"><span class="mobile-hide">Details</span> 15.10</a></li>
+                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-2" aria-labelledby="ui-id-2" aria-selected="false"><a href="#table-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="mn-ui-id-2"><span class="mobile-hide">Details</span> 16.10</a></li>
+                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-3" aria-labelledby="ui-id-3" aria-selected="false"><a href="#table-3" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="mn-ui-id-3"><span class="mobile-hide">Details</span> 17.10</a></li>
+                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-4" aria-labelledby="ui-id-4" aria-selected="false"><a href="#table-4" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="mn-ui-id-4"><span class="mobile-hide">Details</span> 18.10</a></li>
+                                <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="table-5" aria-labelledby="ui-id-5" aria-selected="false"><a href="#table-5" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="mn-ui-id-5"><span class="mobile-hide">Details</span> 19.10</a></li>
                             </ul>
                         
                             <div id="table-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="" aria-expanded="true" aria-hidden="false"><a href="#" class="button white prev next-tab mover" rel="2" style="display: none;">&gt;</a>
                             
-                                <h4><a href="#">Prognose 15.10</a></h4>
+                                <h4><a id='mn-header-day1' href="#">Prognose 15.10</a></h4>
                                 
                                 <div class="table-wrapper top-line">
                             
@@ -188,22 +188,8 @@
                                             <col width="">
                                             <col width="80">
                                         </colgroup>
-                                        <tbody><tr>
-                                            <td colspan="2"><p><strong>In der Nähe</strong></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                        <tr>
-                                            <td><p><strong>Name des Skigebiets</strong><br>Sonnig, Pulver/gut</p></td>
-                                            <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> -3°</td>
-                                        </tr>
-                                    </tbody></table>
+                                        <tbody>
+                                        </tbody></table>
                                 
                                 </div>
                             
@@ -211,7 +197,7 @@
                             
                             <div id="table-2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"><a href="#" class="button white next prev-tab mover" rel="1" style="display: none;">&lt;</a><a href="#" class="button white prev next-tab mover" rel="3" style="display: none;">&gt;</a>
                             
-                                <h4><a href="#">Prognose 16.10</a></h4>
+                                <h4><a id='mn-header-day2' href="#">Prognose 16.10</a></h4>
                                 
                                 <div class="table-wrapper top-line">
                             
@@ -230,7 +216,7 @@
                             
                             <div id="table-3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"><a href="#" class="button white next prev-tab mover" rel="2" style="display: none;">&lt;</a><a href="#" class="button white prev next-tab mover" rel="4" style="display: none;">&gt;</a>
                             
-                                <h4><a href="#">Prognose 17.10</a></h4>
+                                <h4><a id='mn-header-day3' href="#">Prognose 17.10</a></h4>
                                 
                                 <div class="table-wrapper top-line">
                             
@@ -249,7 +235,7 @@
                             
                             <div id="table-4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"><a href="#" class="button white next prev-tab mover" rel="3" style="display: none;">&lt;</a><a href="#" class="button white prev next-tab mover" rel="5" style="display: none;">&gt;</a>
                             
-                                <h4><a href="#">Prognose 18.10</a></h4>
+                                <h4><a id='mn-header-day4' href="#">Prognose 18.10</a></h4>
                                 
                                 <div class="table-wrapper top-line">
                             
@@ -268,7 +254,7 @@
                             
                             <div id="table-5" aria-labelledby="ui-id-5" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"><a href="#" class="button white next prev-tab mover" rel="4" style="display: none;">&lt;</a>
                             
-                                <h4><a href="#">Prognose 19.10</a></h4>
+                                <h4><a id='mn-header-day5' href="#">Prognose 19.10</a></h4>
                                 
                                 <div class="table-wrapper top-line">
                             
