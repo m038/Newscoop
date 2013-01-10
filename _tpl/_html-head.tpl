@@ -52,7 +52,7 @@
     
     {{ include file="_tpl/_head-openx-code.tpl" }}   
     
-   
+    <script src="{{ uri static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='{{ uri static_file="assets/js/libs/jquery.min.js" }}'>\x3C/script>")</script>
