@@ -355,8 +355,8 @@ function create_end_date($start_date, $period) {
 {{ if !empty($usedate) }}
     {{ assign var="enddate" $usedate }}
     {{ php }}
-        $usedate = $template->get_template_vars('usedate');
-        $useperiod = $template->get_template_vars('useperiod');
+        $usedate = $template->getTemplateVars('usedate');
+        $useperiod = $template->getTemplateVars('useperiod');
         $enddate = create_end_date($usedate, $useperiod);
         $template->assign('enddate',$enddate);
     {{ /php }}
@@ -650,9 +650,9 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
             {{  assign var="rest_days_notice" "" }}
             {{  assign var="rest_days" $gimme->article->date_time_text }}
             {{ php }}
-                $rest_days = $template->get_template_vars('rest_days');
-                $usedate = $template->get_template_vars('usedate_link');
-                $useperiod = $template->get_template_vars('useperiod_link');
+                $rest_days = $template->getTemplateVars('rest_days');
+                $usedate = $template->getTemplateVars('usedate_link');
+                $useperiod = $template->getTemplateVars('useperiod_link');
                 $rest_days_notice = get_rest_days_notice($rest_days, $usedate, $useperiod);
                 $template->assign('rest_days_notice',$rest_days_notice);
             {{ /php }}
@@ -662,8 +662,8 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
             {{ assign var="cur_cuisine" $gimme->article->rest_cuisine }}
             {{ assign var="cur_ambiance" $gimme->article->rest_ambiance }}
             {{ php }}
-                $cur_cuisine = $template->get_template_vars('cur_cuisine');
-                $cur_ambiance = $template->get_template_vars('cur_ambiance');
+                $cur_cuisine = $template->getTemplateVars('cur_cuisine');
+                $cur_ambiance = $template->getTemplateVars('cur_ambiance');
 
                 $cuisine_text = take_body_list($cur_cuisine, ', ');
                 $ambiance_text = take_body_list($cur_ambiance, ', ');
@@ -676,7 +676,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
             {{ assign var="cur_topics" $gimme->article->topics }}
 
             {{ php }}
-                $cur_topics = $template->get_template_vars('cur_topics');
+                $cur_topics = $template->getTemplateVars('cur_topics');
                 $rest_cuisines_classes = get_current_cuisine_classes($cur_topics);
                 $template->assign('rest_cuisines_classes',$rest_cuisines_classes);
             {{ /php }}
