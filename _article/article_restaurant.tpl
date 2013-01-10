@@ -650,7 +650,7 @@ function get_menu_text($menu_data)
 {{ assign var="reservation_link" $gimme->article->rest_reservation_url }}
 
 {{ php }}
-    $date_time_text = '' . $template->get_template_vars('date_time_text');
+    $date_time_text = '' . $template->getTemplateVars('date_time_text');
     $date_time_text_parts = get_time_text($date_time_text);
     $date_time_text = '';
     if (!empty($date_time_text_parts['open'])) {
@@ -666,12 +666,12 @@ function get_menu_text($menu_data)
     $template->assign('date_time_text', $date_time_text);
 
 
-    $speciality_text = '' . $template->get_template_vars('speciality_text');
+    $speciality_text = '' . $template->getTemplateVars('speciality_text');
     $speciality_info = get_menu_text($speciality_text);
     $template->assign('speciality_info', $speciality_info);
     $template->assign('speciality_count', count($speciality_info));
 
-    $rest_key = '' . $template->get_template_vars('rest_key');
+    $rest_key = '' . $template->getTemplateVars('rest_key');
     $rest_menu_info_all = load_rest_menu($rest_key);
 
     $rest_menu_info = array();
@@ -693,7 +693,7 @@ function get_menu_text($menu_data)
     $template->assign('rest_menu_count', count($rest_menu_info));
 
 
-    $rest_rating = '' . $template->get_template_vars('rest_rating');
+    $rest_rating = '' . $template->getTemplateVars('rest_rating');
     $rest_rating = get_display_rating($rest_rating);
     $template->assign('rest_rating', $rest_rating);
 
@@ -706,14 +706,14 @@ function get_menu_text($menu_data)
         }
     }
 
-    $rest_days = $template->get_template_vars('rest_days');
-    $usedate = $template->get_template_vars('usedate_link');
-    $useperiod = $template->get_template_vars('useperiod_link');
+    $rest_days = $template->getTemplateVars('rest_days');
+    $usedate = $template->getTemplateVars('usedate_link');
+    $useperiod = $template->getTemplateVars('useperiod_link');
     $rest_days_notice = get_rest_days_notice($rest_days, $usedate, $useperiod);
     $template->assign('rest_days_notice',$rest_days_notice);
 
     $partner_hash_key = '9ae6dbb54e90fc01fdec2263457fd40e';
-    $rest_id = '' . $template->get_template_vars('rest_id');
+    $rest_id = '' . $template->getTemplateVars('rest_id');
     $reservation_link = load_reservation_link($rest_id, $partner_hash_key);
     if (!empty($reservation_link)) {
         $template->assign('reservation_link', $reservation_link);
@@ -742,9 +742,9 @@ function load_events(ev_type) {
             {{ assign var="src_ambiance" $gimme->article->rest_ambiance }}
             {{ assign var="src_services" $gimme->article->rest_services }}
             {{ php }}
-                $src_cuisine = $template->get_template_vars('src_cuisine');
-                $src_ambiance = $template->get_template_vars('src_ambiance');
-                $src_services = $template->get_template_vars('src_services');
+                $src_cuisine = $template->getTemplateVars('src_cuisine');
+                $src_ambiance = $template->getTemplateVars('src_ambiance');
+                $src_services = $template->getTemplateVars('src_services');
 
                 $cuisine_text = take_body_list($src_cuisine, ', ');
                 $ambiance_text = take_body_list($src_ambiance, ', ');

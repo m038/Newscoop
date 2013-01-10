@@ -37,7 +37,7 @@
 
             {{ assign var="month_str" $smarty.now|date_format:"%m" }}
             {{ php }}
-                $month_str = $template->get_template_vars('month_str');
+                $month_str = $template->getTemplateVars('month_str');
                 $month_str = ltrim($month_str, "0");
                 $template->assign('month_str', $month_str);
             {{ /php }}
