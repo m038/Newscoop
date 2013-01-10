@@ -24,7 +24,7 @@
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     #top-calendar {
         position: relative;
     }
@@ -48,7 +48,7 @@
         margin-left: 28px;
         overflow: hidden;
     }
-}
+}*/
 
 .top-calendar-narrow {
     width: 280px !important;
