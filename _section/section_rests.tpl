@@ -724,7 +724,7 @@ function load_events(ev_type) {
 
 </script>
 
-            <div class="aside">
+            <div class="aside" style="height: auto !important;">
 
                 <div class="ad top-space">
                     {{ include file="_ads/ausgehen-list-restaurants.tpl" }}

@@ -1,5 +1,5 @@
 
-            <div id="events_aside_part" class="events-aside clearfix">
+            <div id="events_aside_part" class="events-aside clearfix" style="height: auto !important;">
 
                 <div class="box desktop-hide">
                     <h4>Was</h4>
