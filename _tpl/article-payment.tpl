@@ -1,3 +1,4 @@
+                <!--
                 <div class="box bottom-line" id="pwyl-widget">
                 	<div class="payment-box">
                     	<href="#" class="close-box">close</a>
@@ -17,5 +18,7 @@
                 <div class="box bottom-line centered-list">
                   <p><a href="#" class="icon-heart">Spenden an zentral+</a>
                 </p></div>   
+
+            -->
                 
 
