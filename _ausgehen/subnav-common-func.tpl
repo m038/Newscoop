@@ -26,14 +26,16 @@ function adapt_global_sizes(force) {
             var pano_link_src_height = 271;
             if(1100 < doc_width) {
                 $(elm).css("width", "723px");
-                pano_link_src_width = doc_width-360;
-                if (723 < pano_link_src_width) {
-                    pano_link_src_width = 723;
-                }
+                pano_link_src_width = 723;
             }
             else {
-                $(elm).css("width", (doc_width-10)+"px");
-                pano_link_src_width = doc_width-10;
+				pano_link_src_width = doc_width;
+                if (768 < pano_link_src_width) {
+                    pano_link_src_width = 768;
+                }
+
+                $(elm).css("width", (pano_link_src_width)+"px");
+                pano_link_src_width = pano_link_src_width;
                 pano_link_src_height = 271;
             }
             if ((pano_link_src_width != window.last_pano_width) || (pano_link_src_height != window.last_pano_height)) {
