@@ -71,4 +71,12 @@
     margin-left: 20px;
 }
 
+#wann-picker {
+	background: #ffffff;
+}
+
+#wann {
+	width: 80px;
+}
+
 </style>

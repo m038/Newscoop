@@ -20,7 +20,7 @@
 
             <div id="datepicker_single_ul" style="display:none">
                 <div id="wann_middle" class="left">
-                        <input type="text" value="" id="wann" class="datepicker_orig" style="width:80px;" />
+                        <input type="text" value="" id="wann" class="datepicker_orig" />
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
 
                     <li style="display:none;">
                         <fieldset>
-                            <input id="wann-picker" type="text" disabled="disabled" style="background:#ffffff;" />
+                            <input id="wann-picker" type="text" disabled="disabled" />
                         </fieldset>
                     </li>
                     <li style="display:none;">
