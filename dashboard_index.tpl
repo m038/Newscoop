@@ -124,10 +124,12 @@
                         <div id="tabs-2" class="info-tab">
                         
                         	<h4>Sie verfolgen diese Themen</h4>
-                            <p><a href="#">Wirtscha!</a>, <a href="#">Konsum</a>, <a href="#">Telekommunikation</a>, <a href="#">Lifestyle</a></p>
-                            <p><a href="#">Zu meinen Themen</a></p>
-                            <a href="#" class="button white">Themen verwalten</a>
-                        
+                            
+                            <p>{{ list_user_topics }}
+                                <a href="#" id="topic-{{ $topic->identifier }}">{{ $topic->name|escape }}</a>{{ if !$last }}, {{ /if }}
+                            {{ /list_user_topics }}</p>
+
+                            <p><a href="{{ $view->url(['controller' => 'my-topics', 'action' => 'index'], 'default') }}">Zu meinen Themen</a></p>
                         </div>
                         <div id="tabs-3" class="info-tab">
                         

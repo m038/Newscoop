@@ -22,8 +22,16 @@
 					 </div>
 					                 
               <div class="box bottom-line">
-                  <p>Themen zum Artikel: {{ list_article_topics }}<a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>, {{ /list_article_topics }}<br />
-                    <a href="#" class="icon-tag">Themen abonnieren</a></p>
+                    {{ $topics = array() }}
+                    <p>Themen zum Artikel:
+                    {{ list_article_topics }}
+                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>,
+                        {{ $topics[] = $gimme->topic }}
+                    {{ /list_article_topics }}<br />
+                    {{ if $gimme->user->defined }}
+                        <a href="#themen-verwalten" class="fancybox icon-tag">Themen abonnieren</a>
+                        {{ include file="_tpl/my-topics-update.tpl" topics=$topics }}
+                    {{ /if }}
                 </div>
                 
 {{*** recommended links ***}}

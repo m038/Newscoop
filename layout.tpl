@@ -8,6 +8,7 @@
         
 {{ include file="_tpl/header.tpl" inline }}
 
+{{block content_wrapper}}
         <div class="content equal-heights no-bottom-line clearfix">
             <div class="main">
             {{block content}}{{/block}}
@@ -19,6 +20,7 @@
             </div><!-- / Aside -->
         </div>
     </div><!-- / Content Wrapper -->
+{{/block}}
 
 {{ include file="_tpl/footer.tpl" }}
 	
