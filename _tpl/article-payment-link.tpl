@@ -9,7 +9,7 @@
         
 		-->
 
-		<div class="box bottom-line" id="pwyl-widget">
+		<div class="box bottom-line">
         	<div class="payment-box">
             	<a href="#" class="close-box">close</a>
         		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
