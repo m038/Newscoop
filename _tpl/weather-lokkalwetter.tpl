@@ -68,7 +68,7 @@
                             <tbody>
                                 {{ list_weather_stats location_list="important_regions" }}
                                    <tr>
-                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>550M</p></th>
+                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->elevation }}m NN</p></th>
                                         <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }} / {{ $gimme->weather_location->temperature_min }}</td>
                                     </tr> 
                                 {{ /list_weather_stats }} 
