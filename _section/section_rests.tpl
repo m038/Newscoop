@@ -311,7 +311,7 @@ function show_cuisines() {
 
             {{ include file="_ausgehen/subnav-lists-top.tpl" }}
 
-            <div class="content no-bottom-line {{*equal-heights*}} clearfix">
+            <div class="content no-bottom-line equal-heights clearfix">
 
             {{ include file="_ausgehen/subnav-lists-side.tpl" list_type="restaurants" cuisin_list=$kueche_list }}
 
@@ -620,7 +620,7 @@ function get_rest_days_notice($date_time_text, $usedate, $useperiod)
 {{ /php }}
 
 
-            <div id="restaurant_holder" class="main">
+            <div id="restaurant_holder" class="main" style="height: auto !important;">
 
                 <div id="restaurant_list" class="restaurant-list clearfix">
 
