@@ -28,11 +28,24 @@
     #top-calendar {
         position: relative;
     }
-}
 
-@media screen and (max-width: 768px) {
     #top-calendar ul.calendar-options {
         overflow: visible;
+    }
+
+	#events_aside_part {
+        overflow: visible;
+	}
+
+}
+
+@media screen and (max-width: 1100px) {
+    #top-calendar {
+        margin-top: -24px;
+    }
+
+    #top-calendar ul.calendar-options {
+        margin-left: 28px;
     }
 }
 
