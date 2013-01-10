@@ -203,7 +203,7 @@ $(document).ready(function() {
                 }
                 cur_addr += cur_event["town"];
             }
-            if (cur_event["canton"] && (cur_event["canton"] in cantons_to_display)) {
+            if (false && cur_event["canton"] && (cur_event["canton"] in cantons_to_display)) { // requested to remove the canton info
                 var cur_canton = cur_event["canton"];
                 if ('' != cur_addr) {
                     cur_addr += ', ';
