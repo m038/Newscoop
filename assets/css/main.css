@@ -898,8 +898,8 @@ small {
 				a.icon-email {background-image:url(../img/icon-email.png); padding-left:26px;}
 				a.icon-email-big {background:url(../img/icon-email-big.png) 0 -4px no-repeat; padding-left:33px;}
 				a.icon-twitter {background-image:url(../img/icon-twitter.png); padding-left:26px;}
-				a.icon-heart {background-image:url(../img/icon-heart.png); padding:5px 0 5px 34px; text-decoration:none; font-family: UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal; cursor: pointer;}
-					a.icon-heart:hover {text-decoration:underline;}
+				a.icon-heart {background-image:url(../img/icon-heart.png); padding:5px 0 5px 34px; text-decoration:none; font-family: UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal; }
+					a.icon-heart:hover {text-decoration:underline; cursor: pointer;}
 		
 		
 		/* Custom lists */
@@ -1369,7 +1369,9 @@ small {
 			width:34px; height:34px;
 			text-indent:-9999px;
 			background:url(../img/icon-close-big.png) 50% 50% no-repeat;
-			cursor: pointer;
+			}
+			.payment-box .close-box:hover {
+				cursor: pointer;
 			}
 		.payment-box p {margin-bottom:19px;}
 		.payment-box h4 {text-align:left; margin-bottom:5px;}
@@ -2047,18 +2049,28 @@ small {
 	padding: 0 !important;
 }
 .dds-widget-headline-span {
-	color: #444 !important;
+	color: #000 !important;
 	background: transparent !important;
+	margin-top: 4px;
 }
 .dds-widget-info-link a {
-background: transparent !important;
+	background: transparent !important;
+	float: left !important;
 }
 .dds-widget-info-link a img {
-background: transparent !important;
+	background: transparent !important;
+	width: 17px !important;
+	height: 17px !important;
 }
 
 .dds-widget-content {
 	padding: 0 !important;
+	margin-top: 10px !important;
+}
+
+.dds-widget-info {
+	background: transparent !important;
+	margin-top: 10px !important;
 }
 
 .dds-widget-txt-info, .dds-widget-phone-label {
@@ -2066,6 +2078,9 @@ background: transparent !important;
 	font-family: UnitSlabWeb, Georgia, "Times New Roman", Times, serif !important;
 	font-size: 16px !important;
 	line-height: 22px !important;
+	background: transparent !important;
+}
+.dds-widget-txt-info a {
 	background: transparent !important;
 }
 .dds-widget-radio-list {
