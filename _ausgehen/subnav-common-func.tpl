@@ -109,12 +109,6 @@ function update_subnav_links(link_date, link_period, link_region) {
 
 };
 
-function highlight_agenda_type(ag_type) {
-    $(".nav_one").removeClass("active");
-
-    $("#nav_" + ag_type).addClass("active");
-};
-
 function format_day_string(dateObj) {
     var day_str = "00" + dateObj.getDate();
     day_str = day_str.substr(day_str.length - 2, 2);

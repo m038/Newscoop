@@ -103,6 +103,7 @@ $(document).ready(function() {
     var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Film nicht gefunden.</p></div></div>';
 
     outline_type("kino");
+    update_type_sel("kino");
 
     var run_date_obj = new Date();
     var run_date = get_date_string(run_date_obj);

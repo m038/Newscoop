@@ -16,6 +16,7 @@ window.agenda_has_date_picker = false;
 
 window.use_region = "region-zentralschweiz";
 window.use_type = "all";
+window.use_type_sel = "event";
 
 {{ assign var="event_date" value=$smarty.now|date_format:"%Y-%m-%d" }}
 {{ if $smarty.get.date }}
@@ -105,6 +106,7 @@ $(document).ready(function() {
 
         if (got_event['type'] in types_to_outlines) {
             window.use_type = types_to_outlines[got_event['type']];
+			window.use_type_sel = got_event['type'];
         }
 
         if (got_event['canton'] && ("" != got_event['canton'])) {
@@ -183,6 +185,7 @@ $(document).ready(function() {
 
     update_subnav_links("{{ $event_date }}", 1, window.use_region);
     outline_type(window.use_type);
+	update_type_sel(window.use_type_sel);
 
     $("#list_back_link_icon").attr("href", $("#list_back_link_icon").attr("href") + "&region=" + window.use_region)
     $("#list_back_link_text").attr("href", $("#list_back_link_text").attr("href") + "&region=" + window.use_region)

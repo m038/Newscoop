@@ -713,7 +713,8 @@ function get_menu_text($menu_data)
 $(document).ready(function() {
     update_subnav_links("{{ $usedate_link }}", "1", "{{ $linkregion }}");
 
-    highlight_agenda_type("restaurants");
+	outline_type("restaurants");
+	update_type_sel("restaurants");
 
     hide_all_rest_menus();
 });
