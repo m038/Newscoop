@@ -898,7 +898,7 @@ small {
 				a.icon-email {background-image:url(../img/icon-email.png); padding-left:26px;}
 				a.icon-email-big {background:url(../img/icon-email-big.png) 0 -4px no-repeat; padding-left:33px;}
 				a.icon-twitter {background-image:url(../img/icon-twitter.png); padding-left:26px;}
-				a.icon-heart {background-image:url(../img/icon-heart.png); padding:5px 0 5px 34px; text-decoration:none; font-family: UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal;}
+				a.icon-heart {background-image:url(../img/icon-heart.png); padding:5px 0 5px 34px; text-decoration:none; font-family: UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal; cursor: pointer;}
 					a.icon-heart:hover {text-decoration:underline;}
 		
 		
@@ -1369,6 +1369,7 @@ small {
 			width:34px; height:34px;
 			text-indent:-9999px;
 			background:url(../img/icon-close-big.png) 50% 50% no-repeat;
+			cursor: pointer;
 			}
 		.payment-box p {margin-bottom:19px;}
 		.payment-box h4 {text-align:left; margin-bottom:5px;}
@@ -2039,14 +2040,80 @@ small {
 #pwyl-widget {
 	font-family: UnitSlabWeb, Georgia, "Times New Roman", Times, serif !important;
 }
+
+.dds-widget-headline {
+	border: 0 !important;
+	background: transparent !important;
+	padding: 0 !important;
+}
 .dds-widget-headline-span {
 	color: #444 !important;
+	background: transparent !important;
 }
-.dds-widget-txt-info {
+.dds-widget-info-link a {
+background: transparent !important;
+}
+.dds-widget-info-link a img {
+background: transparent !important;
+}
+
+.dds-widget-content {
+	padding: 0 !important;
+}
+
+.dds-widget-txt-info, .dds-widget-phone-label {
 	color: #000 !important;
+	font-family: UnitSlabWeb, Georgia, "Times New Roman", Times, serif !important;
+	font-size: 16px !important;
+	line-height: 22px !important;
+	background: transparent !important;
+}
+.dds-widget-radio-list {
+	background: transparent !important;
 }
 .dds-amountListElement {
 	color: #000 !important;
+	font-family: UnitSlabWeb, Georgia, "Times New Roman", Times, serif !important;
+	font-size: 14px !important;
+	background: transparent !important;
+}
+.dds-amountListElement.selected {
+	background: #FAFAFA !important;
+}
+
+.dds-widget-radio {
+	vertical-align: top !important;
+}
+
+.dds-widget {
+	border: 0 !important;
+	background: transparent !important;
+}
+
+.dds-widget-phone-field {
+	padding: 2px 5px 0px 5px !important;
+	height: auto !important;
+}
+.dds-widget-button.dds-widget-but-spenden {
+	display: inline-block !important;
+	zoom: 1  !important;
+	height: 35px  !important;
+	padding: 0  !important;
+	font-size: 16px  !important;
+	text-decoration: none  !important;
+	line-height: 35px  !important;
+	text-align: center  !important;
+	border-radius: 3px  !important;
+	border: #CCC solid 1px  !important;
+	color: #B40032  !important;
+	background: white !important;
+	background: -moz-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #EAE9E9)) !important;
+	background: -webkit-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
+	background: -o-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
+	background: -ms-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
+	background: linear-gradient(top, white 0%, #EAE9E9 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff", endColorstr="#eae9e9", GradientType=0) !important;
 }
 
 
