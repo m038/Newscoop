@@ -210,11 +210,15 @@ $(document).ready(function() {
 
         var slide_content = "";
         var thumb_content = "";
+		var having_images = false;
 
         if (got_movie.movie_image_urls && (0 != got_movie.movie_image_urls.length)) {
             thumb_content += '<ul class="carousel_mov jcarousel-skin-gallery clearfix">';
 
             var img_count = got_movie.movie_image_urls.length;
+			if (img_count && (0 < img_count)) {
+				having_images = true;
+			}
             for (var cur_img_ind = 0; cur_img_ind < img_count; cur_img_ind++) {
                 var cur_img_link = got_movie.movie_image_urls[cur_img_ind];
 
@@ -249,6 +253,12 @@ $(document).ready(function() {
 
         $("#image_gallery").html(slide_content + thumb_content);
 
+		if (having_images) {
+			$("#image_gallery").show();
+		}
+		else {
+			$("#image_gallery").hide();
+		}
 
         var screen_content = "";
 
