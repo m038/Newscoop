@@ -50,6 +50,7 @@
     
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
+   <script src="{{ uri static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
   <script type="text/javascript">
     $(document).ready(function(){
         $(".dropdownized").change(function () {

@@ -2034,6 +2034,21 @@ small {
 					color:#fff;
 					}
 
+/* MICROPAYMENT STYLES OVERWRITING*/
+
+#pwyl-widget {
+	font-family: UnitSlabWeb, Georgia, "Times New Roman", Times, serif !important;
+}
+.dds-widget-headline-span {
+	color: #444 !important;
+}
+.dds-widget-txt-info {
+	color: #000 !important;
+}
+.dds-amountListElement {
+	color: #000 !important;
+}
+
 
 /* WYSIWYG images */
 .cs_img img {max-width: 100% !important; height: auto;}

@@ -24,7 +24,7 @@
                     <a class="button red right" href="#">Jetzt spenden</a>
                 </div>
             -->
-            	<iframe class="payment-box-iframe" src="{{ uri options="section" }}?iframe_holder=1&iframe_type=article-payment" /></iframe>
+            	<iframe class="payment-box-iframe" src="{{ uri options="section" }}?iframe_holder=1&iframe_type=article-payment" allowtransparency="true" scrolling="no" frameborder="0" style="width:100%; height:350px"  /></iframe>
             </div>
         </div>
                 
