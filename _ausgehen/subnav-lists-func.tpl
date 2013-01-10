@@ -70,9 +70,6 @@ function close_calendar() {
 /* Written by Milian Wolff (mail@milianw.de). */
 $(document).ready(function() {
 
-    adapt_global_sizes();
-    setInterval("adapt_global_sizes();", 1000);
-
     $.datepicker.regional['de'] = {
         closeText: 'schließen',
         prevText: '&#x3c;',

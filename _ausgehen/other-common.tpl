@@ -24,45 +24,59 @@
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     #top-calendar {
         position: relative;
     }
-}
 
-@media screen and (max-width: 768px) {
     #top-calendar ul.calendar-options {
         overflow: visible;
     }
+
+	#events_aside_part {
+        overflow: visible;
+	}
+
+}
+
+@media screen and (max-width: 1100px) {
+    #top-calendar {
+        margin-top: -24px;
+    }
+
+    #top-calendar ul.calendar-options {
+        margin-left: 28px;
+        overflow: hidden;
+    }
+}*/
+
+.top-calendar-narrow {
+    width: 280px !important;
+}
+
+.agenda-datepicker-narrow {
+    width: 300px !important;
+    margin-left: -12px !important;
+}
+
+.rest_text_hidden {
+    display: none;
+}
+
+.rest_image_hidden {
+    display: none;
+}
+
+.no_rest_found {
+    margin-left: 20px;
+}
+
+#wann-picker {
+	background: #ffffff;
+}
+
+#wann {
+	width: 80px;
 }
 
 </style>
-
-<script type="text/javascript">
-
-function set_slideshow() {
-
-    $(".carousel_mov").jcarousel();
-
-    $(".fancybox-thumb_mov").each(function() {
-        $(this).fancybox({
-            type: "image",
-            prevEffect      : 'none',
-            nextEffect      : 'none',
-            helpers : {
-                title   : {
-                        type: 'outside'
-                },
-                thumbs  : {
-                        width   : 50,
-                        height  : 50
-                }
-            }
-        });
-    });
-
-    $(".tabs_mov").tabs();
-
-};
-
-</script>

@@ -103,6 +103,7 @@ $(document).ready(function() {
     var detail_content = '<div class="ausgehen-message-holder clearfix"><div class="event-not-found"><p>Film nicht gefunden.</p></div></div>';
 
     outline_type("kino");
+    update_type_sel("kino");
 
     var run_date_obj = new Date();
     var run_date = get_date_string(run_date_obj);
@@ -210,11 +211,15 @@ $(document).ready(function() {
 
         var slide_content = "";
         var thumb_content = "";
+		var having_images = false;
 
         if (got_movie.movie_image_urls && (0 != got_movie.movie_image_urls.length)) {
             thumb_content += '<ul class="carousel_mov jcarousel-skin-gallery clearfix">';
 
             var img_count = got_movie.movie_image_urls.length;
+			if (img_count && (0 < img_count)) {
+				having_images = true;
+			}
             for (var cur_img_ind = 0; cur_img_ind < img_count; cur_img_ind++) {
                 var cur_img_link = got_movie.movie_image_urls[cur_img_ind];
 
@@ -249,6 +254,12 @@ $(document).ready(function() {
 
         $("#image_gallery").html(slide_content + thumb_content);
 
+		if (having_images) {
+			$("#image_gallery").show();
+		}
+		else {
+			$("#image_gallery").hide();
+		}
 
         var screen_content = "";
 

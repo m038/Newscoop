@@ -86,6 +86,7 @@ $(document).ready(function() {
     update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region }}");
     //update_subnav_links("{{ $cinema_date }}", 1, "{{ $cinema_region_orig }}");
     outline_type("kino");
+    update_type_sel("kino");
 
     if ("{{ $cinema_region }}") {
         $("#wo").val("{{ $cinema_region }}");

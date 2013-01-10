@@ -189,12 +189,6 @@ function get_current_cuisine_classes($topic_list) {
 
 {{ /php }}
 
-<style type="text/css">
-.no_rest_found {
-    margin-left: 20px;
-}
-</style>
-
 <script type="text/javascript">
 
 function show_cuisines_single(sel_cuisine) {
@@ -235,7 +229,15 @@ function update_cuisines_single(one_cuisine) {
     setTimeout('update_menu_drop(0);', 200);
 };
 
+window.with_cuisine_list = true;
+
 function show_cuisines() {
+
+	var art_sign = 2;
+	var win_width = $(window).width();
+	if ((win_width <= 1100) && (win_width > 768)) {
+		art_sign = 3;
+	}
 
     $("#loading_empty").hide();
 
@@ -272,7 +274,7 @@ function show_cuisines() {
     var some_rest_shown = false;
     $(".article_active").each(function(ind_elm, elm) {
         some_rest_shown = true;
-        if (0 == (ind_elm % 2)) {
+        if (0 == (ind_elm % art_sign)) {
             $(elm).addClass("article_odd");
         }
     });

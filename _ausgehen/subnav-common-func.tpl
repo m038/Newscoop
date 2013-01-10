@@ -1,32 +1,42 @@
 
 <script type="text/javascript">
 
-var desktop_view = true;
-var last_doc_width = 0;
+window.last_doc_width = 0;
 window.movie_trailer_height = 0;
-window.last_pano_width = 640;
-window.last_pano_height = 240;
+window.last_pano_width = 723;
+window.last_pano_height = 271;
+
+$(document).ready(function() {
+    adapt_global_sizes();
+    setInterval("adapt_global_sizes();", 1000);
+});
 
 function adapt_global_sizes(force) {
     var doc_width = $(window).width();
 
-    if (last_doc_width != doc_width) {
-        last_doc_width = doc_width;
+    if (force || (window.last_doc_width != doc_width)) {
+        window.last_doc_width = doc_width;
+
+		if (window.with_cuisine_list) {
+			show_cuisines();
+		}
 
         $("#rest_panorama").each(function(ind_elm, elm) {
-            var pano_link_src_width = 640;
-            var pano_link_src_height = 240;
-            if(769 < doc_width) {
-                $(elm).css("width", "640px");
-                pano_link_src_width = doc_width-360;
-                if (640 < pano_link_src_width) {
-                    pano_link_src_width = 640;
-                }
+            var pano_link_src_width = 723;
+            var pano_link_src_height = 271;
+            if(1100 < doc_width) {
+                $(elm).css("width", "723px");
+                pano_link_src_width = 723;
             }
             else {
-                $(elm).css("width", (doc_width-10)+"px");
-                pano_link_src_width = doc_width-10;
-                pano_link_src_height = 240;
+				pano_link_src_width = doc_width;
+                if (768 < pano_link_src_width) {
+                    pano_link_src_width = 768;
+                }
+
+                $(elm).css("width", (pano_link_src_width)+"px");
+                pano_link_src_width = pano_link_src_width;
+                pano_link_src_height = 271;
             }
             if ((pano_link_src_width != window.last_pano_width) || (pano_link_src_height != window.last_pano_height)) {
                 window.last_pano_width = pano_link_src_width;
@@ -39,7 +49,7 @@ function adapt_global_sizes(force) {
         });
     }
 
-    $("iframe").each(function(ind_elm, elm) {
+    $("#trailer_link").each(function(ind_elm, elm) {
         var ar_str = $(elm).attr("ar");
         if (ar_str && ("" != ar_str)) {
             var ar_num = parseFloat(ar_str);
@@ -107,12 +117,6 @@ function update_subnav_links(link_date, link_period, link_region) {
         }
     }
 
-};
-
-function highlight_agenda_type(ag_type) {
-    $(".nav_one").removeClass("active");
-
-    $("#nav_" + ag_type).addClass("active");
 };
 
 function format_day_string(dateObj) {
@@ -287,4 +291,30 @@ function get_display_date(std_date) {
     return display_date;
 };
 
+function set_slideshow() {
+
+    $(".carousel_mov").jcarousel();
+
+    $(".fancybox-thumb_mov").each(function() {
+        $(this).fancybox({
+            type: "image",
+            prevEffect      : 'none',
+            nextEffect      : 'none',
+            helpers : {
+                title   : {
+                        type: 'outside'
+                },
+                thumbs  : {
+                        width   : 50,
+                        height  : 50
+                }
+            }
+        });
+    });
+
+    $(".tabs_mov").tabs();
+
+};
+
 </script>
+

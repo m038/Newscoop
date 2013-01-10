@@ -12,17 +12,6 @@ window.agenda_has_select_tags = false;
 window.agenda_has_date_picker = false;
 </script>
 
-<style type="text/css">
-.rest_text_hidden {
-    display: none;
-}
-
-.rest_image_hidden {
-    display: none;
-}
-
-</style>
-
 <script type="text/javascript">
 function hide_all_rest_menus() {
     $("#rest_speciality").hide();
@@ -724,7 +713,8 @@ function get_menu_text($menu_data)
 $(document).ready(function() {
     update_subnav_links("{{ $usedate_link }}", "1", "{{ $linkregion }}");
 
-    highlight_agenda_type("restaurants");
+	outline_type("restaurants");
+	update_type_sel("restaurants");
 
     hide_all_rest_menus();
 });
