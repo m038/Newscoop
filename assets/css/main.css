@@ -1981,6 +1981,17 @@ small {
 			ul.calendar-options li a {color:#B40032; text-decoration:none;}
 	.popup-overlay {display:none; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.3); z-index:100;}
 
+.top-calendar-narrow {
+    width: 240px !important;
+	}
+	.agenda-datepicker-narrow {
+	    width: 100% !important;
+	    border: 1px solid #e1e1e1; 
+	    font-family: Arial, Helvetica, sans-serif; 
+		}
+		.agenda-datepicker-narrow table.ui-datepicker-calendar td, 
+		.agenda-datepicker-narrow table.ui-datepicker-calendar th {height: 32px;}
+
 .hasDatepicker {
 	width:640px !important;
 	}
@@ -2371,6 +2382,12 @@ a.button.center.details-more {display:none;}
 		.restaurant-list .article_odd {margin-left:0;}
 
 	.restaurant-single #event_location.bottom-line {border-bottom:none;}
+
+	.calendar-popup {
+		top:30px;
+		left:auto;
+		right: 14px;
+		}
 	
 }
 
@@ -2724,12 +2741,6 @@ a.button.center.details-more {display:none;}
 	.community-mobile-fix .events-aside .mobile-hide .search {position:relative; left:0; top:0; width:100%; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box}
 	
 	.events-content .events-aside {}
-	.top-calendar-narrow {width: 280px !important;}
-	.calendar-popup {
-		top:30px;
-		left:auto;
-		right: 14px;
-		}
 	
 	.community-list article {border-bottom:#ccc dashed 1px;}
 	.community-list article figure {display:none;}
@@ -3141,6 +3152,11 @@ a.button.center.details-more {display:none;}
 	.left-thumb.margin-bottom {margin-bottom:10px;}
 	.left-thumb article {margin:0 -10px 10px; padding:0 10px 10px;}
 		.left-thumb article:last-child {padding-bottom:0; margin-bottom:10px}
+
+	.calendar-popup {
+		top:28px;
+		right: 0;
+		}
 
 }
 
