@@ -123,7 +123,7 @@ $(window).load(function() {
 	
 	
 	/* Accordion */
-	$('.ticker-accordion').accordion({ header: '.head' });
+	$('.ticker-accordion').accordion({ header: '.head', autoHeight: false});
 	
 	/** Article recommend button **/
    $('#article-recommend-button').fancybox({
