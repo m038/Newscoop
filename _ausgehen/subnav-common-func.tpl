@@ -18,7 +18,7 @@ function adapt_global_sizes(force) {
         window.last_doc_width = doc_width;
 
 		if (window.with_cuisine_list) {
-			function show_cuisines();
+			show_cuisines();
 		}
 
         $("#rest_panorama").each(function(ind_elm, elm) {
