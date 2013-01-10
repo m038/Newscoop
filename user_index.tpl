@@ -31,7 +31,7 @@
                     </div>
                     
                 	<ul class="custom-list no-bullet phone-hide">
-                    	<li class="active"><a href="#">Alle Mitglieder</a></li>
+                    	<li class="active"><a href="{{ $view->url() }}">Alle Mitglieder</a></li>
                     	<li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=active">Aktivste</a></li>
                     	<li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=editors">Redaktion</a></li>
                     </ul>
@@ -48,7 +48,7 @@
                         </select>
                     </form>
                     <script type="text/javascript">
-                        $('form#get-by-alphabet select option[value={{ $smarty.get.filter }}]').attr('selected', true);
+                        $('form#get-by-alphabet select option[value={{ $smarty.get.filter|default:'' }}]').attr('selected', true);
                         $('form#get-by-alphabet select').change(function(){
                             $('form#get-by-alphabet').submit();
                         })
@@ -70,23 +70,31 @@
                 </div>
     
                 <div class="main left-thumb community-list clearfix">
+        {{ $length = 3 }}
+        {{ $uri = $view->url() }}
         {{ if isset($smarty.get.search) }}
-            {{ list_users length=5 search=$smarty.get.search  }}{{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}{{ /list_users }}
+            {{ list_users length=$length search=$smarty.get.search  }}
+                {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                {{ include file="_tpl/pagination.tpl" scope="parent" }}
+            {{ /list_users }}
         {{ else if isset($smarty.get.filter) }}
             {{ if $smarty.get.filter == 'editors'}}
-                {{ list_users length=5 filter=$smarty.get.filter editor_groups="1,2,3,4"  }}{{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}{{ /list_users }}
+                {{ list_users length=$length filter=$smarty.get.filter editor_groups="1,2,3,4" }}
+                    {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                    {{ include file="_tpl/pagination.tpl" scope="parent" }}
+                {{ /list_users }}
             {{ else }}
-                {{ list_users length=5 filter=$smarty.get.filter  }}{{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}{{ /list_users }}
+                {{ list_users length=$length filter=$smarty.get.filter editor_groups="1,2,3,4" }}
+                    {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                    {{ include file="_tpl/pagination.tpl" scope="parent" }}
+                {{ /list_users }}
             {{ /if }}
         {{ else }}
-            {{ list_users length=5 }}{{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}{{ /list_users }}
+            {{ list_users length=$length }}
+                {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                {{ include file="_tpl/pagination.tpl" scope="parent" }}
+            {{ /list_users }}
         {{ /if }}
-                    
-                    <ul class="paging center top-line">
-                        <li><a class="button white prev" href="#">‹</a></li>
-                    	<li class="caption">1 von 2</li>
-                    	<li><a class="button white next" href="#">›</a></li>
-                    </ul>
                 
                 </div><!-- / Main -->            
                 
