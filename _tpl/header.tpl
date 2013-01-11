@@ -103,7 +103,11 @@
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
             <ul class="header-menu">
+            {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
+              <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Dashboard</a></li>
+              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Sign out</a></li>
+            {{ else }}
               <li class="expandable">
                   <a href="#">Registrieren</a>
                     <div class="popup popup-register">
@@ -126,16 +130,17 @@
               <li class="expandable">
                   <a href="#">Anmelden</a>
                     <div class="popup popup-nletter">
+                      {{ form_login }}
                       <p>Melden Sie sich bei zentral+ an, um Artikel zu kommentieren und Themen zu abonnieren</p>
                         <fieldset>
                           <ul>
                               <li>
                                   <label>E-Mail-Adresse</label>
-                                  <input type="text">
+                                  <input type="text" name="email">
                                 </li>
                               <li>
                                   <label>Passwort</label>
-                                  <input type="password">
+                                  <input type="password" name="password">
                                 </li>
                                 <li>
                                   <input type="submit" class="button red wide large" value="Login">
@@ -144,15 +149,17 @@
                                   <input type="checkbox" id="einloggt"> <label for="einloggt">Eingeloggt bleiben</label>
                                 </li>
                                 <li>
-                                  <p><a href="#">Registrieren</a><br>
-                                    <a href="#">Passwort vergessen</a></p>
+                                  <p><a href="{{ $view->url(['controller' => 'register', 'action' => 'index'], 'default') }}">Registrieren</a><br>
+                                    <a href="{{ $view->url(['controller' => 'auth', 'action' => 'password-restore'], 'default') }}">Passwort vergessen</a></p>
                                 </li>
                             </ul>
                         </fieldset>
+                        {{ /form_login }}
                         <p class="center">oder</p>
                         <a href="{{ $view->url(['controller' => 'auth', 'action' => 'social', 'provider' => 'Facebook'], 'default') }}" class="button large fb-loggin-button"><span>Login mit Facebook</span></a>
                     </div>
                 </li>
+            {{ /if }}
             </ul>
         
         </div><!-- / Header -->
