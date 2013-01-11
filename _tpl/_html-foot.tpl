@@ -17,7 +17,8 @@
     {{ /if }}
 
     <script type="text/javascript" src="{{ uri static_file="assets/js/libs/jquery.socialshareprivacy.js" }}"></script>
-      <script type="text/javascript">
+
+    <script type="text/javascript">
     jQuery(document).ready(function($){
       if($('#social_bookmarks').length > 0){
         $('#social_bookmarks').socialSharePrivacy({
@@ -43,10 +44,18 @@
                 'info_button': ' Die Sharing-Buttons können Benutzungsdaten an Facebook, Twitter oder Google übermitteln. Wir haben sie deshalb standardmässig deaktiviert. Bitte aktivieren Sie sie, um sie zu nutzen.'        
         }); 
       }    
+
     });
   </script> 
     
-  <!-- metoenews weeather widget -->
-  <script src="{{ url static_file="assets/js/meteonews.js" }}"></script>
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $(".dropdownized").change(function () {
+            var tabs_tag = $(this).parents().eq(2);
+            tabs_tag.tabs("option", "active",$(this).val());
+        });
+    });
+  </script> 

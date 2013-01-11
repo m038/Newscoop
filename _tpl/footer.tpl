@@ -24,7 +24,9 @@
                     		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
-                        <li><a href="#">Wetter*</a></li>
+                        {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+                        <li><a href="{{ url option="article"}}?pg=local">Wetter</a></li>
+                        {{ /list_articles }}
                     </ul>
                 </li>               
                 <li>
@@ -51,6 +53,8 @@
 								{{ /list_articles }}
                     </ul>
                 </li>              
+				{{ /local }}                
+				{{ local }}        	
                 <li>
                 	<h3>Ausgehen</h3>
                     <ul>
@@ -77,7 +81,7 @@
                         <li><a id="footer_restaurants_link" href="{{ uri options="section" }}?type=all&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Restaurants</a></li>
                     </ul>
                 </li>
-					 {{ /local }}                
+				{{ /local }}                
                 <li>
                 	<h3>Folgen Sie uns</h3>
                     <ul class="social">

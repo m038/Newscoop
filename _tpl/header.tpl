@@ -97,80 +97,9 @@
                     </div>
                 </li>
             </ul>
-<!--
-          <ul class="weather">
-                <li class="expandable">
-                    <a href="#">
-                        {{ weather location="luzern" }}
-                        {{ weather location="zug" }}
-                    </a>
-                    <div class="popup">
-                        <div class="weather-popup clearfix">
-                            <div class="info">
-                                <p><strong>Das Wetter heute in Luzern</strong> <a href="#" class="button white">Details</a></p>
-                                <ul>
-                                    <li>
-                                        <small>12:00</small>
-                                        {{ weather location="luzern" hour="12" }}
-                                    </li>
-                                    <li>
-                                        <small>15:00</small>
-                                        {{ weather location="luzern" hour="15" }}
-                                    </li>
-                                    <li>
-                                        <small>18:00</small>
-                                        {{ weather location="luzern" hour="18" }}
-                                    </li>
-                                    <li>
-                                        <small>21:00</small>
-                                        {{ weather location="luzern" hour="21" }}
-                                    </li>
-                                    <li>
-                                        <small>00:00</small>
-                                        {{ weather location="luzern" hour="0" }}
-                                    </li>
-                                </ul>
-                                <p><strong>Das Wetter heute in Zug</strong> <a href="#" class="button white">Details</a></p>
-                                <ul>
-                                    <li>
-                                        <small>12:00</small>
-                                        {{ weather location="zug" hour="12" }}
-                                    </li>
-                                    <li>
-                                        <small>15:00</small>
-                                        {{ weather location="zug" hour="15" }}
-                                    </li>
-                                    <li>
-                                        <small>18:00</small>
-                                        {{ weather location="zug" hour="18" }}
-                                    </li>
-                                    <li>
-                                        <small>21:00</small>
-                                        {{ weather location="zug" hour="21" }}
-                                    </li>
-                                    <li>
-                                        <small>00:00</small>
-                                        {{ weather location="zug" hour="0" }}
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sidebar">
-                                <fieldset class="search">
-                                    <input type="text" placeholder="Ort, PLZ, Ausflugsziel">
-                                    <input type="submit" value="Go">
-                                </fieldset>
-                                <p>Geben Sie hier einen Ort oder Region nach Wunsch in der Zentralschweiz ein</p>
-                                <ul>
-                                    <li><a href="#">Prognosen Zentralschweiz</a></li>
-                                    <li><a href="#">Lokalwetter</a></li>
-                                    <li><a href="#">Pistenbericht</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
--->
+            
+            <!-- weather-header -->
+            {{ include file="_tpl/weather-header.tpl" }} 
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
             <ul class="header-menu">
@@ -244,7 +173,7 @@
                 </li>
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
-          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
+          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs}}{{ /if }}{{/block}}</h2>
 
                     <fieldset class="search">
                     {{ search_form template="search.tpl" submit_button="Go" }} 

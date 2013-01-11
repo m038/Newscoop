@@ -90,6 +90,16 @@ $(window).load(function() {
 		return false;
 	});
 	
+
+	/* Micropayment article button */
+	$("#micropayment_button").click(function(){
+		$(this).parent().parent().hide();
+		$("#payment-box").show();
+	});
+	$("#close_micropayment").click(function(){
+		$("#payment-box").hide();
+		$("#micropayment_button").parent().parent().show();
+	});
 	
 	/* Fancybox
 	---------------------------------------------------------------- */

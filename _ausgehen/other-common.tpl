@@ -50,15 +50,6 @@
     }
 }*/
 
-.top-calendar-narrow {
-    width: 280px !important;
-}
-
-.agenda-datepicker-narrow {
-    width: 300px !important;
-    margin-left: -12px !important;
-}
-
 .rest_text_hidden {
     display: none;
 }
