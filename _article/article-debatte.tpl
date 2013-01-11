@@ -14,7 +14,7 @@
             
               <div class="box debatte-single">
                 
-                  <p class="headline highlight">Hier "ndet die wöchentliche Auseinandersetzung statt!</p>
+                  <p class="headline highlight">Hier wird diskutiert. Diskutieren Sie mit!</p>
                     
                     <div class="two-columns no-inner-margin clearfix">
                     
