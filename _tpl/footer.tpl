@@ -41,7 +41,7 @@
             				{{ set_section number="100" }}
                         <li><a href="{{ url options="section" }}">Fundstücke</a></li>
                         <li><a href="#">Kommentare*</a></li>
-                        <li><a href="#">Community*</a></li>
+                        <li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default') }}">Community</a></li>
                     </ul>
                 </li>                 
                 <li>
