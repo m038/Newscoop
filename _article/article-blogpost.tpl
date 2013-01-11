@@ -24,7 +24,7 @@
                     </figure>
                     {{ /list_articles }}
                     
-                    <p class="time-top"><time><a href="#">lokale Spezialitäten, Luzern</a></time></p>
+                    {{ if $gimme->article->dateline }}<p class="time-top"><time>{{ $gimme->article->dateline }}</time></p>{{ /if }}
                     <figure class="left">
 		    {{ image rendition="arthalf" }}                
               		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
