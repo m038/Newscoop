@@ -51,6 +51,7 @@
                     {{ /if }}
 
                     {{ $length = 5 }}
+                    {{ $uri = $view->url() }}
                     {{ list_articles order="byPublishDate desc" constraints="type is news type is blog $filter" length=$length }}
                     <article>
                         <h6><a href="{{ uri options="article" }}">{{ $gimme->article->dateline|escape }}</a></h6>
@@ -64,29 +65,7 @@
                         <time>Artikel, vor 1 Tag</time>
                     </article>
 
-                    {{ if $gimme->current_list->at_end }}
-                        {{ $pages = ceil($gimme->current_list->count * 1.0 / $length) }}
-                        {{ $page = ceil(($gimme->current_list->start + 1.0) / $length) }}
-                    <ul class="paging center top-line">
-                        <li>
-                            {{ if $gimme->current_list->has_previous_elements }}
-                            <a class="button white prev" href="{{ $view->url() }}?{{ urlparameters options="previous_items" }}">&lt;</a>
-                            {{ else }}
-                            <span class="button white prev">&lt;</a>
-                            {{ /if }}
-                        </li>
-
-                    	<li class="caption">{{ $page }} von {{ $pages }}</li>
-
-                    	<li>
-                            {{ if $gimme->current_list->has_next_elements }}
-                            <a class="button white next" href="{{ $view->url() }}?{{ urlparameters options="next_items" }}">&gt;</a></li>
-                            {{ else }}
-                            <span class="button white prev">&gt;</a>
-                            {{ /if }}
-                        </li>
-                    </ul>
-                    {{ /if }}
+                    {{ include file="_tpl/pagination.tpl" }}
                     {{ /list_articles }}
                 </div><!-- / Main -->            
                 
