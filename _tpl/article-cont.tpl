@@ -38,9 +38,9 @@
                     {{ include file="_tpl/_admin-edit.tpl" }}
 
 {{ if $gimme->article->greybox|strip !== "" && $showStaff }}                    
-{{ $bodyAry=explode("<br />", $gimme->article->body|replace:"<blockquote><p>":"<blockquote>"|replace:"</p></blockquote>":"</blockquote>", 2) }}
+{{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
 {{ if empty($bodyAry[1]) }}
-{{ $bodyAry=explode("</p>", $gimme->article->body|replace:"<blockquote><p>":"<blockquote>"|replace:"</p></blockquote>":"</blockquote>", 2) }}
+{{ $bodyAry=explode("</p>", $gimme->article->body }}
 {{ $bodyAryP=true }}
 {{ /if }}
                      
@@ -53,7 +53,7 @@
 {{ if empty($bodyAryP) }}<p>{{ /if }}{{ $bodyAry[1] }}                     
 
 {{ else }}
-{{ $gimme->article->body|replace:"<blockquote><p>":"<blockquote>"|replace:"</p></blockquote>":"</blockquote>" }}
+{{ $gimme->article->body }}
 {{ /if }} 
 						  {{ if $showStaff }}  
 						  {{ include file="_tpl/article-slideshow.tpl" }}   
