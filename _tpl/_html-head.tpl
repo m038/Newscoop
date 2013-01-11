@@ -57,6 +57,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='{{ uri static_file="assets/js/libs/jquery.min.js" }}'>\x3C/script>")</script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
 <script type="text/javascript"> 
 
   var _gaq = _gaq || []; 
