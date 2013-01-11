@@ -15,13 +15,6 @@
 		{{ include file="_tpl/article-payment-link.tpl" }}
                 
                 <div class="article-border-bottom short-article-list margin-bottom clearfix">
-            
-                    <article>
-                        <h5>Mehr zum Thema</h5>
-                        <p><a href="#">Kantonsrat</a> SVP, SP und Grüne drohen mit Referendum <span class="comm">3</span></p>
-                        <p><a href="#">Irritation</a> Sicherheits-Vorkehrung der Bank kritisiert</p>
-                        <p><a href="#">Aquise</a> Komax kau! deutsche Kabelprüfspezialistin</p>
-                    </article>
 
                     {{* RELATED ARTICLES *}}                    
                     {{ list_related_articles }}
