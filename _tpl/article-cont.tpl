@@ -40,7 +40,7 @@
 {{ if $gimme->article->greybox|strip !== "" && $showStaff }}                    
 {{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
 {{ if empty($bodyAry[1]) }}
-{{ $bodyAry=explode("</p>", $gimme->article->body }}
+{{ $bodyAry=explode("</p>", $gimme->article->body) }}
 {{ $bodyAryP=true }}
 {{ /if }}
                      
