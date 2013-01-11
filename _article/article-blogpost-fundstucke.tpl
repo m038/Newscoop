@@ -27,10 +27,6 @@
                 {{ $gimme->article->body }}
             </article>
             
-            <!--div class="box back-link bottom-line top-line">
-                <a class="button white prev" href="#">‹</a> <a href="#">zur Ubersicht Film</a>
-            </div-->
-            
 {{ include file="_tpl/article-tools.tpl" }}
         
         </div>

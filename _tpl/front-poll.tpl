@@ -1,5 +1,5 @@
                   <div class="box" id="polldiv">
-                      <h4 class="box-title"><img src="{{ uri static_file="pictures/title-icons/female.png" }}" alt="" />Frau Meier fragt</h4>
+                      <h4 class="box-title"><!--img src="{{ uri static_file="pictures/title-icons/female.png" }}" alt="" /-->Zentral+ fragt</h4>
 
 {{ list_articles length="1" ignore_issue="true" ignore_section="true" constraints="type is poll" }}
 {{ list_debates length="1" item="article" }}
