@@ -62,7 +62,8 @@
                         {{ /image }}
                         <h3><a href="{{ uri options="article" }}">{{ $gimme->article->title|escape }}</a></h3>
                         <p>{{ $gimme->article->lede|strip_tags:false }}</p>
-                        <time>Artikel, vor 1 Tag</time>
+
+                        <time>Artikel, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                     </article>
 
                     {{ include file="_tpl/pagination.tpl" }}
