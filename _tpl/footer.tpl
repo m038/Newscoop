@@ -19,7 +19,7 @@
                 <li>
                 	<h3>Themen</h3>
                     <ul>
-                    		<!-- Delete asterisk (*) when link is created -->
+                    		<!-- Delete asterisk (*) when link is created dynamically -->
                     	   <li><a href="#">Meine Themen*</a></li>
                     		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
@@ -92,7 +92,7 @@
                     </ul>
                 </li>
             </ul><!-- / Footer list -->
-            <p><a href="http://www.mmv-online.ch">© MMVonline AG - Alle Rechte vorbehalten</a></p>
+            <p class="foot-copyright"><a target="_blank" href="http://www.mmv-online.ch">© MMV online AG - Alle Rechte vorbehalten</a></p>
 
             <ul class="phone-footer-nav">
             	<li><a href="#">Kontakt</a></li>
