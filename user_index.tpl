@@ -9,13 +9,14 @@
 {{ include file="_tpl/header.tpl" }}
     
     	<div class="content-wrapper events-content community-mobile-fix">
-        
-        	<div class="inner-search">
-            	<fieldset class="search">
-                    <input type="text" placeholder="Benutzername oder Name">
-                    <input type="submit" value="Go">
-                </fieldset>
-            </div>
+            <form name="input" action="" method="get">
+            	<div class="inner-search">
+                	<fieldset class="search">
+                        <input type="text" name="search" placeholder="Benutzername oder Name">
+                        <input type="submit" value="Go">
+                    </fieldset>
+                </div>
+            </form>
         
         	<div class="content no-bottom-line equal-heights clearfix">
             
@@ -30,15 +31,28 @@
                     </div>
                     
                 	<ul class="custom-list no-bullet phone-hide">
-                    	<li class="active"><a href="#">Alle Mitglieder</a></li>
-                    	<li><a href="#">Aktivste</a></li>
-                    	<li><a href="#">Redaktion</a></li>
+                    	<li class="active"><a href="{{ $view->url() }}">Alle Mitglieder</a></li>
+                    	<li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=active">Aktivste</a></li>
+                    	<li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=editors">Redaktion</a></li>
                     </ul>
-                    <select name="" class="dropdownized phone-hide">
-                    	<option value="Nach Alphabet">Nach Alphabet</option>
-                    	<option value="2">2</option>
-                    	<option value="3">3</option>
-                    </select>
+
+                    <form id="get-by-alphabet" name="input" action="" method="get">
+                        <select name="filter" class="dropdownized phone-hide">
+                        	<option value="a-z">Nach Alphabet</option>
+                        	<option value="a-z">a-z</option>
+                        	<option value="a-d">a-d</option>
+                            <option value="e-k">e-k</option>
+                            <option value="l-p">l-p</option>
+                            <option value="q-t">q-t</option>
+                            <option value="u-z">u-z</option>
+                        </select>
+                    </form>
+                    <script type="text/javascript">
+                        $('form#get-by-alphabet select option[value={{ $smarty.get.filter|default:'' }}]').attr('selected', true);
+                        $('form#get-by-alphabet select').change(function(){
+                            $('form#get-by-alphabet').submit();
+                        })
+                    </script>
                     
                     <div class="box desktop-hide mobile-hide">
                         <h4>Zeige</h4>
@@ -56,56 +70,31 @@
                 </div>
     
                 <div class="main left-thumb community-list clearfix">
-            
-                    <article>
-                        <figure>
-                            <img alt="" src="{{ url static_file="pictures/user-thumb-mid-default.jpg" }}">
-                        </figure>
-                        <h3>Reto Arberg</h3>
-                        <p>Hier wird gegen Grundregeln der nuklearen Sicherheit verstossen!<br />
-                        <time>Registriert sein 20.9.2012 <span class="comm">3</span></time></p>
-                    </article>
-                    
-                    <article>
-                        <figure>
-                            <img alt="" src="{{ url static_file="pictures/user-thumb-mid-default.jpg" }}">
-                        </figure>
-                        <h3>AAA</h3>
-                        <p><time>Registriert sein 20.9.2012</time></p>
-                    </article>
-                    
-                    <article>
-                        <figure>
-                            <img alt="" src="{{ url static_file="pictures/user-thumb-mid-default.jpg" }}">
-                        </figure>
-                        <h3>Bernd Arberg <small class="red-mark">REDAKTION</small></h3>
-                        <p>Hier wird gegen Grundregeln der nuklearen Sicherheit verstossen!<br />
-                        <time>Registriert sein 20.9.2012 <span class="comm">3</span></time></p>
-                    </article>
-                    
-                    <article>
-                        <figure>
-                            <img alt="" src="{{ url static_file="pictures/user-thumb-mid-default.jpg" }}">
-                        </figure>
-                        <h3>Bernd Arberg</h3>
-                        <p>Was du heute kannst besorgen, das verscheibe nocht auf morgen! Was du heute kannst besorgen, das verscheibe nocht auf morgen! Was du heute kannst besorgen, das verscheibe nocht auf morgen! Was du heute kannst besorgen, das verscheibe nocht auf morgen!<br />
-                        <time>Registriert sein 20.9.2012 <span class="comm">33</span></time></p>
-                    </article>
-                    
-                    <article>
-                        <figure>
-                            <img alt="" src="{{ url static_file="pictures/user-thumb-mid-default.jpg" }}">
-                        </figure>
-                        <h3>Reto Arberg</h3>
-                        <p>Hier wird gegen Grundregeln der nuklearen Sicherheit verstossen!<br />
-                        <time>Registriert sein 20.9.2012 <span class="comm">3</span></time></p>
-                    </article>
-                    
-                    <ul class="paging center top-line">
-                        <li><a class="button white prev" href="#">‹</a></li>
-                    	<li class="caption">1 von 2</li>
-                    	<li><a class="button white next" href="#">›</a></li>
-                    </ul>
+        {{ $length = 3 }}
+        {{ $uri = $view->url() }}
+        {{ if isset($smarty.get.search) }}
+            {{ list_users length=$length search=$smarty.get.search  }}
+                {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                {{ include file="_tpl/pagination.tpl" scope="parent" }}
+            {{ /list_users }}
+        {{ else if isset($smarty.get.filter) }}
+            {{ if $smarty.get.filter == 'editors'}}
+                {{ list_users length=$length filter=$smarty.get.filter editor_groups="1,2,3,4" }}
+                    {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                    {{ include file="_tpl/pagination.tpl" scope="parent" }}
+                {{ /list_users }}
+            {{ else }}
+                {{ list_users length=$length filter=$smarty.get.filter editor_groups="1,2,3,4" }}
+                    {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                    {{ include file="_tpl/pagination.tpl" scope="parent" }}
+                {{ /list_users }}
+            {{ /if }}
+        {{ else }}
+            {{ list_users length=$length }}
+                {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
+                {{ include file="_tpl/pagination.tpl" scope="parent" }}
+            {{ /list_users }}
+        {{ /if }}
                 
                 </div><!-- / Main -->            
                 
