@@ -2820,7 +2820,7 @@ a.button.center.details-more {display:none;}
 	
 	
 	.restaurant-list {padding:0}
-		.restaurant-list article {width:auto; float:none; min-height:auto !important; margin:0 -10px !important; padding:10px; border-bottom:#ccc dashed 1px; overflow:hidden;}
+		.restaurant-list article {width:auto; float:none;  min-height:0px; min-height:0px !important; margin:0 -10px !important; padding:10px; border-bottom:#ccc dashed 1px; overflow:hidden;}
 			.restaurant-list article figure {float:left; width:35%; margin:0 10px 0 0;}
 			.restaurant-list article footer {position:relative; left:auto; overflow:hidden;}
 			.restaurant-list article p,
