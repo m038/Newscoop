@@ -70,7 +70,7 @@
                 </div>
     
                 <div class="main left-thumb community-list clearfix">
-        {{ $length = 3 }}
+        {{ $length = 5 }}
         {{ $uri = $view->url() }}
         {{ if isset($smarty.get.search) }}
             {{ list_users length=$length search=$smarty.get.search  }}
