@@ -515,7 +515,7 @@ small {
 		
 		/* Popup */
 		.popup {
-			display:none; position:absolute; right:-15px; top:40px; z-index:1000;
+			display:none; position:absolute; right:-5px; top:40px; z-index:1000;
 			width:315px;
 			padding:30px;
 			background:#efefef;
@@ -529,6 +529,7 @@ small {
 				margin-bottom:20px;
 				font-size:14px; color:#000; line-height:19px;
 				}
+			.popup .fb-loggin-button {margin-right: 0 !important;}	
 			.place-date > li div.popup p {margin-bottom:10px;}
 			.place-date > li div.popup ul {margin:0; list-style-type:none;}
 				.place-date > li div.popup ul li {border-top:#ccc dashed 1px;}
@@ -2196,7 +2197,7 @@ a.button.center.details-more {display:none;}
 	.aside .ad {display:none;}
 	.ad img {max-width:100%; height:auto;}
 
-	.content-wrapper {width:768px;}
+	.content-wrapper {width:748px; padding: 0 10px;}
 	article img,
 	.slide-item figure img {width:100%; height:auto;}
 	
@@ -2230,14 +2231,15 @@ a.button.center.details-more {display:none;}
 		.header-menu > li:first-child {border:0;}
 			.header-menu > li > a {font-size:16px; font-family:UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal; line-height:30px; }
 				.header-menu > li > a:hover {font-weight:normal;}
+				.header-menu > li:last-child a {margin-right: -5px;}
 			.header-menu > li > a.icon-tag {background-position:0 9px;}
 	
 	a.mobile-nav-trigger {padding:0 21px 0 15px; margin-left:-15px;}
 		a.mobile-nav-trigger.active {background:url(../img/icon-arrow-top-black.png) 91% 12px no-repeat #efefef;}
 	
-	#top {position:relative;}
+	#top {position:relative; padding: 10px;}
 	#top ul.left {
-		display:none; position:absolute; left:-15px; top:39px; z-index:1000;
+		display:none; position:absolute; left:-5px; top:41px; z-index:1000;
 		width:200px;
 		padding:0 15px;
 		background:#EFEFEF;
@@ -2377,7 +2379,7 @@ a.button.center.details-more {display:none;}
 	.photo-blog-top h2 {width:200px;}
 	.photo-blog-top p {width:30%; padding-top:0;}
 	
-	.restaurant-list {padding:10px;}
+	.restaurant-list {padding:10px 0;}
 		.restaurant-list article {width:222px; margin:0 0 20px 40px;}
 		.restaurant-list .article_odd {margin-left:0;}
 
