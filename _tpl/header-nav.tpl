@@ -1,5 +1,6 @@
       <div id="top" class="clearfix">
-{{ local }}        
+{{ local }} 
+            <a href="#" class="desktop-hide mobile-nav-trigger">Ressorts</a>       
             <ul class="left">
               {{ set_publication identifier="2" }}
               {{ set_current_issue }}            
