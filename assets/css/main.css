@@ -514,7 +514,7 @@ small {
 		
 		/* Popup */
 		.popup {
-			display:none; position:absolute; right:-5px; top:40px; z-index:1000;
+			display:none; position:absolute; right:-15px; top:40px; z-index:1000;
 			width:315px;
 			padding:30px;
 			background:#efefef;
@@ -2389,6 +2389,7 @@ a.button.center.details-more {display:none;}
 		left:auto;
 		right: 14px;
 		}
+	.popup {right:-5px;}	
 	
 }
 
