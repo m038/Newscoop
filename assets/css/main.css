@@ -687,8 +687,10 @@ small {
 			margin-bottom:5px;
 			font-size:16px; color:#000;
 			}
-			.short-list li a {text-decoration:none;}
+			.short-list li a {text-decoration:none; color: #000;}
 			.short-list li a:hover {text-decoration:underline;}
+			.short-list li span,
+			.short-list li a.ressort {color: #b40032;}
 		
 		.blog-list.featured-blogs article {overflow:hidden; margin-bottom:40px;}
 		
