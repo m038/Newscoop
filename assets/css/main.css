@@ -181,7 +181,7 @@ blockquote {
 		background: -o-linear-gradient(top, #b20b31 0%, #a11a36 100%);
 		background: -ms-linear-gradient(top, #b20b31 0%, #a11a36 100%);
 		background: linear-gradient(top, #b20b31 0%, #a11a36 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b20b31", endColorstr="#a11a36", GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b20b31', endColorstr='#a11a36', GradientType=0 );
 		}
 		.button.red:hover,
 		.button.red.active  {
@@ -192,7 +192,7 @@ blockquote {
 			background: -o-linear-gradient(top, #a11a36 0%, #b20b31 100%);
 			background: -ms-linear-gradient(top, #a11a36 0%, #b20b31 100%);
 			background: linear-gradient(top, #a11a36 0%, #b20b31 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a11a36", endColorstr="#b20b31", GradientType=0);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a11a36', endColorstr='#b20b31', GradientType=0 );
 			}
 	.button.fb-loggin-button {
 		display:block;
@@ -204,7 +204,7 @@ blockquote {
 		background: -o-linear-gradient(top, #315999 0%, #1a4380 100%);
 		background: -ms-linear-gradient(top, #315999 0%, #1a4380 100%);
 		background: linear-gradient(top, #315999 0%, #1a4380 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#315999", endColorstr="#1a4380", GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#315999', endColorstr='#1a4380', GradientType=0 );
 		}
 		.button.fb-loggin-button span {
 			display:block;
@@ -257,7 +257,7 @@ blockquote {
 	background: -o-linear-gradient(top, #fff 0%, #eae9e9 100%);
 	background: -ms-linear-gradient(top, #fff 0%, #eae9e9 100%);
 	background: linear-gradient(top, #fff 0%, #eae9e9 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff", endColorstr="#eae9e9", GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eae9e9', GradientType=0 );
 	}
 	.ui-dropdownized:after,
 	.button.datepicker-trigger:after {content:""; position:absolute; right:5px; top:50%; margin-top:-3px; width:7px; height:7px; background:url(../img/icon-arrow-down.png) 0 0 no-repeat;}
@@ -2141,7 +2141,7 @@ small {
 	background: -o-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
 	background: -ms-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
 	background: linear-gradient(top, white 0%, #EAE9E9 100%) !important;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff", endColorstr="#eae9e9", GradientType=0) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eae9e9', GradientType=0 ) !important;
 }
 
 
