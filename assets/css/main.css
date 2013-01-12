@@ -1962,6 +1962,7 @@ small {
 				.footer-list > li > ul.social > li.nletter a {background-position:0 -83px;}
 			
 	#footer p {text-align:center;}
+	#footer p.foot-copyright {font-size: 14px; margin-bottom: 16px;}
 
 
 /* Datepicker
