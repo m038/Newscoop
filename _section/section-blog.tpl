@@ -31,7 +31,7 @@
 
 					 {{ if $gimme->topic->defined }}
                 <article class="bottom-line">
-                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Postings in der Rubrik «{{ $gimme->topic->name }}»</p>
+                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Blogartikel in der Rubrik «{{ $gimme->topic->name }}»</p>
                 </article>
                 {{ /if }}
 
