@@ -8,13 +8,9 @@
         
 {{ include file="_tpl/header.tpl" }}
     
-      <div class="content-wrapper top-line events-content">
+      <div class="content-wrapper top-line">
         
           <div class="content no-bottom-line equal-heights clearfix">
-            
-              <div class="events-aside info-text clearfix">            
-					&nbsp; 
-              </div>
     
                 <div class="main left-thumb article-spacing clearfix">
             
