@@ -11,7 +11,7 @@
         		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
             	MVV – Medien, Meinung, Vielfalt machen Sie unsere Arbeit möglich.</p>
 
-            	<iframe class="payment-box-iframe" src="{{ uri options="section" }}?iframe_holder=1&iframe_type=article-payment" allowtransparency="true" scrolling="no" frameborder="0" style="width:100%; height:350px"  /></iframe>
+            	<iframe class="payment-box-iframe" src="{{ url options="section" }}?iframe_holder=1&iframe_type=article-payment" allowtransparency="true" scrolling="no" frameborder="0" style="width:100%; height:350px"  /></iframe>
             </div>
         </div>
                 
