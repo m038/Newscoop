@@ -24,6 +24,7 @@
                     <h3>{{ $gimme->article->name }}</h3>
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }}</p>
                 </header>
+                {{ include file="_tpl/_admin-edit.tpl" }}
                 {{ $gimme->article->body }}
             </article>
             
