@@ -9,6 +9,6 @@
 {{ /capture }}
 
 {{ if !$gimme->debate->is_votable }}
-    {{ if $gimme->debate->is_current && !$gimme->user->logged_in }}Zwischenresultat{{ else }}Endresultat{{ /if }}
     {{ $smarty.capture.votes }}
+    <small>{{ if $gimme->debate->is_current && !$gimme->user->logged_in }}Zwischenresultat{{ else }}Endresultat{{ /if }}</small>
 {{ /if }}
