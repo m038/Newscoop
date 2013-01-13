@@ -21,6 +21,8 @@
 
         </div><!-- / Content Wrapper -->
 
+    </div>        
+
 {{ include file="_tpl/footer.tpl" }}
 	
 {{ include file="_tpl/_html-foot.tpl" }}	
