@@ -12,7 +12,7 @@
         
           <div class="main">
             
-              <div class="box debatte-single">
+              <div class="box debatte-single debatte-detail">
                 
                   <p class="headline highlight">Hier wird diskutiert. Diskutieren Sie mit!</p>
                     
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                         
-                    <article class="split bottom-line">
+                    <article>
                   {{ $gimme->article->teaser }}
                     </article>
                     
