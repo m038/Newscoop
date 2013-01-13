@@ -30,4 +30,6 @@
                     
                 </div>
     {{ /if }}
+{{ elseif $gimme->publication->identifier == "4" }}    
+		{{ include file="_tpl/article-payment-link.tpl" }}
 {{ /if }}
