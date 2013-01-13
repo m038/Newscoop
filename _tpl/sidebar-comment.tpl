@@ -3,7 +3,7 @@
 {{ assign var="sectionCondition" value="{{ $gimme->section->name }} is on" }}
 {{ /if }}
 
-{{ list_articles ingore_issue="true" ignore_section="true" constraints="type is news section is 210 Kommentar is on active is on $sectionCondition" }}
+{{ list_articles ignore_issue="true" ignore_section="true" constraints="type is news section is 210 Kommentar is on active is on $sectionCondition" }}
 
                 <div class="box">
                 

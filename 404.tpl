@@ -19,7 +19,9 @@
                         Sollte Ihnen das nicht weiterhelfen, <a href="#">schreiben Sie uns</a>.</p>
                     </article>
 
-        </div><!-- / Content Wrapper -->    
+        </div><!-- / Content Wrapper -->  
+        
+	</div>          
 
 {{ include file="_tpl/footer.tpl" }}
 	
