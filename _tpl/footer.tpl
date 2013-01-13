@@ -1,9 +1,10 @@
 	<div class="wide-wrapper">
     
     	<div class="content-wrapper" id="footer">
-        
-        	<ul class="footer-list equal-heights clearfix">
-            	{{ local }}        	
+
+{{ local }}        
+
+        	<ul class="footer-list equal-heights clearfix">        	
             	<li>
             		{{ set_publication identifier="2" }}
             		{{ set_current_issue }}
@@ -80,8 +81,7 @@
 {{ set_section number="73" }}
                         <li><a id="footer_restaurants_link" href="{{ uri options="section" }}?type=all&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Restaurants</a></li>
                     </ul>
-                </li>
-				{{ /local }}                
+                </li>                
                 <li>
                 	<h3>Folgen Sie uns</h3>
                     <ul class="social">
@@ -95,10 +95,15 @@
             <p class="foot-copyright"><a target="_blank" href="http://www.mmv-online.ch">© MMV online AG - Alle Rechte vorbehalten</a></p>
 
             <ul class="phone-footer-nav">
-            	<li><a href="#">Kontakt</a></li>
-            	<li><a href="#">Impressum</a></li>
-            	<li><a href="#">AGB</a></li>
+               {{ set_article name="Kontakt" }}
+            	<li><a href="{{ url options="article" }}">Kontakt</a></li>
+            	{{ set_article name="Impressum" }}
+            	<li><a href="{{ url options="article" }}">Impressum</a></li>
+            	{{ set_article name="AGB" }}
+            	<li><a href="{{ url options="article" }}">AGB</a></li>
             </ul>
+
+{{ /local }}
             
         </div><!-- / Content wrapper Footer -->
     
