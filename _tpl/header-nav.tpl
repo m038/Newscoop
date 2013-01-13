@@ -4,7 +4,7 @@
             <ul class="left">
               {{ set_publication identifier="2" }}
               {{ set_current_issue }}            
-        {{ list_sections constraints="number smaller_equal 70" }}          
+        {{ list_sections constraints="number smaller_equal 70 number not 50" }}          
               <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
            {{ /list_sections }}
               {{ set_section number="100" }}
