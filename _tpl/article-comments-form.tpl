@@ -32,5 +32,5 @@
             <p>Comments are locked / disabled for this article.</p>
         {{ /if }}   
     {{ else }}
-        <p><br />You have to be registered in order to comment on articles and send messages directly to the editorial team. Please login or create a free user account.</p>
+        <p><br />Um kommentieren zu können, müssen Sie auf Zentral+ eingeloggt sein. Bitte loggen Sie sich ein oder registrieren Sie sich.</p>
     {{ /if }}                                    
