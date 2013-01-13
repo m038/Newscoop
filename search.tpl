@@ -12,7 +12,7 @@
         
           <div class="content no-bottom-line equal-heights clearfix">
             
-              <div class="events-aside info-text clearfix">
+              <!--div class="events-aside info-text clearfix">
                   
                     <div class="box desktop-hide">
                         <h4>Zeige</h4>
@@ -34,7 +34,7 @@
                     <h4>Über «Meine Themen»</h4>
                     <p>Auf dieser Seite sehen Sie alle aktuellen Artikel zu den Themen, die Sie abonniert haben.</p>
                 
-                </div>
+                </div-->
     
                 <div class="main left-thumb article-spacing clearfix">
             
