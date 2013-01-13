@@ -141,7 +141,7 @@
             <article>
                 <figure>
                 {{ image rendition="artthumb" }}                
-              	 	<img src="{{ $image->src }}" width="95" height="53" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              	 	<img src="{{ $image->src }}" width="95" height="53" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
 					 {{ /image }}
                 </figure>
                 <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>

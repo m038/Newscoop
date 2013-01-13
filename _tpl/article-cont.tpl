@@ -11,7 +11,7 @@
 {{ capture name="image" }}
 {{ image rendition="artfull" }}                
                   <figure>
-              <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                   </figure>
 {{ /image }} 
 {{ /capture }}
@@ -29,7 +29,7 @@
 
 {{ if $prazno }}                    
 {{ image rendition="artfull" }}                    
-                    <p><small>{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}</small></p>
+                    <p><small>{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}</small></p>
 {{ /image }} 
 {{ /if }}
                    

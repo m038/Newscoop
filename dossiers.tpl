@@ -19,7 +19,7 @@
                     <article class="{{ if $gimme->current_list->index is odd }}right{{ else }}left{{ /if }}-thumb clearfix highlight-article">
               {{ image rendition="arthalf" }}                
                       <figure>
-                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                       </figure>
               {{ /image }} 
               				<h6><a href="{{ url options="article" }}">Dossier</a></h6>                   
