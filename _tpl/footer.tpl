@@ -61,6 +61,7 @@
                     <ul>
 
 {{* events *}}
+{{ set_publication identifier="2" }}
 {{ set_current_issue }}
 {{ set_section number="71" }}
                     	<li><a id="footer_all_link" href="{{ uri options="section" }}?type=event&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Alles</a></li>
