@@ -23,6 +23,6 @@
                             <p class="bottom-line">Die zentral+ Community hat bereits {{ number_format($gimme->getUserCount(), 0, '.', '\'') }} Mitglieder.</p>
                         </div>
                     </div>
-                    <a href="#" class="button red center">Jetzt mitmachen</a>
+                    <a href="/register" class="button red center">Jetzt mitmachen</a>
                 
                 </div>
