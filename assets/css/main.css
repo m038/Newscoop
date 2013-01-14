@@ -1340,6 +1340,7 @@ small {
 	.article-spacing article {margin-bottom:24px; overflow:hidden;}
 	.article-border-bottom article {margin-bottom:10px; border-bottom:#ccc dashed 1px;}
 	.article-spacing time {top:-16px; position:relative;}
+	.article-spacing h6 time {top:0;}
 	.no-inner-margin .box,
 	.no-inner-margin article {margin-bottom:0;}
 	
