@@ -167,7 +167,7 @@
         <div class="content-top">
           
             <ul class="place-date">
-              <li>
+              <li class="mobile-hide">
                   <a href="#" class="place-trigger">Luzern und Zug</a>
                     <div class="popup">
                       <p>Wählen Sie Ihre Region:</p>
