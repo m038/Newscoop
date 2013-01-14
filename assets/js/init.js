@@ -97,7 +97,7 @@ $(window).load(function() {
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
 		/*correct div.main height*/
-		var startHeight = $(".main").height();
+		startHeight = $(".main").height();
 		$(".main").css("height","auto");
 		var newHeight = $(".main").height();
 		if (newHeight>startHeight) { 
