@@ -974,6 +974,7 @@ small {
 		.tab-nav {
 			position:relative; bottom:-1px;
 			margin:0; list-style-type:none;
+			z-index: 2;
 			}
 			.tab-nav li {float:left;}
 				.tab-nav li a {
@@ -1444,6 +1445,7 @@ small {
 	.profile-tabs {
 		padding:25px 35px;
 		background:#fff; border:#ccc solid 1px;
+		position: relative;
 		}
 	
 	
