@@ -95,12 +95,14 @@ $(window).load(function() {
 	var startHeight= 0;
 	$("#micropayment_button").click(function(){
 		startHeight = $(".main").height();
+		console.log(startHeight);
 		$(".main").css("height","auto");
 
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
 		
 		var newHeight = $(".main").height();
+		console.log(startHeight + " " + newHeight);
 		if (newHeight>startHeight) { 
 			$(".main").css("height",newHeight+"px");
 		} else
