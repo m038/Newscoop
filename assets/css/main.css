@@ -153,7 +153,7 @@ blockquote {
 		background: -o-linear-gradient(top, #fff 0%, #eae9e9 100%);
 		background: -ms-linear-gradient(top, #fff 0%, #eae9e9 100%);
 		background: linear-gradient(top, #fff 0%, #eae9e9 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff", endColorstr="#eae9e9", GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eae9e9',GradientType=0 );
 		}
 		.button.white:hover,
 		.jcarousel-skin-gallery .jcarousel-next-horizontal:hover,
@@ -170,7 +170,7 @@ blockquote {
 			background: -o-linear-gradient(top, #eae9e9 0%, #fff 100%);
 			background: -ms-linear-gradient(top, #eae9e9 0%, #fff 100%);
 			background: linear-gradient(top, #eae9e9 0%, #fff 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eae9e9", endColorstr="#fff", GradientType=0);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eae9e9', endColorstr='#ffffff',GradientType=0 );
 			}
 	.button.red {
 		color:#fff;
@@ -181,7 +181,7 @@ blockquote {
 		background: -o-linear-gradient(top, #b20b31 0%, #a11a36 100%);
 		background: -ms-linear-gradient(top, #b20b31 0%, #a11a36 100%);
 		background: linear-gradient(top, #b20b31 0%, #a11a36 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b20b31", endColorstr="#a11a36", GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b20b31', endColorstr='#a11a36', GradientType=0 );
 		}
 		.button.red:hover,
 		.button.red.active  {
@@ -192,7 +192,7 @@ blockquote {
 			background: -o-linear-gradient(top, #a11a36 0%, #b20b31 100%);
 			background: -ms-linear-gradient(top, #a11a36 0%, #b20b31 100%);
 			background: linear-gradient(top, #a11a36 0%, #b20b31 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a11a36", endColorstr="#b20b31", GradientType=0);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a11a36', endColorstr='#b20b31', GradientType=0 );
 			}
 	.button.fb-loggin-button {
 		display:block;
@@ -204,7 +204,7 @@ blockquote {
 		background: -o-linear-gradient(top, #315999 0%, #1a4380 100%);
 		background: -ms-linear-gradient(top, #315999 0%, #1a4380 100%);
 		background: linear-gradient(top, #315999 0%, #1a4380 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#315999", endColorstr="#1a4380", GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#315999', endColorstr='#1a4380', GradientType=0 );
 		}
 		.button.fb-loggin-button span {
 			display:block;
@@ -257,7 +257,7 @@ blockquote {
 	background: -o-linear-gradient(top, #fff 0%, #eae9e9 100%);
 	background: -ms-linear-gradient(top, #fff 0%, #eae9e9 100%);
 	background: linear-gradient(top, #fff 0%, #eae9e9 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff", endColorstr="#eae9e9", GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eae9e9', GradientType=0 );
 	}
 	.ui-dropdownized:after,
 	.button.datepicker-trigger:after {content:""; position:absolute; right:5px; top:50%; margin-top:-3px; width:7px; height:7px; background:url(../img/icon-arrow-down.png) 0 0 no-repeat;}
@@ -275,7 +275,6 @@ blockquote {
 .content-wrapper {
 	width:1100px;
 	margin:auto;
-	overflow-x:hidden !important; 
 	}
 .wide-wrapper {
 	margin-top:30px;
@@ -529,6 +528,7 @@ small {
 				margin-bottom:20px;
 				font-size:14px; color:#000; line-height:19px;
 				}
+			.popup .fb-loggin-button {margin-right: 0 !important;}	
 			.place-date > li div.popup p {margin-bottom:10px;}
 			.place-date > li div.popup ul {margin:0; list-style-type:none;}
 				.place-date > li div.popup ul li {border-top:#ccc dashed 1px;}
@@ -687,8 +687,10 @@ small {
 			margin-bottom:5px;
 			font-size:16px; color:#000;
 			}
-			.short-list li a {text-decoration:none;}
+			.short-list li a {text-decoration:none; color: #000;}
 			.short-list li a:hover {text-decoration:underline;}
+			.short-list li span,
+			.short-list li a.ressort {color: #b40032;}
 		
 		.blog-list.featured-blogs article {overflow:hidden; margin-bottom:40px;}
 		
@@ -1962,6 +1964,7 @@ small {
 				.footer-list > li > ul.social > li.nletter a {background-position:0 -83px;}
 			
 	#footer p {text-align:center;}
+	#footer p.foot-copyright {font-size: 14px; margin-bottom: 16px;}
 
 
 /* Datepicker
@@ -2140,7 +2143,7 @@ small {
 	background: -o-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
 	background: -ms-linear-gradient(top, white 0%, #EAE9E9 100%) !important;
 	background: linear-gradient(top, white 0%, #EAE9E9 100%) !important;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff", endColorstr="#eae9e9", GradientType=0) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eae9e9', GradientType=0 ) !important;
 }
 
 
@@ -2196,7 +2199,7 @@ a.button.center.details-more {display:none;}
 	.aside .ad {display:none;}
 	.ad img {max-width:100%; height:auto;}
 
-	.content-wrapper {width:768px;}
+	.content-wrapper {width:748px; padding: 0 10px;}
 	article img,
 	.slide-item figure img {width:100%; height:auto;}
 	
@@ -2230,14 +2233,15 @@ a.button.center.details-more {display:none;}
 		.header-menu > li:first-child {border:0;}
 			.header-menu > li > a {font-size:16px; font-family:UnitSlabWeb-Bold, Georgia, "Times New Roman", Times, serif; font-weight:normal; line-height:30px; }
 				.header-menu > li > a:hover {font-weight:normal;}
+				.header-menu > li:last-child a {margin-right: -5px;}
 			.header-menu > li > a.icon-tag {background-position:0 9px;}
 	
 	a.mobile-nav-trigger {padding:0 21px 0 15px; margin-left:-15px;}
 		a.mobile-nav-trigger.active {background:url(../img/icon-arrow-top-black.png) 91% 12px no-repeat #efefef;}
 	
-	#top {position:relative;}
+	#top {position:relative; padding: 10px;}
 	#top ul.left {
-		display:none; position:absolute; left:-15px; top:39px; z-index:1000;
+		display:none; position:absolute; left:-5px; top:41px; z-index:1000;
 		width:200px;
 		padding:0 15px;
 		background:#EFEFEF;
@@ -2377,7 +2381,7 @@ a.button.center.details-more {display:none;}
 	.photo-blog-top h2 {width:200px;}
 	.photo-blog-top p {width:30%; padding-top:0;}
 	
-	.restaurant-list {padding:10px;}
+	.restaurant-list {padding:10px 0;}
 		.restaurant-list article {width:222px; margin:0 0 20px 40px;}
 		.restaurant-list .article_odd {margin-left:0;}
 
@@ -2388,6 +2392,7 @@ a.button.center.details-more {display:none;}
 		left:auto;
 		right: 14px;
 		}
+	.popup {right:-5px;}	
 	
 }
 
@@ -2820,7 +2825,7 @@ a.button.center.details-more {display:none;}
 	
 	
 	.restaurant-list {padding:0}
-		.restaurant-list article {width:auto; float:none; min-height:auto !important; margin:0 -10px !important; padding:10px; border-bottom:#ccc dashed 1px; overflow:hidden;}
+		.restaurant-list article {width:auto; float:none;  min-height:0px; min-height:0px !important; margin:0 -10px !important; padding:10px; border-bottom:#ccc dashed 1px; overflow:hidden;}
 			.restaurant-list article figure {float:left; width:35%; margin:0 10px 0 0;}
 			.restaurant-list article footer {position:relative; left:auto; overflow:hidden;}
 			.restaurant-list article p,

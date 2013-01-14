@@ -31,7 +31,7 @@
 
 					 {{ if $gimme->topic->defined }}
                 <article class="bottom-line">
-                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Postings in der Rubrik «{{ $gimme->topic->name }}»</p>
+                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Blogartikel in der Rubrik «{{ $gimme->topic->name }}»</p>
                 </article>
                 {{ /if }}
 
@@ -47,7 +47,7 @@
 		        {{ /image }}
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
-                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
                     
 {{ if $gimme->current_list->at_end }}            
@@ -141,7 +141,7 @@
             <article>
                 <figure>
                 {{ image rendition="artthumb" }}                
-              	 	<img src="{{ $image->src }}" width="95" height="53" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              	 	<img src="{{ $image->src }}" width="95" height="53" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
 					 {{ /image }}
                 </figure>
                 <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>

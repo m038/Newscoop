@@ -65,7 +65,6 @@
 	height:27px;
 	padding:7px 10px 0;
 	text-align:center;
-	border-right:#cdcdcd solid 1px;
 }
 .social_share_privacy_area li.help_info .info, 
 .social_share_privacy_area li .help_info.icon .info {
@@ -73,16 +72,15 @@
     position: absolute;
     bottom: 40px;
     left: 0;
-	font-family:Arial, Helvetica, sans-serif;
     width: 350px;
     padding: 10px;
     margin: 0;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 18px;
     border: 1px solid #ccc;
-    -moz-box-shadow:1px 1px 1px #333;
-    -webkit-box-shadow:1px 1px 1px #333;
-    box-shadow:1px 1px 1px #333;
+    -moz-box-shadow:0px 1px 4px #ccc;
+    -webkit-box-shadow:0px 1px 4px #ccc;
+    box-shadow:0px 1px 4px #ccc;
     background-color: #fff;
     color: #000;
     z-index: 500;
@@ -119,10 +117,10 @@
 }
 .social_share_privacy_area li.settings_info .settings_info_menu {
     background-color: #fff;
-    border: 1px solid #b4b4b4;
-	-moz-box-shadow:1px 1px 1px #333;
-	-webkit-box-shadow:1px 1px 1px #333;
-    box-shadow:1px 1px 1px #333;
+    border: 1px solid #ccc;
+	-moz-box-shadow:0px 1px 4px #ccc;
+	-webkit-box-shadow:0px 1px 4px #ccc;
+    box-shadow:0px 1px 4px #ccc;
     left: 0;
     position: absolute;
     top: -1px;
@@ -130,7 +128,6 @@
     z-index: 1000;
     margin: 0;
     padding:0 0 0 10px;
-	font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal;
 }
 .social_share_privacy_area li.settings_info .settings_info_menu.off {
 	position:relative;
@@ -150,9 +147,10 @@
 .social_share_privacy_area li.settings_info .settings_info_menu .settings {
 	display:block;
 	height:34px;
-	margin: 0; padding: 0; padding-left:23px;
+	margin: 0; padding: 0;
 	line-height:34px;
-	background:url(images/settings.png) no-repeat left center scroll;
+    font-size: 14px;
+    color: #b40032;
 }
 .social_share_privacy_area li.settings_info .settings_info_menu.on .settings {
 	border-top-width: 0;
@@ -160,14 +158,15 @@
 .social_share_privacy_area li.settings_info .settings_info_menu form fieldset {
     border-width: 0;
     margin: 0;
-    padding: 0 10px 10px;
+    padding: 0 10px 10px 0;
 }
 .social_share_privacy_area li.settings_info .settings_info_menu form fieldset legend {
-    font-size: 11px;
-    line-height: 14px;
+    font-size: 13px;
+    line-height: 16px;
     margin: 0;
-    padding: 10px 0;
+    padding: 2px 0 14px 0;
 	width: 115px;
+    color: #666666;
 }
 .social_share_privacy_area li.settings_info .settings_info_menu form fieldset input {
 	clear: both;
@@ -178,17 +177,12 @@
 .social_share_privacy_area li.settings_info .settings_info_menu form fieldset label {
     display: inline-block;
     float: left;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
-	-moz-transition: color .5s ease-in;
-	-webkit-transition: color .5s ease-in;
-	transition: color .5s ease-in;
-	margin: 0;
+	margin: 0 0 4px 0;
 	padding: 0;
 }
-.social_share_privacy_area li.settings_info .settings_info_menu form fieldset label.checked {
-	color: #090;
-}
+.social_share_privacy_area li.settings_info .settings_info_menu form fieldset label.checked {}
 
 
 .fb_like iframe {width:120px !important;}
@@ -196,10 +190,26 @@
 .gplusone iframe,
 .gplusone div {width:60px !important;}
 
+.fb_like_privacy_dummy,
+.tweet_this_dummy,
+.gplus_one_dummy {margin-top: -6px;}
 
 /* Settings/Info end */
 #social_bookmarks .settings_info {
     padding-left: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .social-bar ul {width: 100%;}
+    #social_bookmarks .settings_info {float: right;}
+    .social_share_privacy_area li.settings_info .settings_info_menu {left: auto; right: 0;}
+    .social_share_privacy_area li.settings_info .settings_info_menu.off {float: right;}
+    .social_share_privacy_area li.settings_info .settings_info_menu.on .settings {
+        border-top-width: 0;
+        text-align: right;
+        padding-right: 10px;
+        }
+    
 }
 
 @media screen and (max-width: 480px) {

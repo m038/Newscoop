@@ -235,7 +235,7 @@ function show_cuisines() {
 
 	var art_sign = 2;
 	var win_width = $(window).width();
-	if ((win_width <= 1100) && (win_width > 768)) {
+	if ((win_width < 1100) && (win_width >= 768)) {
 		art_sign = 3;
 	}
 

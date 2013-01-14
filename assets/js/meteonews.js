@@ -13,7 +13,7 @@ var meteonews = {
     configUrl: '/meteonews/config/',
     symbolsPath: '',
     initialized: false,
-
+    
     defaultLocationId: '',
     defaultLocationName: '',
     defaultLocationZip: '',
@@ -44,7 +44,11 @@ var meteonews = {
         'mn-forecast-overview', 'mn-primary-regions', 'mn-secondary-regions', 'mn-prognosen-regions',
         'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-pistenbericht-important-slopes',
         'mn-pistenbericht-all-regions', 'mn-pistenbericht-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
-        'mn-slope-webcam', 'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-pistenbericht-details-prognosen' ],
+        'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-pistenbericht-details-prognosen' ],
+
+    // map vars
+    geocoder: null,
+    map: null,
 
     init: function(cb) {
         this.hideAllElements();
@@ -55,7 +59,21 @@ var meteonews = {
         this.setEndDate(date);
         this.setLocation(this.defaultLocationId, this.defaultLocationZip, this.defaultLocationName);
         this.hideAllElements();
+        this.initMap();
         this.initialized = true;
+    },
+
+    initMap: function() {
+        this.geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(47.378, 8.539);
+        var mapOptions = {
+          zoom: 9,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        this.map = new google.maps.Map(document.getElementById('mn-slope-map'), mapOptions);
+        $('#mn-slope-map').show();
+        console.log('map initalized');
     },
 
     setConfig: function(config, cb) {
@@ -305,6 +323,92 @@ var meteonews = {
                     })(slope, slopeName, regionId, allSlopes);
                 }
             }
+        });
+    },
+
+    getSlopeMap: function(id, name) {
+        var address = name + ', Schweiz';
+
+        // load from google api
+        meteonews.geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            meteonews.map.setCenter(results[0].geometry.location);
+
+            // marker
+            var marker = new google.maps.Marker({
+                map: meteonews.map,
+                position: results[0].geometry.location,
+            });
+           
+            // info box 
+            var infowindow = new google.maps.InfoWindow({
+                content: address
+            });
+    
+            // add click event
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(marker.get('map'), marker);
+            });
+
+          } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+    },
+
+    getSlopeWebcams: function(type, id, name) {
+        var feed = 'webcams/' +
+            type + '/' +
+            id + '.' +
+            this.format;
+
+        var params = [];
+
+        this._send(feed, params, function(response) {
+            $('#mn-region-webcam-content').empty();
+
+            var count = 0;
+            for (var wc in response.webcams.content.webcam) {
+                var webcam = response.webcams.content.webcam[wc];
+                var desc = webcam.description;
+                var image = webcam.resources.resource[1]['@text'];
+                var content = '';
+
+                if (count == 0) {
+                    content = "<a class='zoom fancybox' href='" + image + "'>Zoom</a>";
+                    content += "<img src='" + image + "' style='width: 350px; height: 300px' alt=''>";
+                    $('#mn-slope-webcam-content').html(content);
+                } else {
+                    /*
+                    if (count == 1) {
+                        content = "<li style='position: absolute; top: 0px; left: 0px; display: list-item; z-index: 3; opacity: 1'>";
+                    } else {
+                        content = "<li style='position: absolute; top: 0px; left: 0px; display: none; z-index: 1;'>";
+                    }*/
+                    content = "<li>";
+                    content += "<a class='zoom fancybox' href='" + image + "'>Zoom</a>";
+                    content += "<img src='" + image + "' style='width: 350px; height: 261px' alt=''>";
+                    content += "<p style='width: 200px; line-heght: 14px;'>" + desc + "</p>";
+                    content += "</li>";
+                    $('#mn-region-webcam-content').append(content);
+                }
+                count++
+            } 
+
+            // re-cycle slideshow
+                $('.slides').each(function() {
+                    var slideshow = $('#mn-webcam-slideshow');
+                    var prev = $('#mn-webcam-prev');
+                    var next = $('#mn-webcam-next');
+                    $(this).cycle({
+                        prev:       '#mn-webcam-prev',
+                        next:       '#mn-webcam-next',
+                        fx:         'scrollHorz',
+                        fit:        true,
+                        speed:      500,
+                        timeout:    0
+                    });
+                });
         });
     },
 
@@ -751,7 +855,10 @@ var meteonews = {
         });
         $('#mn-slope-webcam').show();
         $('#mn-region-webcam').show();
+        meteonews.getSlopeMap(id, name);
         $('#mn-slope-map').show();
+
+        meteonews.getSlopeWebcams(type, id, name);
         $('#mn-pistenbericht-details-prognosen').show();
     },
 
@@ -929,7 +1036,7 @@ $(function(){
     });
 
     $('.mn-pistenbericht-link').live('click', function() {
-        meteonews.showPistenberichtDetailPage($(this).attr('data-type'), $(this).attr('data-id'), '', $(this).attr('data-name'));
+        meteonews.showPistenberichtDetailPage($(this).attr('data-type'), $(this).attr('data-id'), $(this).attr('data-name'));
     });
 
 
