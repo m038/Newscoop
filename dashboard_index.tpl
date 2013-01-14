@@ -69,7 +69,7 @@
                             </ul>
                             
                             <h4>Profil</h4>
-                            <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Pro"l sichtbar sind und von Suchmaschinen gefunden werden können.</p>
+                            <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Profil sichtbar sind und von Suchmaschinen gefunden werden können.</p>
                             
                             <div class="clearfix upload-avatar">
                                 {{ include file="_tpl/user-image.tpl" size="big" class="left" }}
