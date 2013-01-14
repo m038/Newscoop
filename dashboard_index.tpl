@@ -83,39 +83,39 @@
                             
                             <ul class="form">
                             	<li>
-                                	<label>Über mich</label>
-                                    <textarea cols="" rows=""></textarea>
+                                	<label for="bio">Über mich</label>
+                                    <textarea cols="" rows="" name="attributes[bio]" id="bio">{{ $form->attributes->bio->getValue()|escape }}</textarea>
                                 </li>
                             	<li>
-                                	<label>Geburtsdatum</label>
-                                    <input type="text" />
+                                	<label for="birth_date">Geburtsdatum</label>
+                                    <input id="birth_date" name="attributes[birth_date]" type="text" value="{{ $form->attributes->birth_date->getValue()|escape }}" />
                                 </li>
                             	<li>
-                                	<label>Geschlecht</label>
-                                    <select class="dropdownized">
-                                    	<option value="Bitte wählen">Bitte wählen</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                	<label for="gender">Geschlecht</label>
+                                    <select id="gender" name="attributes[gender]" class="dropdownized">
+                                        {{ $selected = $form->attributes->gender->getValue() }}
+                                    	<option value="">Bitte wählen</option>
+                                        <option value="mann"{{ if $selected == "mann" }} selected{{ /if }}>Mann</option>
+                                        <option value="frau"{{ if $selected == "frau" }} selected{{ /if }}>Frau</option>
                                     </select>
                                 </li>
                             	<li>
-                                	<label>facebook.com/</label>
-                                    <input type="text" />
+                                	<label for="facebook">facebook.com/</label>
+                                    <input id="facebook" name="attributes[facebook]" type="text" value="{{ $form->attributes->facebook->getValue()|escape }}" />
                                 </li>
                             	<li>
-                                	<label>plus.google.com/</label>
-                                    <input type="text" />
+                                	<label for="google">plus.google.com/</label>
+                                    <input id="google" name="attributes[google]" type="text" value="{{ $form->attributes->google->getValue()|escape }}" />
                                 </li>
                             	<li>
-                                	<label>twitter.com/</label>
-                                    <input type="text" />
+                                	<label for="twitter">twitter.com/</label>
+                                    <input id="twitter" name="attributes[twitter]" type="text" value="{{ $form->attributes->twitter->getValue()|escape }}" />
                                 </li>
                             	<li class="bottom-line">
-                                	<label>http://</label>
-                                    <input type="text" />
+                                	<label for="website">http://</label>
+                                    <input id="website" name="attributes[website]" type="text" value="{{ $form->attributes->website->getValue()|escape }}" />
                                 </li>
                                 <li class="side-by-side">
-                                	<input class="button white left" value="Profill ansehen" />
                                 	<input type="submit" class="button red right" value="Speichern" />
                                 </li>
                             </ul>
