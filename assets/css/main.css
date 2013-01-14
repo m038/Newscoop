@@ -3241,27 +3241,25 @@ a.button.center.details-more {display:none;}
   .wide-wrapper { display:none; }
 
   #header {
-  	height: 100px;
+  	height: 110px;
   } 
-  
+
   #header h1 {
-  	position: relative;
-  	margin: 0;
+  	position: absolute;
   	display: list-item;
   	list-style-image: url("../img/logo.png");
   	list-style-position: inside;
-  	left:0;
-  	bottom:0;
   	width:240px;
   	top:10px;
+  	margin-left: -120px;
   }
 
   #header h1:after {
   	content: "Das unabhängige Online-Magazin der Zentralschweiz";
   	display: inline-block;
-  	width:540px;
-  	font-size:16px;
-  	line-height: 30px;
+  	font-size:14px;
+  	text-align: center;
+  	margin-top: 10px;
   }
 
   #header h1 a {
