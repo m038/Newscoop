@@ -1,9 +1,15 @@
 {{ strip }}
-    {{ if isset($size) && $size == "big" }}
+    {{ if empty($size) }}
+        {{ $size = "" }}
+    {{ /if }}
+
+    {{ if $size == "big" }}
         {{ $box = 113 }}
+    {{ elseif $size == "small" }}
+        {{ $box = 35 }}
     {{ else }}
-        {{ $size = "mid" }}
         {{ $box = 64 }}
+        {{ $size = "mid" }}
     {{ /if }}
 
     {{ if empty($class) }}
