@@ -26,7 +26,7 @@
                                     <img src="{{ uri static_file="pictures/user-thumb-small-default.jpg" }}" alt="" />
                                     {{ /if }}
                                         <h5>{{ $gimme->comment->subject }} {{ if $gimme->comment->user->identifier && $gimme->comment->user->is_author }}<small class="red-mark">REDAKTION</small>{{ /if }}</h5>
-                                        <time>von {{ if $user->identifier }}<a{{ if $user->is_active }} href="{{ $view->url(['username' => $user->uname], 'user') }}"{{ /if }}>{{ include file="_tpl/user-name.tpl" user=$user }}</a>{{ else }}<a>{{ $gimme->comment->nickname }}</a>{{ /if }} um {{ $gimme->comment->submit_date|camp_date_format:"%e.%m.%Y um %H:%iUhr" }}</time>
+                                        <time>von {{ if $user->identifier }}{{ if $user->is_active }}<a href="{{ $view->url(['username' => $user->uname], 'user') }}">{{ /if }}{{ include file="_tpl/user-name.tpl" user=$user }}</a>{{ else }}{{ $gimme->comment->nickname }}{{ /if }} um {{ $gimme->comment->submit_date|camp_date_format:"%e.%m.%Y um %H:%iUhr" }}</time>
                                         <p>{{ $gimme->comment->content|create_links|nl2br }}</p>
                                     </li>
                             {{ $recommendedEmpty=0 }}        
