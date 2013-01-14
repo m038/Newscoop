@@ -72,7 +72,7 @@
 $(function() {
     var tabId = "#comm-2";
     if (window.location.hash == tabId) { // scroll to
-        $('#comments').scroll();
+        setTimeout(function () { $(window).scrollTop($('#comments').offset().top); }, 500);
     } else { // add to form
         $('form', '#comments').each(function() {
             var form = $(this);
