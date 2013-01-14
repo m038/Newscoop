@@ -95,12 +95,11 @@ $(window).load(function() {
 	$("#micropayment_button").click(function(){
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
-		var height = $(".main").css("height");
+		var height = $(".main").height();
 		$(".main").css("height","auto");
 		var newHeight = $(".main").height();
-		console.log(height + " " + newHeight);
 		if (newHeight>height) height = newHeight;
-		$(".main").css("height",height);
+		$(".main").css("height",height+"px");
 	});
 	$("#close_micropayment").click(function(){
 		$("#payment-box").hide();
