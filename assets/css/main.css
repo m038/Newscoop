@@ -840,7 +840,7 @@ small {
 				}
 				h4.box-title.icon-cross {background-image:url(../img/icon-cross.png);}
 				h4.box-title.icon-letter {background-image:url(../img/icon-letter.png);}
-			h4.box-title img {position:absolute; left:10px; bottom:0;}
+			h4.box-title img {position:absolute; left:10px; bottom:0; max-height: 68px;}
 			
 			.gallery-slider {background:#e5e5e5; padding-bottom:15px;}
 				.gallery-slider h4.box-title {margin-bottom:0;}
