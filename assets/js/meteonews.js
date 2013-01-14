@@ -50,6 +50,25 @@ var meteonews = {
     geocoder: null,
     map: null,
 
+    // translations
+    translations:  {
+        'ski' : 'Pistenbericht',
+        'condition' : 'Zustand',
+        'snow_condition' : 'Schnee-/Pistenzustand',
+        'facilities' : 'Offene Anlagen',
+        'crosscountry' : 'Winterwandern',
+        'toboggan'  : 'Schlitteln',
+        'avalanches' : 'Lawinen',
+        'alarm' : 'Alarm',
+        'general' : 'Allgemein',
+        'phone' : 'Telefon',
+        'snowdepth_top' : 'Schneehöhe Berg',
+        'status' : 'Zustand',
+        'snowdepth_valley' : 'Schneehöhe im Tal',
+        'last_snowfall' : 'Letzter Schneefall Pistengebiet',
+        'source' : 'Source'
+    },
+
     init: function(cb) {
         this.hideAllElements();
         this.getConfig(cb);
@@ -448,7 +467,7 @@ var meteonews = {
             if (section != '@attributes') {
                 output += "<h4 class='table-collapse-trigger'>";
                 // TODO: translate section
-                output += "<a href='#'>" + section + "</a></h4>";
+                output += "<a href='#'>" + meteonews.translate(section) + "</a></h4>";
                 output += "<div class='table-wrapper'><table cellpadding='0' cellspacing='0'>";
 
                 // add values
@@ -500,7 +519,7 @@ var meteonews = {
                     }
                     
                     // TODO: translate displayItem
-                    output += "<th>" + displayItem + "</th>" + "<td>" + displayValue + "</td>";
+                    output += "<th>" + meteonews.translate(displayItem) + "</th>" + "<td>" + displayValue + "</td>";
                     fcount++;
 
                     if (fcount == 2) {
@@ -986,6 +1005,10 @@ var meteonews = {
                 response(output);
             }
         });
+    },
+
+    translate: function(text) {
+        return (meteonews.translations[text]) ? meteonews.translations[text] : text;
     },
 };
 
