@@ -95,24 +95,23 @@ $(window).load(function() {
 	var startHeight= 0;
 	var main = $(".main").first();
 	$("#micropayment_button").click(function(){
-/*
+
 		startHeight = main.height();
 		$(".main").css("height","auto");
-*/
+
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
-		/*
+		
 		var newHeight = main.height();
 		if (newHeight>startHeight) { 
 			main.css("height",newHeight+"px");
 		} else
 			main.css("height",startHeight+"px");
-			*/
 	});
 	$("#close_micropayment").click(function(){
 		$("#payment-box").hide();
 		$("#micropayment_button").parent().parent().show();
-		//main.css("height",startHeight+"px");
+		main.css("height",startHeight+"px");
 	});
 	
 	/* Fancybox
