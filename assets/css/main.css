@@ -3237,8 +3237,13 @@ a.button.center.details-more {display:none;}
   .page-content-nav,
   .paging,
   .thumb-gallery,
+  .weather,
   .wide-wrapper { display:none; }
 
+  #header {
+  	height: 100px;
+  } 
+  
   #header h1 {
   	position: relative;
   	margin: 0;
@@ -3246,11 +3251,21 @@ a.button.center.details-more {display:none;}
   	list-style-image: url("../img/logo.png");
   	list-style-position: inside;
   	left:0;
+  	bottom:0;
+  	width:240px;
+  	top:10px;
+  }
+
+  #header h1:after {
+  	content: "Das unabhängige Online-Magazin der Zentralschweiz";
+  	display: inline-block;
+  	width:540px;
+  	font-size:16px;
+  	line-height: 30px;
   }
 
   #header h1 a {
-  	padding-top: 0;
-  	background: #fff;
+  	display: none;
   }
 
   .content-top h2 {
