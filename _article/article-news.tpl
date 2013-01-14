@@ -8,7 +8,7 @@
         
 {{ include file="_tpl/header.tpl" }}
 
-    <div class="content no-bottom-line clearfix">
+    <div class="content no-bottom-line clearfix article-detail">
         
           <div class="main">
 
