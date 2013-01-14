@@ -5,8 +5,8 @@
                   <div class="tabs margin-bottom comment-box">
                     
                       <ul class="tab-nav clearfix">
-                          <li><a href="#comm-1"><strong>Ausgewählte Kommentare</strong> {{ if $gimme->article->recommended_comment_count }}({{ $gimme->article->recommended_comment_count }}){{ /if }}</a></li>
-                          <li><a href="#comm-2"><strong>Alle Kommentare</strong> ({{ $gimme->article->comment_count }})</a></li>
+                          <li><a href="#comm-1"><strong>Ausgewählte <span class="phone-hide">Kommentare</span></strong> {{ if $gimme->article->recommended_comment_count }}({{ $gimme->article->recommended_comment_count }}){{ /if }}</a></li>
+                          <li><a href="#comm-2"><strong>Alle <span class="phone-hide">Kommentare</span></strong> ({{ $gimme->article->comment_count }})</a></li>
                         </ul>
                         
                         <div class="comment-content">
