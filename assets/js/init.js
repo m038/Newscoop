@@ -95,12 +95,18 @@ $(window).load(function() {
 	$("#micropayment_button").click(function(){
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
+		maxHeight('.equal-heights', 'li');
 		maxHeight('.equal-heights', 'div');
+		maxHeight('.equal-heights', 'article');
+		maxHeight('.event-list article ul', 'li');
 	});
 	$("#close_micropayment").click(function(){
 		$("#payment-box").hide();
 		$("#micropayment_button").parent().parent().show();
+		maxHeight('.equal-heights', 'li');
 		maxHeight('.equal-heights', 'div');
+		maxHeight('.equal-heights', 'article');
+		maxHeight('.event-list article ul', 'li');
 	});
 	
 	/* Fancybox
