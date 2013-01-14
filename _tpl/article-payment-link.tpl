@@ -8,8 +8,7 @@
 		<div class="box bottom-line" id="payment-box" style="display:none;">
         	<div class="payment-box">
             	<a id="close_micropayment" class="close-box">close</a>
-        		<p>Möchten Sie weitere solche Beiträge lesen? Mit Spenden an unsere gemeinnützige Sti!ung<br />
-            	MVV – Medien, Meinung, Vielfalt machen Sie unsere Arbeit möglich.</p>
+        		<p>Ist Ihnen unabhängiger Journalismus etwas wert? Mit einer Spende an zentral+ helfen Sie uns, Beiträge wie diesen zu realisieren.</p>
 
             	<iframe class="payment-box-iframe" src="{{ url options="section" }}?iframe_holder=1&iframe_type=article-payment" allowtransparency="true" scrolling="no" frameborder="0" style="width:100%; height:350px"  /></iframe>
             </div>
