@@ -759,6 +759,7 @@ small {
 				border-right:#e2e2e2 solid 1px;
 				box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
 				}
+				.debatte-single.debatte-detail .two-columns > .box {border-right:none;}
 			.two-columns-wide > article {width:50%;}
 				.two-columns > article:nth-child(2n),
 				.two-columns-wide > article:nth-child(2n),
@@ -1097,7 +1098,8 @@ small {
 			.debatte-single header h6,
 			.debatte-single header h3 {text-align:center; font-size:24px;}
 				.debatte-single header h6 a {color:#B40032; text-decoration:none;}
-				.debatte-single header h3 a {color:#000; text-decoration:none;}		
+				.debatte-single header h3 a {color:#000; text-decoration:none;}
+		.debatte-single.debatte-detail header {padding:30px 0 20px 0;}			
 				
 		.debatte-single ul.debatte-score li {height:57px;}
 		.debatte-single ul.debatte-score li span {line-height:57px; font-size:14px;}
@@ -2753,6 +2755,7 @@ a.button.center.details-more {display:none;}
 	
 	.debatte-single {border-top:#ccc dashed 1px; margin:0 -10px; padding:0 10px;}
 	.debatte-single .headline {display:none;}
+	.debatte-single.debatte-detail header {padding:10px 0;}	
 	.debatte-single .score-box {margin:0 -10px 10px; padding-top: 10px}
 		.debatte-single .score-box small {padding-top: 5px}
 	ul.debatte-score {width:auto; margin:0 10px;}
