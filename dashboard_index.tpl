@@ -72,7 +72,7 @@
                             <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Pro"l sichtbar sind und von Suchmaschinen gefunden werden können.</p>
                             
                             <div class="clearfix upload-avatar">
-                                <img src="{{ include file="_tpl/user-image.tpl" user=$user width=113 height=113 }}" alt="" class="left" width="113" />
+                                {{ include file="_tpl/user-image.tpl" size="big" class="left" }}
                             	<h5>Neues Profilbild hochladen</h5>
                                 <div class="input-file">
                                 	<div class="show-value">keine Datei ausgewählt</div>
