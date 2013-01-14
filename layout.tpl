@@ -14,9 +14,11 @@
             {{block content}}{{/block}}
             </div>
             <div class="aside">
-            {{ include file="_tpl/sidebar-community.tpl" }}
-            {{ include file="_tpl/sidebar-newsletter.tpl" }}
-            {{ include file="_tpl/sidebar-debatte.tpl" }}
+            {{block aside}}
+                {{ include file="_tpl/sidebar-community.tpl" }}
+                {{ include file="_tpl/sidebar-newsletter.tpl" }}
+                {{ include file="_tpl/sidebar-debatte.tpl" }}
+            {{/block}}
             </div><!-- / Aside -->
         </div>
     </div><!-- / Content Wrapper -->

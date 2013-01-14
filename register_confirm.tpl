@@ -134,3 +134,7 @@
                 </div>
 </div>
 {{/block}}
+
+{{block aside}}
+{{ include file="_tpl/sidebar-community.tpl" }}
+{{/block}}
