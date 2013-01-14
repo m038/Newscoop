@@ -62,15 +62,15 @@
 
 {{* events *}}
 {{ set_publication identifier="2" }}
-{{ set_current_issue }}
+{{ set_issue number="10" }}
 {{ set_section number="71" }}
                     	<li><a id="footer_all_link" href="{{ uri options="section" }}?type=event&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Alles</a></li>
 {{* movies *}}
-{{ set_current_issue }}
+{{ set_issue number="10" }}
 {{ set_section number="72" }}
                         <li><a id="footer_kino_link" href="{{ uri options="section" }}?type=kino&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Kino</a></li>
 {{* events *}}
-{{ set_current_issue }}
+{{ set_issue number="10" }}
 {{ set_section number="71" }}
                         <li><a id="footer_theater_link" href="{{ uri options="section" }}?type=theater&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Theater</a></li>
                         <li><a id="footer_musik_link" href="{{ uri options="section" }}?type=concert&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Konzerte</a></li>
@@ -78,7 +78,7 @@
                         <li><a id="footer_ausstellung_link" href="{{ uri options="section" }}?type=exhibit&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Ausstellungen</a></li>
                         <li><a id="footer_andere_link" href="{{ uri options="section" }}?type=misc&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Diverse</a></li>
 {{* restaurants *}}
-{{ set_current_issue }}
+{{ set_issue number="10" }}
 {{ set_section number="73" }}
                         <li><a id="footer_restaurants_link" href="{{ uri options="section" }}?type=all&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Restaurants</a></li>
                     </ul>
