@@ -30,10 +30,10 @@
                 
                 <div class="comment-content profile-comments">
                 
-{{ list_user_comments user=$user->identifier columns="10" order="bydate desc" }}                
+{{ list_user_comments user=$user->identifier order="bydate desc" length=10 }}                
 
-															{{ if $gimme->current_list->column == "1" }}
-                	<h3>{{ $gimme->current_list->count }} Beiträge</h3>                
+				    {{ if $gimme->current_list->at_beginning }}
+                	<h3>{{ $user->posts_count }} Beiträge</h3>                
                 	<ol>
                 	{{ /if }}
                         <li>
@@ -42,7 +42,7 @@
                             <p>{{ $gimme->user_comment->content|trim }}</p>
                             <small>zu <a href="{{ $gimme->user_comment->article->url }}">{{ $gimme->user_comment->article->name }}</a></small>
                         </li>
-                    {{ if $gimme->current_list->column == "10" || $gimme->current_list->at_end }}
+                    {{ if $gimme->current_list->at_end }}
                     </ol>
                     {{ /if }}
                                             
