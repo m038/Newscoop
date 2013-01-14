@@ -16,8 +16,7 @@
 		    {{ list_articles length="1" constraints="type is bloginfo" }}            
                     <figure>
 		    {{ image rendition="artfull" }}                
-              		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }}" />  
-              		<small>{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}</small>   
+              		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }}" />     
 		    {{ /image }}
                         <figcaption>
                             <h3><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></h3>
@@ -29,6 +28,9 @@
                     <figure class="left">
 		    {{ image rendition="arthalf" }}                
               		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
+                  <figcaption>
+                  	{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}
+                  </figcaption>              		
 		    {{ /image }}
                     </figure>
                     <h3>{{ $gimme->article->name }}</h3>
