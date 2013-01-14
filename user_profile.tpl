@@ -44,6 +44,7 @@
                         </li>
                     {{ if $gimme->current_list->column == "10" || $gimme->current_list->at_end }}
                     </ol>
+                    {{ /if }}
                                             
 {{ /list_user_comments }}
                 
