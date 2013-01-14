@@ -1,6 +1,6 @@
 {{ strip }}
 {{ if $user->is_active }}
-    {{ $user->uname|escape }}
+    {{ $user->uname|create_links|escape }}
 {{ else }}
     Inaktiver Nutzer
 {{ /if }}
