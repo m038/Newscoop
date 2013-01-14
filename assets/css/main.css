@@ -3214,7 +3214,7 @@ a.button.center.details-more {display:none;}
   
   * { color: #000 !important; text-shadow: none !important; }
   
-  .contentt a, .content a:visited { color: #000 !important; text-decoration: underline; }
+  .content a, .content a:visited { color: #000 !important; text-decoration: underline; }
   .content a:after { content: " (" attr(href) ")"; }
   .content abbr:after { content: " (" attr(title) ")"; }
   
@@ -3324,8 +3324,16 @@ a.button.center.details-more {display:none;}
   	width: auto !important;
   }
 
+  .blog-detail.content article figure figcaption h3 a { 
+  	text-decoration: none !important;
+  }
+  .blog-detail.content article figure figcaption h3 a:after { 
+  	content: "" !important;
+  }
+
   .blog-detail.inline-box {
   	border: 2px solid #777;
   }
 
 }
+
