@@ -1,7 +1,8 @@
 {{extends file="layout.tpl"}}
 
 {{block content}}
-<h1>{{ $view->translate('Sign in') }}</h1>
+<div class="profile-tabs">
+<h4>{{ $view->translate('Sign in') }}</h4>
 
 {{ if !empty($error) }}
 <p style="color: #c00;"><strong>{{ $error }}</strong></p>
@@ -17,5 +18,6 @@
 <ul class="social">
     <li><a href="{{ $view->url(['action' => 'social', 'provider' => 'Facebook']) }}">Facebook</a></li>
 </ul>
+</div>
 
 {{/block}}
