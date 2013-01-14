@@ -95,10 +95,12 @@ $(window).load(function() {
 	$("#micropayment_button").click(function(){
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
+		maxHeight('.equal-heights', 'div');
 	});
 	$("#close_micropayment").click(function(){
 		$("#payment-box").hide();
 		$("#micropayment_button").parent().parent().show();
+		maxHeight('.equal-heights', 'div');
 	});
 	
 	/* Fancybox
