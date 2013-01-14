@@ -829,7 +829,7 @@ small {
 			position:relative;
 			padding:15px 0; margin-bottom:16px;
 			text-align:center; font-size:18px; color:#000;
-			background-color:#f2f2f2; background-repeat:no-repeat; background-position:92% 50%;
+			background-color:#e5e5e5; background-repeat:no-repeat; background-position:92% 50%;
 			border-top:#c22f58 dashed 1px;
 			}
 			.highlight-box  h4.box-title {padding:5px 0; background-color:transparent; border:0;}
@@ -2989,7 +2989,7 @@ a.button.center.details-more {display:none;}
 		display:block; 
 		margin:0 -10px 15px; padding:15px 10px;
 		color:#000; font-size:18px;
-		background:url(../img/icon-arrow-nav-right.png) 97% 50% no-repeat #F2F2F2;
+		background:url(../img/icon-arrow-nav-right.png) 97% 50% no-repeat #e5e5e5;
 		border-top:#C22F58 dashed 1px;
 		}
 		h4.center-title {text-align:center; font-size:16px; background-image:none;}

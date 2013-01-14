@@ -6,7 +6,7 @@
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="tabs top-line">
                     <ul class="tab-nav clearfix three-tabs">
-                        <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profill</strong></a></li>
+                        <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profil</strong></a></li>
                         <li><a href="#tabs-2"><strong>Meine Themen</strong></a></li>
                         <li><a href="#tabs-3"><strong>Newsletter</strong></a></li>
                     </ul>
