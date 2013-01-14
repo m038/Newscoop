@@ -39,7 +39,8 @@
 
 		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
-                    	<p class="time-top"><time>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></p>
+                      <h6>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ /if }} · <time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></h6>
+
                     		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                         <figure>
 		        {{ image rendition="quarter" }}                
