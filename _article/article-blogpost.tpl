@@ -28,9 +28,9 @@
                     <figure class="left">
 		    {{ image rendition="arthalf" }}                
               		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
-                  <figcaption>
+                  <small>
                   	{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}
-                  </figcaption>              		
+                  </small>              		
 		    {{ /image }}
                     </figure>
                     <h3>{{ $gimme->article->name }}</h3>
