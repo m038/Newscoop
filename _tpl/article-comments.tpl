@@ -67,4 +67,18 @@
                     </div><!-- /.comment-box -->
                 
                 </div><!-- /.main -->
-{{ /if }}                          
+
+<script type="text/javascript">
+$(function() {
+    var tabId = "#comm-2";
+    if (window.location.hash == tabId) { // scroll to
+        $('#comments').scroll();
+    } else { // add to form
+        $('form', '#comments').each(function() {
+            var form = $(this);
+            form.attr('action', form.attr('action') + tabId);
+        });
+    }
+});
+</script>
+{{ /if }}
