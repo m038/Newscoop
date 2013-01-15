@@ -275,7 +275,7 @@
                     </div><!-- mn-pistenbericht-details-prognosen -->
 
                     <div class="back-link">
-                        <a class="button white prev" href="#">‹</a> <a href="#">zur Übersicht</a>
+                        <a class="button white prev" href="javascript: meteonews.showPistenberichtPage()">‹</a> <a href="#">zur Übersicht</a>
                     </div>
                 </div><!-- / mn-pistenbericht-details -->
 
