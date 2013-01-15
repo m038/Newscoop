@@ -39,7 +39,8 @@
 
 		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
-                    	<p class="time-top"><time>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></p>
+                      <h6>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}<time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></h6>
+
                     		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                         <figure>
 		        {{ image rendition="quarter" }}                
@@ -57,11 +58,11 @@
 {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id())) }}
 {{ if $pages gt 1 }}
 <ul class="paging center top-line">
-    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ unset_article }}{{ url options="previous_items" }}">‹</a></li>{{ /if }}
+    {{ if $gimme->current_list->has_previous_elements }}<li><a class="button white prev" href="{{ unset_article }}{{ url options="previous_items" }}">‹</a></li>{{ /if }}
 
 <li class="caption">{{ ceil($curpage/5)+1 }} von {{ $pages }}</li>
 
-    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ unset_article }}{{ url options="next_items" }}">›</a></li>{{ /if }}
+    {{ if $gimme->current_list->has_next_elements }}<li><a class="button white next" href="{{ unset_article }}{{ url options="next_items" }}">›</a></li>{{ /if }}
 </ul>
 {{ $gimme->url->set_parameter($gimme->current_list_id(),$curpage) }}
 {{ /if }}

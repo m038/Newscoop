@@ -1,5 +1,5 @@
 {{extends file="layout.tpl"}}
-
+{{block page_name}}Community{{/block}}
 {{block name="header_h2"}}Community{{/block}}
 
 {{block content}}

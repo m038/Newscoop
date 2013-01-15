@@ -93,23 +93,25 @@ $(window).load(function() {
 
 	/* Micropayment article button */
 	var startHeight= 0;
+	var main = $(".main").first();
 	$("#micropayment_button").click(function(){
-		startHeight = $(".main").height();
+
+		startHeight = main.height();
 		$(".main").css("height","auto");
 
 		$(this).parent().parent().hide();
 		$("#payment-box").show();
 		
-		var newHeight = $(".main").height();
+		var newHeight = main.height();
 		if (newHeight>startHeight) { 
-			$(".main").css("height",newHeight+"px");
+			main.css("height",newHeight+"px");
 		} else
-			$(".main").css("height",startHeight+"px");
+			main.css("height",startHeight+"px");
 	});
 	$("#close_micropayment").click(function(){
 		$("#payment-box").hide();
 		$("#micropayment_button").parent().parent().show();
-		$(".main").css("height",startHeight+"px");
+		main.css("height",startHeight+"px");
 	});
 	
 	/* Fancybox
@@ -145,13 +147,6 @@ $(window).load(function() {
 	
 	/* Accordion */
 	$('.ticker-accordion').accordion({ header: '.head', autoHeight: false});
-	
-	/** Article recommend button **/
-   $('#article-recommend-button').fancybox({
-        type: 'iframe',
-        width: 600,
-        height: 500
-    });
 	
 	/* Poll Ajaxified
 	-------------------------------------------------------*/

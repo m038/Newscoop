@@ -8,7 +8,7 @@
                 <div class="box">
                 
                 	<h4 class="box-title">{{ list_article_authors length="1" }}{{ if $gimme->author->user->defined || $gimme->author->picture->imageurl }}
-                  {{ include file="_tpl/author-image.tpl" author=$gimme->author width=68 height=68 }}
+                  {{ include file="_tpl/author-image.tpl" author=$gimme->author size="small" }}
                   {{ /if }}{{ /list_article_authors }}Der Kommentar</h4>
                     <article>
                     	<h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>

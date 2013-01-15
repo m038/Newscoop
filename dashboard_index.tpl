@@ -3,10 +3,17 @@
 {{block page_name}}Community{{/block}}
 
 {{block content}}
+
+{{ foreach $gimme->flash_messages as $message }}
+<div class="infobox success">{{ $message|escape }}</div>
+{{ /foreach }}
+
+{{ capture name="error_empty" }}Value is required and can't be empty{{ /capture }}
+
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="tabs top-line">
                     <ul class="tab-nav clearfix three-tabs">
-                        <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profill</strong></a></li>
+                        <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profil</strong></a></li>
                         <li><a href="#tabs-2"><strong>Meine Themen</strong></a></li>
                         <li><a href="#tabs-3"><strong>Newsletter</strong></a></li>
                     </ul>
@@ -20,10 +27,16 @@
                             	<li>
                                 	<label>Vorname <i>*</i></label>
                                     <input type="text" name="first_name" value="{{ $form->first_name->getValue()|escape }}" />
+                                    {{ if $form->first_name->hasErrors() }}
+                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
+                                    {{ /if }}
                                 </li>
                             	<li>
                                 	<label>Nachname <i>*</i></label>
                                     <input type="text" name="last_name" value="{{ $form->last_name->getValue()|escape }}" />
+                                    {{ if $form->last_name->hasErrors() }}
+                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
+                                    {{ /if }}
                                 </li>
                             	<li>
                                 	<label>Email <i>*</i></label>
@@ -33,9 +46,12 @@
                                     </div>
                                 </li>
                             	<li class="bottom-line clearfix">
-                                	<label>Benutzername</label>
+                                	<label>Benutzername <i>*</i></label>
                                     <input type="text" name="username" value="{{ $form->username->getValue()|escape }}" />
                                     <p class="indented">Dieser Name wird bei Ihren Beiträgen auf zentral+ angezeigt. Wir empfehlen, dass Sie Ihren echten Namen verwenden, erlauben aber auch Pseudonyme</p>
+                                    {{ if $form->last_name->hasErrors() }}
+                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
+                                    {{ /if }}
                                 	<small class="right"><i>*</i>Pflichtfeld</small>
                                 </li>
                             	<li class="bottom-line">
@@ -69,7 +85,7 @@
                             </ul>
                             
                             <h4>Profil</h4>
-                            <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Pro"l sichtbar sind und von Suchmaschinen gefunden werden können.</p>
+                            <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Profil sichtbar sind und von Suchmaschinen gefunden werden können.</p>
                             
                             <div class="clearfix upload-avatar">
                                 {{ include file="_tpl/user-image.tpl" size="big" class="left" }}
@@ -116,6 +132,7 @@
                                     <input id="website" name="attributes[website]" type="text" value="{{ $form->attributes->website->getValue()|escape }}" />
                                 </li>
                                 <li class="side-by-side">
+                                    <a class="button white left" href="{{ $view->url(['username' => $gimme->user->uname], 'user') }}">Profill ansehen</a>
                                 	<input type="submit" class="button red right" value="Speichern" />
                                 </li>
                             </ul>

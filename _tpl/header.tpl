@@ -106,7 +106,7 @@
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
               <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Dashboard</a></li>
-              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Sign out</a></li>
+              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Abmelden</a></li>
             {{ else }}
               <li class="expandable">
                   <a href="#">Registrieren</a>
@@ -167,7 +167,7 @@
         <div class="content-top">
           
             <ul class="place-date">
-              <li>
+              <li class="mobile-hide">
                   <a href="#" class="place-trigger">Luzern und Zug</a>
                     <div class="popup">
                       <p>Wählen Sie Ihre Region:</p>
@@ -180,7 +180,7 @@
                 </li>
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
-          <h2>{{block page_name}}{{ if $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
+          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
 
                     <fieldset class="search">
                     {{ search_form template="search.tpl" submit_button="Go" }} 
