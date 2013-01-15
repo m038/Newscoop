@@ -8,8 +8,6 @@
 <div class="infobox success">Profil aktualisiert.</div>
 {{ /foreach }}
 
-{{ capture name="error_empty" }}Angabe ist erforderlich und kann nicht leer sein.{{ /capture }}
-
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="tabs top-line">
                     <ul class="tab-nav clearfix three-tabs">
@@ -27,16 +25,12 @@
                             	<li>
                                 	<label>Vorname <i>*</i></label>
                                     <input type="text" name="first_name" value="{{ $form->first_name->getValue()|escape }}" />
-                                    {{ if $form->first_name->hasErrors() }}
-                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-                                    {{ /if }}
+                                    {{ include file="_tpl/form_error_empty.tpl" field="first_name" }}
                                 </li>
                             	<li>
                                 	<label>Nachname <i>*</i></label>
                                     <input type="text" name="last_name" value="{{ $form->last_name->getValue()|escape }}" />
-                                    {{ if $form->last_name->hasErrors() }}
-                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-                                    {{ /if }}
+                                    {{ include file="_tpl/form_error_empty.tpl" field="last_name" }}
                                 </li>
                             	<li>
                                 	<label>Email <i>*</i></label>
@@ -49,9 +43,7 @@
                                 	<label>Benutzername <i>*</i></label>
                                     <input type="text" name="username" value="{{ $form->username->getValue()|escape }}" />
                                     <p class="indented">Dieser Name wird bei Ihren Beiträgen auf zentral+ angezeigt. Wir empfehlen, dass Sie Ihren echten Namen verwenden, erlauben aber auch Pseudonyme</p>
-                                    {{ if $form->last_name->hasErrors() }}
-                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-                                    {{ /if }}
+                                    {{ include file="_tpl/form_error_empty.tpl" field="username" }}
                                 	<small class="right"><i>*</i>Pflichtfeld</small>
                                 </li>
                             	<li class="bottom-line">

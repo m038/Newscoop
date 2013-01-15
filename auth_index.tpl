@@ -11,22 +11,17 @@
     <div class="infobox error">Invalid credentials</div>
     {{ /if }}
     
-    {{ capture name="error_empty" }}Angabe ist erforderlich und kann nicht leer sein.{{ /capture }}
     <form method="{{ $form->getMethod() }}" action="{{ $form->getAction() }}">
     <ul class="form bottom-line">
         <li>
             <label for="email">Email</label>
             <input id="email" type="text" name="email" value="{{ $form->email->getValue()|escape }}" />
-            {{ if $form->email->hasErrors() }}
-            <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-            {{ /if }}
+            {{ include file="_tpl/form_error_empty.tpl" field="email" }}
         </li>
         <li class="bottom-line">
             <label for="password">Passwort ändern</label>
             <input id="password" type="password" name="password" value="{{ $form->password->getValue()|escape }}" />
-            {{ if $form->password->hasErrors() }}
-            <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-            {{ /if }}
+            {{ include file="_tpl/form_error_empty.tpl" field="password" }}
         </li>
         <li>
             <input type="submit" class="button red center" value="Anmelden" />

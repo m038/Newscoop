@@ -4,8 +4,6 @@
 
 {{block content}}
 <div class="main">
-    {{ capture name="error_empty" }}Angabe ist erforderlich und kann nicht leer sein.{{ /capture }}
-            
             	<div class="top-line">
 
                     
@@ -20,27 +18,20 @@
                             	<li>
                                 	<label>Vorname <i>*</i></label>
                                     <input type="text" name="first_name" value="{{ $form->first_name->getValue()|escape }}" />
-                                    {{ if $form->first_name->hasErrors() }}
-                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-                                    {{ /if }}
+                                    {{ include file="_tpl/form_error_empty.tpl" field="first_name" }}
                                 </li>
                             	<li>
                                 	<label>Nachname <i>*</i></label>
                                     <input type="text" name="last_name" value="{{ $form->last_name->getValue()|escape }}" />
-                                    {{ if $form->first_name->hasErrors() }}
-                                    <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-                                    {{ /if }}
+                                    {{ include file="_tpl/form_error_empty.tpl" field="last_name" }}
                                 </li>
                             	<li class="clearfix">
                                 	<label>Benutzername <i>*</i></label>
                                     <input type="text" name="username" value="{{ $form->username->getValue()|escape }}" />
                                     <p class="indented">Dieser Name wird bei Ihren Beiträgen auf zentral+ angezeigt. Wir empfehlen, dass Sie Ihren echten Namen verwenden, erlauben aber auch Pseudonyme</p>
-                                    {{ if $form->username->hasErrors() }}
-                                        {{ if $form->username->getValue() }}
-                                        <div class="infobox error">Nutzername besetzt. Bitte geben Sie eine andere Nutzername an.</div>
-                                        {{ else }}
-                                        <div class="infobox error">{{ $smarty.capture.error_empty|escape }}</div>
-                                        {{ /if }}
+                                    {{ include file="_tpl/form_error_empty.tpl" field="username" }}
+                                    {{ if $form->username->hasErrors() && if $form->username->getValue() }}
+                                    <div class="infobox error">Nutzername besetzt. Bitte geben Sie eine andere Nutzername an.</div>
                                     {{ /if }}
                                 </li>
                                 {{ if $form->getElement('password') }}
