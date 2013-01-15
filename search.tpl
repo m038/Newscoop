@@ -13,6 +13,8 @@
           <div class="content no-bottom-line equal-heights clearfix">
     
                 <div class="main left-thumb article-spacing clearfix">
+
+ 															<p class="search-info">Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}</p>
             
                 {{ list_search_results length="10" }}
                     <article>
