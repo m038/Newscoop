@@ -106,7 +106,7 @@
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
               <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Dashboard</a></li>
-              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Sign out</a></li>
+              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Abmelden</a></li>
             {{ else }}
               <li class="expandable">
                   <a href="#">Registrieren</a>
