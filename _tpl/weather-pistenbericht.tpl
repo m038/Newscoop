@@ -41,25 +41,25 @@
                     </ul>
                     <div id="table-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" style="display: block;" aria-expanded="true" aria-hidden="false">
                                     
-                        <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
+                        <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide paginated-table">
                             <colgroup>
                                 <col width="">
                                 <col width="350">
                                 <col width="100">
                             </colgroup>
                             <tbody>
-                                {{ list_weather_stats location_list="all_slopes" length="7" }}
+                                {{ list_weather_stats location_list="all_slopes" }}
                                     {{ include file="_tpl/weather-all-slopes.tpl" }}
                                 {{ /list_weather_stats }} 
                             </tbody>
                         </table>
                         
                         <ul class="paging center">
-                            <li><a class="button white prev" href="#">‹‹</a></li>
-                            <li><a class="button white prev" href="#">‹</a></li>
-                            <li class="caption">1 von 2</li>
-                            <li><a class="button white next" href="#">›</a></li>
-                            <li><a class="button white next" href="#">››</a></li>
+                            <li><a id='mn-all-slopes-first' class="button white prev" href="#">‹‹</a></li>
+                            <li><a id='mn-all-slopes-prev' class="button white prev" href="#">‹</a></li>
+                            <li id='mn-all-slopes-caption' class="caption">1 von 2</li>
+                            <li><a id='mn-all-slopes-next' class="button white next" href="#">›</a></li>
+                            <li><a id='mn-all-slopes-last' class="button white next" href="#">››</a></li>
                         </ul>
                         
                     </div>
