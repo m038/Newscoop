@@ -24,7 +24,7 @@
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
-                                <col width="100">
+                                <col width="105">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="teaser_slopes" }}
