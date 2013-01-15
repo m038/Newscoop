@@ -65,10 +65,12 @@
 
                 <!-- advertisement -->
                 <div id='mn-teaser-3'>
+                    <!--
                     <div class="box ad top-line">
                         <small>Werbung</small>
-                        <img src='{{ url static_file="assets/img/ad-2.jpg"}}' alt="">
+                        <img src='' alt="">
                     </div>
+                    -->
                 </div>
 
             </div><!-- / Aside -->
