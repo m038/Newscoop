@@ -3,7 +3,7 @@
 {{block page_name}}Community{{/block}}
 
 {{block content}}
-<div class="tabs top-line">
+<div class="top-line">
     <div class="profile-tabs">
     <h4>Passwort ändern</h4>
 
@@ -26,7 +26,7 @@
             {{ /if }}
         </li>
         <li>
-            <input type="submit" class="button red center" value="Passwort ändern" />
+            <input type="submit" class="button large red center" value="Passwort ändern" />
         </li>
     </ul>
     </form>

@@ -3,22 +3,22 @@
 {{block page_name}}Community{{/block}}
 
 {{block content}}
-<div class="tabs top-line">
+<div class="top-line">
     <div class="profile-tabs">
-    <h4>Register</h4>
+    <h4>Registrieren</h4>
 
 
     <form method="{{ $form->getMethod() }}" action="{{ $form->getAction() }}">
         <input type="hidden" name="terms_of_use" value="1" />
 
     <ul class="form">
-        <li>
-            <label for="email">Email</label>
+        <li class="bottom-line">
+            <label for="email">E-Mail-Adresse</label>
             <input id="email" type="text" name="email" value="{{ $form->email->getValue()|escape }}" />
             {{ include file="_tpl/form_error_empty.tpl" field="email" }}
         </li>
         <li>
-            <input type="submit" class="button red center" value="Anmelden" />
+            <input type="submit" class="button large red center" value="Anmelden" />
         </li>
     </ul>
     </form>

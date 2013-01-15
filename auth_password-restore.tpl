@@ -20,7 +20,7 @@
             {{ /if }}
         </li>
         <li>
-            <input type="submit" class="button red center" value="Restore" />
+            <input type="submit" class="button large red center" value="Restore" />
         </li>
     </ul>
     </form>
