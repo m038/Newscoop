@@ -113,7 +113,7 @@
 
 {{ assign var="curArt" value=$gimme->article->number }}
 {{ list_articles length="3" constraints="type is dossier number not $curArt" }}
-{{ if $gimme->curent_list->at_beginning }}        
+{{ if $gimme->current_list->at_beginning }}        
         <h2>Weitere Dossiers</h2>
         
         <div class="three-columns clearfix equal-heights text-in-caption-fix">
