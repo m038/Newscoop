@@ -432,7 +432,7 @@ var meteonews = {
     },
 
     showWinterSportsReport: function(slope) {
-        var now = this.formatDateTime(new Date()); 
+        var now = this.formatDisplayDateTime(new Date()); 
         $('#mn-pistenbericht-details-time').html('Aktuell '+now);
         var item = "<li style='width: 300px'>";
         
@@ -659,7 +659,7 @@ var meteonews = {
         var headerFields = ['temp', 'sun', 'precip', 'precip_prob', 'winddir', 'windforce'];
 
         // create date row
-        var date = this.formatDisplayDate(this.getDateObj(this.startDate));
+        var date = meteonews.formatDisplayDate(meteonews.getDateObj(meteonews.startDate));
         $('#mn-prognose-date').html("Prognose " + date);
 
         // clear details table
@@ -667,7 +667,7 @@ var meteonews = {
 
         for (var r in results) {
             var result = results[r];
-            var time = this.formatTime(this.getDateObj(result['@attributes']['end_datetime']));
+            var time = this.formatTime(meteonews.getDateObj(result['@attributes']['end_datetime']));
             var timeId = time.replace(':', ''); 
             var headerRow = '';
 
@@ -732,18 +732,22 @@ var meteonews = {
     showSearchResults: function(response) {
         var output = '';
         var results = response.search.content.suggest;
-        var fields = ['name', 'country', 'state', 'zip' ];
         for (var r in results) {
             var result = results[r];
             output += "<div class='mn-search-result' ";
             output += "data-id='" + result.geoname_id + "' ";
             output += "data-zip='" + result.zip + "' ";
             output += "data-name='" + result.name + "'>";
-            for (var f in fields) {
-                var field = fields[f];
-                output += "<div class='mn-search-result-col'>" + result[field] + "</div>";
+            output += "<ul>";
+
+            var label = result.name;
+            if (result.state) {
+                label += ", " + result.state;
             }
-            output += "</div>";
+            label += ", " + result.country;
+
+            output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
+            output += "</ul></div>";
 
         }
         $('#mn-search-results').html(output);
@@ -970,6 +974,14 @@ var meteonews = {
         dateString = date.getFullYear() + '-' + 
             ('0' + (date.getMonth()+1)).slice(-2) + '-' + 
             ('0' + date.getDate()).slice(-2) + 'T' + 
+            ('0' + date.getHours()).slice(-2) + ':00';
+        return dateString;
+    },
+
+    formatDisplayDateTime: function(date) {
+        dateString = date.getFullYear() + '.' + 
+            ('0' + date.getDate()).slice(-2) + '.' + 
+            ('0' + (date.getMonth()+1)).slice(-2) + ', '  + 
             ('0' + date.getHours()).slice(-2) + ':00';
         return dateString;
     },
