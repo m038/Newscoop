@@ -3,8 +3,8 @@
 {{block page_name}}Community{{/block}}
 
 {{block content}}
-<div class="tabs top-line">
-    <div class="profile-tabs">
+<div class="top-line">
+    <div class="profile-tabs form-content">
     <h4>Anmelden</h4>
 
     {{ if $form->getMessages() && !$form->email->hasErrors() && !$form->password->hasErrors() }}
@@ -24,19 +24,19 @@
             {{ include file="_tpl/form_error_empty.tpl" field="password" }}
         </li>
         <li>
-            <input type="submit" class="button red center" value="Anmelden" />
+            <input type="submit" class="button large red center" value="Anmelden" />
         </li>
     </ul>
     </form>
 
-<ul class="links">
+<ul class="form links">
     <li><a href="{{ $view->url(['action' => 'password-restore'], 'default') }}">{{ $view->translate('Restore password') }}</a></li>
 </ul>
+<p class="center">oder</p>
 
-<h3>{{ $view->translate("Sign via") }}</h3>
-<ul class="social">
-    <li><a href="{{ $view->url(['action' => 'social', 'provider' => 'Facebook']) }}">Facebook</a></li>
-</ul>
+<a href="{{ $view->url(['action' => 'social', 'provider' => 'Facebook']) }}" class="button large fb-loggin-button center"><span>Login mit Facebook</span></a>
+
+
 
     </div><!-- /.profile-tabs -->
 </div>
