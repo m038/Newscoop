@@ -67,7 +67,21 @@ var meteonews = {
         'status' : 'Zustand',
         'snowdepth_valley' : 'Schneehöhe im Tal',
         'last_snowfall' : 'Letzter Schneefall Pistengebiet',
-        'source' : 'Quelle'
+        'source' : 'Quelle',
+        'temp' : 'Temperatur',
+        'temp_min' : 'Temp min.',
+        'temp_max' : 'Temp max.',
+        'gustforce' : 'Böen',
+        'glob_rad' : 'Globalstrahlung',
+        'hum' : 'Luftfeuchtigkeit',
+        'precip' : 'Niederschlagsmenge',
+        'precip_prob' : 'Niederschlagswahrscheinlichkeit',
+        'freez_level' : 'Nullgradgrenze',
+        'temp_dew' : 'Taupunkt',
+        'windforce' : 'Windgeschwindigkeit',
+        'winddir' : 'Windrichtung',
+        'temp_wind' : 'Windchill',
+        'pres': 'Luftdruck'
     },
 
     init: function(cb) {
@@ -482,7 +496,6 @@ var meteonews = {
             var items = slope.slope_results[section];
             if (section != '@attributes') {
                 output += "<h4 class='table-collapse-trigger'>";
-                // TODO: translate section
                 output += "<a href='#'>" + meteonews.translate(section) + "</a></h4>";
                 output += "<div class='table-wrapper'><table cellpadding='0' cellspacing='0'>";
 
@@ -670,7 +683,7 @@ var meteonews = {
 
     showForecastDetails: function(response) {
         var results = response.forecasts.content.timeperiod;
-        var fields = ['temp', 'temp_min', 'temp_max', 'gustforce', 'glob_rad', 'hum', 'precip',
+        var fields = ['temp_min', 'temp_max', 'gustforce', 'glob_rad', 'hum', 'precip',
             'precip_prob', 'freez_level', 'temp_dew', 'windforce', 'winddir', 'temp_wind', 'pres' ];
 
         var headerFields = ['temp', 'sun', 'precip', 'precip_prob', 'winddir', 'windforce'];
@@ -735,7 +748,7 @@ var meteonews = {
             for (var f in fields) {
                 var field = fields[f];
                 var value = (result[field]['@text']) ? result[field]['@text'] : 0;
-                detailRow += "<tr><td>" + field + '</td><td>' + value;
+                detailRow += "<tr><td>" + meteonews.translate(field) + '</td><td>' + value;
                 detailRow += " " + result[field]['@attributes']['unit'];
                 detailRow += "</td></tr>";
             }
