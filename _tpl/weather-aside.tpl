@@ -24,7 +24,7 @@
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
-                                <col width="100">
+                                <col width="105">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="teaser_slopes" }}
@@ -65,10 +65,12 @@
 
                 <!-- advertisement -->
                 <div id='mn-teaser-3'>
+                    <!--
                     <div class="box ad top-line">
                         <small>Werbung</small>
-                        <img src='{{ url static_file="assets/img/ad-2.jpg"}}' alt="">
+                        <img src='' alt="">
                     </div>
+                    -->
                 </div>
 
             </div><!-- / Aside -->

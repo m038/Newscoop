@@ -49,10 +49,13 @@
             	<li class="menu">
                 	<a href="#">Menu</a>
                 	<div class="mobile-sub">
-                    	<fieldset class="search">
-                            <input type="text" placeholder="Suchbegriff">
-                            <input type="submit" value="Go">
-                        </fieldset>
+                        
+                    <fieldset class="search">
+                    {{ search_form template="search.tpl" submit_button="Go" }} 
+                    {{ camp_edit object="search" attribute="keywords" html_code="placeholder=\"Suchbegriff\"" }}
+                    {{ /search_form }} 
+                    </fieldset>
+                        
                         <ul>
                         {{ local }} 
               				{{ set_publication identifier="2" }}

@@ -2516,7 +2516,7 @@ a.button.center.details-more {display:none;}
 			article.featured figure figcaption h3 {text-align:left; margin-bottom:0;}
 			article.featured figure figcaption h3 {font-size:16px;}
 	
-		article.featured {margin:0 -10px 10px -10px; border-bottom:#ccc dashed 1px;}
+		article.featured {margin:0 -10px 0 -10px; border-bottom:#ccc dashed 1px;}
 			article.featured figure {margin:0;}
 			article figure small {padding:10px;}
 	
@@ -2548,6 +2548,7 @@ a.button.center.details-more {display:none;}
 	
 	.phone-comm {display:block; position:absolute; top:10px; right:10px;}
 		article > .phone-comm {top:0;}
+			.article-spacing article > .phone-comm {top:10px;}
 	
 	.movie-trailer iframe {width:100%;}
 	
@@ -2888,7 +2889,7 @@ a.button.center.details-more {display:none;}
 	.community-list .paging {border-top:0;}
 	.community-list h3 {font-size:15px; margin:0 0 3px; padding:0 !important;}
 	
-	.left-thumb.article-spacing article {margin:0 -10px; padding:10px; border-bottom:#ccc dashed 1px;}
+	.left-thumb.article-spacing article {margin:0 -10px; padding:10px; border-bottom:#ccc dashed 1px; position: relative;}
 		.left-thumb.article-spacing article:last-child {border-bottom:0;}
 		.left-thumb.article-spacing article figure,
 		.left-thumb.article-spacing article p {display:none;}

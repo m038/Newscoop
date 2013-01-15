@@ -465,7 +465,7 @@ $(document).ready(function() {
     {{ include file="_tpl/article-tools.tpl" }}
 
         <article class="bottom-line">
-            <div id="image_gallery" class="thumb-gallery tabs_mov">
+            <div id="image_gallery" class="thumb-gallery tabs_mov" style="display:none;">
             </div>
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">
