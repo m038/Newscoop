@@ -45,8 +45,7 @@
                 <div class="aside">
                 
                     <div class="ad">
-                        <small>Werbung</small>
-                        <a href="#"><img src="{{ uri static_file="pictures/ad-3.jpg" }}" alt="" /></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div>
