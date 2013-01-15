@@ -54,15 +54,14 @@
 {{ /if }}
                 
                 <div class="ad bottom-line">
-                  <small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-2.jpg" }}" alt="" /></a>
+                  <!--small>Werbung</small-->
+
                 </div>
 
 {{ include file="_tpl/sidebar-section-blog.tpl" }}
                 
                 <div class="ad bottom-line">
-                  <small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-3.jpg" }}" alt="" /></a>
+
                 </div>
             
             </div><!-- / Aside -->
@@ -70,8 +69,7 @@
         </div>
         
         <div class="ad bottom-line">
-            <small>Werbung</small>
-            <a href="#"><img src="{{ uri static_file="pictures/ad-4.jpg" }}" alt="" /></a>
+
         </div>
     
     </div><!-- / Content Wrapper -->
