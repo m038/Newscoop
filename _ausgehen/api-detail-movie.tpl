@@ -454,7 +454,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Übersicht Film</a>
 {{ /local }}
         </div>
 
@@ -483,7 +483,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Übersicht Film</a>
 {{ /local }}
         </div>
 
