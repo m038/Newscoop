@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>{{ strip }}
-    {{ if $gimme->article->defined }}{{ $gimme->article->name|escape:'html'|trim }}&nbsp;|&nbsp;
+    <title>{{ strip }}zentral+{{ if !$gimme->article->defined }}&nbsp;|&nbsp;Das unabhängige Online-Magazin der Zentralschweiz{{ /if }}
+    {{ if $gimme->article->defined }}&nbsp;|&nbsp;{{ $gimme->article->name|escape:'html'|trim }}
 	 {{ elseif $gimme->section->defined }}
-    {{ $gimme->section->name|escape:'html'|trim }}&nbsp;|&nbsp;    
-    {{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse&nbsp;|&nbsp;{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker&nbsp;|&nbsp;{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}&nbsp;|&nbsp;{{ elseif $gimme->publication->identifier == "4" }}Blogs&nbsp;|&nbsp;{{ /if }} 
-    Zentral+
+    &nbsp;|&nbsp;{{ $gimme->section->name|escape:'html'|trim }}    
+    {{ elseif $gimme->template->name == "search.tpl" }}&nbsp;|&nbsp;Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}&nbsp;|&nbsp;Ticker{{ elseif $gimme->topic->defined }}&nbsp;|&nbsp;Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "4" }}&nbsp;|&nbsp;Blogs{{ /if }} 
     {{ /strip }}</title>
 
     {{ include file="_tpl/_meta-description.tpl" }}
