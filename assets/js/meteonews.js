@@ -92,7 +92,7 @@ var meteonews = {
         }
         this.map = new google.maps.Map(document.getElementById('mn-slope-map'), mapOptions);
         $('#mn-slope-map').show();
-        //console.log('map initalized');
+        console.log('map initalized');
     },
 
     setConfig: function(config, cb) {
@@ -180,7 +180,7 @@ var meteonews = {
                 meteonews.setConfig(response, cb);
             },
             error: function(errorObj, textStatus, errorMsg) {
-                //console.log(JSON.stringify(errorMsg));
+                console.log(JSON.stringify(errorMsg));
             }
         });
 
@@ -370,7 +370,7 @@ var meteonews = {
             });
 
           } else {
-            //console.log('Geocode was not successful for the following reason: ' + status);
+            console.log('Geocode was not successful for the following reason: ' + status);
           }
         });
     },
@@ -935,7 +935,7 @@ var meteonews = {
                     cb(response);
                 },
                 error: function(errorObj, textStatus, errorMsg) {
-                    //console.log(JSON.stringify(errorMsg));
+                    console.log(JSON.stringify(errorMsg));
                 }
             });
         }
