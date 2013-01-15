@@ -36,12 +36,10 @@
                     		{{ list_articles length="1" ignore_section="true" constraints="type is debatte" }}
                     		<li><a href="{{ url options="article" }}">Pro + Contra</a></li>
                     		{{ /list_articles }}
-                        <li><a href="#">Umfrage*</a></li>
                  		   {{ set_publication identifier="4" }}
             				{{ set_current_issue }}
             				{{ set_section number="100" }}
                         <li><a href="{{ url options="section" }}">Fundstücke</a></li>
-                        <li><a href="#">Kommentare*</a></li>
                         <li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default') }}">Community</a></li>
                     </ul>
                 </li>                 
