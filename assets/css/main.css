@@ -433,7 +433,11 @@ small {
 				margin-left:5px; padding:0 15px;
 				color:#000; text-decoration:none; line-height:40px;
 				}
-				.weather > li > a {margin-left:0; height:40px;}
+				.weather > li > a {
+                    margin-left:0; 
+                    height:40px;
+                    background-image: url(../img/icon-arrow-down-black.png); background-position:96% 50%; background-repeat:no-repeat
+;}
 				
 				.header-menu > li:last-child a {margin-right:-15px;}
 				.header-menu > li a.active,
