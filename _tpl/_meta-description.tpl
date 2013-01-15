@@ -33,6 +33,20 @@
         Hintergründe, Analysen und Nachrichten aus den Zentralschweizer Kantonen Luzern und Zug. +entral+ greift Themen auf zu technischen Erneuerungen, Innovationen und ökologischen Projekten. 
         {{ /if }}
 
+        {{* AUSGEHEN *}}
+        {{ if $gimme->section->number == 71 }}
+        Der Veranstaltungskalender für die beiden Zentralschweizer Kantone Luzern und Zug.
+        {{ /if }}
+        {{ if $gimme->section->number == 72 }}
+        Was läuft in den Kinos der beiden Zentralschweizer Kantone Luzern und Zug.
+        {{ /if }}
+        {{ if $gimme->section->number == 73 }}
+        Essen und trinken in den beiden Zentralschweizer Kantonen Luzern und Zug.
+        {{ /if }}
+        {{ if $gimme->section->number == 80 }}
+        Ausgehtipps aus den beiden Zentralschweizer Kantonen Luzern und Zug.
+        {{ /if }}
+
         {{* DOSSIER *}}
         {{ if $gimme->section->number == 100 }}
         Hintergründe, Analysen und Nachrichten zu Politik, Gesellschaft, Wirtschaft, Sport, Kultur und Freizeit in den beiden Zentralschweizer Kantonen Luzern und Zug.  

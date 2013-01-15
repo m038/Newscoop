@@ -32,6 +32,20 @@
         Luzern, Zug, Zentralschweiz, Wissen, Hintergrund, Analyse, Industrie, Dienstleistung, Technik, Natur, Ökologie, Umwelt, Energie, sparen, Rohstoffe, Tierwelt, Flora, Fauna, Physik, Chemie, Naturwissenschaften 
         {{ /if }}
 
+        {{* AUSGEHEN *}}
+        {{ if $gimme->section->number == 71 }}
+        Luzern, Zug, Zentralschweiz, Veranstaltungskalender, Theater, Kino, Ausgang, Party, Club, Musik, Konzert, Orchester, Tipps, was läuft, Ausgehtipps
+        {{ /if }}
+        {{ if $gimme->section->number == 72 }}
+        Luzern, Zug, Zentralschweiz, Kino, Film, Movie, Capitol, Seehof, Lux, Gotthard, Bourbaki, Capitol, Moderne, Stattkino, Maxx, Filmtheater
+        {{ /if }}
+        {{ if $gimme->section->number == 73 }}
+        Luzern, Zug, Zentralschweiz, Restaurant, Restaurants, Ausgehen, Ausgang, essen, trinken, Wein, Zigarren, Bar, Club, Öffnungszeiten, Angebot, Menü
+        {{ /if }}
+        {{ if $gimme->section->number == 80 }}
+        Luzern, Zug, Zentralschweiz, Kino, Theater, Musik, Konzerte, Clubs, Bar, Restaurants, Ausgehtipps
+        {{ /if }}
+
         {{* DOSSIER *}}
         {{ if $gimme->section->number == 100 }}
         Luzern, Zug, Zentralschweiz, Dossier, Verkehr, Asylwesen, Bildung, Steuern, Steuerwettbewerb, Nationaler Finanzausgleich, Raumplanung, Verkehrsplanung, soziale Durchmischung, Sozialstruktur, Kultur, Politik, Gesellschaft, Sport, Wirtschaft  
