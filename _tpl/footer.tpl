@@ -21,7 +21,7 @@
                 	<h3>Themen</h3>
                     <ul>
                     		<!-- Delete asterisk (*) when link is created dynamically -->
-                    	   <li><a href="#">Meine Themen*</a></li>
+                    	   <li><a href="/my-topics">Meine Themen</a></li>
                     		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
@@ -46,7 +46,6 @@
                 <li>
                 	<h3>Blogs</h3>
                     <ul>
-                    		<li><a href="#">Agenda*</a></li>
                     		{{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></li>
 								{{ /list_articles }}
