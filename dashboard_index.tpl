@@ -5,10 +5,10 @@
 {{block content}}
 
 {{ foreach $gimme->flash_messages as $message }}
-<div class="infobox success">{{ $message|escape }}</div>
+<div class="infobox success">Profil aktualisiert.</div>
 {{ /foreach }}
 
-{{ capture name="error_empty" }}Value is required and can't be empty{{ /capture }}
+{{ capture name="error_empty" }}Angabe ist erforderlich und kann nicht leer sein.{{ /capture }}
 
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="tabs top-line">
