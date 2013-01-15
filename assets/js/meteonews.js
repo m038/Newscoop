@@ -49,6 +49,7 @@ var meteonews = {
     // map vars
     geocoder: null,
     map: null,
+    mapMarkers: [],
 
     // translations
     translations:  {
@@ -345,7 +346,7 @@ var meteonews = {
         });
     },
 
-    getSlopeMap: function(id, name) {
+    getSlopeMap: function(name) {
         var address = name + ', Schweiz';
 
         // load from google api
@@ -358,7 +359,9 @@ var meteonews = {
                 map: meteonews.map,
                 position: results[0].geometry.location,
             });
-           
+            
+            meteonews.mapMarkers.push(marker);
+ 
             // info box 
             var infowindow = new google.maps.InfoWindow({
                 content: address
@@ -373,6 +376,19 @@ var meteonews = {
             console.log('Geocode was not successful for the following reason: ' + status);
           }
         });
+    },
+
+    getAllSlopesMap: function() {
+        for (var s in meteonews.importantWinterSlopes) {
+            var slope = meteonews.importantWinterSlopes[s];
+            meteonews.getSlopeMap(slope.name);
+        }
+    },
+
+    clearMapMarkers: function() {
+       for (var m in meteonews.mapMarkers) {
+            meteonews.mapMarkers[m].setMap(null);
+        } 
     },
 
     getSlopeWebcams: function(type, id, name) {
@@ -869,6 +885,8 @@ var meteonews = {
         meteonews.makeActive('mn-pistenbericht');
         $('#mn-pistenbericht-important-slopes').show();
         $('#mn-pistenbericht-all-regions').show();
+        meteonews.getAllSlopesMap(name);
+        $('#mn-slope-map').show();
     },
 
     showPistenberichtDetailPage: function(type, id, name) {
@@ -879,7 +897,8 @@ var meteonews = {
         });
         $('#mn-slope-webcam').show();
         $('#mn-region-webcam').show();
-        meteonews.getSlopeMap(id, name);
+        meteonews.clearMapMarkers();
+        meteonews.getSlopeMap(name);
         $('#mn-slope-map').show();
 
         meteonews.getSlopeWebcams(type, id, name);
