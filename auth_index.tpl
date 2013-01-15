@@ -14,12 +14,12 @@
     <form method="{{ $form->getMethod() }}" action="{{ $form->getAction() }}">
     <ul class="form bottom-line">
         <li>
-            <label for="email">Email</label>
+            <label for="email">E-Mail-Adresse</label>
             <input id="email" type="text" name="email" value="{{ $form->email->getValue()|escape }}" />
             {{ include file="_tpl/form_error_empty.tpl" field="email" }}
         </li>
         <li class="bottom-line">
-            <label for="password">Passwort ändern</label>
+            <label for="password">Passwort</label>
             <input id="password" type="password" name="password" value="{{ $form->password->getValue()|escape }}" />
             {{ include file="_tpl/form_error_empty.tpl" field="password" }}
         </li>
@@ -30,7 +30,7 @@
     </form>
 
 <ul class="form links">
-    <li><a href="{{ $view->url(['action' => 'password-restore'], 'default') }}">{{ $view->translate('Restore password') }}</a></li>
+    <li><a href="{{ $view->url(['action' => 'password-restore'], 'default') }}">{{ $view->translate('Passwort vergessen') }}</a></li>
 </ul>
 <p class="center">oder</p>
 

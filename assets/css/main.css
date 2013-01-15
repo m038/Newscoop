@@ -2185,6 +2185,11 @@ small {
 	border-radius: 2px;
 	font-size: 14px;
 	}
+	.form li .infobox {
+		padding: 5px 12px;
+		font-size: 13px;
+		margin-left: 130px;
+		}
 	.infobox.floating  {
 		position: absolute;
 		z-index: 3;
@@ -2998,7 +3003,7 @@ a.button.center.details-more {display:none;}
 	ul.form li {margin-bottom:7px;}
 	.form li .indented {padding-left:0; padding-top:5px;}
 		ul.form label,
-		ul.form input[type=text] {float:none; width:auto; display:block; margin:0;}
+		ul.form input[type=text] {float:none; width:auto; display:block;}
 		ul.form label,
 		ul.form label.multi-line {line-height:24px;}
 		ul.form input[type=text],
@@ -3010,6 +3015,7 @@ a.button.center.details-more {display:none;}
 		.form li.side-by-side input.button,
 		.profile-tabs .button,
 		ul.comment-form li input.button.center {width:100%; float:none; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+		ul.form li .infobox {margin-left: 0;}
 	
 	.form li.bottom-line {border-bottom:1px dashed #CCCCCC;}
 	.radio-horizontal-list li {float:none;}
