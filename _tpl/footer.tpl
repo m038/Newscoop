@@ -103,3 +103,55 @@
         </div><!-- / Content wrapper Footer -->
     
     </div><!-- / Wide wrapper -->
+
+    <div class="hide">
+        <div id="kontakt-form" class="popup-form">
+            <h4>Kontakt</h4>
+            <form method="POST" id="kontakt-form" action="/contact/send">
+                <fieldset>
+                    <ul>
+                        <li>
+                            <select class="dropdownized" style="min-width: 200px;">
+                                <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
+                                <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
+                                <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
+                                <option value="Technische Hinweise">Technische Hinweise</option>
+                                <option value="Passwortprobleme">Passwortprobleme</option>
+                                <option value="Anderes Thema">Anderes Thema</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label>Betreff</label>
+                            <input type="text" name="subject" />
+                        </li>
+                        <li>
+                            <label>Mitteilung<i>*</i></label>
+                            <textarea style="min-width: 350px; min-height: 150px;" name="text"></textarea>
+                        </li>
+                        <li class="top-line">
+                            <input type="submit" class="button red right" value="Senden" />
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('a.show-contact-form').click(function(){
+            $.fancybox({
+                'content' : $("#kontakt-form").html()
+            });
+        });
+
+        $('form#kontakt-form').live('submit', function(e){
+            e.preventDefault();
+            var form = this;
+            $.ajax({
+                type: $(form).attr('method'),
+                url: $(form).attr('action'),
+                data: $(form).serializeArray()
+            }).done(function( msg ) {
+                $('div#kontakt-form').replaceWith('<h2>Vielen Dank für Ihre Nachricht an zentral+.</h2>')
+            });
+        });
+    </script>
