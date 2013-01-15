@@ -885,6 +885,7 @@ var meteonews = {
         meteonews.makeActive('mn-pistenbericht');
         $('#mn-pistenbericht-important-slopes').show();
         $('#mn-pistenbericht-all-regions').show();
+        $('#mn-sun-and-moon').show();
         meteonews.getAllSlopesMap(name);
         $('#mn-slope-map').show();
     },
