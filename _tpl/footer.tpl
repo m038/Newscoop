@@ -21,7 +21,7 @@
                 	<h3>Themen</h3>
                     <ul>
                     		<!-- Delete asterisk (*) when link is created dynamically -->
-                    	   <li><a href="#">Meine Themen*</a></li>
+                    	   <li><a href="/my-topics">Meine Themen</a></li>
                     		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
@@ -36,19 +36,16 @@
                     		{{ list_articles length="1" ignore_section="true" constraints="type is debatte" }}
                     		<li><a href="{{ url options="article" }}">Pro + Contra</a></li>
                     		{{ /list_articles }}
-                        <li><a href="#">Umfrage*</a></li>
                  		   {{ set_publication identifier="4" }}
             				{{ set_current_issue }}
             				{{ set_section number="100" }}
                         <li><a href="{{ url options="section" }}">Fundstücke</a></li>
-                        <li><a href="#">Kommentare*</a></li>
                         <li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default') }}">Community</a></li>
                     </ul>
                 </li>                 
                 <li>
                 	<h3>Blogs</h3>
                     <ul>
-                    		<li><a href="#">Agenda*</a></li>
                     		{{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></li>
 								{{ /list_articles }}
@@ -89,10 +86,9 @@
                 <li>
                 	<h3>Folgen Sie uns</h3>
                     <ul class="social">
-                    	<li class="facebook"><a href="#">Facebook</a></li>
-                        <li class="twitter"><a href="#">Twitter</a></li>
-                        <li class="vimeo"><a href="#">Vimeo</a></li>
-                        <li class="nletter"><a href="#">Newsletter</a></li>
+                    	<li class="facebook"><a target="_blank" href="http://www.facebook.com/zentralplus">Facebook</a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/zentralplus">Twitter</a></li>
+                        <li class="vimeo"><a target="_blank" href="https://vimeo.com/zentralplus">Vimeo</a></li>
                     </ul>
                 </li>
             </ul><!-- / Footer list -->
