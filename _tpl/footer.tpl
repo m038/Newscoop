@@ -89,10 +89,9 @@
                 <li>
                 	<h3>Folgen Sie uns</h3>
                     <ul class="social">
-                    	<li class="facebook"><a href="#">Facebook</a></li>
-                        <li class="twitter"><a href="#">Twitter</a></li>
-                        <li class="vimeo"><a href="#">Vimeo</a></li>
-                        <li class="nletter"><a href="#">Newsletter</a></li>
+                    	<li class="facebook"><a target="_blank" href="http://www.facebook.com/zentralplus">Facebook</a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/zentralplus">Twitter</a></li>
+                        <li class="vimeo"><a target="_blank" href="https://vimeo.com/zentralplus">Vimeo</a></li>
                     </ul>
                 </li>
             </ul><!-- / Footer list -->
