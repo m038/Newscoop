@@ -26,7 +26,7 @@
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
                         {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
-                        <li><a href="{{ url option="article"}}?pg=local">Wetter</a></li>
+                        <li><a href="{{ url option="article"}}?pg=prognosen">Wetter</a></li>
                         {{ /list_articles }}
                     </ul>
                 </li>               
