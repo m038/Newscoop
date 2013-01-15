@@ -647,7 +647,7 @@ var meteonews = {
             var date = meteonews.getDateObj(result['@attributes']['end_datetime']);
             var displayDate = meteonews.formatDisplayDate(date);
             var linkDate = meteonews.formatDate(date);
-            var item = "<li style='height: 254px;'>";
+            var item = "<li>";
 
             // add the overview
             item += "<small>" + displayDate + "</small>";
