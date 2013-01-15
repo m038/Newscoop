@@ -66,7 +66,7 @@ var meteonews = {
         'status' : 'Zustand',
         'snowdepth_valley' : 'Schneehöhe im Tal',
         'last_snowfall' : 'Letzter Schneefall Pistengebiet',
-        'source' : 'Source'
+        'source' : 'Quelle'
     },
 
     init: function(cb) {
@@ -504,13 +504,15 @@ var meteonews = {
                             for (var a in items[item]) {
                                 var alarm = items[item][a];
                                 var dt = alarm['@attributes']['date'];
-                                var level = alarm['@attributes']['level'];
-                                displayValue += '<li><span>' + dt + ' - level ' + level + ' - ' + alarm.string + '</li>';
+                                displayValue += '<li><span>' + dt + ' - ' + alarm.string + '</li>';
                             }
                             displayValue += '</ul>';
                         }
                         if (item == 'last_snowfall') {
                             displayValue = items[item]['@attributes']['date']; 
+                        }
+                        if (item == 'source') {
+                            displayValue = "<a href='"+items[item]['@attributes']['url']+"'>"+items[item]['@text']+"</a>";
                         }
                         // end specific formatting
 
@@ -518,7 +520,6 @@ var meteonews = {
                         displayValue = items[item];
                     }
                     
-                    // TODO: translate displayItem
                     output += "<th>" + meteonews.translate(displayItem) + "</th>" + "<td>" + displayValue + "</td>";
                     fcount++;
 
