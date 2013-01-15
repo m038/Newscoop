@@ -49,10 +49,13 @@
             	<li class="menu">
                 	<a href="#">Menu</a>
                 	<div class="mobile-sub">
-                    	<fieldset class="search">
-                            <input type="text" placeholder="Suchbegriff">
-                            <input type="submit" value="Go">
-                        </fieldset>
+                        
+                    <fieldset class="search">
+                    {{ search_form template="search.tpl" submit_button="Go" }} 
+                    {{ camp_edit object="search" attribute="keywords" html_code="placeholder=\"Suchbegriff\"" }}
+                    {{ /search_form }} 
+                    </fieldset>
+                        
                         <ul>
                         {{ local }} 
               				{{ set_publication identifier="2" }}
@@ -186,7 +189,7 @@
                 {{ /if }}
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
-          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
+          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
 
                     <fieldset class="search">
                     {{ search_form template="search.tpl" submit_button="Go" }} 
