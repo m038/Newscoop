@@ -2,6 +2,22 @@
     {{ if $gimme->publication->identifier == 2 }}
     		{{ if $gimme->template->name == "front.tpl" }}
     		Zentral+, Zentralplus, Luzern, Zug, Zentralschweiz, Hintergrund, Analyse, News, Region, Stadt, Kanton, Nachrichten, Politik, Wirtschaft, Gesellschaft, Sport, Kultur, Freizeit, Wissen, Wetter, Presse, Medien, Online Journal, online Medien, Gemeinde, Blogs, FCL Blog, EVZ Blog, online, Zeitung, Zuger Zeitung, Luzerner Zeitung, neue, aktuell,  Ausgehen, zentral-+, infozentral
+    		{{ elseif ($gimme->section->number > 70) && ($gimme->section->number <= 80) }}
+
+        {{* AUSGEHEN *}}
+        {{ if $gimme->section->number == 71 }}
+        Luzern, Zug, Zentralschweiz, Veranstaltungskalender, Theater, Kino, Ausgang, Party, Club, Musik, Konzert, Orchester, Tipps, was läuft, Ausgehtipps
+        {{ /if }}
+        {{ if $gimme->section->number == 72 }}
+        Luzern, Zug, Zentralschweiz, Kino, Film, Movie, Capitol, Seehof, Lux, Gotthard, Bourbaki, Capitol, Moderne, Stattkino, Maxx, Filmtheater
+        {{ /if }}
+        {{ if $gimme->section->number == 73 }}
+        Luzern, Zug, Zentralschweiz, Restaurant, Restaurants, Ausgehen, Ausgang, essen, trinken, Wein, Zigarren, Bar, Club, Öffnungszeiten, Angebot, Menü
+        {{ /if }}
+        {{ if $gimme->section->number == 80 }}
+        Luzern, Zug, Zentralschweiz, Kino, Theater, Musik, Konzerte, Clubs, Bar, Restaurants, Ausgehtipps
+        {{ /if }}
+
     		{{ elseif $gimme->template->name == "section.tpl" }}
         {{* STANDARD SECTIONS *}}
         {{ if $gimme->section->number == 10 }}

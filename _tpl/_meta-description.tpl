@@ -3,6 +3,22 @@
 {{ if $gimme->publication->identifier == 2 }}
     {{ if $gimme->template->name == "front.tpl" }}
         zentral+ ist ein Online-Magazin aus der Zentralschweiz. Es liefert Hintergründe, Analysen und Nachrichten zu Politik, Gesellschaft, Wirtschaft, Sport, Kultur und Freizeit in den Kantonen Luzern und Zug.
+    {{ elseif ($gimme->section->number > 70) && ($gimme->section->number <= 80) }}
+
+        {{* AUSGEHEN *}}
+        {{ if $gimme->section->number == 71 }}
+        Der Veranstaltungskalender für die beiden Zentralschweizer Kantone Luzern und Zug.
+        {{ /if }}
+        {{ if $gimme->section->number == 72 }}
+        Was läuft in den Kinos der beiden Zentralschweizer Kantone Luzern und Zug.
+        {{ /if }}
+        {{ if $gimme->section->number == 73 }}
+        Essen und trinken in den beiden Zentralschweizer Kantonen Luzern und Zug.
+        {{ /if }}
+        {{ if $gimme->section->number == 80 }}
+        Ausgehtipps aus den beiden Zentralschweizer Kantonen Luzern und Zug.
+        {{ /if }}
+
     {{ elseif $gimme->template->name == "section.tpl" }}
         {{* STANDARD SECTIONS *}}
         {{ if $gimme->section->number == 10 }}
