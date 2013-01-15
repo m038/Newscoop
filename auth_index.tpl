@@ -1,5 +1,5 @@
 {{extends file="layout.tpl"}}
-
+{{block page_name}}Community{{/block}}
 {{block content}}
 <div class="profile-tabs">
 <h4>{{ $view->translate('Sign in') }}</h4>

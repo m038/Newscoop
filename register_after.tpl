@@ -1,5 +1,5 @@
 {{extends file="layout.tpl"}}
-
+{{block page_name}}Community{{/block}}
 {{block title}}Register yourself{{/block}}
 
 {{block content}}
