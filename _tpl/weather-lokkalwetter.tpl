@@ -31,9 +31,9 @@
 
                 <ul id='mn-forecast-overview' class='five-column-weather-list equal-heights clearfix'></ul>
 
-                <div id='mn-forecast-details' class='spec-tabs ui-tabs ui-widget ui-widget-content ui-corner-all'>
+                <div id='mn-forecast-details' class='spec-tabs'>
                     <!-- forecast overview button bar -->
-                    <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all' roll='tablist' style='display: black;'></ul>
+                    <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line' roll='tablist' style=''></ul>
 
                     <!-- forecast-details-table -->
                     <div class="collapsable-table ui-tabs-panel ui-widget-content ui-corner-bottom" id="tab-1" aria-labelledby="ui-id-1" role="tabpanel" style="" aria-expanded="true" aria-hidden="false">
@@ -58,7 +58,7 @@
                 </div><!-- / forecast details container -->
 
                 <div id='mn-lokalwetter-regions-container' class='two-column-tables clearfix equal-heights'>
-                    <div id='mn-primary-regions' class='box left' style='height: 550px;'>
+                    <div id='mn-primary-regions' class='box left'>
                         <h3>Wichtigste Orte</h3>
                         <table id='mn-primary-regions-table' cellpadding='0' cellspacing='0' class='top-line'>
                             <colgroup>
@@ -75,7 +75,7 @@
                             </tbody>
                         </table>
                     </div><!-- / mn-primary-regions -->
-                    <div id='mn-secondary-regions' class='box right' style='height: 550px;'>
+                    <div id='mn-secondary-regions' class='box right'>
                         <h3>Beliebteste Ausflugziele</h3>
                         <table id='mn-secondary-regions-table' cellpadding='0' cellspacing='0' class='top-line'>
                             <colgroup>

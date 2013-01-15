@@ -658,7 +658,7 @@ var meteonews = {
             $('#mn-forecast-overview').append(item);
             
             // add the button
-            button = "<li class='ui-state-default ui-corner-top ui-tabs-active ui-state-active mn-forecast-details-btn' " +
+            button = "<li class='mn-forecast-details-btn' " +
                 "role='tab' " +
                 "tabindex='0' " +
                 "aria-controls='tab-" + (day+1) + "' " +
