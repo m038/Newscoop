@@ -7,9 +7,9 @@
 {{ if $gimme->debate_action->defined }}
                         <blockquote>{{ $gimme->debate->question }}</blockquote>
     {{ if $gimme->debate->user_vote_count >= $gimme->debate->votes_per_user || $gimme->debate_action->ok }}
-    <p>Thanks for participating!</p>
+    <p>Danke für Ihre Teilnahme!</p>
     {{ elseif $gimme->debate_action->is_error }}
-    <p>You have already voted (only one vote is allowed.)</p>
+    <p>Sie haben bereits abgestimmt (Sie haben nur eine Stimme.)</p>
     {{ /if }}                        
                         <ul class="question-list">
                         {{ list_debate_answers }}
@@ -20,7 +20,6 @@
                         {{ /list_debate_answers }}
 
                         </ul>
-                        <!-- a href="#" class="button red center">Jetzt abstimmen</a -->
 
 {{ else }}
   
@@ -42,7 +41,7 @@
                         
    {{ else }}                       
                         <blockquote>{{ $gimme->debate->question }}</blockquote> 
-                        {{ if $gimme->debate->user_vote_count >= $gimme->debate->votes_per_user }}<p>Thanks for participating!</p>{{ /if }}  
+                        {{ if $gimme->debate->user_vote_count >= $gimme->debate->votes_per_user }}<p>Danke für Ihre Teilnahme!</p>{{ /if }}  
                         <ul class="question-list">
                         {{ list_debate_answers }}
                           <li>
