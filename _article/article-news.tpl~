@@ -23,7 +23,8 @@
 {{ include file="_tpl/article-aside.tpl" }}
                 
                 <div class="ad">
-                  <!--small>Werbung</small-->
+                  <small>Werbung</small>
+                    <a href="#"><img src="{{ uri static_file="pictures/ad-2.jpg" }}" alt="" /></a>
                 </div>
             
             </div><!-- / Aside -->
@@ -43,7 +44,8 @@
                 <div class="aside">
                 
                     <div class="ad">
-                        <!--small>Werbung</small-->
+                        <small>Werbung</small>
+                        <a href="#"><img src="{{ uri static_file="pictures/ad-3.jpg" }}" alt="" /></a>
                     </div><!-- /.ad -->
                 
                 </div><!-- /.aside -->

@@ -72,11 +72,6 @@
                 
                 <div class="aside">
                     
-                    <div class="ad top-space">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="pictures/ad-2.jpg"></a>
-                    </div>
-                
                 </div><!-- / Aside -->
             
             </div>

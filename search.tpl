@@ -46,7 +46,7 @@
             
                  {{ /list_search_results }}
                  {{ if $gimme->prev_list_empty }}
-  							<p>No results for your search query.</p>
+  							<p>Ihre Suche lieferte keine Treffer</p>
 					  {{ /if }}
                 
                 </div><!-- / Main -->            
@@ -54,8 +54,7 @@
                 <div class="aside">
                     
                     <div class="ad top-space">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="{{ uri static_file="pictures/ad-2.jpg" }}"></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div><!-- / Aside -->

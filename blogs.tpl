@@ -100,8 +100,7 @@
 {{ include file="_tpl/sidebar-community.tpl" }}
                     
                     <div class="ad">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="{{ uri static_file="pictures/ad-3.jpg" }}"></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div><!-- / Aside -->

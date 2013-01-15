@@ -36,8 +36,7 @@
                     </article>
 {{ if $gimme->current_list->at_beginning }}                    
                     <div class="ad top-line margin-bottom">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="{{ uri static_file="pictures/ad-1.jpg" }}"></a>
+                        <!--small>Werbung</small-->
                     </div>
 {{ /if }}                    
 {{ /list_articles }}
@@ -68,8 +67,7 @@
         </div>
         
         <div class="ad bottom-line">
-            <small>Werbung</small>
-            <a href="#"><img src="{{ uri static_file="pictures/ad-4.jpg" }}" alt="" /></a>
+            <!--small>Werbung</small-->
         </div>
     
     </div><!-- / Content Wrapper -->
