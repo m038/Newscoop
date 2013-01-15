@@ -29,7 +29,7 @@
                                 </ul>
                                 
         {{ else }}
-            <p>Comments are locked / disabled for this article.</p>
+            <p>Kommentare sind für diesen Artikel deaktiviert.</p>
         {{ /if }}   
     {{ else }}
         <p><br />Um kommentieren zu können, müssen Sie auf Zentral+ eingeloggt sein. Bitte loggen Sie sich ein oder registrieren Sie sich.</p>
