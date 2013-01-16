@@ -104,6 +104,10 @@ $(document).ready(function() {
 
         var got_event = window.event_detail.event;
 
+        if (got_event.title) {
+            document.title = "zentral+&nbsp;|&nbsp;" + got_event.title;
+        }
+
         if (got_event['type'] in types_to_outlines) {
             window.use_type = types_to_outlines[got_event['type']];
 			window.use_type_sel = got_event['type'];
