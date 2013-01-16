@@ -151,10 +151,10 @@
                             {{ if $newsletter->id }}
                             <h4>Themen im Newsletter folgen</h4>
                             <ul class="form bottom-line">
-                                {{ $checked = $form->newsletter->Topics->getValue() }}
-                                {{ foreach $form->newsletter->Topics->getMultiOptions() as $key => $val }}
+                                {{ $checked = $form->newsletter->Themen->getValue() }}
+                                {{ foreach $form->newsletter->Themen->getMultiOptions() as $key => $val }}
                             	<li class="checkboxes">
-                                    <input type="checkbox" id="nletter{{ $key|escape }}" name="newsletter[Topics][]" value="{{ $val|escape }}" {{ if $checked && in_array($val, $checked) }}checked{{ /if }} />
+                                    <input type="checkbox" id="nletter{{ $key|escape }}" name="newsletter[Themen][]" value="{{ $val|escape }}" {{ if $checked && in_array($val, $checked) }}checked{{ /if }} />
                                     <label for="nletter{{ $val|escape }}">{{ $key|escape }}</label>
                                 </li>
                                 {{ /foreach }}
