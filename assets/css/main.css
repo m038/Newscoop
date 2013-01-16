@@ -3447,8 +3447,11 @@ a.button.center.details-more {display:none;}
 		.restaurant-detail .img-options {
 			display: none !important;
 		}
+		.restaurant-detail .article-tabs-holder {
+			border: 0 !important;
+		}
 		.restaurant-detail .printtab-title {
-			display: block;
+			display: block !important;
 			color: #000;
 			font-size:16px;
 			font-weight: bold;
@@ -3456,6 +3459,13 @@ a.button.center.details-more {display:none;}
 			margin-bottom: 5px;
 			margin-top: 20px;
 			padding-bottom: 5px;
+		}
+		.restaurant-detail .rest_text_hidden {
+			display: block!important;
+			visibility: visible !important;
+		}
+		.restaurant-detail .tab-nav {
+			display: none !important;
 		}
 		a.rest_link_menu_any {
 			color:#000;
