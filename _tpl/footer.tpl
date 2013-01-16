@@ -117,7 +117,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized">
+                            <select class="dropdownized22">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -147,7 +147,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized" id="nik" style="min-width: 200px;">
+                            <select class="dropdownized22" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -278,7 +278,7 @@
 
 
             });
-        $("nik").dropdownized();
+        $(".dropdownized22").dropdownized();
         });
     });
     </script>
