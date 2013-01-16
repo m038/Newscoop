@@ -144,7 +144,7 @@ $(document).ready(function() {
         got_movie = window.api_detail.film;
 
         if (got_movie.title) {
-            document.title = "zentral+" + String.fromCharCode(160) "|" + String.fromCharCode(160) + got_movie.title;
+            document.title = "zentral+" + String.fromCharCode(160) + "|" + String.fromCharCode(160) + got_movie.title;
         }
 
         detail_content = "";
