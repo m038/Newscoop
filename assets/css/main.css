@@ -1264,7 +1264,9 @@ small {
 				padding: 6px;
 				background: rgba(180, 0, 50, 0.85);
 			}
-
+		.printtab-title {
+			display: none;
+		}
 		.wide-wrapper .main.back-link {
 			border-right: 0 none;
 		    float: left;
@@ -3431,19 +3433,28 @@ a.button.center.details-more {display:none;}
   	display: none !important;
   }
 
-		.restaurant-detail h3 {
-			text-align: left !important;
-		}
+  .event-single .box.back-link {
+  	display: none !important;
+  }
+
+  .event-single h3 {
+    text-align: left !important;
+  }
+
+
 		.restaurant-detail .img-options {
 			display: none !important;
 		}
-
-  	
-  		.movie-detail .box.back-link {
-  			display: none !important;
+		.restaurant-detail .printtab-title {
+			display: block;
+		}
+  		
+  		.movie-detail .aside {
+  			display: none;
   		}
-  		.moive-detail h3 {
-  			text-align: left !important;
+  		.movie-detail .main {
+  			width: auto !important;
+  			border: 0 !important;
   		}
   		.movie-detail .jcarousel-skin-gallery {
   			display: none;
@@ -3472,12 +3483,18 @@ a.button.center.details-more {display:none;}
   			padding: 5px 0 0;
   		}
 
+  		.movie-detail .movie-trailer {
+  			display: none;
+  		}
+
   		.movie-detail .movie-table p a.gmap { display :none; }
   		.movie-detail .movie-table {
+  			page-break-inside: avoid;
   			box-sizing: border-box;
   			-moz-box-sizing: border-box;
   			-o-box-sizing : border-box;
   			border: 1px solid #ccc;
+  			width: 700px !important;
   		}
   			.movie-detail .movie-table td {
   				border:0;

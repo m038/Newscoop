@@ -1,5 +1,7 @@
         {{ if $gimme->submit_comment_action->defined && (!$gimme->submit_comment_action->rejected) && (!$gimme->submit_comment_action->error_message) }}
+<script type="text/javascript">
 window.location = window.location;
+</script>
         {{ /if }}
 
     {{ if $gimme->user->logged_in }}
