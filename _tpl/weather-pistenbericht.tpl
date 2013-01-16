@@ -5,8 +5,8 @@
                     <table id='mn-pistenbericht-important-slopes-table' cellpadding='0' cellspacing='0' class='top-line second-row-phone-hide'>
                         <colgroup>
                             <col width>
-                            <col width='350'>
-                            <col width='100'>
+                            <col width='340'>
+                            <col width='110'>
                         </colgroup>
                         <tbody>
                                 {{ list_weather_stats location_list="important_winter_slopes" }}
@@ -44,8 +44,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide paginated-table">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" }}
@@ -68,8 +68,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" region_name="Luzern" length="7" }}
@@ -83,8 +83,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" region_name="Uri" length="7" }}
@@ -98,8 +98,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" region_name="Schwyz" length="7" }}
@@ -113,8 +113,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" region_name="Obwalden" length="7" }}
@@ -128,8 +128,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" region_name="Nidwalden" length="7" }}
@@ -143,8 +143,8 @@
                         <table cellpadding="0" cellspacing="0" class="top-line second-row-phone-hide">
                             <colgroup>
                                 <col width="">
-                                <col width="350">
-                                <col width="100">
+                                <col width="340">
+                                <col width="110">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="all_slopes" region_name="Zug" length="7" }}
