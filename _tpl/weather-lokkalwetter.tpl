@@ -33,11 +33,10 @@
 
                 <div id='mn-forecast-details' class='spec-tabs'>
                     <!-- forecast overview button bar -->
-                    <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line' roll='tablist' style=''></ul>
+                    <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line'></ul>
 
                     <!-- forecast-details-table -->
-                    <div class="collapsable-table ui-tabs-panel ui-widget-content ui-corner-bottom" id="tab-1" aria-labelledby="ui-id-1" role="tabpanel" style="" aria-expanded="true" aria-hidden="false">
-                        <a href="#" class="button white prev next-tab mover" rel="2" style="display: none;">&gt;</a>
+                    <div class="collapsable-table" id="tab-1">
                         <h4 id='mn-prognose-date'></h4>
                         <div class='table-wrapper'>
                             <table id='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
