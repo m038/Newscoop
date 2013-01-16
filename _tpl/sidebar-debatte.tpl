@@ -21,9 +21,15 @@
         							<li style="width:{{ $answer.percent }}%;" class="{{ if $answer@first }}ja{{ else }}nein{{ /if }}"><span><b>{{ $answer.answer|escape }}</b> {{ $answer.percent }}%</span></li>
         						{{ /foreach }}
     							</ul>
- 						      {{* if $gimme->debate->is_votable *}}
-                        <p>Noch 3 Tage und 2 Stunden <span class="comm">3</span></p>
-                        {{* /if *}}
+ 						         
+        {{ $closingdate=date_create($gimme->debate->date_end) }}
+        {{ $deadline=$closingdate->setTime(12, 0) }}
+        {{ $diff=date_diff($deadline, date_create('now')) }}
+        {{ if $deadline->getTimestamp() > time() }}
+        						<p>Noch {{ $diff->days }} Tage, {{ $diff->h }} Stunden, {{ $diff->i }} Minuten {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
+        {{ else }}
+        						<p>Aktueller Stand: Fazit (Diskussion geschlossen am {{ $deadline->format('j.n.Y') }} um 12:00 Uhr) {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p> 						      
+ 						      
                     </div>
                 </div>
 	                 
