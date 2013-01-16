@@ -128,7 +128,7 @@
                                     <input id="website" name="attributes[website]" type="text" value="{{ $form->attributes->website->getValue()|escape }}" />
                                 </li>
                                 <li class="side-by-side">
-                                    <a class="button white left" href="{{ $view->url(['username' => $gimme->user->uname], 'user') }}">Profill ansehen</a>
+                                    <a class="button white left" href="{{ $view->url(['username' => $gimme->user->uname], 'user') }}">Profil ansehen</a>
                                 	<input type="submit" class="button red right" value="Speichern" />
                                 </li>
                             </ul>
