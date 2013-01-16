@@ -279,7 +279,7 @@
 
             });
         if ($("#feedback-form .dropdownized-fancy-1").hasClass('.ui-dropdownized')) {}
-            else $("feedback-form .dropdownized-fancy-1").dropdownized();
+            else $("#feedback-form .dropdownized-fancy-1").dropdownized();
         });
     });
     </script>

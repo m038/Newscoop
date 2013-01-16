@@ -103,7 +103,11 @@
 					$tabs.tabs('select', $(this).attr("rel"));
 					$('.tabs-header').html(tabs.find('.ui-state-active a').html());
 					$('.inner-tabs-header').html(tabsPanel.filter(':visible').find('.ui-state-active a').html());
-					return false;
+                    
+                    // condition added for weather widget detailed local forecast fix
+                    if (!$(this).hasClass('mn-forecast-details-btn')) {
+					    return false;
+                    }
 				});	
 	
 				function windowWidthDetection2() {
