@@ -92,38 +92,7 @@
                 	
 <a class="twitter-timeline" href="https://twitter.com/zentralplus/redaktion-zentral" data-widget-id="291509540216770561">Tweets von @zentralplus/redaktion-zentral</a> 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>                	
-                	{{*
-                        <script src="http://widgets.twimg.com/j/2/widget.js"></script> 
-                        <script> 
-                        new TWTR.Widget({ 
-                          version: 2, 
-                          type: 'faves', 
-                          rpp: 12, 
-                          interval: 30000, 
-                          title: '', 
-                          subject: 'Die Redaktion auf Twitter', 
-                          width: 'auto', 
-                          height: 400, 
-                          theme: { 
-                            shell: { 
-                              background: '#efefef', 
-                              color: '#000' 
-                            }, 
-                            tweets: { 
-                              background: '#ffffff', 
-                              color: '#000', 
-                              links: '#e10042' 
-                            } 
-                          }, 
-                          features: { 
-                            scrollbar: true, 
-                            loop: false, 
-                            live: true, 
-                            behavior: 'all' 
-                          } 
-                        }).render().setUser('twitter').start(); 
-                        </script>
-                    *}}
+
                     </div>
                 
                 </div>
