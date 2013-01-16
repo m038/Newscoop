@@ -10,7 +10,7 @@
             	<article class="profile-single clearfix">
                     {{ include file="_tpl/user-image.tpl" size="big" class="left" }}
                     <div class="inner">
-                        <h3>{{ $user->uname|escape }}</h3>
+                        <h3>{{ $user->uname|escape }}{{ if $user->is_author }}<small class="red-mark">REDAKTION</small>{{ /if }}</h3>
                         <p>{{ $user['bio']|escape }}</p>
                         <span class="small-type">
                             <p>
