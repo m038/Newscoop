@@ -111,8 +111,9 @@
 
     <div class="hide">
         <div id="kontakt-form" class="popup-form">
+            <div class="popup-form">
             <h4>Kontakt</h4>
-            <form method="POST" id="kontakt-form" action="/contact/send" style="min-width:400px;">
+            <form method="POST" id="kontakt-form-form" action="/contact/send" style="min-width:400px;">
                 <fieldset>
                     <ul>
                         <li>
@@ -139,9 +140,11 @@
                     </ul>
                 </fieldset>
             </form>
+            </div>
         </div>
         <div id="feedback-form" class="popup-form">
-            <form method="POST" id="feedback-form" action="/feedback/save" style="min-width:400px;">
+            <div class="popup-form">
+            <form method="POST" id="feedback-form-form" action="/feedback/save" style="min-width:400px;">
                 <h4>Feedback</h4>
                 <fieldset>
                     <ul>
@@ -177,6 +180,7 @@
                     </ul>
                 </fieldset>
             </form>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
