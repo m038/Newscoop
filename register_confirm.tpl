@@ -30,7 +30,7 @@
                                     <input type="text" name="username" value="{{ $form->username->getValue()|escape }}" />
                                     <p class="indented">Dieser Name wird bei Ihren Beiträgen auf zentral+ angezeigt. Wir empfehlen, dass Sie Ihren echten Namen verwenden, erlauben aber auch Pseudonyme</p>
                                     {{ include file="_tpl/form_error_empty.tpl" field="username" }}
-                                    {{ if $form->username->hasErrors() && if $form->username->getValue() }}
+                                    {{ if $form->username->hasErrors() && $form->username->getValue() }}
                                     <div class="infobox error">Nutzername besetzt. Bitte geben Sie eine andere Nutzername an.</div>
                                     {{ /if }}
                                 </li>
