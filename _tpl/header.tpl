@@ -116,18 +116,20 @@
                     <div class="popup popup-register">
                       <p>Mit Ihrem Benutzerkonto können Sie Artikel kommentieren und mit anderen Leserinnen und Lesern in Kontakt treten.</p>
                         <p>Das Benutzerkonto ist kostenlos und kann jederzeit wieder gelöscht werden.</p>
-                        <fieldset>
-                          <ul>
+                        <form method="get" action="/register">
+                          <fieldset>
+                            <ul>
                               <li>
-                                  <label>Bitte geben Sie Ihre E-Mail Adresse ein.</label>
-                                  <input type="text">
-                                </li>
-                                <li class="side-by-side">
-                                  <a href="#" class="button white left">Nein, Danke</a>
-                                    <a href="#" class="button red right">Abschicken</a>
-                                </li>
-                          </ul>
-                        </fieldset>
+                                <label>Bitte geben Sie Ihre E-Mail Adresse ein.</label>
+                                <input type="text" name="proposed_email">
+                              </li>
+                              <li class="side-by-side">
+                                <a href="#" class="button white left">Nein, Danke</a>
+                                <input type="submit" class="button red right" value="Abschicken" />
+                              </li>
+                            </ul>
+                          </fieldset>
+                        </form>
                     </div>
                 </li>
               <li class="expandable">
