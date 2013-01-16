@@ -428,12 +428,6 @@ var meteonews = {
                     content += "<img src='" + image + "' style='width: 350px; height: 300px' alt=''>";
                     $('#mn-slope-webcam-content').html(content);
                 } else {
-                    /*
-                    if (count == 1) {
-                        content = "<li style='position: absolute; top: 0px; left: 0px; display: list-item; z-index: 3; opacity: 1'>";
-                    } else {
-                        content = "<li style='position: absolute; top: 0px; left: 0px; display: none; z-index: 1;'>";
-                    }*/
                     content = "<li>";
                     content += "<a class='zoom fancybox' href='" + image + "'>Zoom</a>";
                     content += "<img src='" + image + "' style='width: 350px; height: 261px' alt=''>";
