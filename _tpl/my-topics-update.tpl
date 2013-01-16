@@ -31,9 +31,12 @@
 <script type="text/javascript">
 $(function() {
     $('#follow_topics').submit(function(e) {
+        var form = $(this);
         e.preventDefault();
         $.post($(this).attr('action'), $(this).serialize(), function(data, textStatus) {
-            console.log(data, textStatus);
+            var infobox = $('<div />').addClass('infobox success').text("Topics updated.");
+            infobox.prependTo(form);
+            setTimeout(function () { infobox.detach(); }, 3000);
         }, 'json');
     });
 });
