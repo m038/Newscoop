@@ -761,7 +761,7 @@ function load_events(ev_type) {
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
 
-<div class="content no-bottom-line clearfix">
+<div class="content no-bottom-line clearfix restaurant-detail">
 
     <div class="main">
 
