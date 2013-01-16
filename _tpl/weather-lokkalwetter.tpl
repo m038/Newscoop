@@ -57,13 +57,13 @@
  
                 </div><!-- / forecast details container -->
 
-                <div id='mn-lokalwetter-regions-container' class='two-column-tables clearfix equal-heights'>
+                <div id='mn-lokalwetter-regions-container' class='two-column-tables clearfix'>
                     <div id='mn-primary-regions' class='box left'>
                         <h3>Wichtigste Orte</h3>
                         <table id='mn-primary-regions-table' cellpadding='0' cellspacing='0' class='top-line'>
                             <colgroup>
                                 <col width="">
-                                <col width="100">
+                                <col width="105">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="important_regions" }}
@@ -80,7 +80,7 @@
                         <table id='mn-secondary-regions-table' cellpadding='0' cellspacing='0' class='top-line'>
                             <colgroup>
                                 <col width="">
-                                <col width="100">
+                                <col width="105">
                             </colgroup>
                             <tbody>
                                 {{ list_weather_stats location_list="important_winter_regions" }}
