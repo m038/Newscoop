@@ -17,12 +17,14 @@
                 	
                     <div class="box desktop-hide">
                         <h4>Zeige</h4>
-                        <select name="topic" class="dropdownized">
-                            <option value="Alle Themen">Alle Themen</option>
+                        <form method="GET" action="">
+                        <select name="topic" class="dropdownized" onchange="this.form.submit();">
+                            <option value="">Alle Themen</option>
                             {{ foreach $topics as $topic }}
-                            <option value="{{ $topic->value }}">{{ $topic->name|escape }}</option>
+                            <option value="{{ $topic->value|escape }}" {{ if isset($smarty.get.topic) && $smarty.get.topic == $topic->value }} selected{{ /if }}>{{ $topic->name|escape }}</option>
                             {{ /foreach }}
                         </select>
+                        </form>
                     </div>
                     
                 	<ul class="custom-list tag-list">
@@ -72,11 +74,6 @@
                 
                 <div class="aside">
                     
-                    <div class="ad top-space">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="pictures/ad-2.jpg"></a>
-                    </div>
-                
                 </div><!-- / Aside -->
             
             </div>

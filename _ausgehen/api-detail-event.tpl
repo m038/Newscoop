@@ -104,6 +104,10 @@ $(document).ready(function() {
 
         var got_event = window.event_detail.event;
 
+        if (got_event.title) {
+            document.title = "zentral+" + String.fromCharCode(160) + "|" + String.fromCharCode(160) + got_event.title;
+        }
+
         if (got_event['type'] in types_to_outlines) {
             window.use_type = types_to_outlines[got_event['type']];
 			window.use_type_sel = got_event['type'];
@@ -254,7 +258,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="71" }}
-            <a href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}">zur Ubersicht Veranstaltungen</a>
+            <a href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $event_date|escape:'url' }}">zur Übersicht Veranstaltungen</a>
 {{ /local }}
         </div>
 

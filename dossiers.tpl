@@ -19,7 +19,7 @@
                     <article class="{{ if $gimme->current_list->index is odd }}right{{ else }}left{{ /if }}-thumb clearfix highlight-article">
               {{ image rendition="arthalf" }}                
                       <figure>
-                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                       </figure>
               {{ /image }} 
               				<h6><a href="{{ url options="article" }}">Dossier</a></h6>                   
@@ -36,8 +36,7 @@
                     </article>
 {{ if $gimme->current_list->at_beginning }}                    
                     <div class="ad top-line margin-bottom">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="{{ uri static_file="pictures/ad-1.jpg" }}"></a>
+                        <!--small>Werbung</small-->
                     </div>
 {{ /if }}                    
 {{ /list_articles }}
@@ -68,8 +67,7 @@
         </div>
         
         <div class="ad bottom-line">
-            <small>Werbung</small>
-            <a href="#"><img src="{{ uri static_file="pictures/ad-4.jpg" }}" alt="" /></a>
+            <!--small>Werbung</small-->
         </div>
     
     </div><!-- / Content Wrapper -->

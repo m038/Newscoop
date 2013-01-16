@@ -5,7 +5,7 @@
                   {{ if $gimme->author->user->defined || $gimme->author->picture->imageurl }}
                   {{ include file="_tpl/author-image.tpl" author=$gimme->author width=120 height=120 }}
                   {{ /if }}
-                  <p><strong>Autor</strong>: {{ include file="_tpl/author-name.tpl" author=$gimme->author }}<br />
+                  <p><strong>{{ if $gimme->publication->identifier == "4" }}Blogger/in{{ else }}Autor{{ /if }}</strong>: {{ include file="_tpl/author-name.tpl" author=$gimme->author }}<br />
                     {{ include file="_tpl/author-bio.tpl" author=$gimme->author }}</p>
                     {{ if !empty($gimme->author->user['twitter']) }}
                     <p class="author-contact">                    

@@ -1,7 +1,24 @@
-{{strip}}
-    {{ if !$user->is_active || !$user->image() }}
-        {{ uri static_file="pictures/user-thumb-big-default.jpg" }}
-    {{ else }}
-        {{ $user->image($width, $height) }}
+{{ strip }}
+    {{ if empty($size) }}
+        {{ $size = "" }}
     {{ /if }}
-{{/strip}}
+
+    {{ if $size == "big" }}
+        {{ $box = 113 }}
+    {{ elseif $size == "small" }}
+        {{ $box = 35 }}
+    {{ else }}
+        {{ $box = 64 }}
+        {{ $size = "mid" }}
+    {{ /if }}
+
+    {{ if empty($class) }}
+        {{ $class = "" }}
+    {{ /if }}
+
+    {{ if $user->is_active && $user->image }}
+    <img alt="{{ $user->uname|escape }}" src="{{ $user->image($box, $box) }}" class="{{ $class|escape }}" />
+    {{ else }}
+    <img alt="{{ $user->uname|escape }}" src="{{ url static_file="pictures/user-thumb-`$size`-default.jpg" }}" class="{{ $class|escape }}" />
+    {{ /if }}
+{{ /strip }}

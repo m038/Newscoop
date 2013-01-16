@@ -8,42 +8,20 @@
         
 {{ include file="_tpl/header.tpl" }}
     
-      <div class="content-wrapper top-line events-content">
+      <div class="content-wrapper top-line">
         
           <div class="content no-bottom-line equal-heights clearfix">
-            
-              <div class="events-aside info-text clearfix">
-                  
-                    <div class="box desktop-hide">
-                        <h4>Zeige</h4>
-                        <select class="dropdownized">
-                            <option value="Alle Themen">Alle Themen</option>
-                            <option value="Energiepolitk">Energiepolitk</option>
-                            <option value="AKW">AKW</option>
-                        </select>
-                    </div>
-                    
-                  <ul class="custom-list tag-list">
-                      <li class="active"><a href="#">Alle Themen</a></li>
-                      <li><a href="#">Energiepolitk</a></li>
-                      <li><a href="#">AKW</a></li>
-                    </ul>
-                    
-                    <a href="#themen-verwalten" class="button white wide fancybox">Themen verwalten</a>
-                  
-                    <h4>Über «Meine Themen»</h4>
-                    <p>Auf dieser Seite sehen Sie alle aktuellen Artikel zu den Themen, die Sie abonniert haben.</p>
-                
-                </div>
     
                 <div class="main left-thumb article-spacing clearfix">
+
+ 															<p class="search-info">Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}</p>
             
                 {{ list_search_results length="10" }}
                     <article>
                         <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
                         <figure>
 {{ image rendition="artthumb" }} 
-                    <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />
+                    <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />
 {{ /image }}
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
@@ -68,7 +46,7 @@
             
                  {{ /list_search_results }}
                  {{ if $gimme->prev_list_empty }}
-  							<p>No results for your search query.</p>
+  							<p>Ihre Suche lieferte keine Treffer</p>
 					  {{ /if }}
                 
                 </div><!-- / Main -->            
@@ -76,8 +54,7 @@
                 <div class="aside">
                     
                     <div class="ad top-space">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="{{ uri static_file="pictures/ad-2.jpg" }}"></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div><!-- / Aside -->

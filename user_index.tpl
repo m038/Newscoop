@@ -1,13 +1,8 @@
-{{ include file="_tpl/_html-head.tpl" }}
+{{extends file="layout.tpl"}}
 
-<body>
+{{block page_name}}Community{{/block}}
 
-	<div class="content-wrapper">
-    
-{{ include file="_tpl/header-nav.tpl" }}
-        
-{{ include file="_tpl/header.tpl" }}
-    
+{{block content_wrapper}}
     	<div class="content-wrapper events-content community-mobile-fix">
             <form name="input" action="" method="get">
             	<div class="inner-search">
@@ -72,6 +67,7 @@
                 <div class="main left-thumb community-list clearfix">
         {{ $length = 5 }}
         {{ $uri = $view->url() }}
+        {{ $groups = "2,3,4,8" }}
         {{ if isset($smarty.get.search) }}
             {{ list_users length=$length search=$smarty.get.search  }}
                 {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
@@ -79,12 +75,12 @@
             {{ /list_users }}
         {{ else if isset($smarty.get.filter) }}
             {{ if $smarty.get.filter == 'editors'}}
-                {{ list_users length=$length filter=$smarty.get.filter editor_groups="1,2,3,4" }}
+                {{ list_users length=$length filter=$smarty.get.filter editor_groups=$groups }}
                     {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
                     {{ include file="_tpl/pagination.tpl" scope="parent" }}
                 {{ /list_users }}
             {{ else }}
-                {{ list_users length=$length filter=$smarty.get.filter editor_groups="1,2,3,4" }}
+                {{ list_users length=$length filter=$smarty.get.filter editor_groups=$groups }}
                     {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
                     {{ include file="_tpl/pagination.tpl" scope="parent" }}
                 {{ /list_users }}
@@ -110,12 +106,4 @@
             </div>
     
         </div><!-- / Content Wrapper -->
-    
-    </div>
-
-{{ include file="_tpl/footer.tpl" }}
-	
-{{ include file="_tpl/_html-foot.tpl" }}	
-
-</body>
-</html>
+{{/block}}

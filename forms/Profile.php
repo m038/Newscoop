@@ -13,10 +13,12 @@ class Theme_Form_Profile extends Zend_Form
     {
         $this->addElement('text', 'first_name', array(
             'filters' => array('stringTrim'),
+            'required' => true,
         ));
 
         $this->addElement('text', 'last_name', array(
             'filters' => array('stringTrim'),
+            'required' => true,
         ));
 
         $this->addElement('text', 'username', array(
@@ -34,8 +36,8 @@ class Theme_Form_Profile extends Zend_Form
 
         $profile->addElement('radio', 'gender', array(
             'multioptions' => array(
-                'male' => 'Male',
-                'female' => 'Female',
+                'mann' => 'Male',
+                'frau' => 'Female',
             ),
         ));
 

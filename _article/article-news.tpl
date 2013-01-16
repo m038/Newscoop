@@ -8,7 +8,7 @@
         
 {{ include file="_tpl/header.tpl" }}
 
-    <div class="content no-bottom-line clearfix">
+    <div class="content no-bottom-line clearfix article-detail equal-heights">
         
           <div class="main">
 
@@ -23,8 +23,7 @@
 {{ include file="_tpl/article-aside.tpl" }}
                 
                 <div class="ad">
-                  <small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-2.jpg" }}" alt="" /></a>
+                  <!--small>Werbung</small-->
                 </div>
             
             </div><!-- / Aside -->
@@ -44,8 +43,7 @@
                 <div class="aside">
                 
                     <div class="ad">
-                        <small>Werbung</small>
-                        <a href="#"><img src="{{ uri static_file="pictures/ad-3.jpg" }}" alt="" /></a>
+                        <!--small>Werbung</small-->
                     </div><!-- /.ad -->
                 
                 </div><!-- /.aside -->

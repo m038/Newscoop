@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>{{ strip }}
-    {{ if $gimme->article->defined }}{{ $gimme->article->name|escape:'html'|trim }}&nbsp;|&nbsp;
+    <title>{{ strip }}zentral+{{ if !$gimme->article->defined }}&nbsp;|&nbsp;Das unabhängige Online-Magazin der Zentralschweiz{{ /if }}
+    {{ if $gimme->article->defined }}&nbsp;|&nbsp;{{ $gimme->article->name|escape:'html'|trim }}
 	 {{ elseif $gimme->section->defined }}
-    {{ $gimme->section->name|escape:'html'|trim }}&nbsp;|&nbsp;    
-    {{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse&nbsp;|&nbsp;{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker&nbsp;|&nbsp;{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}&nbsp;|&nbsp;{{ elseif $gimme->publication->identifier == "4" }}Blogs&nbsp;|&nbsp;{{ /if }} 
-    Zentral+
+    &nbsp;|&nbsp;{{ $gimme->section->name|escape:'html'|trim }}    
+    {{ elseif $gimme->template->name == "search.tpl" }}&nbsp;|&nbsp;Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}&nbsp;|&nbsp;Ticker{{ elseif $gimme->topic->defined }}&nbsp;|&nbsp;Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "4" }}&nbsp;|&nbsp;Blogs{{ /if }} 
     {{ /strip }}</title>
 
     {{ include file="_tpl/_meta-description.tpl" }}
@@ -20,13 +19,13 @@
     <meta name="email" content="info@zentralplus.ch">    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ uri static_file="assets/img/favicon.ico" }}">
+    <link rel="shortcut icon" href="{{ url static_file="assets/img/favicon.ico" }}">
     <link rel="apple-touch-icon" href="touch-icon.png">
 
-    <link rel="stylesheet" href="{{ uri static_file="assets/css/main.css" }}">
-    <link rel="stylesheet" href="{{ uri static_file="assets/css/skin.css" }}">
-    <link rel="stylesheet" href="{{ uri static_file="assets/css/jquery.fancybox.css" }}">
-    <!--link rel="stylesheet" href="{{ uri static_file="assets/js/libs/helpers/jquery.fancybox-thumbs.css?v=1.0.7" }}" /-->    
+    <link rel="stylesheet" href="{{ url static_file="assets/css/main.css" }}">
+    <link rel="stylesheet" href="{{ url static_file="assets/css/skin.css" }}">
+    <link rel="stylesheet" href="{{ url static_file="assets/css/jquery.fancybox.css" }}">
+    <!--link rel="stylesheet" href="{{ url static_file="assets/js/libs/helpers/jquery.fancybox-thumbs.css?v=1.0.7" }}" /-->    
     
 {{*  OPEN GRAPH TAGS FOR FACEBOOK  *}}
 {{ if $gimme->article->defined }}
@@ -52,10 +51,12 @@
     
     {{ include file="_tpl/_head-openx-code.tpl" }}   
     
-    <script src="{{ uri static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
+    <script src="{{ url static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write("<script src='{{ uri static_file="assets/js/libs/jquery.min.js" }}'>\x3C/script>")</script>
+    <script>window.jQuery || document.write("<script src='{{ url static_file="assets/js/libs/jquery.min.js" }}'>\x3C/script>")</script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
 <script type="text/javascript"> 
 

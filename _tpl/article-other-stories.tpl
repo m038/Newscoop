@@ -9,7 +9,7 @@
                 <article>                
                     <figure>
 						  {{ image rendition="arthalf" }} 
-                    		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />
+                    		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />
 						  {{ /image }}                    
                     </figure>
                     <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>

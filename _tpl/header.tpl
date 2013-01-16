@@ -49,10 +49,13 @@
             	<li class="menu">
                 	<a href="#">Menu</a>
                 	<div class="mobile-sub">
-                    	<fieldset class="search">
-                            <input type="text" placeholder="Suchbegriff">
-                            <input type="submit" value="Go">
-                        </fieldset>
+                        
+                    <fieldset class="search">
+                    {{ search_form template="search.tpl" submit_button="Go" }} 
+                    {{ camp_edit object="search" attribute="keywords" html_code="placeholder=\"Suchbegriff\"" }}
+                    {{ /search_form }} 
+                    </fieldset>
+                        
                         <ul>
                         {{ local }} 
               				{{ set_publication identifier="2" }}
@@ -79,8 +82,8 @@
                         	<li><a href="{{ url options="issue" }}">{{ $gimme->issue->name }}</a></li>
                         {{ set_publication identifier="2" }}
                         {{ set_current_issue }}                        
-                        {{ set_section number="50" }}
-                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>	
+                        {{* set_section number="50" *}}
+                        	<!--li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li-->	
                         {{ set_section number="71" }}
                         	<li><a href="{{ url options="section" }}">Ausgehen</a></li>
                             <li><a href="#">Wetter</a></li>
@@ -105,8 +108,8 @@
             <ul class="header-menu">
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
-              <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Dashboard</a></li>
-              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Sign out</a></li>
+              <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Profil</a></li>
+              <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Abmelden</a></li>
             {{ else }}
               <li class="expandable">
                   <a href="#">Registrieren</a>
@@ -167,20 +170,26 @@
         <div class="content-top">
           
             <ul class="place-date">
-              <li>
-                  <a href="#" class="place-trigger">Luzern und Zug</a>
+              {{ if $gimme->user->logged_in }}
+              <li class="mobile-hide">
+                  <a href="#" class="place-trigger">{{ if $gimme->user['region'] == 'zug' }}Zug{{ elseif $gimme->user['region'] == 'luzern' }}Luzern{{ else }}Luzern und Zug{{ /if }}</a>
                     <div class="popup">
-                      <p>Wählen Sie Ihre Region:</p>
+                      <p>Ihre regionale Präferenz <a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">ändern</a>:</p>
                         <ul>
-                          <li><a href="#">Ich bevorzuge Berichte aus der Region Luzern</a></li>
-                          <li><a href="#">Ich bevorzuge Berichte aus der Region Zug</a></li>
-                          <li><a href="#">Ich habe keine Präferenzen</a></li>
+                          {{ if $gimme->user['region'] == 'zug' }}
+                          <li><a>Ich bevorzuge Berichte aus der Region Zug</a></li>
+                          {{ elseif $gimme->user['region'] == 'luzern' }}
+                          <li><a>Ich bevorzuge Berichte aus der Region Luzern</a></li>
+                          {{ else }}
+                          <li><a>Ich habe keine Präferenzen</a></li>
+                          {{ /if }}
                         </ul>
                     </div>
                 </li>
+                {{ /if }}
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
-          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs}}{{ /if }}{{/block}}</h2>
+          <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
 
                     <fieldset class="search">
                     {{ search_form template="search.tpl" submit_button="Go" }} 

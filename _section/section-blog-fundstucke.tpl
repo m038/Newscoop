@@ -11,7 +11,7 @@
 {{ list_articles length="1" constraints="type is bloginfo" }}
 		<div class="photo-blog-top clearfix">
         	<h2>{{ $gimme->article->name }}</h2>
-            <p><img src="{{ uri static_file="pictures/title-icons/camera.png" }}" alt="" />{{ $gimme->article->motto }}</p>
+            <p><img src="{{ uri static_file="pictures/title-icons/camera.png" }}" alt="" />{{ $gimme->article->infolong }}</p>
         	<a href="#" class="button red right">Bild vorschlagen</a>
         </div>
 {{ /list_articles }}
@@ -54,7 +54,7 @@
                     </figure>
                     {{ /if }}
                                         
-                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
                     
 {{ if $gimme->current_list->at_end }}            
@@ -82,8 +82,7 @@
             <div class="aside">
                 
                 <div class="ad">
-                	<small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-2.jpg" }}" alt="" /></a>
+                	<!--small>Werbung</small-->
                 </div>
             
             </div><!-- / Aside -->

@@ -31,7 +31,7 @@
 
 					 {{ if $gimme->topic->defined }}
                 <article class="bottom-line">
-                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Postings in der Rubrik «{{ $gimme->topic->name }}»</p>
+                	<p>{{ list_articles length="1" constraints="type is blog" }}{{ $gimme->current_list->count }}{{ /list_articles }} Blogartikel in der Rubrik «{{ $gimme->topic->name }}»</p>
                 </article>
                 {{ /if }}
 
@@ -39,7 +39,8 @@
 
 		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
-                    	<p class="time-top"><time>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></p>
+                      <h6>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}<time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></h6>
+
                     		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                         <figure>
 		        {{ image rendition="quarter" }}                
@@ -47,7 +48,7 @@
 		        {{ /image }}
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
-                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
                     
 {{ if $gimme->current_list->at_end }}            
@@ -57,11 +58,11 @@
 {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id())) }}
 {{ if $pages gt 1 }}
 <ul class="paging center top-line">
-    {{ if $gimme->current_list->has_previous_elements }}<li class="button white prev"><a href="{{ unset_article }}{{ url options="previous_items" }}">‹</a></li>{{ /if }}
+    {{ if $gimme->current_list->has_previous_elements }}<li><a class="button white prev" href="{{ unset_article }}{{ url options="previous_items" }}">‹</a></li>{{ /if }}
 
 <li class="caption">{{ ceil($curpage/5)+1 }} von {{ $pages }}</li>
 
-    {{ if $gimme->current_list->has_next_elements }}<li class="button white next"><a href="{{ unset_article }}{{ url options="next_items" }}">›</a></li>{{ /if }}
+    {{ if $gimme->current_list->has_next_elements }}<li><a class="button white next" href="{{ unset_article }}{{ url options="next_items" }}">›</a></li>{{ /if }}
 </ul>
 {{ $gimme->url->set_parameter($gimme->current_list_id(),$curpage) }}
 {{ /if }}
@@ -125,8 +126,7 @@
 {{ /if }}
         
                 <div class="ad">
-                    <small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-2.jpg" }}" alt="" /></a>
+                    <!--small>Werbung</small-->
                 </div>
                 
             </div><!-- / Aside -->
@@ -141,7 +141,7 @@
             <article>
                 <figure>
                 {{ image rendition="artthumb" }}                
-              	 	<img src="{{ $image->src }}" width="95" height="53" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              	 	<img src="{{ $image->src }}" width="95" height="53" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
 					 {{ /image }}
                 </figure>
                 <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>

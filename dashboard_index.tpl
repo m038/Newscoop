@@ -3,10 +3,15 @@
 {{block page_name}}Community{{/block}}
 
 {{block content}}
+
+{{ foreach $gimme->flash_messages as $message }}
+<div class="infobox success">Profil aktualisiert.</div>
+{{ /foreach }}
+
 <form method="POST" action="" enctype="multipart/form-data">
 <div class="tabs top-line">
                     <ul class="tab-nav clearfix three-tabs">
-                        <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profill</strong></a></li>
+                        <li><a href="#tabs-1"><strong><span class="phone-hide">Mein</span> Profil</strong></a></li>
                         <li><a href="#tabs-2"><strong>Meine Themen</strong></a></li>
                         <li><a href="#tabs-3"><strong>Newsletter</strong></a></li>
                     </ul>
@@ -20,10 +25,12 @@
                             	<li>
                                 	<label>Vorname <i>*</i></label>
                                     <input type="text" name="first_name" value="{{ $form->first_name->getValue()|escape }}" />
+                                    {{ include file="_tpl/form_error_empty.tpl" field="first_name" }}
                                 </li>
                             	<li>
                                 	<label>Nachname <i>*</i></label>
                                     <input type="text" name="last_name" value="{{ $form->last_name->getValue()|escape }}" />
+                                    {{ include file="_tpl/form_error_empty.tpl" field="last_name" }}
                                 </li>
                             	<li>
                                 	<label>Email <i>*</i></label>
@@ -33,9 +40,10 @@
                                     </div>
                                 </li>
                             	<li class="bottom-line clearfix">
-                                	<label>Benutzername</label>
+                                	<label>Benutzername <i>*</i></label>
                                     <input type="text" name="username" value="{{ $form->username->getValue()|escape }}" />
                                     <p class="indented">Dieser Name wird bei Ihren Beiträgen auf zentral+ angezeigt. Wir empfehlen, dass Sie Ihren echten Namen verwenden, erlauben aber auch Pseudonyme</p>
+                                    {{ include file="_tpl/form_error_empty.tpl" field="username" }}
                                 	<small class="right"><i>*</i>Pflichtfeld</small>
                                 </li>
                             	<li class="bottom-line">
@@ -69,10 +77,10 @@
                             </ul>
                             
                             <h4>Profil</h4>
-                            <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Pro"l sichtbar sind und von Suchmaschinen gefunden werden können.</p>
+                            <p>Sämtliche nachfolgenden Angaben sind optional. Bitte beachten Sie, dass jene Angaben, die Sie ausfüllen, für alle in Ihrem Profil sichtbar sind und von Suchmaschinen gefunden werden können.</p>
                             
                             <div class="clearfix upload-avatar">
-                                <img src="{{ include file="_tpl/user-image.tpl" user=$user width=113 height=113 }}" alt="" class="left" width="113" />
+                                {{ include file="_tpl/user-image.tpl" size="big" class="left" }}
                             	<h5>Neues Profilbild hochladen</h5>
                                 <div class="input-file">
                                 	<div class="show-value">keine Datei ausgewählt</div>
@@ -83,39 +91,40 @@
                             
                             <ul class="form">
                             	<li>
-                                	<label>Über mich</label>
-                                    <textarea cols="" rows=""></textarea>
+                                	<label for="bio">Über mich</label>
+                                    <textarea cols="" rows="" name="attributes[bio]" id="bio">{{ $form->attributes->bio->getValue()|escape }}</textarea>
                                 </li>
                             	<li>
-                                	<label>Geburtsdatum</label>
-                                    <input type="text" />
+                                	<label for="birth_date">Geburtsdatum</label>
+                                    <input id="birth_date" name="attributes[birth_date]" type="text" value="{{ $form->attributes->birth_date->getValue()|escape }}" />
                                 </li>
                             	<li>
-                                	<label>Geschlecht</label>
-                                    <select class="dropdownized">
-                                    	<option value="Bitte wählen">Bitte wählen</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                	<label for="gender">Geschlecht</label>
+                                    <select id="gender" name="attributes[gender]" class="dropdownized">
+                                        {{ $selected = $form->attributes->gender->getValue() }}
+                                    	<option value="">Bitte wählen</option>
+                                        <option value="mann"{{ if $selected == "mann" }} selected{{ /if }}>Mann</option>
+                                        <option value="frau"{{ if $selected == "frau" }} selected{{ /if }}>Frau</option>
                                     </select>
                                 </li>
                             	<li>
-                                	<label>facebook.com/</label>
-                                    <input type="text" />
+                                	<label for="facebook">facebook.com/</label>
+                                    <input id="facebook" name="attributes[facebook]" type="text" value="{{ $form->attributes->facebook->getValue()|escape }}" />
                                 </li>
                             	<li>
-                                	<label>plus.google.com/</label>
-                                    <input type="text" />
+                                	<label for="google">plus.google.com/</label>
+                                    <input id="google" name="attributes[google]" type="text" value="{{ $form->attributes->google->getValue()|escape }}" />
                                 </li>
                             	<li>
-                                	<label>twitter.com/</label>
-                                    <input type="text" />
+                                	<label for="twitter">twitter.com/</label>
+                                    <input id="twitter" name="attributes[twitter]" type="text" value="{{ $form->attributes->twitter->getValue()|escape }}" />
                                 </li>
                             	<li class="bottom-line">
-                                	<label>http://</label>
-                                    <input type="text" />
+                                	<label for="website">http://</label>
+                                    <input id="website" name="attributes[website]" type="text" value="{{ $form->attributes->website->getValue()|escape }}" />
                                 </li>
                                 <li class="side-by-side">
-                                	<input class="button white left" value="Profill ansehen" />
+                                    <a class="button white left" href="{{ $view->url(['username' => $gimme->user->uname], 'user') }}">Profill ansehen</a>
                                 	<input type="submit" class="button red right" value="Speichern" />
                                 </li>
                             </ul>

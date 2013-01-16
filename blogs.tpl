@@ -12,7 +12,7 @@
         
           <div class="two-columns blog-list featured-blogs equal-heights clearfix">
 {{ list_articles length="4" columns="2" ignore_section="true" order="bypublishdate desc" constraints="type is blog" }}
-{{ if $gimme->current_list->index == "1" }}            
+{{ if $gimme->current_list->column == "1" }}            
                 <div class="box">
 {{ /if }}                
                     <article>
@@ -20,14 +20,15 @@
                         
                         <figure>
                         {{ image rendition="quarter" }}                
-                        <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                        <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                         {{ /image }}
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
-                        <p>{{ $gimme->article->lede|strip_tags:false }} <time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time><br />
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time><br />
                         <a href="{{ url options="article" }}">weiterlesen</a> &bull; <a href="{{ url options="section" }}">zum Blog</a></p>
                     </article>
-{{ if $gimme->current_list->index == "2" }}                    
+                    
+{{ if $gimme->current_list->column == "2" }}                    
                 </div>
 {{ /if }}                
 {{ /list_articles }}
@@ -56,7 +57,7 @@
                         
               {{ image rendition="arthalf" }}                
                       <figure>
-                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                       </figure>
               {{ /image }}                            
                             <h3><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></h3>
@@ -100,8 +101,7 @@
 {{ include file="_tpl/sidebar-community.tpl" }}
                     
                     <div class="ad">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="{{ uri static_file="pictures/ad-3.jpg" }}"></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div><!-- / Aside -->

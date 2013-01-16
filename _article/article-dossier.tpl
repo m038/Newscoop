@@ -8,14 +8,14 @@
         
 {{ include file="_tpl/header.tpl" }}
 
-    <div class="content bottom-line equal-heights clearfix">
+    <div class="content bottom-line equal-heights clearfix debatte-detail">
         
           <div class="main">
             
               <article class="aside-overlap featured-top">
                   <figure>
                       {{ image rendition="dossierbig" }}                
-                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                       {{ /image }}                  
                         <figcaption>
                             <h6>Dossier</h6>
@@ -33,7 +33,7 @@
                         	{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                             <figure>
                             {{ image rendition="arthalf" }}                
-                              <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                              <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
                             {{ /image }}   
                             </figure>
                             <h6><a href="{{ url options="article" }}">Innenansichten</a></h6>
@@ -102,84 +102,37 @@
                     </ul>
                 </article>
 {{ /if }}                
-                
-                <div class="anzeige-box">
-                  <small>anzeige</small>
-                    <img src="{{ uri static_file="pictures/small-video-sample.jpg" }}" alt="" />
-                  <h5><a href="#">Sicherheit und Qualität</a></h5>
-                    <p>Sicherheit und Qualität made in Luzern</p>
-                </div>
-                
-                <div class="anzeige-box">
-                  <small>anzeige</small>
-                  <ul>
-                      <li>
-                          <img src="{{ uri static_file="pictures/anzeige-img-1.jpg" }}" alt="" />
-                            <h5><a href="#">Weißweinpaket für nur CHF 50</a></h5>
-                            <p>8 Flaschen urmeneta Chardonnay für nur CHF 50 + eine Karaffe von Spiegelau gratis dazu <a href="#">Hier bestellen</a></p>
-                        </li>
-                      <li>
-                          <img src="{{ uri static_file="pictures/anzeige-img-1.jpg" }}" alt="" />
-                            <h5><a href="#">Weißweinpaket für nur CHF 50</a></h5>
-                            <p>8 Flaschen urmeneta Chardonnay für nur CHF 50 + eine Karaffe von Spiegelau gratis dazu <a href="#">Hier bestellen</a></p>
-                        </li>
-                      <li>
-                          <img src="{{ uri static_file="pictures/anzeige-img-1.jpg" }}" alt="" />
-                            <h5><a href="#">Weißweinpaket für nur CHF 50</a></h5>
-                            <p>8 Flaschen urmeneta Chardonnay für nur CHF 50 + eine Karaffe von Spiegelau gratis dazu <a href="#">Hier bestellen</a></p>
-                        </li>
-                      <li>
-                          <img src="{{ uri static_file="pictures/anzeige-img-1.jpg" }}" alt="" />
-                            <h5><a href="#">Weißweinpaket für nur CHF 50</a></h5>
-                            <p>8 Flaschen urmeneta Chardonnay für nur CHF 50 + eine Karaffe von Spiegelau gratis dazu <a href="#">Hier bestellen</a></p>
-                        </li>
-                    </ul>
-                </div>
-                
+                               
             </div><!-- / Aside -->
         
         </div>
         
         <div class="ad bottom-line">
-            <small>Werbung</small>
-            <a href="#"><img src="{{ uri static_file="pictures/ad-4.jpg" }}" alt="" /></a>
+            <!--small>Werbung</small-->
         </div>
-        
+
+{{ assign var="curArt" value=$gimme->article->number }}
+{{ list_articles length="3" constraints="type is dossier number not $curArt" }}
+{{ if $gimme->current_list->at_beginning }}        
         <h2>Weitere Dossiers</h2>
         
         <div class="three-columns clearfix equal-heights text-in-caption-fix">
-                
+{{ /if }}                
             <article>
                 <figure>
-                    <img alt="" src="{{ uri static_file="pictures/article-img-1.jpg" }}">
+              {{ image rendition="arthalf" }}                
+                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
+              {{ /image }}
                     <figcaption>
-                        <h6><a href="#">Dossier</a></h6>
-                        <h3><a href="#">Luzern und Zug</a></h3>
+                        <h6><a href="{{ url options="article" }}">Dossier</a></h6>
+                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </figcaption>
                 </figure>
             </article>
-            
-            <article>
-                <figure>
-                    <img alt="" src="{{ uri static_file="pictures/article-img-2.jpg" }}">
-                    <figcaption>
-                        <h6><a href="#">Dossier</a></h6>
-                        <h3><a href="#">Bildung in Luzern</a></h3>
-                    </figcaption>
-                </figure>
-            </article>
-            
-            <article>
-                <figure>
-                    <img alt="" src="{{ uri static_file="pictures/article-img-1.jpg" }}">
-                    <figcaption>
-                        <h6><a href="#">Dossier</a></h6>
-                        <h3><a href="#">Luzern und Zug</a></h3>
-                    </figcaption>
-                </figure>
-            </article>
-        
+{{ if $gimme->current_list->at_end }}        
         </div>
+{{ /if }}
+{{ /list_articles }}
     
     </div><!-- / Content Wrapper -->
 
