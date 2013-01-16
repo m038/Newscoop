@@ -451,7 +451,7 @@ $(document).ready(function() {
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
 
-<div class="content no-bottom-line clearfix">
+<div class="content no-bottom-line clearfix movie-detail">
 
     <div class="main event-single">
 
@@ -470,7 +470,7 @@ $(document).ready(function() {
     {{ include file="_tpl/article-tools.tpl" }}
 
         <article class="bottom-line">
-            <div id="image_gallery" class="thumb-gallery tabs_mov" style="display:none;">
+            <div id="image_gallery" class="thumb-gallery tabs_mov clearfix" style="display:none;">
             </div>
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">
