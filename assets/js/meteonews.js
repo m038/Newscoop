@@ -439,19 +439,19 @@ var meteonews = {
             } 
 
             // re-cycle slideshow
-                $('.slides').each(function() {
-                    var slideshow = $('#mn-webcam-slideshow');
-                    var prev = $('#mn-webcam-prev');
-                    var next = $('#mn-webcam-next');
-                    $(this).cycle({
-                        prev:       '#mn-webcam-prev',
-                        next:       '#mn-webcam-next',
-                        fx:         'scrollHorz',
-                        fit:        true,
-                        speed:      500,
-                        timeout:    0
-                    });
+            $('.slides').each(function() {
+                var slideshow = $('#mn-webcam-slideshow');
+                var prev = $('#mn-webcam-prev');
+                var next = $('#mn-webcam-next');
+                $(this).cycle({
+                    prev:       '#mn-webcam-prev',
+                    next:       '#mn-webcam-next',
+                    fx:         'scrollHorz',
+                    fit:        true,
+                    speed:      500,
+                    timeout:    0
                 });
+            });
         });
     },
 
@@ -629,7 +629,6 @@ var meteonews = {
         var day = 0;
  
         $('#mn-forecast-overview').empty();
-        $('#mn-forecast-button-bar').empty();
 
         for (var r in results) {
             var result = results[r];
@@ -651,13 +650,11 @@ var meteonews = {
             item += "</li>";
             $('#mn-forecast-overview').append(item);
             
-            // add the button
-            button = "<li>";
-            //button = "<li class='mn-forecast-details-btn' data-date='" + linkDate + "'>";
-            button += "<a href='#tab-1' class='button white mn-forecast-details-btn' data-date='" + linkDate + "' >";
-            button += "<span class='mobile-hide'>Detailprognose</span>_";
-            button += "<span class='desktop-hide'>" + displayDate + "</span></a></li>";
-            $('#mn-forecast-button-bar').append(button);
+            // update the tab button
+            $('#mn-tab-' + (day+1) + '-link').addClass('mn-forecast-details-btn');
+            $('#mn-tab-' + (day+1) + '-link').attr('data-date', linkDate);
+            $('#mn-tab-' + (day+1) + '-link').attr('data-tab', (day+1));
+            $('#mn-tab-' + (day+1) + '-label').html(displayDate);
 
             day++;
         }
@@ -675,10 +672,19 @@ var meteonews = {
 
         // create date row
         var date = meteonews.formatDisplayDate(meteonews.getDateObj(meteonews.startDate));
-        $('#mn-prognose-date').html("<a href='#'>Prognose " + date + '</a>');
+
+        $('.mn-prognose-date').each(function() {
+            $(this).html("<a href='#'>Prognose " + date + '</a>');
+        });
+
+        $('.tabs-header').each(function() {
+            $(this).html("<span class='mobile-hide'>Details</span> " + date);
+        });
 
         // clear details table
-        $('#mn-forecast-details-table tr').remove();
+        $('.mn-forecast-details-table').each(function() { 
+            $(this).children('tbody').empty();
+        });
 
         for (var r in results) {
             var result = results[r];
@@ -722,10 +728,13 @@ var meteonews = {
                 }
             }
             headerRow += "<td><a href='#' class='trigger active'>Close</a></td></tr>";
-            $('#mn-forecast-details-table > tbody:last').append(headerRow);
+
+            $('.mn-forecast-details-table').each(function() {
+                $(this).children('tbody:last').append(headerRow);
+            });
            
             // create details row
-            detailRow = "<tr class='inner'><td colspan='6'><div class='inner-table' style='display: none;'>";
+            detailRow = "<tr class='inner'><td colspan='6'><div class='inner-table'>";
             detailRow += "<table id='mn-forecast-details-inner-table' cellpadding='0' cellspacing='0'>";
             detailRow += "<colgroup><col width='270'><col width></colgroup>";
             detailRow += "<tbody>";
@@ -738,13 +747,31 @@ var meteonews = {
                 detailRow += "</td></tr>";
             }
             detailRow += "</tbody></table></tr>";
-            $('#mn-forecast-details-table > tbody:last').append(detailRow);
+
+            $('.mn-forecast-details-table').each(function() {
+                $(this).children('tbody:last').append(detailRow);
+            });
         }
 
-        $('#mn-forecast-details').show();
+        var dateObj = meteonews.getDateObj(meteonews.startDate);
 
-        //$('#mn-forecast-details').tabs2carousel();
-        //$('.carousel').jcarousel();
+        dateObj.setDate(dateObj.getDate() -1);
+        var prevDay = meteonews.formatDate(dateObj);
+
+        dateObj.setDate(dateObj.getDate() +2);
+        var nextDay = meteonews.formatDate(dateObj);
+
+        $('.next-tab').each(function() {
+            $(this).addClass('mn-forecast-details-btn');
+            $(this).attr('data-date', nextDay);
+        });
+
+        $('.prev-tab').each(function() {
+            $(this).addClass('mn-forecast-details-btn');
+            $(this).attr('data-date', prevDay);
+        });
+
+        $('#mn-forecast-details').show();
 
     },
 
