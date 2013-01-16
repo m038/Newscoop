@@ -6,9 +6,9 @@
 {{ capture name="body" }}Ich empfehle Ihnen folgenden Artikel auf Zentral+
 
 {{ url options="article" }}{{ /capture }}
-                    
+
                     <ul class="article-options right phone-hide">
-            		  		<li class="email"><a href="mailto:?subject={{ $smarty.capture.subject|urlencode }}&body={{ $smarty.capture.body|urlencode }}" id="article-recommend-button">Email</a></li>                     
+            		  		<li class="email"><a href="mailto:?subject={{ $smarty.capture.subject|rawurlencode }}&body={{ $smarty.capture.body|rawurlencode }}" id="article-recommend-button">Email</a></li>
             		  		<li class="print mobile-hide"><a href="#" onclick="window.print();return false">Print</a></li>
                     </ul>
                 
