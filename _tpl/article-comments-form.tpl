@@ -1,3 +1,9 @@
+        {{ if $gimme->submit_comment_action->defined && (!$gimme->submit_comment_action->rejected) && (!$gimme->submit_comment_action->error_message) }}
+<script type="text/javascript">
+window.location = window.location;
+</script>
+        {{ /if }}
+
     {{ if $gimme->user->logged_in }}
         {{ if $gimme->article->number && $gimme->article->comments_locked == 0 && $gimme->article->comments_enabled == 1 }}
             {{ if $gimme->submit_comment_action->defined && $gimme->submit_comment_action->rejected }}
