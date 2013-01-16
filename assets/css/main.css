@@ -1131,6 +1131,7 @@ small {
 	
 	/* Events */
 	.events-content .events-aside {float:left; width:154px; margin-right:30px; padding-left:5px;}
+	.events-content .events-aside .ui-dropdownized {min-width: 150px;}
 	.events-content .aside {width:160px;}
 	
 	.events-content h3 {font-size:26px; margin-bottom:15px; padding-bottom:5px; border-bottom:#dadada dashed 1px; color:#000;}
