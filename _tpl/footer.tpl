@@ -3,6 +3,7 @@
     	<div class="content-wrapper" id="footer">
 
 {{ local }}        
+{{ unset_topic }}
 
         	<ul class="footer-list equal-heights clearfix">        	
             	<li>
