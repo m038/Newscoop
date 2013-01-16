@@ -95,7 +95,6 @@ var meteonews = {
         this.hideAllElements();
         this.initMap();
         this.initialized = true;
-        this.showLocalWeatherPage();
     },
 
     initMap: function() {

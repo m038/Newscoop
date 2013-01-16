@@ -53,12 +53,15 @@ $(document).ready(function(){
             } else {
                 meteonews.showLocalWeatherPage();
             }
-        }
-        if (pg == 'prognosen') {
+        } else if (pg == 'prognosen') {
             meteonews.showPrognosenPage();
-        }
-        if (pg == 'pistenbericht') {
+        } else if (pg == 'pistenbericht') {
             meteonews.showPistenberichtPage();
+        } else if (pg == 'search') {
+            meteonews.hideAllElements();
+            meteonews.getSearchResults('{{ $smarty.get.q }}');
+        } else {
+            meteonews.showLocalWeatherPage();
         }
     });
 
