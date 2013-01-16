@@ -34,7 +34,7 @@ $(function() {
         var form = $(this);
         e.preventDefault();
         $.post($(this).attr('action'), $(this).serialize(), function(data, textStatus) {
-            var infobox = $('<div />').addClass('infobox success').text("Topics updated.");
+            var infobox = $('<div />').addClass('infobox success').text("Ihre Auswahl wurde gespeichert."); 
             infobox.prependTo(form);
             setTimeout(function () { infobox.detach(); }, 3000);
         }, 'json');
