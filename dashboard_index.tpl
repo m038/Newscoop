@@ -35,9 +35,11 @@
                             	<li>
                                 	<label>Email <i>*</i></label>
                                     <input type="text" name="email" value="{{ $user->email|escape }}" disabled />
+                                    {{*
                                     <div class="checkboxes indented">
                                     	<input type="checkbox" id="message-send" /><label for="message-send">Andere Nutzer dürfen mir Nachrichten senden</label>
                                     </div>
+                                    *}}
                                 </li>
                             	<li class="bottom-line clearfix">
                                 	<label>Benutzername <i>*</i></label>
@@ -94,6 +96,7 @@
                                 	<label for="bio">Über mich</label>
                                     <textarea cols="" rows="" name="attributes[bio]" id="bio">{{ $form->attributes->bio->getValue()|escape }}</textarea>
                                 </li>
+                                {{*
                             	<li>
                                 	<label for="birth_date">Geburtsdatum</label>
                                     <input id="birth_date" name="attributes[birth_date]" type="text" value="{{ $form->attributes->birth_date->getValue()|escape }}" />
@@ -107,6 +110,7 @@
                                         <option value="frau"{{ if $selected == "frau" }} selected{{ /if }}>Frau</option>
                                     </select>
                                 </li>
+                                *}}
                             	<li>
                                 	<label for="facebook">facebook.com/</label>
                                     <input id="facebook" name="attributes[facebook]" type="text" value="{{ $form->attributes->facebook->getValue()|escape }}" />
