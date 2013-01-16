@@ -1054,18 +1054,32 @@ var meteonews = {
                 var results = data.search.content.suggest;
                 var output = [];
 
-                for (var r in results) {
-                    var result = results[r];
-                    var label = result.name;
-                    if (result.state) {
-                        label += ', ' + result.state;
+                if (results instanceof Array) {
+                    for (var r in results) {
+                        var result = results[r];
+                        var label = result.name;
+                        if (result.state) {
+                            label += ', ' + result.state;
+                        }
+                        label += ', ' + result.country;
+
+                        var option = {
+                                'label': label,
+                                'id': result.geoname_id
+                                }
+                        output.push(option);
                     }
-                    label += ', ' + result.country;
+                } else {
+                    var label = results.name;
+                    if (results.state) {
+                        label += ', ' + results.state;
+                    }
+                    label += ', ' + results.country;
 
                     var option = {
-                            'label': label,
-                            'id': result.geoname_id
-                            }
+                        'label': label,
+                        'id': results.geoname_id
+                    };
                     output.push(option);
                 }
                 response(output);
