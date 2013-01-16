@@ -34,11 +34,11 @@
                 <div id='mn-forecast-details' class='spec-tabs'>
                     <!-- forecast overview button bar -->
                     <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line'>
-                        <li><a id='mn-tab-1-link' href="#tab-1" class="button white"><span class="mobile-hide">Detailprognose</span> <span id="mn-tab-1-label" class="desktop-hide">.</span></a></li>
-                        <li><a id='mn-tab-2-link' href="#tab-2" class="button white"><span class="mobile-hide">Detailprognose</span> <span id="mn-tab-2-label" class="desktop-hide">.</span></a></li>
-                        <li><a id='mn-tab-3-link' href="#tab-3" class="button white"><span class="mobile-hide">Detailprognose</span> <span id="mn-tab-3-label" class="desktop-hide">.</span></a></li>
-                        <li><a id='mn-tab-4-link' href="#tab-4" class="button white"><span class="mobile-hide">Detailprognose</span> <span id="mn-tab-4-label" class="desktop-hide">.</span></a></li>
-                        <li><a id='mn-tab-5-link' href="#tab-5" class="button white"><span class="mobile-hide">Detailprognose</span> <span id="mn-tab-5-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-1-link' href="#tab-1" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-1-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-2-link' href="#tab-2" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-2-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-3-link' href="#tab-3" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-3-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-4-link' href="#tab-4" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-4-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-5-link' href="#tab-5" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-5-label" class="desktop-hide">.</span></a></li>
                     </ul>
 
                     <!-- forecast-details-table -->
