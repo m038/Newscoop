@@ -278,8 +278,8 @@
 
 
             });
-        if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {console.log("ima");}
-            else { $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); console.log("nema");} 
+        if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {}
+            else { $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); } 
         });
     });
     </script>
