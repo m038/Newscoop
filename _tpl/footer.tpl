@@ -147,7 +147,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select id="dropdownized-fancy-1" style="min-width: 200px;">
+                            <select class="dropdownized-fancy-1" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -278,8 +278,8 @@
 
 
             });
-        if ($("#dropdownized-fancy-1").hasClass('.ui-dropdownized')) {}
-            else $("#dropdownized-fancy-1").dropdownized();
+        if ($("#feedback-form .dropdownized-fancy-1").hasClass('.ui-dropdownized')) {}
+            else $("feedback-form .dropdownized-fancy-1").dropdownized();
         });
     });
     </script>
