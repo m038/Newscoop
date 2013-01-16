@@ -98,7 +98,14 @@
                             <div class="sidebar">
                                 <fieldset class="search">
                                     <input id='mn-header-search-text' type="text" placeholder="Ort, PLZ, Ausflugsziel">
-                                    <input type="submit" value="Go">
+                                    <input id='mn-header-search-btn' type="submit" value="Go">
+{{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+<script type="text/javascript">
+    $('#mn-header-search-btn').click(function() {
+        window.location = '{{ url option="article"}}?pg=search&q='+$('#mn-header-search-text').val();
+    });
+</script>
+{{ /list_articles }} 
                                 </fieldset>
                                 <p>Geben Sie hier einen Ort oder Region nach Wunsch in der Zentralschweiz ein</p>
                                 <ul>
