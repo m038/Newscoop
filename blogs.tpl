@@ -12,7 +12,7 @@
         
           <div class="two-columns blog-list featured-blogs equal-heights clearfix">
 {{ list_articles length="4" columns="2" ignore_section="true" order="bypublishdate desc" constraints="type is blog" }}
-{{ if $gimme->current_list->index == "1" }}            
+{{ if $gimme->current_list->column == "1" }}            
                 <div class="box">
 {{ /if }}                
                     <article>
@@ -27,6 +27,7 @@
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time><br />
                         <a href="{{ url options="article" }}">weiterlesen</a> &bull; <a href="{{ url options="section" }}">zum Blog</a></p>
                     </article>
+                    
 {{ if $gimme->current_list->column == "2" }}                    
                 </div>
 {{ /if }}                
