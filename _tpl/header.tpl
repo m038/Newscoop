@@ -108,7 +108,7 @@
             <ul class="header-menu">
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
-              <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Dashboard</a></li>
+              <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Profil</a></li>
               <li><a href="{{ $view->url(['controller' => 'auth', 'action' => 'logout'], 'default') }}">Abmelden</a></li>
             {{ else }}
               <li class="expandable">
