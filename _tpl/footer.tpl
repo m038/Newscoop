@@ -147,7 +147,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized" style="min-width: 200px;">
+                            <select class="dropdownized" id="nik" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -275,7 +275,10 @@
                         $('.fancybox-inner form#feedback-form input#feedback-attachment-id').val(response[1]);
                     });
                 }
+
+
             });
+        $("nik").dropdownized();
         });
     });
     </script>
