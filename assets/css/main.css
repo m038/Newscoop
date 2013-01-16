@@ -2234,6 +2234,10 @@ small {
 			.popup-form fieldset ul li textarea {height:80px; resize:none;}
 			.popup-form fieldset ul li label {margin-bottom:5px;}
 			.popup-form fieldset ul li i {color:#B40032; font-style:normal;}
+			.popup-form .ui-dropdownized {
+				box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
+				width: 100% !important;
+				}
 
 
 .phone-icon-dropdown,
