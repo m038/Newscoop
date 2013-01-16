@@ -19,7 +19,7 @@
                     <div class="two-columns equal-heights bottom-line clearfix">
 
                     	{{ list_articles length="1" constraints="type is debatte" }}
-                    	{{ assign var="artNo" value=$gimme->article->number }}
+                    	{{ assign var="artNo" value="{{ $gimme->article->number }}" }}
                     	<div class="box">
                         	
                             <header>
