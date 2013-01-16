@@ -113,22 +113,24 @@
             {{ else }}
               <li class="expandable">
                   <a href="#">Registrieren</a>
-                    <div class="popup popup-register">
-                      <p>Mit Ihrem Benutzerkonto können Sie Artikel kommentieren und mit anderen Leserinnen und Lesern in Kontakt treten.</p>
-                        <p>Das Benutzerkonto ist kostenlos und kann jederzeit wieder gelöscht werden.</p>
+                  <div class="popup popup-register">
+                    <p>Mit Ihrem Benutzerkonto können Sie Artikel kommentieren und mit anderen Leserinnen und Lesern in Kontakt treten.</p>
+                      <p>Das Benutzerkonto ist kostenlos und kann jederzeit wieder gelöscht werden.</p>
+                      <form method="get" action="/register">
                         <fieldset>
                           <ul>
                               <li>
                                   <label>Bitte geben Sie Ihre E-Mail Adresse ein.</label>
-                                  <input type="text">
+                                  <input type="text" name="proposed_email">
                                 </li>
                                 <li class="side-by-side">
                                   <a href="#" class="button white left">Nein, Danke</a>
-                                    <a href="#" class="button red right">Abschicken</a>
+                                  <input type="submit" class="button red right" value="Abschicken" />
                                 </li>
                           </ul>
                         </fieldset>
-                    </div>
+                      </form>
+                  </div>
                 </li>
               <li class="expandable">
                   <a href="#">Anmelden</a>
@@ -164,7 +166,6 @@
                 </li>
             {{ /if }}
             </ul>
-        
         </div><!-- / Header -->
         
         <div class="content-top">
