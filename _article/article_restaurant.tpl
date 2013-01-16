@@ -887,7 +887,7 @@ $(document).ready(function() {
                         </div><!-- tab-nav-dropdown -->
                         <div class="article-tabs-holder">
                             <div class="rest_text_hidden" id="inner-tab-1">
-                            {{ if $speciality_count }}<span class="printtab-title">Hausspezialiäten</span>{{ /if }}
+                            <span class="printtab-title">Tagesmenü</span>
                             {{ if $rest_menu_count }}
                                 {{ foreach from=$rest_menu_info key=menu_key item=menu_part }}
                                     <p><strong>{{ $menu_part.title }}</strong><br />
@@ -903,6 +903,7 @@ $(document).ready(function() {
                             </div>
                             {{ if $speciality_count }}
                                 <div class="rest_text_hidden" id="inner-tab-2">
+                                    {{ if $speciality_count }}<span class="printtab-title">Hausspezialiäten</span>{{ /if }}
                                     {{ foreach from=$speciality_info key=spec_key item=spec_part }}
                                         <p><strong>{{ $spec_part.name }}</strong><br />
                                         {{ if $spec_part.desc }}
@@ -915,16 +916,19 @@ $(document).ready(function() {
                             {{ /if }}
                             {{ if $rest_menucard_pdf }}
                                 <div class="rest_text_hidden" id="inner-tab-3">
+                                    {{ if $rest_menucard_pdf }}<span class="printtab-title">Komplette Menükarte</span>{{ /if }}
                                     <a class="rest_link_menu_any" href="{{ $rest_menucard_pdf }}" target="_blank">Komplette Menükarte (PDF)</a>
                                 </div>
                             {{ /if }}
                             {{ if $rest_winecard_pdf }}
                                 <div class="rest_text_hidden" id="inner-tab-4">
+                                    {{ if $rest_winecard_pdf }}<span class="printtab-title">Weinkarte</span>{{ /if }}
                                     <a class="rest_link_menu_any" href="{{ $rest_winecard_pdf }}" target="_blank">Weinkarte (PDF)</a>
                                 </div>
                             {{ /if }}
                             {{ if $rest_kidscard_pdf }}
                                 <div class="rest_text_hidden" id="inner-tab-5">
+                                    {{ if $rest_kidscard_pdf }}<span class="printtab-title">Kindermenüs</span>{{ /if }}
                                     <a class="rest_link_menu_any" href="{{ $rest_kidscard_pdf }}" target="_blank">Kindermenüs (PDF)</a>
                                 </div>
                             {{ /if }}

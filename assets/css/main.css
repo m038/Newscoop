@@ -3437,6 +3437,7 @@ a.button.center.details-more {display:none;}
   	display: none !important;
   }
 
+  .restaurant-detail h3,
   .event-single h3 {
     text-align: left !important;
   }
@@ -3447,6 +3448,25 @@ a.button.center.details-more {display:none;}
 		}
 		.restaurant-detail .printtab-title {
 			display: block;
+			color: #000;
+			font-size:16px;
+			font-weight: bold;
+			border-bottom: 1px solid #ccc;
+			margin-bottom: 5px;
+			margin-top: 20px;
+			padding-bottom: 5px;
+		}
+		a.rest_link_menu_any {
+			color:#000;
+			text-decoration: underline;
+			font-size: 14px;
+		}
+		a.rest_link_menu_any:after {
+			content: "("attr(href)")";
+			color: #000;
+			font-size: 13px;
+			padding-left: 20px;
+			text-decoration: none !important;
 		}
   		
   		.movie-detail .aside {
