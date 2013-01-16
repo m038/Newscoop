@@ -105,7 +105,7 @@ $(document).ready(function() {
         var got_event = window.event_detail.event;
 
         if (got_event.title) {
-            document.title = "zentral+&nbsp;|&nbsp;" + got_event.title;
+            document.title = "zentral+" + String.fromCharCode(160) "|" + String.fromCharCode(160) + got_event.title;
         }
 
         if (got_event['type'] in types_to_outlines) {
