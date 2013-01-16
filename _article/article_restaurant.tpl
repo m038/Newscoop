@@ -761,7 +761,7 @@ function load_events(ev_type) {
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
 
-<div class="content no-bottom-line clearfix">
+<div class="content no-bottom-line clearfix restaurant-detail">
 
     <div class="main">
 
@@ -887,6 +887,7 @@ $(document).ready(function() {
                         </div><!-- tab-nav-dropdown -->
                         <div class="article-tabs-holder">
                             <div class="rest_text_hidden" id="inner-tab-1">
+                            {{ if $speciality_count }}<span class="printtab-title">Hausspezialiäten</span>{{ /if }}
                             {{ if $rest_menu_count }}
                                 {{ foreach from=$rest_menu_info key=menu_key item=menu_part }}
                                     <p><strong>{{ $menu_part.title }}</strong><br />

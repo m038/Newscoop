@@ -8,12 +8,13 @@
     
     <!-- =============================== -->
     
-	<output name="Web">
-		
-		
-		
-		
-	<frontPage src="front.tpl"/><sectionPage src="section.tpl"/><articlePage src="article.tpl"/><errorPage src="front.tpl"/></output>
+	<output name="Web">		
+		<frontPage src="front.tpl"/>
+		<sectionPage src="section.tpl"/>
+		<articlePage src="article.tpl"/>
+		<errorPage src="404.tpl"/>
+	</output>
+	
 	<renditions>
    	<rendition name="artfull" width="723" height="362" specs="crop"/>	
    	<rendition name="arthalf" width="346" height="173" specs="crop"/>

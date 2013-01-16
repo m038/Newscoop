@@ -5,7 +5,7 @@
                     <h4>Über «Meine Themen»</h4>
                     <p>Auf dieser Seite sehen Sie alle aktuellen Artikel zu den Themen, die Sie abonniert haben.</p>
                     
-                    <div class="box desktop-hide">
+                    <div class="hide">
                         <h4>Zeige</h4>
                         <select class="dropdownized">
                             <option value="Alle Themen">Alle Themen</option>
@@ -27,8 +27,7 @@
                 <div class="aside">
                     
                     <div class="ad top-space">
-                        <small>Werbung</small>
-                        <a href="#"><img alt="" src="pictures/ad-2.jpg"></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div><!-- / Aside -->

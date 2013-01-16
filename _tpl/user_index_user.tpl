@@ -1,18 +1,14 @@
 <article>
     <figure>
-        {{ if $user->image }}
-        <img alt="{{ $user->uname }}" src="{{ $user->image }}" />
-        {{ else }}
-        <img alt="{{ $user->uname }}" src="{{ url static_file="pictures/user-thumb-mid-default.jpg" }}">
-        {{ /if }}
-        
+        <a href="{{ $view->url(['username' => $user->uname], 'user') }}" title="{{ $user->uname|escape }}">{{ strip }}
+            {{ include file="_tpl/user-image.tpl" }}
+        {{ /strip }}</a>
     </figure>
     <h3>
-        {{ $user->first_name }} {{ $user->last_name }} ({{ $user->uname }})
+        <a href="{{ $view->url(['username' => $user->uname], 'user') }}" title="{{ $user->uname|escape }}">{{ $user->uname|escape }}</a>
         {{ if $user->is_author }}
         <small class="red-mark">REDAKTION</small>
         {{ /if }}
     </h3>
-    <!-- <p>Hier wird gegen Grundregeln der nuklearen Sicherheit verstossen!<br /> -->
     <time>Registriert sein {{ $user->created }} <span class="comm">{{ $user->posts_count }}</span></time></p>
 </article>

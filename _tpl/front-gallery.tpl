@@ -7,7 +7,7 @@
                     <article>
                         <figure>
 
-{{ image rendition="slideshow" }}<a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" /></a>{{ /image }}
+{{ image rendition="slideshow" }}<a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>{{ /image }}
                             
                             <p class="side-padding"><strong>{{ $gimme->article->name }}</strong> von {{ $gimme->article->author->name }} <time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                         </figure>
@@ -15,7 +15,7 @@
                     
                     <div class="clearfix side-padding">
                     	<a href="{{ url options="section" }}" class="button white left">Zu allen Fundstücken</a>
-                    	<a href="#" class="button red right fancybox-gallery">Bild vorschlagen</a>
+                        {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
                     </div>
                     
 {{ /list_articles }}                

@@ -142,6 +142,11 @@ $(document).ready(function() {
 
     if (window.api_detail && window.api_detail.film) {
         got_movie = window.api_detail.film;
+
+        if (got_movie.title) {
+            document.title = "zentral+" + String.fromCharCode(160) + "|" + String.fromCharCode(160) + got_movie.title;
+        }
+
         detail_content = "";
 
         detail_content += "<h3>" + got_movie.title + "</h3>\n";
@@ -446,7 +451,7 @@ $(document).ready(function() {
 
 {{ include file="_ausgehen/subnav-detail-top.tpl" }}
 
-<div class="content no-bottom-line clearfix">
+<div class="content no-bottom-line clearfix movie-detail">
 
     <div class="main event-single">
 
@@ -454,7 +459,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button white prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Übersicht Film</a>
 {{ /local }}
         </div>
 
@@ -465,7 +470,7 @@ $(document).ready(function() {
     {{ include file="_tpl/article-tools.tpl" }}
 
         <article class="bottom-line">
-            <div id="image_gallery" class="thumb-gallery tabs_mov">
+            <div id="image_gallery" class="thumb-gallery tabs_mov clearfix" style="display:none;">
             </div>
 
             <figure id="trailer_holder" class="movie-trailer margin-bottom" style="display:none;">
@@ -483,7 +488,7 @@ $(document).ready(function() {
 {{ local }}
 {{ set_current_issue }}
 {{ set_section number="72" }}
-            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Ubersicht Film</a>
+            <a href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}" id="list_back_link_icon" class="button prev">&lsaquo;</a> <a id="list_back_link_text" href="{{ uri options="section" }}?date={{ $cinema_date|escape:'url' }}&region={{ $cinema_region }}">zur Übersicht Film</a>
 {{ /local }}
         </div>
 

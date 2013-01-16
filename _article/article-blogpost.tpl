@@ -8,7 +8,7 @@
         
 {{ include file="_tpl/header.tpl" }}
 
-    <div class="content bottom-line equal-heights clearfix">
+    <div class="content bottom-line equal-heights clearfix blog-detail">
         
           <div class="main">
               <article class="bottom-line single blog-single single-title">
@@ -24,15 +24,18 @@
                     </figure>
                     {{ /list_articles }}
                     
-                    <p class="time-top"><time><a href="#">lokale Spezialitäten, Luzern</a></time></p>
+                    {{ if $gimme->article->dateline }}<p class="time-top"><time>{{ $gimme->article->dateline }}</time></p>{{ /if }}
                     <figure class="left">
 		    {{ image rendition="arthalf" }}                
-              		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+              		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
+                  <small>
+                  	{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}
+                  </small>              		
 		    {{ /image }}
                     </figure>
                     <h3>{{ $gimme->article->name }}</h3>
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }} <a class="right print-small" href="#">Print</a></p>
-                    
+                    {{ include file="_tpl/_admin-edit.tpl" }}
                     {{ $gimme->article->body }}
                     {{ include file="_tpl/article-slideshow.tpl" }}
                     
@@ -107,8 +110,7 @@
 {{ /if }}
         
                 <div class="ad">
-                    <small>Werbung</small>
-                    <a href="#"><img src="{{ uri static_file="pictures/ad-2.jpg" }}" alt="" /></a>
+                    <!--small>Werbung</small-->
                 </div>
                 
             </div><!-- / Aside -->
@@ -128,8 +130,7 @@
                 <div class="aside">
                 
                     <div class="ad">
-                        <small>Werbung</small>
-                        <a href="#"><img src="{{ uri static_file="pictures/ad-3.jpg" }}" alt="" /></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div>

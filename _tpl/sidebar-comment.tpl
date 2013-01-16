@@ -3,11 +3,13 @@
 {{ assign var="sectionCondition" value="{{ $gimme->section->name }} is on" }}
 {{ /if }}
 
-{{ list_articles ingore_issue="true" ignore_section="true" constraints="type is news section is 210 Kommentar is on active is on $sectionCondition" }}
+{{ list_articles ignore_issue="true" ignore_section="true" constraints="type is news section is 210 Kommentar is on active is on $sectionCondition" }}
 
                 <div class="box">
                 
-                	<h4 class="box-title"><img src="{{ uri static_file="pictures/title-icons/commentar.png" }}" alt="" />Der Kommentar</h4>
+                	<h4 class="box-title">{{ list_article_authors length="1" }}{{ if $gimme->author->user->defined || $gimme->author->picture->imageurl }}
+                  {{ include file="_tpl/author-image.tpl" author=$gimme->author size="small" }}
+                  {{ /if }}{{ /list_article_authors }}Der Kommentar</h4>
                     <article>
                     	<h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ $gimme->article->lede|strip_tags:false }}</p>

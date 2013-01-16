@@ -80,5 +80,101 @@ $(document).ready(function(){
             meteonews.showFiveDayForecastPage(ui.item.id, '', ui.item.label);
         }
     });
+
+    /* pagination */
+    $('.paginated-table').each(function() {
+        var maxRows = 7;
+        var cPage = 1;
+        var cTable = $(this);
+        var cRows = cTable.find('tr');
+        var cRowCount = cRows.size();
+        var cPages = Math.round(cRowCount / maxRows);
+
+        if (cRowCount < maxRows) {
+            return;
+        }
+
+        /* hide all rows above the max initially */
+        cRows.filter(':gt(' + (maxRows - 1) + ')').hide();
+
+        /* update caption */
+        $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+
+        var cPrev = $('#mn-all-slopes-prev');
+        var cNext = $('#mn-all-slopes-next');
+        var cFirst = $('#mn-all-slopes-first');
+        var cLast = $('#mn-all-slopes-last');
+
+        /* start with previous disabled */
+        cPrev.addClass('disabled');
+
+        cFirst.click(function() {
+            cPage = 1;
+            cRows.hide();
+            cRows.filter(':lt(' + maxRows + ')' ).show();
+            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            cPrev.addClass('disabled');
+            cNext.removeClass('disabled');
+            return false;
+        });
+
+        cLast.click(function() {
+            cPage = cPages;
+            cRows.hide();
+            cRows.filter(':gt(' + (cRowCount - maxRows) + ')' ).show();
+            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            cPrev.removeClass('disabled');
+            cNext.addClass('disabled');
+            return false;
+        });
+
+        cPrev.click(function() {
+            var cFirstVisible = cRows.index(cRows.filter(':visible'));
+
+            if (cPrev.hasClass('disabled')) {
+                return false;
+            }
+
+            cPage--;
+            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            cRows.hide();
+            if (cFirstVisible - maxRows - 1 > 0) {
+                cRows.filter(':lt(' + cFirstVisible + '):gt(' + (cFirstVisible - maxRows - 1) + ')').show();
+            } else {
+                cRows.filter(':lt(' + cFirstVisible + ')').show();
+            }
+
+            if (cFirstVisible - maxRows <= 0) {
+                cPrev.addClass('disabled');
+            }
+
+            cNext.removeClass('disabled');
+
+            return false;
+        });
+
+        cNext.click(function() {
+            var cFirstVisible = cRows.index(cRows.filter(':visible'));
+
+            if (cNext.hasClass('disabled')) {
+                return false;
+            }
+
+            cPage++;
+            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            cRows.hide();
+            cRows.filter(':lt(' + (cFirstVisible +2 * maxRows) + '):gt(' + (cFirstVisible + maxRows - 1) + ')').show();
+
+            if (cFirstVisible + 2 * maxRows >= cRows.size()) {
+                cNext.addClass('disabled');
+            }
+
+            cPrev.removeClass('disabled');
+
+            return false;
+        });
+    });
+    /* end pagination */
+
 });
 </script>

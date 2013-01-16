@@ -14,7 +14,7 @@
             
             	<div class="box debatte-single">
                 
-                	<p class="headline highlight">Hier "ndet die wöchentliche Auseinandersetzung statt!</p>
+                	<p class="headline highlight">Hier wird diskutiert. Diskutieren Sie mit!</p>
 
                     <div class="two-columns equal-heights bottom-line clearfix">
 
@@ -63,7 +63,7 @@
                     <article class="mobile-half{{ if $gimme->current_list->index == 3 }} last{{ /if }}">
                         <figure>
               				{{ image rendition="arthalf" }}                
-                      		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                      		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
               				{{ /image }}
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
@@ -89,36 +89,10 @@
                 <div class="box">
                 
                 	<div class="twitter-box">
-                        <script src="http://widgets.twimg.com/j/2/widget.js"></script> 
-                        <script> 
-                        new TWTR.Widget({ 
-                          version: 2, 
-                          type: 'faves', 
-                          rpp: 12, 
-                          interval: 30000, 
-                          title: '', 
-                          subject: 'Die Redaktion auf Twitter', 
-                          width: 'auto', 
-                          height: 400, 
-                          theme: { 
-                            shell: { 
-                              background: '#efefef', 
-                              color: '#000' 
-                            }, 
-                            tweets: { 
-                              background: '#ffffff', 
-                              color: '#000', 
-                              links: '#e10042' 
-                            } 
-                          }, 
-                          features: { 
-                            scrollbar: true, 
-                            loop: false, 
-                            live: true, 
-                            behavior: 'all' 
-                          } 
-                        }).render().setUser('twitter').start(); 
-                        </script>
+                	
+<a class="twitter-timeline" href="https://twitter.com/zentralplus/redaktion-zentral" data-widget-id="291509540216770561">Tweets von @zentralplus/redaktion-zentral</a> 
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>               	
+
                     </div>
                 
                 </div>

@@ -1,6 +1,6 @@
             	<div class="box highlight-box">
                 
-                	<h4 class="box-title icon-cross"><a href="#">zentral+ Community</a></h4>
+                	<h4 class="box-title icon-cross"><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default') }}">zentral+ Community</a></h4>
                     <div class="community-box clearfix">
                     	<div class="mobile-half">
                             <ul class="community-list bottom-line">     
@@ -19,10 +19,10 @@
 {{ /list_community_feeds }}                                 
                                 
                             </ul>
-                            <p><a href="#">zur Community</a></p>
-                            <p class="bottom-line">Die zentral+ Community hat bereits 1.245 Mitglieder.</p>
+                            <p><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default') }}">zur Community</a></p>
+                            <p class="bottom-line">Die zentral+ Community hat bereits {{ number_format($gimme->getUserCount(), 0, '.', '\'') }} Mitglieder.</p>
                         </div>
                     </div>
-                    <a href="#" class="button red center">Jetzt mitmachen</a>
+                    <a href="/register" class="button red center">Jetzt mitmachen</a>
                 
                 </div>

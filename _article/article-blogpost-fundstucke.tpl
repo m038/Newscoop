@@ -11,8 +11,8 @@
 {{ list_articles length="1" constraints="type is bloginfo" }}
 		<div class="photo-blog-top clearfix">
         	<h2><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></h2>
-            <p><img src="{{ uri static_file="pictures/title-icons/camera.png" }}" alt="" />{{ $gimme->article->motto }}</p>
-        	<a href="#" class="button red right">Bild vorschlagen</a>
+            <p><img src="{{ uri static_file="pictures/title-icons/camera.png" }}" alt="" />{{ $gimme->article->infolong }}</p>
+            {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
         </div>
 {{ /list_articles }}
         
@@ -24,12 +24,9 @@
                     <h3>{{ $gimme->article->name }}</h3>
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }}</p>
                 </header>
+                {{ include file="_tpl/_admin-edit.tpl" }}
                 {{ $gimme->article->body }}
             </article>
-            
-            <div class="box back-link bottom-line top-line">
-                <a class="button white prev" href="#">‹</a> <a href="#">zur Ubersicht Film</a>
-            </div>
             
 {{ include file="_tpl/article-tools.tpl" }}
         
@@ -48,8 +45,7 @@
                 <div class="aside">
                 
                     <div class="ad">
-                        <small>Werbung</small>
-                        <a href="#"><img src="{{ uri static_file="pictures/ad-3.jpg" }}" alt="" /></a>
+                        <!--small>Werbung</small-->
                     </div>
                 
                 </div>

@@ -8,7 +8,7 @@
         </p>
     </th>
     <td>
-        <span class='phone-hide'>{{ $gimme->weather_location->snow_condition }}, {{ $gimme->weather_location->slope_condition }}
+        <span class='phone-hide'>{{ $gimme->weather_location->snow_condition }}{{ if $gimme->weather_location->slope_condition }} , {{ $gimme->weather_location->slope_condition }} {{ /if }}
             <br>{{ $gimme->weather_location->open_slopes }} / {{ $gimme->weather_location->total_slopes }} Piste 
         </span>
     </td>

@@ -83,8 +83,8 @@ function set_votes(widget) {
 
         $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratings_vote');
         $(widget).find('.star_' + avg).nextAll().removeClass('ratings_vote'); 
-        $(widget).find('.total_votes').text( votes + ' Bewertungen abgegeben (' + exact + ' Bewertung)' );
-        $(widget).find('.rating_error').text( error );
+        $(widget).find('.total_votes').text(votes + ' Bewertungen - Ihre Bewertung: ' + exact);
+        $(widget).find('.rating_error').text(error);
     }
 }
 

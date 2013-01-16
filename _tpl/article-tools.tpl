@@ -1,9 +1,14 @@
                 <div id="social-bookmarks-bar" class="social-bar{{ if $gimme->publication->identifier == "2" || $gimme->publication->identifier == "4" }} bottom-line{{ /if }} clearfix">
                   
                   <ul id="social_bookmarks" class="soc-options left"></ul>
-                    
+
+{{ capture name="subject" }}Lesenswerter Artikel auf Zentral+{{ /capture }}
+{{ capture name="body" }}Ich empfehle Ihnen folgenden Artikel auf Zentral+
+
+{{ url options="article" }}{{ /capture }}
+
                     <ul class="article-options right phone-hide">
-            		  		<li class="email"><a href="{{ $view->serverUrl() }}{{ $view->baseUrl({{ $view->url(['controller' => 'article-recommendation', 'action' => 'index', 'article_number' => {{ $gimme->article->number }}], 'default') }}) }}"  id="article-recommend-button">Email</a></li>                     
+            		  		<li class="email"><a href="mailto:?subject={{ $smarty.capture.subject|rawurlencode }}&body={{ $smarty.capture.body|rawurlencode }}" id="article-recommend-button">Email</a></li>
             		  		<li class="print mobile-hide"><a href="#" onclick="window.print();return false">Print</a></li>
                     </ul>
                 
@@ -22,7 +27,7 @@
                     <article>
                         <h5>Verwandte Artikel</h5>
                     {{ /if }}
-                        <p><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> {{ $gimme->article->name }} <span class="comm">3</span></p>
+                        <p>{{ $gimme->article->dateline }} <a href="{{ url options="article" }}">{{ $gimme->article->name }}</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     {{ if $gimme->current_list->at_end }}                                            
                     </article>
                     {{ /if }}
@@ -30,4 +35,6 @@
                     
                 </div>
     {{ /if }}
+{{ elseif $gimme->publication->identifier == "4" }}    
+		{{ include file="_tpl/article-payment-link.tpl" }}
 {{ /if }}
