@@ -107,11 +107,11 @@
     <div class="hide">
         <div id="kontakt-form" class="popup-form">
             <h4>Kontakt</h4>
-            <form method="POST" id="kontakt-form" action="/contact/send">
+            <form method="POST" id="kontakt-form" action="/contact/send" style="min-width:400px;">
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized" style="min-width: 200px;">
+                            <select class="dropdownized">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -135,8 +135,47 @@
                 </fieldset>
             </form>
         </div>
+        <div id="feedback-form" class="popup-form">
+            <form method="POST" id="feedback-form" action="/feedback/save" style="min-width:400px;">
+                <h4>Feedback</h4>
+                <fieldset>
+                    <ul>
+                        <li>
+                            <select class="dropdownized" style="min-width: 200px;">
+                                <option value="Feedback zum Artikel">Feedback zum Artikel</option>
+                                <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
+                                <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
+                                <option value="Foto für die Fundstücke">Foto für die Fundstücke</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label>Betreff</label>
+                            <input type="text" id="feedback-subject" name="subject">
+                        </li>
+                        <li>
+                            <label>Mitteilung<i>*</i></label>
+                            <textarea cols="" rows="" id="feedback-content" name="content"></textarea>
+                        </li>
+                        <li class="input-file red">
+                            <div class="show-value"></div>
+                            <input type="file" class="upload" />
+                        </li>
+                        <li>
+                            <p>Erlaubte Dateiformate: Bilder (jpg, png, gif) Dokumente (pdf)<br>
+                            <small><i>*</i>Pflichtfeld</small></p>
+                        </li>
+                        <li class="top-line">
+                            <input type="hidden" id="feedback-attachment-id" name="attachment_id" />
+                            <input type="hidden" id="feedback-attachment-type" name="attachment_type" />
+                            <input type="submit" class="button red right" value="Senden">
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </div>
     </div>
     <script type="text/javascript">
+    $(document).ready(function(){
         $('a.show-contact-form').click(function(){
             $.fancybox({
                 'content' : $("#kontakt-form").html()
@@ -151,7 +190,86 @@
                 url: $(form).attr('action'),
                 data: $(form).serializeArray()
             }).done(function( msg ) {
-                $('div#kontakt-form').replaceWith('<h2>Vielen Dank für Ihre Nachricht an zentral+.</h2>')
+                $.fancybox.close()
+                $.fancybox({
+                    'content' : '<h2>Vielen Dank für Ihre Nachricht an zentral+.</h2>'
+                });
             });
         });
+
+        $('form#feedback-form').live('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+
+            {{ dynamic }}
+            var data = {
+                f_feedback_url: String(document.location),
+                f_feedback_subject: $('finput#feedback-subject', form).val(),
+                f_feedback_content: $('textarea#feedback-content', form).val(),
+                f_language: '{{ $gimme->language->number }}',
+                f_section: '{{ $gimme->section->id }}',
+                f_article: '{{ $gimme->article->number }}',
+                f_publication: '{{ $gimme->publication->identifier }}',
+            };
+            {{ /dynamic }}
+
+            if ($('form#feedback-form input#feedback-attachment-type').val() == 'image') {
+                data['image_id'] = $('form#feedback-form input#feedback-attachment-id').val();
+            } else {
+                data['document_id'] = $('form#feedback-form input#feedback-attachment-id').val();
+            }
+            
+            $.ajax({
+                type: 'POST',
+                url: '{{ $view->baseUrl("/feedback/save/?format=json") }}',
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                    $.fancybox.close()
+                    $.fancybox({
+                        'content' : '<h2>{{ getGS('Response') }}</h2><h2>'+ data['response'] +'<h2>'
+                    });
+                }
+            });
+        });
+
+        $('a.show-feedback-form').click(function(){
+            $.fancybox({
+                'content' : $("#feedback-form").html(),
+                'afterShow' : function(upcoming, current) {
+                    $('.fancybox-inner .input-file').attr('id', 'plupload-container');
+                    $('.fancybox-inner .input-file .upload').attr('id', 'plupload-choose-file');
+                    var uploader = new plupload.Uploader({
+                        runtimes : 'html5,flash,silverlight',
+                        browse_button : 'plupload-choose-file',
+                        container : 'plupload-container',
+                        max_file_size : '10mb',
+                        url : '{{ $view->baseUrl("/feedback/upload/?format=json") }}',
+                        flash_swf_url : '{{ $view->baseUrl("/js/plupload/js/plupload.flash.swf") }}',
+                        silverlight_xap_url : '{{ $view->baseUrl("/js/plupload/js/plupload.silverlight.xap") }}',
+                        filters : [
+                            {title : "Image files", extensions : "jpg,gif,png,JPG,GIF,PNG"},
+                            {title : "Pdf files", extensions : "pdf"}
+                        ]
+                    });
+
+                    uploader.init();
+
+                    uploader.bind('FilesAdded', function(up, files) {
+                        $('.fancybox-inner form#feedback-form div.show-value').html('{{ getGS('Uploading...') }}');
+                        up.start();
+
+                        up.refresh(); // Reposition Flash/Silverlight
+                    });
+
+                    uploader.bind('FileUploaded', function(up, file, info) {
+                        $('.fancybox-inner form#feedback-form div.show-value').html('{{ getGS('Done') }}');
+                        var response = $.parseJSON(info['response'])['response'].split("_");
+                        $('.fancybox-inner form#feedback-form input#feedback-attachment-type').val(response[0]);
+                        $('.fancybox-inner form#feedback-form input#feedback-attachment-id').val(response[1]);
+                    });
+                }
+            });
+        });
+    });
     </script>

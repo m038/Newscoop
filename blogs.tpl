@@ -68,7 +68,7 @@
                         <article>
                             <div class="highlight-box">
                             <h4 class="box-title icon-cross"><a href="#">Ihr Thema fehlt noch?</a></h4>
-                              <a href="#" class="button red center">Machen Sie einen Vorschlag!</a>
+                              {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}<a href="#" class="button show-feedback-form red center">Machen Sie einen Vorschlag!</a>{{ /if }}
                             </div>
                     </div><!-- / 2 columns -->                            
                         </article>                      
@@ -80,7 +80,7 @@
                         <article>
                             <div class="highlight-box">
                             <h4 class="box-title icon-cross"><a href="#">Ihr Thema fehlt noch?</a></h4>
-                              <a href="#" class="button red center">Machen Sie einen Vorschlag!</a>
+                              {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}<a href="#" class="button show-feedback-form red center">Machen Sie einen Vorschlag!</a>{{ /if }}
                             </div>
                         </article>                    
                     </div><!-- / 2 columns -->                    
