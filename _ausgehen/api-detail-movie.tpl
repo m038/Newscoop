@@ -142,6 +142,11 @@ $(document).ready(function() {
 
     if (window.api_detail && window.api_detail.film) {
         got_movie = window.api_detail.film;
+
+        if (got_movie.title) {
+            document.title = "zentral+&nbsp;|&nbsp;" + got_movie.title;
+        }
+
         detail_content = "";
 
         detail_content += "<h3>" + got_movie.title + "</h3>\n";
