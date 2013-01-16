@@ -121,7 +121,7 @@
                 {{ /local }} 
                 
             	<div class="box top-line bottom-line">
-                	<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zug,+Switzerland&amp;aq=0&amp;oq=zug&amp;sll=37.0625,-95.677068&amp;sspn=53.080379,39.726562&amp;ie=UTF8&amp;hq=&amp;hnear=Zug,+Canton+of+Zug,+Switzerland&amp;t=m&amp;z=12&amp;ll=47.174589,8.513854&amp;output=embed"></iframe>
+                	<iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.de/maps/ms?msa=0&amp;msid=218370746519352749238.0004d368be2d403db700b&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=47.109392,8.330383&amp;spn=0.654265,0.961304&amp;z=9&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.de/maps/ms?msa=0&amp;msid=218370746519352749238.0004d368be2d403db700b&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=47.109392,8.330383&amp;spn=0.654265,0.961304&amp;z=9&amp;source=embed" style="color:#0000FF;text-align:left">Was gibt's wo</a> in a larger map</small>
                 </div>               
 {{ /if }}
         
