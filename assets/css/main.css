@@ -1392,10 +1392,14 @@ small {
 			.payment-box .close-box:hover {
 				cursor: pointer;
 			}
-		.payment-box p {margin-bottom:19px;}
+		.payment-box p {margin-bottom:19px; padding-right: 40px;}
 		.payment-box h4 {text-align:left; margin-bottom:5px;}
 		.payment-box .side-by-side {width:290px; margin:0 auto; padding-top:5px;}
 			.payment-box .side-by-side .button {padding:0 25px;}
+
+		.payment-box-iframe {
+			height: 390px;
+		}
 
 	/* Debatte */
 	ul.debatte-score {
@@ -2998,6 +3002,10 @@ a.button.center.details-more {display:none;}
 
 	.form li.side-by-side {padding: 0 179px;}
 
+	.payment-box-iframe {
+		height: 410px;
+	}
+
 	/* Error page */
 
 	.content-wrapper.error-page {margin: 0 -10px; padding: 0 10px; width: auto;}
@@ -3265,6 +3273,10 @@ a.button.center.details-more {display:none;}
 	.img-options .button:last-child {float:none; width:auto; display:block; clear:both;}
 
 	.event-single article figure.left {width: 45%; max-width: 160px;}
+
+	.payment-box-iframe {
+		height: 430px;
+	}
 	
 
 }
