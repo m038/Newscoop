@@ -233,7 +233,7 @@ $(window).load(function() {
 		$(this).parent().removeClass('active');
 	});*/
 	
-	$('.mobile-nav > li > a').click(function() {
+	$('.mobile-nav > li > a[href="#"]').click(function() {
 		if ($(this).parent().hasClass('active')) {
 			$('.mobile-nav > li').removeClass('active');
 		} else {
