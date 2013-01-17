@@ -190,6 +190,11 @@
             $.fancybox({
                 'content' : $("#kontakt-form").html()
             });
+             if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
+                // do something
+            } else { 
+                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+            } 
         });
 
         $('form#kontakt-form-form').live('submit', function(e){
@@ -286,12 +291,6 @@
                     });
                 }
             });
-
-            if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
-                // do something
-            } else { 
-                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
-            } 
 
             if ($(".fancybox-outer .dropdownized-fancy-2").hasClass('ui-dropdownized')) {
                 // do something
