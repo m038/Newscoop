@@ -1,4 +1,4 @@
-{{ $timestamp = sprintf('@%d', $gimme->debate_date_end) }}
+{{ $timestamp = sprintf('@%d', $gimme->debate->date_end) }}
 {{ $closingdate=date_create($timestamp) }}
 {{ $deadline=$closingdate->setTime(12, 0) }}
 {{ $diff=date_diff($deadline, date_create('now')) }}
