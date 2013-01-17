@@ -154,8 +154,7 @@
                                   <input type="checkbox" id="einloggt"> <label for="einloggt">Eingeloggt bleiben</label>
                                 </li>
                                 <li>
-                                  <p><a href="{{ $view->url(['controller' => 'register', 'action' => 'index'], 'default') }}">Registrieren</a><br>
-                                    <a href="{{ $view->url(['controller' => 'auth', 'action' => 'password-restore'], 'default') }}">Passwort vergessen</a></p>
+                                  <p><a href="{{ $view->url(['controller' => 'auth', 'action' => 'password-restore'], 'default') }}">Passwort vergessen</a></p>
                                 </li>
                             </ul>
                         </fieldset>
