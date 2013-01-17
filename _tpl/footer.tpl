@@ -223,12 +223,12 @@
             };
             {{ /dynamic }}
 
-            if ($('form#feedback-form-form input#feedback-attachment-type').val() == 'image') {
-                data['image_id'] = $('form#feedback-form-form input#feedback-attachment-id').val();
+            if ($('.fancybox-inner form#feedback-form-form input#feedback-attachment-type').val() == 'image') {
+                data['image_id'] = $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val();
             } else {
-                data['document_id'] = $('form#feedback-form-form input#feedback-attachment-id').val();
+                data['document_id'] = $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val();
             }
-            
+            console.log($('form#feedback-form-form input#feedback-attachment-id').val(), $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val(), data);
             $.ajax({
                 type: 'POST',
                 url: '{{ $view->baseUrl("/feedback/save/?format=json") }}',
@@ -243,7 +243,8 @@
             });
         });
 
-        $('a.show-feedback-form').click(function(){
+        $('a.show-feedback-form').live('click', function(e){
+            e.preventDefault();
             $.fancybox({
                 'content' : $("#feedback-form").html(),
                 'afterShow' : function(upcoming, current) {
@@ -263,6 +264,9 @@
                         ]
                     });
 
+                    uploader.bind('Init', function(up) {
+                        up.refresh();
+                    });
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
@@ -275,8 +279,10 @@
                     uploader.bind('FileUploaded', function(up, file, info) {
                         $('.fancybox-inner form#feedback-form-form div.show-value').html('{{ getGS('Done') }}');
                         var response = $.parseJSON(info['response'])['response'].split("_");
-                        $('.fancybox-inner form#feedback-form input#feedback-attachment-type').val(response[0]);
-                        $('.fancybox-inner form#feedback-form input#feedback-attachment-id').val(response[1]);
+                        $('.fancybox-inner form#feedback-form-form input#feedback-attachment-type').val(response[0]);
+                        $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val(response[1]);
+
+                        up.refresh();
                     });
                 }
             });
