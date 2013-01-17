@@ -295,9 +295,13 @@ var meteonews = {
 
         this._send(feed, params, function(response) {
             $('#mn-sun-up').html(response.astronomy.content.day.sunrise + ' Uhr');        
-            $('#mn-sun-down').html(response.astronomy.content.day.sunset + ' Uhr');        
-            $('#mn-moon-up').html(response.astronomy.content.day.moonset + ' Uhr');        
-            $('#mn-moon-down').html(response.astronomy.content.day.moonrise + ' Uhr');        
+            $('#mn-sun-down').html(response.astronomy.content.day.sunset + ' Uhr');
+            if (response.astronomy.content.day.moonset) { 
+                $('#mn-moon-up').html(response.astronomy.content.day.moonset + ' Uhr');
+            } else {
+                $('#mn-moon-up').html('');
+            }
+            $('#mn-moon-down').html(response.astronomy.content.day.moonrise + ' Uhr');
         });
     },
 
