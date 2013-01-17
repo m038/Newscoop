@@ -33,14 +33,19 @@
 
                 <div id='mn-forecast-details' class='spec-tabs'>
                     <!-- forecast overview button bar -->
-                    <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line' roll='tablist' style=''></ul>
+                    <ul id='mn-forecast-button-bar' class='button-nav top-fix bottom-line'>
+                        <li><a id='mn-tab-1-link' href="#tab-1" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-1-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-2-link' href="#tab-2" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-2-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-3-link' href="#tab-3" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-3-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-4-link' href="#tab-4" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-4-label" class="desktop-hide">.</span></a></li>
+                        <li><a id='mn-tab-5-link' href="#tab-5" class="button white"><span class="mobile-hide">Detailprognose</span><span id="mn-tab-5-label" class="desktop-hide">.</span></a></li>
+                    </ul>
 
                     <!-- forecast-details-table -->
-                    <div class="collapsable-table ui-tabs-panel ui-widget-content ui-corner-bottom" id="tab-1" aria-labelledby="ui-id-1" role="tabpanel" style="" aria-expanded="true" aria-hidden="false">
-                        <a href="#" class="button white prev next-tab mover" rel="2" style="display: none;">&gt;</a>
-                        <h4 id='mn-prognose-date'></h4>
+                    <div class="collapsable-table" id="tab-1">
+                        <h4 class='mn-prognose-date'></h4>
                         <div class='table-wrapper'>
-                            <table id='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
+                            <table class='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
                                 <colgroup>
                                     <col width="68">
                                     <col width="190">
@@ -49,7 +54,83 @@
                                     <col width="135">
                                     <col width="">
                                 </colgroup>
-                                <tbody id='mn-forecast-details-table-body'>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- / forecast-details-table -->
+
+                    <!-- forecast-details-table -->
+                    <div class="collapsable-table" id="tab-2">
+                        <h4 class='mn-prognose-date'></h4>
+                        <div class='table-wrapper'>
+                            <table class='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
+                                <colgroup>
+                                    <col width="68">
+                                    <col width="190">
+                                    <col width="100">
+                                    <col width="170">
+                                    <col width="135">
+                                    <col width="">
+                                </colgroup>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- / forecast-details-table -->
+
+                    <!-- forecast-details-table -->
+                    <div class="collapsable-table" id="tab-3">
+                        <h4 class='mn-prognose-date'></h4>
+                        <div class='table-wrapper'>
+                            <table class='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
+                                <colgroup>
+                                    <col width="68">
+                                    <col width="190">
+                                    <col width="100">
+                                    <col width="170">
+                                    <col width="135">
+                                    <col width="">
+                                </colgroup>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- / forecast-details-table -->
+
+                    <!-- forecast-details-table -->
+                    <div class="collapsable-table" id="tab-4">
+                        <h4 class='mn-prognose-date'></h4>
+                        <div class='table-wrapper'>
+                            <table class='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
+                                <colgroup>
+                                    <col width="68">
+                                    <col width="190">
+                                    <col width="100">
+                                    <col width="170">
+                                    <col width="135">
+                                    <col width="">
+                                </colgroup>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- / forecast-details-table -->
+
+                    <!-- forecast-details-table -->
+                    <div class="collapsable-table" id="tab-5">
+                        <h4 class='mn-prognose-date'></h4>
+                        <div class='table-wrapper'>
+                            <table class='mn-forecast-details-table' cellpadding='0' cellspacing='0'>
+                                <colgroup>
+                                    <col width="68">
+                                    <col width="190">
+                                    <col width="100">
+                                    <col width="170">
+                                    <col width="135">
+                                    <col width="">
+                                </colgroup>
+                                <tbody>
                                 </tbody>
                             </table>
                         </div>

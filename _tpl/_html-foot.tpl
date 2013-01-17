@@ -51,7 +51,7 @@
     
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
-  
+  <!--
   <script type="text/javascript">
     $(document).ready(function(){
         $(".dropdownized").change(function () {
@@ -60,3 +60,5 @@
         });
     });
   </script>
+
+-->

@@ -2,7 +2,8 @@
     
     	<div class="content-wrapper" id="footer">
 
-{{ local }}        
+{{ local }}
+{{ unset_topic }}     
 
         	<ul class="footer-list equal-heights clearfix">        	
             	<li>
@@ -26,7 +27,7 @@
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
                         {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
-                        <li><a href="{{ url option="article"}}?pg=prognosen">Wetter</a></li>
+                        <li><a href="{{ url options="article"}}?pg=prognosen">Wetter</a></li>
                         {{ /list_articles }}
                     </ul>
                 </li>               
@@ -117,7 +118,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized">
+                            <select class="dropdownized22">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -149,7 +150,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized" style="min-width: 200px;">
+                            <select class="dropdownized-fancy-1" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -279,6 +280,11 @@
                     });
                 }
             });
+            if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
+                // do something
+            } else { 
+                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+            } 
         });
     });
     </script>

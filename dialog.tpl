@@ -19,6 +19,7 @@
                     <div class="two-columns equal-heights bottom-line clearfix">
 
                     	{{ list_articles length="1" constraints="type is debatte" }}
+                    	{{ assign var="artNo" value=$gimme->article->number }}
                     	<div class="box">
                         	
                             <header>
@@ -54,9 +55,8 @@
                 
                 </div>
                 
-                {{ list_articles length="3" constraints="type is debatte" }}
-                {{ if $gimme->current_list->index gt 1 }}
-                {{ if $gimme->current_list->index == 2 }}
+                {{ list_articles length="2" constraints="type is debatte number not $artNo" }}
+                {{ if $gimme->current_list->at_beginning }}
                 <h4 class="center-title">Abgeschlossene Debatten</h4>
                 <div class="two-columns clearfix margin-bottom equal-heights">              
                 {{ /if }}
@@ -68,8 +68,7 @@
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
-                {{ /if }}
-                {{ if $gimme->current_list->index == 3 || $gimme->current_list->at_end }}
+                {{ if $gimme->current_list->index == 2 || $gimme->current_list->at_end }}
                 </div><!-- / 2 columns -->
                 {{ /if }}
                 {{ /list_articles }}                
