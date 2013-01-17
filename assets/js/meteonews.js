@@ -778,23 +778,40 @@ var meteonews = {
     showSearchResults: function(response) {
         var output = '';
         var results = response.search.content.suggest;
-        for (var r in results) {
-            var result = results[r];
+        if (results instanceof Array) {
+            for (var r in results) {
+                var result = results[r];
+                output += "<div class='mn-search-result' ";
+                output += "data-id='" + result.geoname_id + "' ";
+                output += "data-zip='" + result.zip + "' ";
+                output += "data-name='" + result.name + "'>";
+                output += "<ul>";
+
+                var label = result.name;
+                if (result.state) {
+                    label += ", " + result.state;
+                }
+                label += ", " + result.country;
+
+                output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
+                output += "</ul></div>";
+
+            }
+        } else {
             output += "<div class='mn-search-result' ";
-            output += "data-id='" + result.geoname_id + "' ";
-            output += "data-zip='" + result.zip + "' ";
-            output += "data-name='" + result.name + "'>";
+            output += "data-id='" + results.geoname_id + "' ";
+            output += "data-zip='" + results.zip + "' ";
+            output += "data-name='" + results.name + "'>";
             output += "<ul>";
 
-            var label = result.name;
-            if (result.state) {
-                label += ", " + result.state;
+            var label = results.name;
+            if (results.state) {
+                label += ", " + results.state;
             }
-            label += ", " + result.country;
+            label += ", " + results.country;
 
             output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
             output += "</ul></div>";
-
         }
         $('#mn-search-results').html(output);
         $('#mn-search-results').show();
