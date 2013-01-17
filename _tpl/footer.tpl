@@ -266,14 +266,14 @@
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
-                        $('.fancybox-inner form#feedback-form div.show-value').html('{{ getGS('Uploading...') }}');
+                        $('.fancybox-inner form#feedback-form-form div.show-value').html('{{ getGS('Uploading...') }}');
                         up.start();
 
                         up.refresh(); // Reposition Flash/Silverlight
                     });
 
                     uploader.bind('FileUploaded', function(up, file, info) {
-                        $('.fancybox-inner form#feedback-form div.show-value').html('{{ getGS('Done') }}');
+                        $('.fancybox-inner form#feedback-form-form div.show-value').html('{{ getGS('Done') }}');
                         var response = $.parseJSON(info['response'])['response'].split("_");
                         $('.fancybox-inner form#feedback-form input#feedback-attachment-type').val(response[0]);
                         $('.fancybox-inner form#feedback-form input#feedback-attachment-id').val(response[1]);
