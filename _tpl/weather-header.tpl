@@ -14,7 +14,7 @@
                     <div class="popup">
                         <div class="weather-popup clearfix">
                             <div class="info">
-                                {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+                                {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
                                 <p><strong>Das Wetter heute in Luzern</strong> <a href="{{ url options="article" }}?pg=local&location_id=2659811&location_name=Luzern" class="button white">Details</a></p>
                                 {{ /list_articles }}
                                 <ul>
@@ -54,7 +54,7 @@
                                         {{ /list_weather_stats }}
                                     </li>
                                 </ul>
-                                {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+                                {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
                                 <p><strong>Das Wetter heute in Zug</strong> <a href="{{ url options="article" }}?pg=local&location_id=7287644&location_name=Zug" class="button white">Details</a></p>
                                 {{ /list_articles }}
                                 <ul>
@@ -99,7 +99,7 @@
                                 <fieldset class="search">
                                     <input id='mn-header-search-text' type="text" placeholder="Ort, PLZ, Ausflugsziel">
                                     <input id='mn-header-search-btn' type="submit" value="Go">
-{{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+{{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
 <script type="text/javascript">
     $('#mn-header-search-btn').click(function() {
         window.location = '{{ url options="article"}}?pg=search&q='+$('#mn-header-search-text').val();
@@ -109,7 +109,7 @@
                                 </fieldset>
                                 <p>Geben Sie hier einen Ort oder Region nach Wunsch in der Zentralschweiz ein</p>
                                 <ul>
-                                    {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+                                    {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
                                     <li><a href='{{ url options="article"}}?pg=prognosen'>Prognosen Zentralschweiz</a></li>
                                     <li><a href="{{ url options="article"}}?pg=local">Lokalwetter</a></li>
                                     <li><a href="{{ url options="article"}}?pg=pistenbericht">Pistenbericht</a></li>
