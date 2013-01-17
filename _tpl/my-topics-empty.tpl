@@ -19,7 +19,8 @@
                 <div class="main">
                     
                     <article class="no-content">
-                    	<p>Sie haben noch keine Themen abonniert. Um ein Thema zu abonnieren, klicken Sie auf die entsprechende Funktion bei einem Artikel. ( <a href="#"class="icon-tag">Themen abonnieren</a>)</p>
+                    	<p>Sie haben noch keine Themen abonniert. Um ein Thema zu abonnieren, klicken Sie auf die entsprechende Funktion bei einem Artikel.<br /> 
+Das Abonnieren von Themen ist Community-Mitgliedern vorbehalten. ( <a href="#"class="icon-tag">Themen abonnieren</a>)</p>
                     </article>
                 
                 </div><!-- / Main -->            
