@@ -228,7 +228,7 @@
             } else {
                 data['document_id'] = $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val();
             }
-            console.log($('form#feedback-form-form input#feedback-attachment-id').val(), $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val(), data);
+            
             $.ajax({
                 type: 'POST',
                 url: '{{ $view->baseUrl("/feedback/save/?format=json") }}',
@@ -265,8 +265,12 @@
                     });
 
                     uploader.bind('Init', function(up) {
-                        up.refresh();
+                        var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                        if (is_firefox) {
+                            uploader.refresh();
+                        }
                     });
+
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
