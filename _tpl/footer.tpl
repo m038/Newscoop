@@ -96,12 +96,12 @@
             <p class="foot-copyright"><a target="_blank" href="http://www.mmv-online.ch">© MMV online AG - Alle Rechte vorbehalten</a></p>
 
             <ul class="phone-footer-nav">
-               {{ set_article name="Kontakt" }}
-            	<li><a href="{{ url options="article" }}">Kontakt</a></li>
-            	{{ set_article name="Impressum" }}
-            	<li><a href="{{ url options="article" }}">Impressum</a></li>
-            	{{ set_article name="AGB" }}
-            	<li><a href="{{ url options="article" }}">AGB</a></li>
+               {{ set_article number="11143" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+            	{{ set_article number="11141" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+            	{{ set_article number="11147" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
             </ul>
 
 {{ /local }}
