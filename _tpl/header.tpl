@@ -174,6 +174,7 @@
               <li class="mobile-hide">
                   <a href="#" class="place-trigger">{{ if $gimme->user['region'] == 'zug' }}Zug{{ elseif $gimme->user['region'] == 'luzern' }}Luzern{{ else }}Luzern und Zug{{ /if }}</a>
                     <div class="popup">
+                    {{ dynamic }}
                       {{ if !$gimme->user->logged_in }}
                       <p>Mitglieder der Zentral+ Community können regionale Präferenzen setzen.<br />Bitte <a href="{{ $view->url(['controller' => 'auth', 'action' => 'index'], 'default') }}">melden Sie sich an</a>.</p>
                       {{ else }}
@@ -188,6 +189,7 @@
                           {{ /if }}
                         </ul>
                       {{ /if }}
+                      {{ /dynamic }}
                     </div>
                 </li>
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>

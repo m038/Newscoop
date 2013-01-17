@@ -45,6 +45,16 @@
                 'info_button': ' Die Sharing-Buttons können Benutzungsdaten an Facebook, Twitter oder Google übermitteln. Wir haben sie deshalb standardmässig deaktiviert. Bitte aktivieren Sie sie, um sie zu nutzen.'        
         }); 
       }    
+        {{ dynamic }}
+        {{ if $gimme->user->is_admin }}
+        $('a.editlink').each(function() {
+            this.href = 'http://{{ $gimme->publication->site }}/admin/articles/edit.php?' + this.href.replace(/^.*#/, '');
+        }).toggle();
+        $('a.dashboard-editlink').each(function() {
+            this.href = 'http://{{ $gimme->publication->site }}/admin/';
+        }).toggle();
+        {{ /if }}
+        {{ /dynamic }}
 
     });
   </script> 
@@ -60,5 +70,4 @@
         });
     });
   </script>
-
 -->

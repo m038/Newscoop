@@ -1,3 +1,4 @@
+{{ set_default_section }}
 {{ include file="_tpl/_html-head.tpl" }}
 
 {{ include file="_ausgehen/api-teaser.tpl" }}
