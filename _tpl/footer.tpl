@@ -188,9 +188,9 @@
     $(document).ready(function(){
         $('a.show-contact-form').live('click', function(e){
             e.preventDefault();
-            
+
             $.fancybox({
-                'content' : $("#kontakt-form").html(),
+                'content' : $("#kontakt-form").html(), 
                 afterShow: function(){
                     if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
                         // do something
