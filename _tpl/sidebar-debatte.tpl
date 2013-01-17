@@ -21,9 +21,7 @@
         							<li style="width:{{ $answer.percent }}%;" class="{{ if $answer@first }}ja{{ else }}nein{{ /if }}"><span><b>{{ $answer.answer|escape }}</b> {{ $answer.percent }}%</span></li>
         						{{ /foreach }}
     							</ul>
- 						      {{* if $gimme->debate->is_votable *}}
-                        <p>Noch 3 Tage und 2 Stunden <span class="comm">3</span></p>
-                        {{* /if *}}
+                                {{ include file="_tpl/debatte-deadline.tpl" }}
                     </div>
                 </div>
 	                 

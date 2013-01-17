@@ -19,6 +19,7 @@
                     <div class="two-columns equal-heights bottom-line clearfix">
 
                     	{{ list_articles length="1" constraints="type is debatte" }}
+                    	{{ assign var="artNo" value=$gimme->article->number }}
                     	<div class="box">
                         	
                             <header>
@@ -54,9 +55,8 @@
                 
                 </div>
                 
-                {{ list_articles length="3" constraints="type is debatte" }}
-                {{ if $gimme->current_list->index gt 1 }}
-                {{ if $gimme->current_list->index == 2 }}
+                {{ list_articles length="2" constraints="type is debatte number not $artNo" }}
+                {{ if $gimme->current_list->at_beginning }}
                 <h4 class="center-title">Abgeschlossene Debatten</h4>
                 <div class="two-columns clearfix margin-bottom equal-heights">              
                 {{ /if }}
@@ -68,8 +68,7 @@
                         </figure>
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
-                {{ /if }}
-                {{ if $gimme->current_list->index == 3 || $gimme->current_list->at_end }}
+                {{ if $gimme->current_list->index == 2 || $gimme->current_list->at_end }}
                 </div><!-- / 2 columns -->
                 {{ /if }}
                 {{ /list_articles }}                
@@ -83,7 +82,7 @@
 {{ include file="_tpl/sidebar-community.tpl" }}
                 
                 <div class="box">
-                	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fplatform&amp;width=350&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23fff&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:350px; height:258px;" allowTransparency="true"></iframe>
+                	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fzentralplus&amp;width=350&amp;height=290&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=true&amp;appId=118901678281903" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:350px; height:290px;" allowTransparency="true"></iframe>
                 </div>
                 
                 <div class="box">

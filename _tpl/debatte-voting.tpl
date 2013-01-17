@@ -5,20 +5,10 @@
     {{ include file="_tpl/debate_votes_total.tpl" scope="parent" }}
 
     {{ if $gimme->debate->is_votable }}
-    {{ $smarty.capture.votes }}
-    
-        {{* $closingdate=date_create($gimme->debate->date_end) }}
-        {{ $deadline=$closingdate->setTime(12, 0) }}
-        {{ $diff=date_diff($deadline, date_create('now')) }}
-        {{ if $deadline->getTimestamp() > time() }}
-        <p>Noch {{ $diff->days }} Tage, {{ $diff->h }} Stunden, {{ $diff->i }} Minuten {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
-        {{ else }}
-        <p>Diskussion geschlossen am {{ $deadline->format('j.n.Y') }} um 12:00 Uhr {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
-        {{ /if *}} 
-        
-        <p>Noch 3 Tage und 2 Stunden {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>      
-    
-    {{ /if }}
+        {{ $smarty.capture.votes }}
+        {{ include file="_tpl/debatte-deadline.tpl" }}
+    {{ /if }}     
+
 
 {{ if $gimme->default_article->defined }}
 	<div class="vote-box">

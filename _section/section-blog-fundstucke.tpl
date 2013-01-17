@@ -12,7 +12,7 @@
 		<div class="photo-blog-top clearfix">
         	<h2>{{ $gimme->article->name }}</h2>
             <p><img src="{{ uri static_file="pictures/title-icons/camera.png" }}" alt="" />{{ $gimme->article->infolong }}</p>
-            {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
+            {{ if is_object($gimme->user) && $gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
         </div>
 {{ /list_articles }}
         
@@ -53,13 +53,8 @@
                     	{{ /list_article_images }}
                     </figure>
                     {{ /if }}
-<<<<<<< HEAD
-                                        
+ 
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
-=======
-                                        
-                        <p>{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">Zur Gallerie</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
->>>>>>> MOTM-38
                     </article>
                     
 {{ if $gimme->current_list->at_end }}            

@@ -113,22 +113,24 @@
             {{ else }}
               <li class="expandable">
                   <a href="#">Registrieren</a>
-                    <div class="popup popup-register">
-                      <p>Mit Ihrem Benutzerkonto können Sie Artikel kommentieren und mit anderen Leserinnen und Lesern in Kontakt treten.</p>
-                        <p>Das Benutzerkonto ist kostenlos und kann jederzeit wieder gelöscht werden.</p>
+                  <div class="popup popup-register">
+                    <p>Mit Ihrem Benutzerkonto können Sie Artikel kommentieren und mit anderen Leserinnen und Lesern in Kontakt treten.</p>
+                      <p>Das Benutzerkonto ist kostenlos und kann jederzeit wieder gelöscht werden.</p>
+                      <form method="get" action="/register">
                         <fieldset>
                           <ul>
                               <li>
                                   <label>Bitte geben Sie Ihre E-Mail Adresse ein.</label>
-                                  <input type="text">
+                                  <input type="text" name="proposed_email">
                                 </li>
                                 <li class="side-by-side">
                                   <a href="#" class="button white left">Nein, Danke</a>
-                                    <a href="#" class="button red right">Abschicken</a>
+                                  <input type="submit" class="button red right" value="Abschicken" />
                                 </li>
                           </ul>
                         </fieldset>
-                    </div>
+                      </form>
+                  </div>
                 </li>
               <li class="expandable">
                   <a href="#">Anmelden</a>
@@ -163,16 +165,17 @@
                 </li>
             {{ /if }}
             </ul>
-        
         </div><!-- / Header -->
         
         <div class="content-top">
           
             <ul class="place-date">
-              {{ if $gimme->user->logged_in }}
               <li class="mobile-hide">
                   <a href="#" class="place-trigger">{{ if $gimme->user['region'] == 'zug' }}Zug{{ elseif $gimme->user['region'] == 'luzern' }}Luzern{{ else }}Luzern und Zug{{ /if }}</a>
                     <div class="popup">
+                      {{ if !$gimme->user->logged_in }}
+                      <p>Mitglieder der Zentral+ Community können regionale Präferenzen setzen.<br />Bitte <a href="{{ $view->url(['controller' => 'auth', 'action' => 'index'], 'default') }}">melden Sie sich an</a>.</p>
+                      {{ else }}
                       <p>Ihre regionale Präferenz <a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">ändern</a>:</p>
                         <ul>
                           {{ if $gimme->user['region'] == 'zug' }}
@@ -183,9 +186,9 @@
                           <li><a>Ich habe keine Präferenzen</a></li>
                           {{ /if }}
                         </ul>
+                      {{ /if }}
                     </div>
                 </li>
-                {{ /if }}
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
           <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>

@@ -27,7 +27,7 @@
                     <article>
                         <h5>Verwandte Artikel</h5>
                     {{ /if }}
-                        <p><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> {{ $gimme->article->name }} <span class="comm">3</span></p>
+                        <p>{{ $gimme->article->dateline }} <a href="{{ url options="article" }}">{{ $gimme->article->name }}</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     {{ if $gimme->current_list->at_end }}                                            
                     </article>
                     {{ /if }}

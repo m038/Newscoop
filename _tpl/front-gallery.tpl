@@ -15,7 +15,7 @@
                     
                     <div class="clearfix side-padding">
                     	<a href="{{ url options="section" }}" class="button white left">Zu allen Fundstücken</a>
-                        {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
+                        {{ if is_object($gimme->user) && $gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
                     </div>
                     
 {{ /list_articles }}                

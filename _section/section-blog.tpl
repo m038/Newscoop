@@ -137,6 +137,8 @@
         
         <div class="four-columns left-thumb small-type equal-heights clearfix">
 
+{{ local }} 
+{{ unset_topic }}
 {{ list_articles length="4" columns="2" ignore_section="true" order="bypublishdate desc" constraints="type is blog" }}                
             <article>
                 <figure>
@@ -151,6 +153,7 @@
             </article>
             
 {{ /list_articles }}
+{{ /local }}
         
         </div>
         

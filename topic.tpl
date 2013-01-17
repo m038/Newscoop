@@ -14,7 +14,7 @@
             
               <div class="events-aside info-text clearfix">
                   
-                    <div class="box desktop-hide">
+                    <div class="hide">
                         <h4>Zeige</h4>
                         <select class="dropdownized">
                             <option value="Alle Themen">Alle Themen</option>
@@ -23,16 +23,13 @@
                         </select>
                     </div>
                     
-                  <ul class="custom-list tag-list">
+                  <ul class="hide">
                       <li class="active"><a href="#">Alle Themen</a></li>
                       <li><a href="#">Energiepolitk</a></li>
                       <li><a href="#">AKW</a></li>
                     </ul>
                     
-                    <a href="#themen-verwalten" class="button white wide fancybox">Themen verwalten</a>
-                  
-                    <h4>Über «Meine Themen»</h4>
-                    <p>Auf dieser Seite sehen Sie alle aktuellen Artikel zu den Themen, die Sie abonniert haben.</p>
+                    <!--a href="#themen-verwalten" class="button white wide fancybox">Themen verwalten</a-->
                 
                 </div>
     

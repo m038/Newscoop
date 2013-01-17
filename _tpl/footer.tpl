@@ -2,7 +2,8 @@
     
     	<div class="content-wrapper" id="footer">
 
-{{ local }}        
+{{ local }}
+{{ unset_topic }}     
 
         	<ul class="footer-list equal-heights clearfix">        	
             	<li>
@@ -22,11 +23,11 @@
                     <ul>
                     		<!-- Delete asterisk (*) when link is created dynamically -->
                     	   <li><a href="/my-topics">Meine Themen</a></li>
-                    		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
+                    		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80 number not 50" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
                         {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
-                        <li><a href="{{ url option="article"}}?pg=prognosen">Wetter</a></li>
+                        <li><a href="{{ url options="article"}}?pg=prognosen">Wetter</a></li>
                         {{ /list_articles }}
                     </ul>
                 </li>               
@@ -111,12 +112,13 @@
 
     <div class="hide">
         <div id="kontakt-form" class="popup-form">
+            <div class="popup-form">
             <h4>Kontakt</h4>
-            <form method="POST" id="kontakt-form" action="/contact/send" style="min-width:400px;">
+            <form method="POST" id="kontakt-form-form" action="/contact/send" style="min-width:400px;">
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized">
+                            <select class="dropdownized22">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -139,14 +141,16 @@
                     </ul>
                 </fieldset>
             </form>
+            </div>
         </div>
         <div id="feedback-form" class="popup-form">
-            <form method="POST" id="feedback-form" action="/feedback/save" style="min-width:400px;">
+            <div class="popup-form">
+            <form method="POST" id="feedback-form-form" action="/feedback/save" style="min-width:400px;">
                 <h4>Feedback</h4>
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized" style="min-width: 200px;">
+                            <select class="dropdownized-fancy-1" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -177,6 +181,7 @@
                     </ul>
                 </fieldset>
             </form>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
@@ -187,7 +192,7 @@
             });
         });
 
-        $('form#kontakt-form').live('submit', function(e){
+        $('form#kontakt-form-form').live('submit', function(e){
             e.preventDefault();
             var form = this;
             $.ajax({
@@ -202,7 +207,7 @@
             });
         });
 
-        $('form#feedback-form').live('submit', function(e) {
+        $('form#feedback-form-form').live('submit', function(e) {
             e.preventDefault();
             var form = this;
 
@@ -218,10 +223,10 @@
             };
             {{ /dynamic }}
 
-            if ($('form#feedback-form input#feedback-attachment-type').val() == 'image') {
-                data['image_id'] = $('form#feedback-form input#feedback-attachment-id').val();
+            if ($('form#feedback-form-form input#feedback-attachment-type').val() == 'image') {
+                data['image_id'] = $('form#feedback-form-form input#feedback-attachment-id').val();
             } else {
-                data['document_id'] = $('form#feedback-form input#feedback-attachment-id').val();
+                data['document_id'] = $('form#feedback-form-form input#feedback-attachment-id').val();
             }
             
             $.ajax({
@@ -261,20 +266,26 @@
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
-                        $('.fancybox-inner form#feedback-form div.show-value').html('{{ getGS('Uploading...') }}');
+                        $('.fancybox-inner form#feedback-form-form div.show-value').html('{{ getGS('Uploading...') }}');
                         up.start();
 
                         up.refresh(); // Reposition Flash/Silverlight
                     });
 
                     uploader.bind('FileUploaded', function(up, file, info) {
-                        $('.fancybox-inner form#feedback-form div.show-value').html('{{ getGS('Done') }}');
+                        $('.fancybox-inner form#feedback-form-form div.show-value').html('{{ getGS('Done') }}');
                         var response = $.parseJSON(info['response'])['response'].split("_");
                         $('.fancybox-inner form#feedback-form input#feedback-attachment-type').val(response[0]);
                         $('.fancybox-inner form#feedback-form input#feedback-attachment-id').val(response[1]);
                     });
                 }
             });
+
+            if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
+                // do something
+            } else { 
+                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+            } 
         });
     });
     </script>
