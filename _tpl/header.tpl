@@ -106,6 +106,7 @@
             {{ include file="_tpl/weather-header.tpl" }} 
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
+{{ dynamic }}
             <ul class="header-menu">
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
@@ -166,15 +167,17 @@
                 </li>
             {{ /if }}
             </ul>
+{{ /dynamic }}
         </div><!-- / Header -->
         
+
+{{ dynamic }}
         <div class="content-top">
           
             <ul class="place-date">
               <li class="mobile-hide">
                   <a href="#" class="place-trigger">{{ if $gimme->user['region'] == 'zug' }}Zug{{ elseif $gimme->user['region'] == 'luzern' }}Luzern{{ else }}Luzern und Zug{{ /if }}</a>
                     <div class="popup">
-                    {{ dynamic }}
                       {{ if !$gimme->user->logged_in }}
                       <p>Mitglieder der Zentral+ Community können regionale Präferenzen setzen.<br />Bitte <a href="{{ $view->url(['controller' => 'auth', 'action' => 'index'], 'default') }}">melden Sie sich an</a>.</p>
                       {{ else }}
@@ -189,7 +192,6 @@
                           {{ /if }}
                         </ul>
                       {{ /if }}
-                      {{ /dynamic }}
                     </div>
                 </li>
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
@@ -203,3 +205,4 @@
                     </fieldset>
         
         </div><!-- / Content Top -->
+{{ /dynamic }}
