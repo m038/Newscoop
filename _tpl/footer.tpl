@@ -23,7 +23,7 @@
                     <ul>
                     		<!-- Delete asterisk (*) when link is created dynamically -->
                     	   <li><a href="/my-topics">Meine Themen</a></li>
-                    		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80" }}
+                    		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80 number not 50" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
                         {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
@@ -118,7 +118,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized22">
+                            <select class="dropdownized-fancy-1">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -150,7 +150,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized-fancy-1" style="min-width: 200px;">
+                            <select class="dropdownized-fancy-2" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -186,9 +186,18 @@
     </div>
     <script type="text/javascript">
     $(document).ready(function(){
-        $('a.show-contact-form').click(function(){
+        $('a.show-contact-form').live('click', function(e){
+            e.preventDefault();
+            
             $.fancybox({
-                'content' : $("#kontakt-form").html()
+                'content' : $("#kontakt-form").html(),
+                afterShow: function(){
+                    if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
+                        // do something
+                    } else { 
+                        $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+                    }
+                }
             });
         });
 
@@ -214,7 +223,7 @@
             {{ dynamic }}
             var data = {
                 f_feedback_url: String(document.location),
-                f_feedback_subject: $('finput#feedback-subject', form).val(),
+                f_feedback_subject: $('input#feedback-subject', form).val(),
                 f_feedback_content: $('textarea#feedback-content', form).val(),
                 f_language: '{{ $gimme->language->number }}',
                 f_section: '{{ $gimme->section->id }}',
@@ -288,14 +297,14 @@
 
                         up.refresh();
                     });
+
+                    if ($(".fancybox-outer .dropdownized-fancy-2").hasClass('ui-dropdownized')) {
+                        // do something
+                    } else { 
+                        $(".fancybox-outer .dropdownized-fancy-2").dropdownized(); 
+                    } 
                 }
             });
-
-            if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
-                // do something
-            } else { 
-                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
-            } 
         });
     });
     </script>

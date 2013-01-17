@@ -30,9 +30,6 @@
                     </ul>
                     
                     <!--a href="#themen-verwalten" class="button white wide fancybox">Themen verwalten</a-->
-                  
-                    <h4>Über «Meine Themen»</h4>
-                    <p>Auf dieser Seite sehen Sie alle aktuellen Artikel zu den Themen, die Sie abonniert haben.</p>
                 
                 </div>
     

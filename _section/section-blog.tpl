@@ -79,7 +79,8 @@
 {{ if $gimme->default_section->number == "25" }}
                 <div class="left-thumb bottom-line small-type clearfix mobile-hide">
                     <figure><img alt="" src="{{ uri static_file="pictures/title-icons/bag.png" }}"></figure>
-                    <p>Lokale Spezialitägen haben noch inverero ipsant que labo. Ro idiande rferion sectus et accum facesti nctiatiis evendae.</p>
+                    <p>Wir schauen über den Tellerrand: «Was gibt's wo» stellt regionale Besonderheiten, angesagte Geschäfte, ausgesuchte Produkte oder empfehlenswerte Aktivitäten vor.<br /> 
+Und wie immer gilt: Die Zentralschweiz steht dabei voll und ganz im Mittelpunkt. </p>
                 </div>
 {{ else }}
 {{ list_articles length="1" constraints="type is bloginfo" }}  

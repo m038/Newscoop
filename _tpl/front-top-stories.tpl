@@ -30,8 +30,7 @@
                 </article>
                  
                 <div class="ad bottom-line">
-                  <small>Werbung</small>
-                  {{ include file="_ads/front-middle.tpl" }}
+                  {{ include file="_tpl/weather-mobile-header.tpl" }}
                 </div>                
 {{ /if }}
 

@@ -22,7 +22,7 @@
                                         <input type="checkbox" id="einloggt2"><label for="einloggt2">Eingeloggt bleiben</label>
                                     </li>
                                     <li class="side-by-side clearfix">
-                                        <a href="#" class="button white left">Registrieren</a>
+                                        <a href="{{ $view->url(['controller' => 'register', 'action' => 'index'], 'default') }}" class="button white left">Registrieren</a>
                                         <a href="#" class="button white right forgot-pass-trigger">Paswort vergessen</a>
                                     </li>
                                 </ul>
@@ -154,8 +154,7 @@
                                   <input type="checkbox" id="einloggt"> <label for="einloggt">Eingeloggt bleiben</label>
                                 </li>
                                 <li>
-                                  <p><a href="{{ $view->url(['controller' => 'register', 'action' => 'index'], 'default') }}">Registrieren</a><br>
-                                    <a href="{{ $view->url(['controller' => 'auth', 'action' => 'password-restore'], 'default') }}">Passwort vergessen</a></p>
+                                  <p><a href="{{ $view->url(['controller' => 'auth', 'action' => 'password-restore'], 'default') }}">Passwort vergessen</a></p>
                                 </li>
                             </ul>
                         </fieldset>
@@ -171,10 +170,12 @@
         <div class="content-top">
           
             <ul class="place-date">
-              {{ if $gimme->user->logged_in }}
               <li class="mobile-hide">
                   <a href="#" class="place-trigger">{{ if $gimme->user['region'] == 'zug' }}Zug{{ elseif $gimme->user['region'] == 'luzern' }}Luzern{{ else }}Luzern und Zug{{ /if }}</a>
                     <div class="popup">
+                      {{ if !$gimme->user->logged_in }}
+                      <p>Mitglieder der Zentral+ Community können regionale Präferenzen setzen.<br />Bitte <a href="{{ $view->url(['controller' => 'auth', 'action' => 'index'], 'default') }}">melden Sie sich an</a>.</p>
+                      {{ else }}
                       <p>Ihre regionale Präferenz <a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">ändern</a>:</p>
                         <ul>
                           {{ if $gimme->user['region'] == 'zug' }}
@@ -185,9 +186,9 @@
                           <li><a>Ich habe keine Präferenzen</a></li>
                           {{ /if }}
                         </ul>
+                      {{ /if }}
                     </div>
                 </li>
-                {{ /if }}
                 <li><span>{{ $smarty.now|camp_date_format:"%W, %e.%m.%Y" }}</span></li>
             </ul>
           <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}Aktuell{{ elseif $gimme->template->name == "search.tpl" }}Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}Wetter{{ elseif $gimme->section->defined }}{{ $gimme->section->name }}{{ /if }}{{ else }}Blogs{{ /if }}{{/block}}</h2>
