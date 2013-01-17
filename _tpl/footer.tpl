@@ -118,7 +118,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized22">
+                            <select class="dropdownized-fancy-1">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -150,7 +150,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized-fancy-1" style="min-width: 200px;">
+                            <select class="dropdownized-fancy-2" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -291,6 +291,12 @@
                 // do something
             } else { 
                 $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+            } 
+
+            if ($(".fancybox-outer .dropdownized-fancy-2").hasClass('ui-dropdownized')) {
+                // do something
+            } else { 
+                $(".fancybox-outer .dropdownized-fancy-2").dropdownized(); 
             } 
         });
     });
