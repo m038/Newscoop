@@ -26,7 +26,7 @@
                     <p>Themen zum Artikel:
                     {{ list_article_topics }}
                         {{ $topics[] = $gimme->topic }}
-                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end || $gimme->current_list->count !== 1 }}, {{ /if }}
+                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end || !($gimme->current_list->count == 1) }}, {{ /if }}
                     {{ /list_article_topics }}<br />
                     {{ if $gimme->user->defined }}
                         <a href="#themen-verwalten" class="fancybox icon-tag">Themen abonnieren</a>

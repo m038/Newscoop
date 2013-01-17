@@ -33,7 +33,7 @@
 {{ /image }} 
 {{ /if }}
                    
-                    <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" class="right print-small">Print</a></p>             
+                    <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" onclick="window.print();return false" class="right print-small">Print</a></p>            
 
                     {{ include file="_tpl/_admin-edit.tpl" }}
 

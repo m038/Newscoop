@@ -2,40 +2,40 @@
 
 <body>
 
-	<div class="content-wrapper">
+  <div class="content-wrapper">
     
 {{ include file="_tpl/header-nav.tpl" }}
         
 {{ include file="_tpl/header.tpl" }}
 
-		<div class="content bottom-line clearfix">
+    <div class="content bottom-line clearfix">
             
 {{ include file="_tpl/front-top-stories.tpl" }}
                                        
             <div class="aside">
             
-            	<div class="box">
+              <div class="box">
  
 {{ assign var="condition" value="Front is on" }}
 
 {{ list_articles length="1" ignore_issue="true" ignore_section="true" constraints="section is 200 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
-            	<div class="box">               		
-                	<h4 class="box-title icon-cross"><a href="#">In eigener Sache</a></h4>
-                	{{ /if }}       	
+              <div class="box">                   
+                  <h4 class="box-title icon-cross"><a href="#">In eigener Sache</a></h4>
+                  {{ /if }}         
                     <article>
-                    	<h3>{{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ else }}{{ $gimme->article->name }}{{ /if }}</h3>
-                    	<p>{{ $gimme->article->teaser|strip_tags:false }} {{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">weiterlesen</a>{{ /if }}</p>
+                      <h3>{{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ else }}{{ $gimme->article->name }}{{ /if }}</h3>
+                      <p>{{ $gimme->article->teaser|strip_tags:false }} {{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">weiterlesen</a>{{ /if }}</p>
                     </article>
-					{{ if $gimme->current_list->at_end }}                    
+          {{ if $gimme->current_list->at_end }}                    
                 </div>   
                {{ /if }}                 
 {{ /list_articles }}
 
 {{ assign var="noshow" value=0 scope="global" }}
 {{ if $gimme->prev_list_empty }}
-	{{ include file="_tpl/sidebar-comment.tpl" }}
-		{{ assign var="noshow" value=1 scope="global" }}
+  {{ include file="_tpl/sidebar-comment.tpl" }}
+    {{ assign var="noshow" value=1 scope="global" }}
 {{ /if }}
                 
                 </div>
@@ -48,7 +48,7 @@
         
         <div class="content equal-heights bottom-line clearfix">
         
-        	<div class="main">
+          <div class="main">
 
 {{ include file="_tpl/front-most.tpl" }} 
 
@@ -87,8 +87,8 @@
     </div><!-- / Content Wrapper -->
 
 {{ include file="_tpl/footer.tpl" }}
-	
-{{ include file="_tpl/_html-foot.tpl" }}	
+  
+{{ include file="_tpl/_html-foot.tpl" }}  
 
 </body>
 </html>

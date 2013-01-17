@@ -44,7 +44,7 @@
                       {{ /list_articles }}
 
                       {{ if $gimme->prev_list_empty }}
-                      <p>No newswire articles in system yet, or at least no newswires in last 24 hours... stay tuned.</p>
+                      <p>Derzeit keine Nachrichtenmeldungen vorhanden.</p>
                       {{ /if }}
 
 

@@ -1,3 +1,4 @@
+{{ set_default_section }}
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
@@ -26,21 +27,21 @@
 
 {{ include file="_ads/section-sidebar.tpl" }}
 
-            	<div class="box">
+              <div class="box">
 
 {{ assign var="secname" value=$gimme->section->name }}
 {{ assign var="condition" value="$secname is on" }}
 
 {{ list_articles ignore_issue="true" ignore_section="true" constraints="section is 200 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
-            	<div class="box">               		
-                	<h4 class="box-title icon-cross"><a href="#">In eigener Sache</a></h4>
-                	{{ /if }}       	
+              <div class="box">                   
+                  <h4 class="box-title icon-cross"><a href="#">In eigener Sache</a></h4>
+                  {{ /if }}         
                     <article>
-                    	<h3>{{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ else }}{{ $gimme->article->name }}{{ /if }}</h3>
-                    	<p>{{ $gimme->article->teaser|strip_tags:false }} {{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">weiterlesen</a>{{ /if }}</p>
+                      <h3>{{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ else }}{{ $gimme->article->name }}{{ /if }}</h3>
+                      <p>{{ $gimme->article->teaser|strip_tags:false }} {{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">weiterlesen</a>{{ /if }}</p>
                     </article>
-					{{ if $gimme->current_list->at_end }}                    
+          {{ if $gimme->current_list->at_end }}                    
                 </div>   
                {{ /if }}                 
 {{ /list_articles }}

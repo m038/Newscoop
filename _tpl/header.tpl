@@ -1,19 +1,26 @@
         <div id="header" class="clearfix">
         
         	<ul class="mobile-nav hide">
-            	<li class="calendar"><a href="#">Calendar</a></li>
+                {{ local }}
+                    {{ set_section number="71" }}
+                    <li class="calendar"><a href="{{ url options="section" }}">Ausgehen</a></li>
+                {{ /local }}
             	<li class="user">
+                    {{ if $gimme->user->logged_in }}
+                	<a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Profil</a>
+                    {{ else }}
                 	<a href="#">User</a>
                    	<div class="mobile-sub popup popup-nletter">
                     	<div class="login-inner-box">
+                            {{ form_login }}
                             <p>Melden Sie sich bei zentral+ an, um Artikel zu kommentieren und Themen zu abonnieren</p>
                             <fieldset>
                                 <ul>
                                     <li>
-                                        <input type="text" placeholder="E-Mail-Adresse">
+                                        <input type="text" placeholder="E-Mail-Adresse" name="email">
                                     </li>
                                     <li>
-                                        <input type="password" placeholder="Passwort">
+                                        <input type="password" placeholder="Passwort" name="password">
                                     </li>
                                     <li>
                                         <input type="submit" value="Login" class="button red wide large">
@@ -22,11 +29,12 @@
                                         <input type="checkbox" id="einloggt2"><label for="einloggt2">Eingeloggt bleiben</label>
                                     </li>
                                     <li class="side-by-side clearfix">
-                                        <a href="#" class="button white left">Registrieren</a>
+                                        <a href="{{ $view->url(['controller' => 'register', 'action' => 'index'], 'default') }}" class="button white left">Registrieren</a>
                                         <a href="#" class="button white right forgot-pass-trigger">Paswort vergessen</a>
                                     </li>
                                 </ul>
                             </fieldset>
+                            {{ /form_login }}
                         	<a class="button large fb-loggin-button" href="{{ $view->url(['controller' => 'auth', 'action' => 'social', 'provider' => 'facebook']) }}"><span>Login mit Facebook</span></a>
                         </div>
                         <div class="forgot-pass-inner-box">
@@ -45,6 +53,7 @@
                             </fieldset>
                         </div>
                     </div>
+                    {{ /if }}
                 </li>
             	<li class="menu">
                 	<a href="#">Menu</a>
@@ -89,14 +98,6 @@
                             <li><a href="#">Wetter</a></li>
                         {{ /local }}
                         </ul>
-                        <div class="region-pick">
-                            <label>Region:</label>
-                            <select class="dropdownized">
-                                <option>Keine Praferenzen</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
                     </div>
                 </li>
             </ul>
@@ -105,6 +106,7 @@
             {{ include file="_tpl/weather-header.tpl" }} 
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
+{{ dynamic }}
             <ul class="header-menu">
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
@@ -165,8 +167,11 @@
                 </li>
             {{ /if }}
             </ul>
+{{ /dynamic }}
         </div><!-- / Header -->
         
+
+{{ dynamic }}
         <div class="content-top">
           
             <ul class="place-date">
@@ -200,3 +205,4 @@
                     </fieldset>
         
         </div><!-- / Content Top -->
+{{ /dynamic }}

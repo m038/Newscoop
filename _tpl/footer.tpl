@@ -96,12 +96,12 @@
             <p class="foot-copyright"><a target="_blank" href="http://www.mmv-online.ch">© MMV online AG - Alle Rechte vorbehalten</a></p>
 
             <ul class="phone-footer-nav">
-               {{ set_article name="Kontakt" }}
-            	<li><a href="{{ url options="article" }}">Kontakt</a></li>
-            	{{ set_article name="Impressum" }}
-            	<li><a href="{{ url options="article" }}">Impressum</a></li>
-            	{{ set_article name="AGB" }}
-            	<li><a href="{{ url options="article" }}">AGB</a></li>
+               {{ set_article number="11143" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+            	{{ set_article number="11141" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+            	{{ set_article number="11147" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
             </ul>
 
 {{ /local }}
@@ -118,7 +118,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized22">
+                            <select class="dropdownized-fancy-1">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -150,7 +150,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized-fancy-1" style="min-width: 200px;">
+                            <select class="dropdownized-fancy-2" style="min-width: 200px;">
                                 <option value="Feedback zum Artikel">Feedback zum Artikel</option>
                                 <option value="Idee für einen Beitrag">Idee für einen Beitrag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -186,9 +186,18 @@
     </div>
     <script type="text/javascript">
     $(document).ready(function(){
-        $('a.show-contact-form').click(function(){
+        $('a.show-contact-form').live('click', function(e){
+            e.preventDefault();
+
             $.fancybox({
-                'content' : $("#kontakt-form").html()
+                'content' : $("#kontakt-form").html(), 
+                afterShow: function(){
+                    if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
+                        // do something
+                    } else { 
+                        $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+                    }
+                }
             });
         });
 
@@ -214,7 +223,7 @@
             {{ dynamic }}
             var data = {
                 f_feedback_url: String(document.location),
-                f_feedback_subject: $('finput#feedback-subject', form).val(),
+                f_feedback_subject: $('input#feedback-subject', form).val(),
                 f_feedback_content: $('textarea#feedback-content', form).val(),
                 f_language: '{{ $gimme->language->number }}',
                 f_section: '{{ $gimme->section->id }}',
@@ -223,10 +232,10 @@
             };
             {{ /dynamic }}
 
-            if ($('form#feedback-form-form input#feedback-attachment-type').val() == 'image') {
-                data['image_id'] = $('form#feedback-form-form input#feedback-attachment-id').val();
+            if ($('.fancybox-inner form#feedback-form-form input#feedback-attachment-type').val() == 'image') {
+                data['image_id'] = $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val();
             } else {
-                data['document_id'] = $('form#feedback-form-form input#feedback-attachment-id').val();
+                data['document_id'] = $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val();
             }
             
             $.ajax({
@@ -243,7 +252,8 @@
             });
         });
 
-        $('a.show-feedback-form').click(function(){
+        $('a.show-feedback-form').live('click', function(e){
+            e.preventDefault();
             $.fancybox({
                 'content' : $("#feedback-form").html(),
                 'afterShow' : function(upcoming, current) {
@@ -263,6 +273,13 @@
                         ]
                     });
 
+                    uploader.bind('Init', function(up) {
+                        var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                        if (is_firefox) {
+                            uploader.refresh();
+                        }
+                    });
+
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
@@ -275,17 +292,19 @@
                     uploader.bind('FileUploaded', function(up, file, info) {
                         $('.fancybox-inner form#feedback-form-form div.show-value').html('{{ getGS('Done') }}');
                         var response = $.parseJSON(info['response'])['response'].split("_");
-                        $('.fancybox-inner form#feedback-form input#feedback-attachment-type').val(response[0]);
-                        $('.fancybox-inner form#feedback-form input#feedback-attachment-id').val(response[1]);
+                        $('.fancybox-inner form#feedback-form-form input#feedback-attachment-type').val(response[0]);
+                        $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val(response[1]);
+
+                        up.refresh();
                     });
+
+                    if ($(".fancybox-outer .dropdownized-fancy-2").hasClass('ui-dropdownized')) {
+                        // do something
+                    } else { 
+                        $(".fancybox-outer .dropdownized-fancy-2").dropdownized(); 
+                    } 
                 }
             });
-
-            if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
-                // do something
-            } else { 
-                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
-            } 
         });
     });
     </script>
