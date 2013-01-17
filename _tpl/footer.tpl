@@ -264,6 +264,9 @@
                         ]
                     });
 
+                    uploader.bind('Init', function(up) {
+                        up.refresh();
+                    });
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
@@ -278,6 +281,8 @@
                         var response = $.parseJSON(info['response'])['response'].split("_");
                         $('.fancybox-inner form#feedback-form-form input#feedback-attachment-type').val(response[0]);
                         $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val(response[1]);
+
+                        up.refresh();
                     });
                 }
             });
