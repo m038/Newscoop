@@ -7,7 +7,7 @@
     <div class="profile-tabs">
     <h4>Registrieren</h4>
 
-
+				<p>Das Abonnieren von Newslettern ist Community-Mitgliedern vorbehalten. Bitte registrieren Sie sich!</p>
     <form method="{{ $form->getMethod() }}" action="{{ $form->getAction() }}">
         <input type="hidden" name="terms_of_use" value="1" />
 
@@ -22,7 +22,7 @@
             {{ /if }}
         </li>
         <li>
-            <input type="submit" class="button large red center" value="Anmelden" />
+            <input type="submit" class="button large red center" value="Registrieren" />
         </li>
     </ul>
     </form>

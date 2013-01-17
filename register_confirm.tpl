@@ -6,7 +6,6 @@
 <div class="main">
             	<div class="top-line">
 
-                    
                     <div class="profile-tabs">
                         <div id="tabs-1">
                         
@@ -38,10 +37,18 @@
                                 <li>
                                 	<label>Passwort <i>*</i></label>
                                     <input type="password" name="password" value="{{ $form->password->getValue()|escape }}" />
+                                    {{ include file="_tpl/form_error_empty.tpl" field="password" }}
+                                    {{ if $form->password->hasErrors() && $form->password->getValue() }}
+                                    <div class="infobox error">Bitte geben Sie ein Passwort mit mindestens 6 Zeichen ein.</div>
+                                    {{ /if }}
                                 </li>
                                 <li>
                                 	<label class="multi-line">Passwort wiederholen <i>*</i></label>
                                     <input type="password" name="password_confirm" value="{{ $form->password_confirm->getValue()|escape }}" />
+                                    {{ include file="_tpl/form_error_empty.tpl" field="password_confirm" }}
+                                    {{ if $form->password_confirm->hasErrors() && $form->password_confirm->getValue() }}
+                                    <div class="infobox error">Bitte geben Sie Ihr Passwort nochmals ein.</div>
+                                    {{ /if }}
                                 </li>
                                 {{ /if }}
                                 <li>

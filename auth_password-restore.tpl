@@ -5,7 +5,7 @@
 {{block content}}
 <div class="tabs top-line">
     <div class="profile-tabs">
-        <h4>Restore password</h4>
+        <h4>Passwort zurücksetzen</h4>
 
         {{ capture name="error_empty" }}Angabe ist erforderlich und kann nicht leer sein.{{ /capture }}
 
