@@ -10,5 +10,5 @@
         <small class="red-mark">REDAKTION</small>
         {{ /if }}
     </h3>
-    <time>Registriert sein {{ $user->created }} <span class="comm">{{ $user->posts_count }}</span></time></p>
+    <time>Registriert seit {{ $user->created }} <span class="comm">{{ $user->posts_count }}</span></time></p>
 </article>

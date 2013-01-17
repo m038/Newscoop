@@ -1,8 +1,10 @@
-Hello,
+Vielen Dank für Ihre Registrierung auf zentralplus.ch. 
 
-please confirm your e-mail address by clicking on the link below:
+Um die Registrierung abzuschliessen, Newsletter zu abonnieren und Teil der Community zu werden, klicken Sie bitte auf diesen Link: http://{{ $publication }}{{ $view->url(['user' => $user, 'token' => $token], 'confirm-email') }} Vielen Dank. Wir freuen uns auf Ihre Beiträge auf Zentral+ 
 
-http://{{ $publication }}{{ $view->url(['user' => $user, 'token' => $token], 'confirm-email') }}
+PS: Falls Sie bereits auf Zentral+ registriert sind, und nur den Newsletter abonnieren wollten: Die Newsletterverwaltung finden Sie in Ihrem Userprofil.
 
-Thanks!
-{{ $view->placeholder('subject')->set(sprintf("E-mail confirmation at %s", $site)) }}
+http://zentralplus.ch/dashboard
+
+{{ $view->placeholder('subject')->set("Bitte bestätigen Sie Ihre Registrierung bei Zentral+") }}
+
