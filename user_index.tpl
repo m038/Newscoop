@@ -17,7 +17,7 @@
             
             	<div class="events-aside clearfix info-text">
                 	
-                    <div class="box desktop-hide phone-hide">
+                    <div class="hide">
                         <select class="dropdownized">
                             <option value="Alle Themen">Alle Themen</option>
                             <option value="Energiepolitk">Energiepolitk</option>
@@ -49,7 +49,7 @@
                         })
                     </script>
                     
-                    <div class="box desktop-hide mobile-hide">
+                    <div class="box hide">
                         <h4>Zeige</h4>
                         <select class="dropdownized">
                             <option value="Alle Mitglieder">Alle Mitglieder</option>
