@@ -22,7 +22,7 @@
             {{ /if }}
         </li>
         <li>
-            <input type="submit" class="button large red center" value="Anmelden" />
+            <input type="submit" class="button large red center" value="Registrieren" />
         </li>
     </ul>
     </form>
