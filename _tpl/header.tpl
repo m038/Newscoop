@@ -22,7 +22,7 @@
                                         <input type="checkbox" id="einloggt2"><label for="einloggt2">Eingeloggt bleiben</label>
                                     </li>
                                     <li class="side-by-side clearfix">
-                                        <a href="#" class="button white left">Registrieren</a>
+                                        <a href="{{ $view->url(['controller' => 'register', 'action' => 'index'], 'default') }}" class="button white left">Registrieren</a>
                                         <a href="#" class="button white right forgot-pass-trigger">Paswort vergessen</a>
                                     </li>
                                 </ul>
