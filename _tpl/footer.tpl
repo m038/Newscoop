@@ -96,12 +96,12 @@
             <p class="foot-copyright"><a target="_blank" href="http://www.mmv-online.ch">© MMV online AG - Alle Rechte vorbehalten</a></p>
 
             <ul class="phone-footer-nav">
-               {{ set_article name="Kontakt" }}
-            	<li><a href="{{ url options="article" }}">Kontakt</a></li>
-            	{{ set_article name="Impressum" }}
-            	<li><a href="{{ url options="article" }}">Impressum</a></li>
-            	{{ set_article name="AGB" }}
-            	<li><a href="{{ url options="article" }}">AGB</a></li>
+               {{ set_article number="11143" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+            	{{ set_article number="11141" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+            	{{ set_article number="11147" }}
+            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
             </ul>
 
 {{ /local }}
@@ -186,9 +186,18 @@
     </div>
     <script type="text/javascript">
     $(document).ready(function(){
-        $('a.show-contact-form').click(function(){
+        $('a.show-contact-form').live('click', function(e){
+            e.preventDefault();
+
             $.fancybox({
-                'content' : $("#kontakt-form").html()
+                'content' : $("#kontakt-form").html(), 
+                afterShow: function(){
+                    if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
+                        // do something
+                    } else { 
+                        $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
+                    }
+                }
             });
         });
 
@@ -214,7 +223,7 @@
             {{ dynamic }}
             var data = {
                 f_feedback_url: String(document.location),
-                f_feedback_subject: $('finput#feedback-subject', form).val(),
+                f_feedback_subject: $('input#feedback-subject', form).val(),
                 f_feedback_content: $('textarea#feedback-content', form).val(),
                 f_language: '{{ $gimme->language->number }}',
                 f_section: '{{ $gimme->section->id }}',
@@ -228,7 +237,7 @@
             } else {
                 data['document_id'] = $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val();
             }
-            console.log($('form#feedback-form-form input#feedback-attachment-id').val(), $('.fancybox-inner form#feedback-form-form input#feedback-attachment-id').val(), data);
+            
             $.ajax({
                 type: 'POST',
                 url: '{{ $view->baseUrl("/feedback/save/?format=json") }}',
@@ -265,8 +274,12 @@
                     });
 
                     uploader.bind('Init', function(up) {
-                        up.refresh();
+                        var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                        if (is_firefox) {
+                            uploader.refresh();
+                        }
                     });
+
                     uploader.init();
 
                     uploader.bind('FilesAdded', function(up, files) {
@@ -284,20 +297,14 @@
 
                         up.refresh();
                     });
+
+                    if ($(".fancybox-outer .dropdownized-fancy-2").hasClass('ui-dropdownized')) {
+                        // do something
+                    } else { 
+                        $(".fancybox-outer .dropdownized-fancy-2").dropdownized(); 
+                    } 
                 }
             });
-
-            if ($(".fancybox-outer .dropdownized-fancy-1").hasClass('ui-dropdownized')) {
-                // do something
-            } else { 
-                $(".fancybox-outer .dropdownized-fancy-1").dropdownized(); 
-            } 
-
-            if ($(".fancybox-outer .dropdownized-fancy-2").hasClass('ui-dropdownized')) {
-                // do something
-            } else { 
-                $(".fancybox-outer .dropdownized-fancy-2").dropdownized(); 
-            } 
         });
     });
     </script>
