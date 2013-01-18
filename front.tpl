@@ -74,7 +74,7 @@
 {{ include file="_tpl/sidebar-comment.tpl" }}
 {{ /if }}
 
-{{ include file="_tpl/sidebar-newsletter.tpl" }}
+{{ render file="_tpl/sidebar-newsletter.tpl" }}
 
 {{ include file="_tpl/sidebar-debatte.tpl" }}
             
