@@ -16,7 +16,7 @@
                             {{ if $gimme->current_list->at_beginning }}
                                 <ol>
                             {{ /if }}   
-                                {{ include file="_tpl/article-comment-li.tpl" user=$gimme->comment->user }}
+                                {{ include file="_tpl/article-comments-li.tpl" user=$gimme->comment->user }}
                             {{ $recommendedEmpty=0 }}        
                             {{ if $gimme->current_list->at_end }}    
                                 </ol>
