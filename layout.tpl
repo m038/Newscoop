@@ -16,7 +16,7 @@
             <div class="aside">
             {{block aside}}
                 {{ include file="_tpl/sidebar-community.tpl" }}
-                {{ include file="_tpl/sidebar-newsletter.tpl" }}
+                {{ render file="_tpl/sidebar-newsletter.tpl" }}
                 {{ include file="_tpl/sidebar-debatte.tpl" }}
             {{/block}}
             </div><!-- / Aside -->

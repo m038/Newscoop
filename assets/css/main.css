@@ -2493,6 +2493,7 @@ a.button.center.details-more {display:none;}
 		height:46px;
 		margin:0 -10px;
 		border:0;
+		background-color: #b20231;
 		background-image: -moz-linear-gradient(top, #b20231, #a00d2d);
 		background-image: -o-linear-gradient(top, #b20231, #a00d2d);
 		background-image: -webkit-linear-gradient(top, #b20231, #a00d2d);
