@@ -36,7 +36,7 @@
                   				<p><strong>Aktuelle Themen:</strong>	
                   		{{ /if }}																	
                         {{ $topics[] = $gimme->topic }}
-                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end || !($gimme->current_list->count == 1) }}, {{ /if }}
+                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end }}, {{ /if }}
                     {{ if $gimme->current_list->at_end }}
                        </p>
                      </div>
