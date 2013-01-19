@@ -28,6 +28,20 @@
                     <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     
                 </article>
+
+																		{{* added on Jan 19th *}}
+																		{{ list_article_topics }}
+                						{{ if $gimme->current_list->at_beginning }}
+                						<div class="box bottom-line centered-tag-list">
+                  				<p><strong>Aktuelle Themen:</strong>	
+                  		{{ /if }}																	
+                        {{ $topics[] = $gimme->topic }}
+                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end || !($gimme->current_list->count == 1) }}, {{ /if }}
+                    {{ if $gimme->current_list->at_end }}
+                       </p>
+                     </div>
+                    {{ /if }}                    
+                    {{ /list_article_topics }}  
                  
                 <div class="ad bottom-line">
                   {{ include file="_tpl/weather-mobile-header.tpl" }}
