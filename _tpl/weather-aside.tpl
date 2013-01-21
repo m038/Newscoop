@@ -50,7 +50,7 @@
                 <div id="mn-region-webcam" class="box webcams-slideshow mobile-hide">
                     <h4 class="box-title no-bottom-margin">Webcams aus der Region</h4>
                     <div id='mn-webcam-slideshow' class="slideshow">
-                        <ul id="mn-region-webcam-content" class="slides" style='height: 330px;'>
+                        <ul id="mn-region-webcam-content" class="slides" style='height: 345px;'>
                         </ul>
                         <ul class="paging" style='z-index: 1000'>
                             <li><a id='mn-webcam-prev' href="#" class="button white prev">‹</a></li>

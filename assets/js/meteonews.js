@@ -57,10 +57,10 @@ var meteonews = {
         'condition' : 'Zustand',
         'snow_condition' : 'Schnee-/Pistenzustand',
         'facilities' : 'Offene Anlagen',
-        'crosscountry' : 'Winterwandern',
+        'crosscountry' : 'Langlauf',
         'toboggan'  : 'Schlitteln',
         'avalanches' : 'Lawinen',
-        'alarm' : 'Alarm',
+        'alarm' : 'Lawinengefahr',
         'general' : 'Allgemein',
         'phone' : 'Telefon',
         'snowdepth_top' : 'Schneehöhe Berg',
@@ -217,7 +217,6 @@ var meteonews = {
 
         // set start and end dates
         var date = new Date();
-        date.setDate(date.getDate() -1);
         params.begin = this.formatDate(date);
 
         date.setDate(date.getDate() +4);
@@ -424,6 +423,7 @@ var meteonews = {
             for (var wc in response.webcams.content.webcam) {
                 var webcam = response.webcams.content.webcam[wc];
                 var desc = webcam.description;
+                var source = webcam.source;
                 var image = webcam.resources.resource[1]['@text'];
                 var content = '';
 
@@ -435,7 +435,7 @@ var meteonews = {
                     content = "<li>";
                     content += "<a class='zoom fancybox' href='" + image + "'>Zoom</a>";
                     content += "<img src='" + image + "' style='width: 350px; height: 261px' alt=''>";
-                    content += "<p style='width: 200px; line-heght: 14px;'>" + desc + "</p>";
+                    content += "<p style='width: 200px; line-heght: 14px;'>" + desc + "<br>Quelle: " + source + "</p>";
                     content += "</li>";
                     $('#mn-region-webcam-content').append(content);
                 }
@@ -642,6 +642,7 @@ var meteonews = {
             var temp_max_unit = result.temp_max['@attributes']['unit'];
             var txt = result['txt'];
             var date = meteonews.getDateObj(result['@attributes']['end_datetime']);
+            date.setDate(date.getDate() -1);
             var displayDate = meteonews.formatDisplayDate(date);
             var linkDate = meteonews.formatDate(date);
             var item = "<li>";
@@ -904,7 +905,7 @@ var meteonews = {
         $('#mn-searchform').show();
         meteonews.makeActive('mn-prognosen');
         meteonews.setLocation(meteonews.defaultLocationId, meteonews.defaultLocationZip, meteonews.defaultLocationName);
-        meteonews.setLocationTitle('Prognosen Zentralscheiz');
+        meteonews.setLocationTitle('Prognosen Zentralschweiz');
         meteonews.getAstronomy();
         meteonews.getPrognosenText();
         $('#mn-prognosen-regions').show();
