@@ -91,7 +91,7 @@ $(document).ready(function() {
 
             var event_link = event_base_dir + "?event_key=" + use_event['event_key'] + "&date=" + event_date;
 
-            var event_display = "<h6><a href=\"" + event_link + "\">Tipps des Tages</a></h6>";
+            var event_display = "<h6><a href=\"" + event_link + "\">Tipp des Tages</a></h6>";
             event_display += "<figure><img src=\"{{ uri static_file="assets/img/" }}" + cur_icon_name + "\" alt=\"" + event_icon_alt + "\" " + teaser_img_sizes + " /></figure>\n";
             event_display += "<h3><a href=\"" + event_link + "\">" + use_event['title'] + "</a></h3>\n";
 
