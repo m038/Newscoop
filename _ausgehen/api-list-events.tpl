@@ -157,11 +157,20 @@ $(document).ready(function() {
             if (!sort_time) {
                 sort_time = "00:00";
             }
-            ev_sort.push({'sort_time':sort_time, 'time':cur_sort_time, 'date':cur_sort_date, 'event':cur_event});
+            var cur_title = cur_event.title;
+            if (!cur_title) {
+                cur_title = "";
+            }
+            var cur_title_sort = cur_title.toLowerCase();
+            ev_sort.push({'sort_time':sort_time, 'time':cur_sort_time, 'date':cur_sort_date, 'event':cur_event, 'title':cur_title, 'sort_title':cur_title_sort});
         }
 
         ev_sort.sort(function(a, b) {
-            return a['sort_time'].localeCompare(b['sort_time']);
+            var cmp_val = a['sort_time'].localeCompare(b['sort_time']);
+            if (!cmp_val) {
+                cmp_val = a['sort_title'].localeCompare(b['sort_title']);
+            }
+            return cmp_val;
         });
 
         var ev_sort_length = ev_sort.length;
@@ -197,7 +206,7 @@ $(document).ready(function() {
             var cur_event_key = cur_event["event_key"];
 
             list_content += "<article>";
-            list_content += "<h4><a href=\"" + cur_url_base + "?date=" + cur_date + "&event_key=" + cur_event_key +"\">" + cur_event.title + "</a></h4>";
+            list_content += "<h4><a href=\"" + cur_url_base + "?date=" + cur_date + "&event_key=" + cur_event_key +"\">" + cur_event_part.title + "</a></h4>";
             list_content += "<ul>";
 
             if (!cur_time) {
