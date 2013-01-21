@@ -102,10 +102,13 @@
                     {{ /list_subtopics }}
                 </ul>               
                 {{ /local }} 
-                
+
+          {{* this creates article map with markers for selected POIs *}}        
+          {{ if $gimme->article->has_map }}                         
             	<div class="box top-line bottom-line">
-                	<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zug,+Switzerland&amp;aq=0&amp;oq=zug&amp;sll=37.0625,-95.677068&amp;sspn=53.080379,39.726562&amp;ie=UTF8&amp;hq=&amp;hnear=Zug,+Canton+of+Zug,+Switzerland&amp;t=m&amp;z=12&amp;ll=47.174589,8.513854&amp;output=embed"></iframe>
-                </div>               
+                {{ map show_locations_list="false" show_reset_link="false" width="100%" height="300" }}
+            </div>               
+          {{ /if }}                
 
 {{ /if }}
         

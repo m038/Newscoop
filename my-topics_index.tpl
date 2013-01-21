@@ -59,7 +59,7 @@
                         <h6><a href="{{ uri options="article" }}">{{ $gimme->article->dateline|escape }}</a></h6>
                         {{ image rendition="artthumb" }}
                         <figure>
-                            <img alt="" src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" />
+                            <a href="{{ url options="article" }}"><img alt="" src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" /></a>
                         </figure>
                         {{ /image }}
                         <h3><a href="{{ uri options="article" }}">{{ $gimme->article->title|escape }}</a></h3>

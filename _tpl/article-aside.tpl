@@ -4,7 +4,7 @@
             	<article class="margin-bottom mobile-horizontal-article">
                     <figure>
                       {{ image rendition="arthalf" }}                
-                      <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" />     
+                      <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(bild: {{ $image->photographer }}){{ /if }}" /></a>     
                       {{ /image }}
                         <figcaption>
                             <h6><a href="{{ url options="article" }}">Dossier</a></h6>
@@ -26,7 +26,7 @@
                     <p>Themen zum Artikel:
                     {{ list_article_topics }}
                         {{ $topics[] = $gimme->topic }}
-                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end || $gimme->current_list->count !== 1 }}, {{ /if }}
+                    <a href="{{ unset_section }}{{ url options="template topic.tpl" }}">{{ $gimme->topic->name }}</a>{{ if !$gimme->current_list->at_end }}, {{ /if }}
                     {{ /list_article_topics }}<br />
                     {{ if $gimme->user->defined }}
                         <a href="#themen-verwalten" class="fancybox icon-tag">Themen abonnieren</a>

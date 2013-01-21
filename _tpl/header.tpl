@@ -106,6 +106,7 @@
             {{ include file="_tpl/weather-header.tpl" }} 
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
+{{ dynamic }}
             <ul class="header-menu">
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
@@ -166,8 +167,11 @@
                 </li>
             {{ /if }}
             </ul>
+{{ /dynamic }}
         </div><!-- / Header -->
         
+
+{{ dynamic }}
         <div class="content-top">
           
             <ul class="place-date">
@@ -201,3 +205,4 @@
                     </fieldset>
         
         </div><!-- / Content Top -->
+{{ /dynamic }}

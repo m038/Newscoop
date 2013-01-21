@@ -31,9 +31,9 @@
 {{ /if }} 
 {{ assign var="i" value=$i+1 }}
 {{ if $item->is_image }}                       
-                        	<li><a href="#tab-{{ $i }}"><img src="{{ $item->image->src }}" width="90" height="43" alt="{{ $item->caption }}" /></a></li>
+                        	<li><a href="#tab-{{ $i }}"><img src="{{ $item->image->src }}" width="90" height="67" alt="{{ $item->caption }}" /></a></li>
 {{ else }}
-                        	<li><a href="#tab-{{ $i }}"><img src="{{ uri static_file="pictures/video-thumb.png" }}" width="90" height="43" alt="{{ $item->caption }}" /></a></li>
+                        	<li><a href="#tab-{{ $i }}"><img src="{{ uri static_file="pictures/video-thumb.png" }}" width="90" height="67" alt="{{ $item->caption }}" /></a></li>
 {{ /if }}
 {{ if $smarty.foreach.insideslideshow.last }}
                         </ul>
