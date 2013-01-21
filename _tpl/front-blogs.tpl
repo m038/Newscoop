@@ -6,7 +6,7 @@
                 <h6><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></h6>
                 <figure>
                 {{ image rendition="quarter" }}                
-                <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
+                <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>     
                 {{ /image }}                
                 </figure>
                 <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>

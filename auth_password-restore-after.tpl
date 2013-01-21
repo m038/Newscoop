@@ -5,8 +5,8 @@
 {{block content}}
 <div class="top-line">
     <div class="profile-tabs">
-        <h4>Restore password</h4>
-        <p>Email with instructions was sent to your email address.</p>
+        <h4>Passwort wiederherstellen</h4>
+        <p>Eine Email mit Instruktionen zur Bestätigung der Passwortwiederherstellung ist unterwegs zu Ihnen.</p>
     </div>
 </div>
 {{/block}}

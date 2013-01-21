@@ -1,7 +1,7 @@
 <li>
     {{ if $user->identifier }}
         {{ if $user->is_active }}<a href="{{ $view->url(['username' => $user->uname], 'user') }}">{{ strip }}
-            {{ include file="_tpl/user-image.tpl" size="small" }}
+            {{ include file="_tpl/user-image.tpl" size="small" inline user=$gimme->comment->user }}
         {{ /strip }}</a>{{ /if }}
     {{ else }}
         <img src="{{ url static_file="pictures/user-thumb-small-default.jpg" }}" alt="" />
