@@ -81,7 +81,9 @@ var meteonews = {
         'windforce' : 'Windgeschwindigkeit',
         'winddir' : 'Windrichtung',
         'temp_wind' : 'Windchill',
-        'pres': 'Luftdruck'
+        'pres': 'Luftdruck',
+        'open': 'Öffnen',
+        'closed': 'Geschlossen'
     },
 
     init: function(cb) {
@@ -392,6 +394,8 @@ var meteonews = {
                 infowindow.open(marker.get('map'), marker);
             });
 
+            google.maps.event.trigger(meteonews.map, 'resize');
+
           } else {
             console.log('Geocode was not successful for the following reason: ' + status);
           }
@@ -533,7 +537,7 @@ var meteonews = {
                             displayValue = '<ul>';
                             for (var a in items[item]) {
                                 var alarm = items[item][a];
-                                var dt = alarm['@attributes']['date'];
+                                var dt = meteonews.formatDisplayDate(meteonews.getDateObj(alarm['@attributes']['date']));
                                 displayValue += '<li><span>' + dt + ' - ' + alarm.string + '</li>';
                             }
                             displayValue += '</ul>';
@@ -550,7 +554,7 @@ var meteonews = {
                         displayValue = items[item];
                     }
                     
-                    output += "<th>" + meteonews.translate(displayItem) + "</th>" + "<td>" + displayValue + "</td>";
+                    output += "<th>" + meteonews.translate(displayItem) + "</th>" + "<td>" + meteonews.translate(displayValue) + "</td>";
                     fcount++;
 
                     if (fcount == 2) {
