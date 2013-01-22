@@ -352,7 +352,7 @@ small {
 		padding:0 0 15px 0; margin-bottom:20px;
 		background:#e5e5e5;
 		}
-		.thumb-gallery div.gall-box {margin-bottom:10px; min-height:510px;}
+		.thumb-gallery div.gall-box {margin-bottom:10px; min-height:420px;}
 			.thumb-gallery div.gall-box figure small {padding:10px 15px 0;}
 		.thumb-gallery ul {margin:0; list-style-type:none;}
 			.thumb-gallery ul li {float:left;}
