@@ -104,6 +104,12 @@
     $('#mn-header-search-btn').click(function() {
         window.location = '{{ url options="article"}}?pg=search&q='+$('#mn-header-search-text').val();
     });
+
+    $('#mn-header-search-text').keypress(function(e) {
+        if (e.which == 13) {
+            window.location = '{{ url options="article"}}?pg=search&q='+$('#mn-header-search-text').val();
+        }
+    });
 </script>
 {{ /list_articles }} 
                                 </fieldset>

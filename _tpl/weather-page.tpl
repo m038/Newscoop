@@ -84,6 +84,22 @@ $(document).ready(function(){
         }
     });
 
+    $('#mn-lokkalwetter-search-text').keypress(function(e) {
+        if (e.which == 13) {
+            $(this).autocomplete("close");     
+            meteonews.hideAllElements();
+            meteonews.getSearchResults($(this).val()); 
+        }
+    });
+
+    $('#mn-search-text').keypress(function(e) {
+        if (e.which == 13) {
+            $(this).autocomplete("close");     
+            meteonews.hideAllElements();
+            meteonews.getSearchResults($(this).val()); 
+        }
+    });
+
     /* pagination */
     $('.paginated-table').each(function() {
         var maxRows = 7;

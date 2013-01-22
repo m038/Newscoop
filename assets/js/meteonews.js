@@ -179,6 +179,9 @@ var meteonews = {
         queryString = queryString.replace(' ', '_');
         var feed = 'search/' + queryString + '.' + this.format;
         var params = [];
+        params['autofill'] = '1';
+        params['limit'] = '100';
+        params['country'] = 'CH';
 
         this._send(feed, params, function(response) {
             meteonews.searchResults = response;
@@ -786,21 +789,22 @@ var meteonews = {
         if (results instanceof Array) {
             for (var r in results) {
                 var result = results[r];
-                output += "<div class='mn-search-result' ";
-                output += "data-id='" + result.geoname_id + "' ";
-                output += "data-zip='" + result.zip + "' ";
-                output += "data-name='" + result.name + "'>";
-                output += "<ul>";
+                if (result.country == 'CH') {
+                    output += "<div class='mn-search-result' ";
+                    output += "data-id='" + result.geoname_id + "' ";
+                    output += "data-zip='" + result.zip + "' ";
+                    output += "data-name='" + result.name + "'>";
+                    output += "<ul>";
 
-                var label = result.name;
-                if (result.state) {
-                    label += ", " + result.state;
+                    var label = result.name;
+                    if (result.state) {
+                        label += ", " + result.state;
+                    }
+                    label += ", " + result.country;
+
+                    output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
+                    output += "</ul></div>";
                 }
-                label += ", " + result.country;
-
-                output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
-                output += "</ul></div>";
-
             }
         } else {
             output += "<div class='mn-search-result' ";
@@ -818,6 +822,7 @@ var meteonews = {
             output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
             output += "</ul></div>";
         }
+        meteonews.hideAllLoading(); 
         $('#mn-search-results').html(output);
         $('#mn-search-results').show();
     },
@@ -891,6 +896,7 @@ var meteonews = {
     },
 
     showLocalWeatherPage: function() {
+        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         meteonews.makeActive('mn-lokalwetter');
         meteonews.showLocalSearch();
@@ -901,6 +907,7 @@ var meteonews = {
     },
 
     showPrognosenPage: function() {
+        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         $('#mn-searchform').show();
         meteonews.makeActive('mn-prognosen');
@@ -914,6 +921,7 @@ var meteonews = {
     },
 
     showFiveDayForecastPage: function(id, zip, name) {
+        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         meteonews.makeActive('mn-lokalwetter');
         $('#mn-searchform').show();
@@ -930,6 +938,7 @@ var meteonews = {
     },
 
     showWintersportPage: function() {
+        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         $('#mn-searchform').show();
         meteonews.setLocationTitle('Wintersport');
@@ -943,6 +952,7 @@ var meteonews = {
     },
 
     showWintersportDetailPage: function(type, id, name) {
+        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         meteonews.setLocation(id,name);
         meteonews.getWinterSportsReport(type, id, function(slope) {
@@ -966,6 +976,15 @@ var meteonews = {
     hideLoading: function() {
         $('#mn-overlay-white').remove(); 
         $('#mn-overlay-black').remove(); 
+    },
+
+    hideAllLoading: function() {
+        $('#mn-overlay-white').each(function() {
+            $(this).remove();
+        });
+        $('#mn-overlay-black').each(function() {
+            $(this).remove();
+        });
     },
 
     hideElement: function(element) {
@@ -1012,6 +1031,7 @@ var meteonews = {
                     cb(response);
                 },
                 error: function(errorObj, textStatus, errorMsg) {
+                    meteonews.hideLoading();
                     console.log(JSON.stringify(errorMsg));
                 }
             });
@@ -1067,7 +1087,7 @@ var meteonews = {
     autoCompleteLookup: function (request, response) {
         queryString = request.term.replace(' ', '_');
         var feed = 'search/' + queryString + '.' + meteonews.format;
-        var url = meteonews.domain + '/' + feed
+        var url = meteonews.domain + '/' + feed + '?autofill=1&limit=100&country=CH';
 
         $.ajax({
             url: meteonews.proxyUrl + "?url=" + encodeURIComponent(url),
@@ -1080,16 +1100,20 @@ var meteonews = {
                     for (var r in results) {
                         var result = results[r];
                         var label = result.name;
-                        if (result.state) {
-                            label += ', ' + result.state;
-                        }
-                        label += ', ' + result.country;
+                        var country = result.country;
 
-                        var option = {
-                                'label': label,
-                                'id': result.geoname_id
-                                }
-                        output.push(option);
+                        if (country == 'CH') {
+                            if (result.state) {
+                                label += ', ' + result.state;
+                            }
+                            label += ', ' + result.country;
+
+                            var option = {
+                                    'label': label,
+                                    'id': result.geoname_id
+                                    }
+                            output.push(option);
+                        }
                     }
                 } else {
                     var label = results.name;
