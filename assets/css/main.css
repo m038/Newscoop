@@ -357,7 +357,7 @@ small {
 		.thumb-gallery ul {margin:0; list-style-type:none;}
 			.thumb-gallery ul li {float:left;}
 				.thumb-gallery ul li img {display:block; border:#fff solid 2px;}
-				.thumb-gallery ul li.ui-tabs-active img {border-color:#b50033;}
+				.thumb-gallery ul li.ui-tabs-active img {border-color:#b50033; max-width: 90px !important; height: auto !important;}
 	
 	.side-padding {padding:0 15px;}
 	
