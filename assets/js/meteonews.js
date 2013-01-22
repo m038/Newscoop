@@ -900,7 +900,6 @@ var meteonews = {
     },
 
     showLocalWeatherPage: function() {
-        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         meteonews.makeActive('mn-lokalwetter');
         meteonews.showLocalSearch();
@@ -911,7 +910,6 @@ var meteonews = {
     },
 
     showPrognosenPage: function() {
-        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         $('#mn-searchform').show();
         meteonews.makeActive('mn-prognosen');
@@ -925,7 +923,6 @@ var meteonews = {
     },
 
     showFiveDayForecastPage: function(id, zip, name) {
-        $('#mn-slope-map').show();
         meteonews.hideAllElements();
         meteonews.makeActive('mn-lokalwetter');
         $('#mn-searchform').show();
