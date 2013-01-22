@@ -10,7 +10,7 @@
                 <ul>
                     <li id='mn-prognosen' class='mn-menu-item'><a href="#">Prognosen Zentralschweiz</a></li>
                     <li id='mn-lokalwetter' class='mn-menu-item'><a href="#">Lokalwetter</a></li>
-                    <li id='mn-pistenbericht' class='mn-menu-item'><a href="#">Pistenbericht</a></li>
+                    <li id='mn-wintersport' class='mn-menu-item'><a href="#">Wintersport</a></li>
                 </ul>
             
             </div>
@@ -27,7 +27,7 @@
                 
                 {{ include file="_tpl/weather-lokkalwetter.tpl" }}
 
-                {{ include file="_tpl/weather-pistenbericht.tpl" }}
+                {{ include file="_tpl/weather-wintersport.tpl" }}
 
             </div><!-- / Main -->
             
@@ -55,8 +55,8 @@ $(document).ready(function(){
             }
         } else if (pg == 'prognosen') {
             meteonews.showPrognosenPage();
-        } else if (pg == 'pistenbericht') {
-            meteonews.showPistenberichtPage();
+        } else if (pg == 'wintersport') {
+            meteonews.showWintersportPage();
         } else if (pg == 'search') {
             meteonews.hideAllElements();
             meteonews.getSearchResults('{{ $smarty.get.q }}');

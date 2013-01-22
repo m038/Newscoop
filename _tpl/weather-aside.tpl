@@ -20,7 +20,7 @@
 
                 <div id='mn-teaser-slopes'>
                     <div class="box">
-                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_pistenbericht.png"}}'> Pistenbericht</h4>
+                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_wintersport.png"}}'> Wintersport</h4>
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
@@ -35,7 +35,7 @@
                                 {{ /list_weather_stats }}
                             </tbody>
                         </table>
-                        <a id='mn-pistenbericht' href="#" class="button white center mn-menu-item">Zum Pistenbericht</a>
+                        <a id='mn-wintersport' href="#" class="button white center mn-menu-item">Zum Wintersport</a>
                     </div>
                 </div>
                 

@@ -42,9 +42,9 @@ var meteonews = {
 
     elementList: [ 'mn-search-results', 'mn-forecast-details', 'mn-lokalwetter-regions-container',
         'mn-forecast-overview', 'mn-primary-regions', 'mn-secondary-regions', 'mn-prognosen-regions',
-        'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-pistenbericht-important-slopes',
-        'mn-pistenbericht-all-regions', 'mn-pistenbericht-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
-        'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-pistenbericht-details-prognosen' ],
+        'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-wintersport-important-slopes',
+        'mn-wintersport-all-regions', 'mn-wintersport-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
+        'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-wintersport-details-prognosen' ],
 
     // map vars
     geocoder: null,
@@ -53,7 +53,7 @@ var meteonews = {
 
     // translations
     translations:  {
-        'ski' : 'Pistenbericht',
+        'ski' : 'Wintersport',
         'condition' : 'Zustand',
         'snow_condition' : 'Schnee-/Pistenzustand',
         'facilities' : 'Offene Anlagen',
@@ -461,7 +461,7 @@ var meteonews = {
 
     showWinterSportsReport: function(slope) {
         var now = this.formatDisplayDateTime(new Date()); 
-        $('#mn-pistenbericht-details-time').html('Aktuell '+now);
+        $('#mn-wintersport-details-time').html('Aktuell '+now);
         var item = "<li style='width: 300px'>";
         
         // update location header
@@ -469,7 +469,7 @@ var meteonews = {
         $('#mn-header-location-title').show();
 
         // header row
-        $('#mn-pistenbericht-details-list').empty();
+        $('#mn-wintersport-details-list').empty();
 
         item += "<img src='" + this.symbolsPath + slope.symb + ".png' class='mn-symbol-medium' alt>";
         item += "<span>" + slope.temp + ", ";
@@ -482,10 +482,10 @@ var meteonews = {
                 "style='-webkit-transform:rotate(" + slope.winddir + "deg)' alt>";
         item += "<span>" + slope.windforce + " km/h</span></li>";
 
-        $('#mn-pistenbericht-details-list').append(item);
+        $('#mn-wintersport-details-list').append(item);
 
         // details
-        $('#mn-pistenbericht-details-container').html();
+        $('#mn-wintersport-details-container').html();
 
         var output = '';
         var sections = ['ski', 'crosscountry', 'toboggan', 'avalanches', 'general'];
@@ -568,8 +568,8 @@ var meteonews = {
         // get forecasts for slopes in the near
         var headerRow = "<tr><td colspan='2'><p><strong>In der Nähe</strong></p></td></tr>"
         for (var i=1;i<6;i++) {
-            $('#mn-pistenbericht-prognosen-table-' + i + ' tbody').empty();
-            $('#mn-pistenbericht-prognosen-table-' + i + ' tbody').append(headerRow);
+            $('#mn-wintersport-prognosen-table-' + i + ' tbody').empty();
+            $('#mn-wintersport-prognosen-table-' + i + ' tbody').append(headerRow);
         }
         var rowTemplate = "<tr><td><p><strong>$name</strong><br>$text</p></td><td>$image $temp</td></tr>";
 
@@ -581,7 +581,7 @@ var meteonews = {
             for (var i=1;i<6;i++) {
                 var rowId = "mn-slope-tbl" + i + "-" + slopeId;
                 var rowTemplate = "<tr id='" + rowId + "'></tr>";
-                $('#mn-pistenbericht-prognosen-table-' + i + ' tbody').append(rowTemplate);
+                $('#mn-wintersport-prognosen-table-' + i + ' tbody').append(rowTemplate);
             }
 
             (function(slopeId, slopeName){
@@ -596,7 +596,7 @@ var meteonews = {
                         var date = meteonews.getDateObj(result['@attributes']['end_datetime']);
                         var displayDate = meteonews.formatDisplayDate(date);
                         var image = "<img src='" + meteonews.symbolsPath + result.symb +".png' class='mn-symbol-small' alt>";
-                        var link = "<a href='#'  class='mn-pistenbericht-link' data-type='mexs' data-id='" + slopeId + "' data-name='" + slopeName + "'>"
+                        var link = "<a href='#'  class='mn-wintersport-link' data-type='mexs' data-id='" + slopeId + "' data-name='" + slopeName + "'>"
                         var row = "<td><p><strong>" + link + slopeName + "</a></strong><br>" + txt + "</p></td><td>" + image + " " +  temp + "</td>";
                         day++;
                         var matchRowId = "#mn-slope-tbl" + day + "-" + slopeId;
@@ -610,8 +610,8 @@ var meteonews = {
             })(slopeId, slopeName);
         }
 
-        $('#mn-pistenbericht-details-container').html(output);
-        $('#mn-pistenbericht-details').show();
+        $('#mn-wintersport-details-container').html(output);
+        $('#mn-wintersport-details').show();
     },
 
     showPrognosenText: function(response) {
@@ -929,20 +929,20 @@ var meteonews = {
         $('#mn-search-text').val('');
     },
 
-    showPistenberichtPage: function() {
+    showWintersportPage: function() {
         meteonews.hideAllElements();
         $('#mn-searchform').show();
-        meteonews.setLocationTitle('Pistenbericht');
-        meteonews.makeActive('mn-pistenbericht');
-        $('#mn-pistenbericht-important-slopes').show();
-        $('#mn-pistenbericht-all-regions').show();
+        meteonews.setLocationTitle('Wintersport');
+        meteonews.makeActive('mn-wintersport');
+        $('#mn-wintersport-important-slopes').show();
+        $('#mn-wintersport-all-regions').show();
         meteonews.getAstronomy();
         $('#mn-sun-and-moon').show();
         meteonews.getAllSlopesMap(name);
         $('#mn-slope-map').show();
     },
 
-    showPistenberichtDetailPage: function(type, id, name) {
+    showWintersportDetailPage: function(type, id, name) {
         meteonews.hideAllElements();
         meteonews.setLocation(id,name);
         meteonews.getWinterSportsReport(type, id, function(slope) {
@@ -955,7 +955,7 @@ var meteonews = {
         $('#mn-slope-map').show();
 
         meteonews.getSlopeWebcams(type, id, name);
-        $('#mn-pistenbericht-details-prognosen').show();
+        $('#mn-wintersport-details-prognosen').show();
     },
 
     showLoading: function() {
@@ -1145,8 +1145,8 @@ $(function(){
         meteonews.showPrognosenPage()
     });
 
-    $('#mn-pistenbericht').live('click', function() {
-        meteonews.showPistenberichtPage();
+    $('#mn-wintersport').live('click', function() {
+        meteonews.showWintersportPage();
     });
 
     $('.mn-lokalwetter-region-item').live('click', function() {
@@ -1160,8 +1160,8 @@ $(function(){
         }
     });
 
-    $('.mn-pistenbericht-link').live('click', function() {
-        meteonews.showPistenberichtDetailPage($(this).attr('data-type'), $(this).attr('data-id'), $(this).attr('data-name'));
+    $('.mn-wintersport-link').live('click', function() {
+        meteonews.showWintersportDetailPage($(this).attr('data-type'), $(this).attr('data-id'), $(this).attr('data-name'));
     });
 
 

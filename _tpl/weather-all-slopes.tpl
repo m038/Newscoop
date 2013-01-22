@@ -2,7 +2,7 @@
     <th>
         <p>
             <strong>
-                <a href='#' class='mn-pistenbericht-link' data-type='mexs' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a>
+                <a href='#' class='mn-wintersport-link' data-type='mexs' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a>
             </strong>
             <br>{{ $gimme->weather_location->region_name }}
         </p>
