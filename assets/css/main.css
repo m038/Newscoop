@@ -356,8 +356,8 @@ small {
 			.thumb-gallery div.gall-box figure small {padding:10px 15px 0;}
 		.thumb-gallery ul {margin:0; list-style-type:none;}
 			.thumb-gallery ul li {float:left;}
-				.thumb-gallery ul li img {display:block; border:#fff solid 2px;}
-				.thumb-gallery ul li.ui-tabs-active img {border-color:#b50033; max-width: 90px !important; height: auto !important;}
+				.thumb-gallery ul li img {display:block; border:#fff solid 2px; max-width: 90px !important; height: auto !important;}
+				.thumb-gallery ul li.ui-tabs-active img {border-color:#b50033;}
 	
 	.side-padding {padding:0 15px;}
 	
