@@ -811,20 +811,25 @@ var meteonews = {
                 }
             }
         } else {
-            output += "<div class='mn-search-result' ";
-            output += "data-id='" + results.geoname_id + "' ";
-            output += "data-zip='" + results.zip + "' ";
-            output += "data-name='" + results.name + "'>";
-            output += "<ul>";
+            if (results) {
+                output += "<div class='mn-search-result' ";
+                output += "data-id='" + results.geoname_id + "' ";
+                output += "data-zip='" + results.zip + "' ";
+                output += "data-name='" + results.name + "'>";
+                output += "<ul>";
 
-            var label = results.name;
-            if (results.state) {
-                label += ", " + results.state;
+                var label = results.name;
+                if (results.state) {
+                    label += ", " + results.state;
+                }
+                label += ", " + results.country;
+
+                output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
+                output += "</ul></div>";
+            } else {
+                // no results
+                output = 'Keine Ergebnisse';
             }
-            label += ", " + results.country;
-
-            output += "<li class='mn-search-result-col'><a href='#'>" + label + "</a></li>";
-            output += "</ul></div>";
         }
         meteonews.hideAllLoading(); 
         $('#mn-search-results').html(output);
@@ -1117,17 +1122,21 @@ var meteonews = {
                         }
                     }
                 } else {
-                    var label = results.name;
-                    if (results.state) {
-                        label += ', ' + results.state;
-                    }
-                    label += ', ' + results.country;
+                    if (results) {
+                        var label = results.name;
+                        if (results.state) {
+                            label += ', ' + results.state;
+                        }
+                        label += ', ' + results.country;
 
-                    var option = {
-                        'label': label,
-                        'id': results.geoname_id
-                    };
-                    output.push(option);
+                        var option = {
+                            'label': label,
+                            'id': results.geoname_id
+                        };
+                        output.push(option);
+                    } else {
+                        meteonews.hideAllLoading();
+                    }
                 }
                 response(output);
             }
