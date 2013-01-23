@@ -37,10 +37,7 @@
                     {{ /if }}                    
                     {{ /list_article_topics }}   
                     
-                <div class="ad bottom-line">
-                  {{ include file="_ads/front-fullbanner.tpl" }}
-                  {{* include file="_tpl/weather-mobile-header.tpl" *}}
-                </div>                                 
+                  {{ include file="_ads/front-fullbanner.tpl" }}                                
                 
 {{ else }}
 
