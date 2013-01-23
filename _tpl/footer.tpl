@@ -133,7 +133,7 @@
                         </li>
                         <li>
                             <label>Mitteilung<i>*</i></label>
-                            <textarea style="min-width: 350px; min-height: 150px;" name="text"></textarea>
+                            <textarea style="min-width: 350px; min-height: 150px;" name="message"></textarea>
                         </li>
                         <li class="top-line">
                             <input type="submit" class="button red right" value="Senden" />
