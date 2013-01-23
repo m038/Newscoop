@@ -1,4 +1,4 @@
-                <h4 class="center-title"><a href="#">Weitere Artikel</a></h4>
+                <h4 class="center-title">Weitere Artikel</h4>
                 
                 <div class="left-thumb article-border-bottom margin-bottom clearfix">
 
