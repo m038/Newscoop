@@ -4,7 +4,7 @@
                 
                 <div class="mobile-half">
                 	<header>
-                    	<h6><a href="#">Pro & Contra</a></h6>
+                    	<h6>Pro & Contra</h6>
                     	<h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </header>
                 </div>

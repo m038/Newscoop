@@ -1,6 +1,6 @@
 {{ if !is_object($gimme->user) || !$gimme->user->logged_in }}
 <div class="box highlight-box">
-	<h4 class="box-title icon-letter"><a href="#">zentral+ Newsletter</a></h4>
+	<h4 class="box-title icon-letter">zentral+ Newsletter</h4>
   <form method="get" action="/register">
     <fieldset class="newsletter-form">
       <label>Folgen Sie uns im Newsletter</label>
