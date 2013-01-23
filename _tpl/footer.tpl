@@ -118,7 +118,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized-fancy-1">
+                            <select name="topic" class="dropdownized-fancy-1">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -133,7 +133,7 @@
                         </li>
                         <li>
                             <label>Mitteilung<i>*</i></label>
-                            <textarea style="min-width: 350px; min-height: 150px;" name="text"></textarea>
+                            <textarea style="min-width: 350px; min-height: 150px;" name="message"></textarea>
                         </li>
                         <li class="top-line">
                             <input type="submit" class="button red right" value="Senden" />
@@ -201,7 +201,7 @@
             });
         });
 
-        $('form#kontakt-form-form').live('submit', function(e){
+        $('.fancybox-outer form#kontakt-form-form').live('submit', function(e){
             e.preventDefault();
             var form = this;
             $.ajax({
