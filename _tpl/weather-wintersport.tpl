@@ -17,7 +17,7 @@
                 </div><!-- / mn-wintersport-important-slopes -->
 
                 <div id='mn-wintersport-all-regions' class='tabs ui-tabs ui-widget ui-widget-content ui-corner-all'>
-                    <h3>Alle Wintersport</h3>
+                    <h3>Alle Wintersportorte Zentralschweiz</h3>
                     <fieldset class="alt-nav desktop-hide mobile-hide">
                         <label>Zeige</label>
                         <div id="dropdownized-1" class="ui-dropdownized dropdownized" style="cursor: pointer; position: relative; z-index: 1; width: 100px;"><div style="position: absolute; cursor: pointer; display: block; left: 0px; top: 0px; z-index: -1; overflow: hidden; line-height: 28px;">Alle Kantone</div><select class="" style="opacity: 0; display: block; cursor: pointer; float: left; left: 0px; top: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; margin: 0px; padding: 0px; background-color: transparent; z-index: 5;">

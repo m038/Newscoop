@@ -2848,7 +2848,7 @@ a.button.center.details-more {display:none;}
 	.diagram-table table td {padding:10px 0; border-bottom:#ccc dashed 1px;}
 	.diagram-table td small {display:block; font-size:16px; margin-bottom:3px;}
 	
-	.phone-weather-box {display:block; margin:0 0 -10px 0; padding-top:10px; float:none; list-style-type:none; text-align:center;}
+	.phone-weather-box {display:block; margin:12px -10px 0 -10px; padding-top:10px; float:none; list-style-type:none; text-align:center; border-bottom: 1px dashed #ccc;}
 		.phone-weather-box li {display:inline-block;}
 		
 	.figcaption-highlight article {border-bottom:0; padding:0; margin-bottom:0;}
@@ -3011,6 +3011,12 @@ a.button.center.details-more {display:none;}
 
 	.content-wrapper.error-page {margin: 0 -10px; padding: 0 10px; width: auto;}
 	.error-page h2 {text-align: center; margin-top: 20px; font-size: 18px;}
+
+	.centered-tag-list {
+		margin: 16px -10px 0 -10px;
+		border-bottom: 1px dashed #CCC;
+		padding-bottom: 14px;
+		}
 
 }
 
