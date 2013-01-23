@@ -1,4 +1,3 @@
-                	<small>Werbung</small>
                     <ul class="weather phone-weather-box">
                         <li>
                             {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
