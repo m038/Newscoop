@@ -37,7 +37,8 @@
                     {{ /if }}                    
                     {{ /list_article_topics }}   
                     
-                  {{ include file="_ads/front-fullbanner.tpl" }}                                
+                  {{ include file="_ads/section-fullbanner.tpl" }} 
+                  {{ include file="_ads/mobile-section-216x36.tpl" }}                                 
                 
 {{ else }}
 
