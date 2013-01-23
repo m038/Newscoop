@@ -41,9 +41,7 @@
 
 {{ include file="_tpl/article-aside.tpl" }}
                 
-                <div class="ad">
-                  <!--small>Werbung</small-->
-                </div>
+{{ include file="_ads/article-skyscrapper.tpl" }}
             
             </div><!-- / Aside -->
         
@@ -60,8 +58,6 @@
 {{ include file="_tpl/article-comments.tpl" }}
                 
                 <div class="aside">
-
-{{ include file="_ads/article-skyscrapper.tpl" }}
                 
                 </div><!-- /.aside -->
                 
