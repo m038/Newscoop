@@ -19,7 +19,9 @@
     <meta name="email" content="info@zentralplus.ch">    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ url static_file="assets/img/favicon.ico" }}">
+    <link href="{{ url static_file="assets/img/favicon2.ico" }}" rel="SHORTCUT ICON" type="image/x-icon" > 
+    <link href="{{ url static_file="assets/img/favicon2.ico" }}" rel="icon" media="all" type="image/x-icon" >
+    
     <link rel="apple-touch-icon" href="touch-icon.png">
 
     <link rel="stylesheet" href="{{ url static_file="assets/css/main.css" }}">

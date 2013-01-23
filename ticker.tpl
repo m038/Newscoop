@@ -10,7 +10,7 @@
 
     	<div class="content-wrapper top-line events-content">
         
-        	<div class="content no-bottom-line equal-heights clearfix">
+        	<div class="content no-bottom-line clearfix">
             
             	<div class="events-aside info-text clearfix">
                 	
