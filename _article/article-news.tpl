@@ -60,10 +60,8 @@
 {{ include file="_tpl/article-comments.tpl" }}
                 
                 <div class="aside">
-                
-                    <div class="ad">
-                        <!--small>Werbung</small-->
-                    </div><!-- /.ad -->
+
+{{ include file="_ads/article-skyscrapper.tpl" }}
                 
                 </div><!-- /.aside -->
                 
