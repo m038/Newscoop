@@ -13,8 +13,8 @@
 {{ else *}}
     {{ if $gimme->template->name == "front.tpl" }}
 	var OA_zones = {'1':1,'3':3};
-	   {{ elseif $gimme->template->name == "front.tpl" }}
-	   
+	   {{ elseif $gimme->publication->identifier == 2 && $gimme->section->number == 20 }}
+ var OA_zones = {'2':2,'4':4};	   
 	   {{ /if }}	
 {{* /if *}}	
 </script>
