@@ -12,7 +12,7 @@
                         <div class="comment-content">
                             <div id="comm-1">
                             {{ $recommendedEmpty=1 }}
-                            {{ list_article_comments order="bydate asc" recommended="true"  }}
+                            {{ list_article_comments order="bydate desc" recommended="true"  }}
                             {{ if $gimme->current_list->at_beginning }}
                                 <ol>
                             {{ /if }}   
@@ -29,7 +29,7 @@
                                 {{ include file="_tpl/article-comments-form.tpl" }}
                             </div><!-- /#comm-1 -->
                             <div id="comm-2">
-                            {{ list_article_comments order="bydate asc"  }}
+                            {{ list_article_comments order="bydate desc"  }}
                             {{ if $gimme->current_list->at_beginning }}
                                 <ol>
                             {{ /if }}

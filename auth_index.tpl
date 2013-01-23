@@ -8,7 +8,7 @@
     <h4>Anmelden</h4>
 
     {{ if $form->getMessages() && !$form->email->hasErrors() && !$form->password->hasErrors() }}
-    <div class="infobox error">Invalid credentials</div>
+    <div class="infobox error">Email-Adresse und Passwort stimmen nicht überein.</div>
     {{ /if }}
     
     <form method="{{ $form->getMethod() }}" action="{{ $form->getAction() }}">

@@ -1,8 +1,8 @@
 
-                <!-- pistenbericht elements -->
-                <div id='mn-pistenbericht-important-slopes'>
+                <!-- wintersport elements -->
+                <div id='mn-wintersport-important-slopes'>
                     <h3 class='top-line'>Beliebte Ziele</h3>
-                    <table id='mn-pistenbericht-important-slopes-table' cellpadding='0' cellspacing='0' class='top-line second-row-phone-hide'>
+                    <table id='mn-wintersport-important-slopes-table' cellpadding='0' cellspacing='0' class='top-line second-row-phone-hide'>
                         <colgroup>
                             <col width>
                             <col width='340'>
@@ -14,10 +14,10 @@
                                 {{ /list_weather_stats }} 
                         </tbody>
                     </table>
-                </div><!-- / mn-pistenbericht-important-slopes -->
+                </div><!-- / mn-wintersport-important-slopes -->
 
-                <div id='mn-pistenbericht-all-regions' class='tabs ui-tabs ui-widget ui-widget-content ui-corner-all'>
-                    <h3>Alle Pistenberichte</h3>
+                <div id='mn-wintersport-all-regions' class='tabs ui-tabs ui-widget ui-widget-content ui-corner-all'>
+                    <h3>Alle Wintersport</h3>
                     <fieldset class="alt-nav desktop-hide mobile-hide">
                         <label>Zeige</label>
                         <div id="dropdownized-1" class="ui-dropdownized dropdownized" style="cursor: pointer; position: relative; z-index: 1; width: 100px;"><div style="position: absolute; cursor: pointer; display: block; left: 0px; top: 0px; z-index: -1; overflow: hidden; line-height: 28px;">Alle Kantone</div><select class="" style="opacity: 0; display: block; cursor: pointer; float: left; left: 0px; top: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; margin: 0px; padding: 0px; background-color: transparent; z-index: 5;">
@@ -154,19 +154,19 @@
                         </table>
                     </div>
  
-                </div><!-- / mn-pistenbericht-all-regions -->
+                </div><!-- / mn-wintersport-all-regions -->
 
-                <div id='mn-pistenbericht-details'>
-                    <div id='mn-pistenbericht-details-info' class="top-weather-info-detail top-line bottom-line">
-                        <time id='mn-pistenbericht-details-time'></time>
-                        <ul id='mn-pistenbericht-details-list'>
+                <div id='mn-wintersport-details'>
+                    <div id='mn-wintersport-details-info' class="top-weather-info-detail top-line bottom-line">
+                        <time id='mn-wintersport-details-time'></time>
+                        <ul id='mn-wintersport-details-list'>
                         </ul>
-                    </div><!-- / mn-pistenbericht-details-info -->
+                    </div><!-- / mn-wintersport-details-info -->
 
-                    <div id='mn-pistenbericht-details-container' class="simple-table">
-                    </div><!-- / mn-pistenbericht-details-container --> 
+                    <div id='mn-wintersport-details-container' class="simple-table">
+                    </div><!-- / mn-wintersport-details-container --> 
                 
-                    <div id='mn-pistenbericht-details-prognosen'>
+                    <div id='mn-wintersport-details-prognosen'>
                         <div class="spec-tabs ui-tabs ui-widget ui-widget-content ui-corner-all">
                 
                             <ul class="button-nav bottom-line ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist" style="display: block;">
@@ -183,7 +183,7 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table id='mn-pistenbericht-prognosen-table-1' cellpadding="0" cellspacing="0">
+                                    <table id='mn-wintersport-prognosen-table-1' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
@@ -201,7 +201,7 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table id='mn-pistenbericht-prognosen-table-2' cellpadding="0" cellspacing="0">
+                                    <table id='mn-wintersport-prognosen-table-2' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
@@ -220,7 +220,7 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table id='mn-pistenbericht-prognosen-table-3' cellpadding="0" cellspacing="0">
+                                    <table id='mn-wintersport-prognosen-table-3' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
@@ -239,7 +239,7 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table id='mn-pistenbericht-prognosen-table-4' cellpadding="0" cellspacing="0">
+                                    <table id='mn-wintersport-prognosen-table-4' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
@@ -258,7 +258,7 @@
                                 
                                 <div class="table-wrapper top-line">
                             
-                                    <table id='mn-pistenbericht-prognosen-table-5' cellpadding="0" cellspacing="0">
+                                    <table id='mn-wintersport-prognosen-table-5' cellpadding="0" cellspacing="0">
                                         <colgroup>
                                             <col width="">
                                             <col width="80">
@@ -272,11 +272,11 @@
                             </div>
                         
                         </div>
-                    </div><!-- mn-pistenbericht-details-prognosen -->
+                    </div><!-- mn-wintersport-details-prognosen -->
 
                     <div class="back-link">
-                        <a class="button white prev" href="javascript: meteonews.showPistenberichtPage()">‹</a> <a href="#">zur Übersicht</a>
+                        <a class="button white prev" href="javascript: meteonews.showWintersportPage()">‹</a> <a href="#">zur Übersicht</a>
                     </div>
-                </div><!-- / mn-pistenbericht-details -->
+                </div><!-- / mn-wintersport-details -->
 
                 
