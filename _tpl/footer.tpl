@@ -118,7 +118,7 @@
                 <fieldset>
                     <ul>
                         <li>
-                            <select class="dropdownized-fancy-1">
+                            <select name="topic" class="dropdownized-fancy-1">
                                 <option value="Nachricht an die Redaktion">Nachricht an die Redaktion</option>
                                 <option value="Nachricht für den Verlag">Nachricht für den Verlag</option>
                                 <option value="Bitte um Kontaktaufnahme">Bitte um Kontaktaufnahme</option>
@@ -201,7 +201,7 @@
             });
         });
 
-        $('form#kontakt-form-form').live('submit', function(e){
+        $('.fancybox-outer form#kontakt-form-form').live('submit', function(e){
             e.preventDefault();
             var form = this;
             $.ajax({
