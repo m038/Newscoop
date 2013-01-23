@@ -1,4 +1,5 @@
                 <div class="ad bottom-line">
+                	<small>Werbung</small>
 <script type='text/javascript'><!--// <![CDATA[
     /* [id1] Leaderboard Front */
     OA_show(1);

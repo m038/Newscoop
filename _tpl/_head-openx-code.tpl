@@ -11,7 +11,11 @@
 {{* if $isMobDevice }}
 	var OA_zones = {'59':59,'60':60,'61':61,'62':62,'63':63};
 {{ else *}}
+    {{ if $gimme->template->name == "front.tpl" }}
 	var OA_zones = {'1':1,'3':3};
+	   {{ elseif $gimme->template->name == "front.tpl" }}
+	   
+	   {{ /if }}	
 {{* /if *}}	
 </script>
 
