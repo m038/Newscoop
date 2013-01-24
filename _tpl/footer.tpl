@@ -114,7 +114,7 @@
         <div id="kontakt-form" class="popup-form">
             <div class="popup-form">
             <h4>Kontakt</h4>
-            <form method="POST" id="kontakt-form-form" action="/contact/send" style="min-width:400px;">
+            <form method="POST" id="kontakt-form-form" action="/contact/send?format=json" style="min-width:400px;">
                 <fieldset>
                     <ul>
                         <li>
@@ -149,7 +149,7 @@
         </div>
         <div id="feedback-form" class="popup-form">
             <div class="popup-form">
-            <form method="POST" id="feedback-form-form" action="/feedback/save" style="min-width:400px;">
+            <form method="POST" id="feedback-form-form" action="/feedback/save?format=json" style="min-width:400px;">
                 <h4>Feedback</h4>
                 <fieldset>
                     <ul>
@@ -222,7 +222,6 @@
                 url: $(form).attr('action'),
                 data: $(form).serializeArray()
             }).done(function( msg ) {
-                $.fancybox.close()
                 $.fancybox({
                     'content' : '<h2>Vielen Dank für Ihre Nachricht an zentral+.</h2>'
                 });
