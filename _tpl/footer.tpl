@@ -128,12 +128,16 @@
                             </select>
                         </li>
                         <li>
+                            <label>Email<i>*</i></label>
+                            <input type="text" id="contact-email" name="email" />
+                        </li>
+                        <li>
                             <label>Betreff</label>
                             <input type="text" name="subject" />
                         </li>
                         <li>
                             <label>Mitteilung<i>*</i></label>
-                            <textarea style="min-width: 350px; min-height: 150px;" name="message"></textarea>
+                            <textarea id="contact-message" style="min-width: 350px; min-height: 150px;" name="message"></textarea>
                         </li>
                         <li class="top-line">
                             <input type="submit" class="button red right" value="Senden" />
@@ -204,6 +208,15 @@
         $('.fancybox-outer form#kontakt-form-form').live('submit', function(e){
             e.preventDefault();
             var form = this;
+
+            if ($('#contact-email', form).val() === '') {
+                alert('Email ist ein Pflichtfeld');
+                return false;
+            } else if ($('#contact-message', form).val() === '') {
+                alert('Nachricht ist ein Pflichtfeld');
+                return false;
+            }
+
             $.ajax({
                 type: $(form).attr('method'),
                 url: $(form).attr('action'),
