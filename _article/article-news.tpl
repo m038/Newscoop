@@ -31,6 +31,8 @@
         
           <div class="main">
 
+{{ count }}
+
 {{ include file="_tpl/article-cont.tpl" }}
 
 {{ include file="_tpl/article-tools.tpl" }}

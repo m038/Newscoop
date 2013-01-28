@@ -23,6 +23,8 @@
                         </figcaption>
                     </figure>
                     {{ /list_articles }}
+
+{{ count }}
                     
                     {{ if $gimme->article->dateline }}<p class="time-top"><time>{{ $gimme->article->dateline }}</time></p>{{ /if }}
                     <figure class="left">
