@@ -38,9 +38,7 @@
     {{ /if }}
     <pubDate>{{ $gimme->article->publish_date|date_format:"%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <guid isPermaLink="true">{{ capture name="permalink" }}{{ url options="article" }}{{ /capture }}{{ $smarty.capture.permalink|escape }}</guid>
-    {{ if isset($smarty.get.target) && $smarty.get.target == 'mailchimp' }}
     <summary>{{ $gimme->article->dateline|escape }}</summary>
-    {{ /if }}
 </item>
 {{/list_articles}}
 </channel>
