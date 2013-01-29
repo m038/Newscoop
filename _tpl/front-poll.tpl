@@ -7,7 +7,7 @@
 {{ if $gimme->debate_action->defined }}
                         <blockquote>{{ $gimme->debate->question }}</blockquote>
     {{ if $gimme->debate->user_vote_count >= $gimme->debate->votes_per_user || $gimme->debate_action->ok }}
-    <p>Danke für Ihre Teilnahme!</p>
+    <p class="poll-info">Danke für Ihre Teilnahme!</p>
     {{ elseif $gimme->debate_action->is_error }}
     <p>Sie haben bereits abgestimmt (Sie haben nur eine Stimme.)</p>
     {{ /if }}                        
