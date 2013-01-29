@@ -40,7 +40,7 @@
 
 		{{ list_articles length="5" constraints="type is blog" }}             
                     <article>
-                      <h6>{{ if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if }}<time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></h6>
+                      <h6>{{* if !($gimme->article->dateline == "") }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> · {{ /if *}}<time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y" }}</time></h6>
 
                     		{{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
                         <figure>

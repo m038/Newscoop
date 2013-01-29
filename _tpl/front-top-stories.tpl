@@ -20,7 +20,7 @@
             {{ /image }}
                         <figcaption>
                           {{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
-                          <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
+                          {{ if $gimme->article->dateline }}<h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>{{ /if }}
                             <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         </figcaption>
                     </figure>
@@ -62,7 +62,7 @@
                       <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>     
               {{ /image }}
                         </figure>
-                        <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
+                        {{ if $gimme->article->dateline }}<h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>{{ /if }}
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>   
                     </article>

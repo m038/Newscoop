@@ -29,16 +29,16 @@
                             <h4>Aus diesem Dossier</strong></h4>
                             <p>
                             {{ list_related_articles length="3" }}
-                            <a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a> {{ $gimme->article->name }}{{ if !$gimme->current_list->at_end }}<br />{{ /if }}
+                            <span>{{ $gimme->article->dateline }}</span> <a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ if !$gimme->current_list->at_end }}<br />{{ /if }}
                             {{ /list_related_articles }}
                             </p>
                         </aside>
                     </article>
-{{ if $gimme->current_list->at_beginning }}                    
+{{* if $gimme->current_list->at_beginning }}                    
                     <div class="ad top-line margin-bottom">
                         <!--small>Werbung</small-->
                     </div>
-{{ /if }}                    
+{{ /if *}}                    
 {{ /list_articles }}
                 
                 </div>

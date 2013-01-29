@@ -14,7 +14,7 @@
 {{ /image }}                    
                         <figcaption>
                           {{ if $gimme->article->comment_count }}<span class="phone-comm">{{ $gimme->article->comment_count }}</span>{{ /if }}
-                          <h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>
+                          {{ if $gimme->article->dateline }}<h6><a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a></h6>{{ /if }}
                             <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         </figcaption>
                     </figure>
