@@ -81,7 +81,7 @@
                         <article>
                             <div class="highlight-box">
                             <h4 class="box-title icon-cross">Ihr Thema fehlt noch?</h4>
-                              {{ if is_object($gimme->user) && $gimme->user->logged_in }}<a href="#" class="button show-feedback-form red center">Machen Sie einen Vorschlag!</a>{{ else }}<p>Bitte loggen Sie sich ein, um das Feedback Formular zu benutzen.</p>{{ /if }}
+                              {{ if is_object($gimme->user) && $gimme->user->logged_in }}<a href="#" class="button show-feedback-form red center">Machen Sie einen Vorschlag!</a>{{ else }}<a href="/auth">Bitte loggen Sie sich ein, um das Feedback Formular zu benutzen.</a>{{ /if }}
                             </div>
                         </article>                    
                     </div><!-- / 2 columns -->                    
