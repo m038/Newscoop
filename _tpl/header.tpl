@@ -70,11 +70,7 @@
               				{{ set_publication identifier="2" }}
                         	<li><a href="{{ url options="root_level" }}">Home</a></li>
                         {{ set_current_issue }}
-                        {{ set_section number="60" }}
-                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ set_section number="10" }}
-                        	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
-                        {{ set_section number="70" }}
                         	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ set_section number="20" }}
                         	<li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
@@ -90,9 +86,7 @@
                         {{ set_current_issue }}
                         	<li><a href="{{ url options="issue" }}">{{ $gimme->issue->name }}</a></li>
                         {{ set_publication identifier="2" }}
-                        {{ set_current_issue }}                        
-                        {{* set_section number="50" *}}
-                        	<!--li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li-->	
+                        {{ set_current_issue }}                        	
                         {{ set_section number="71" }}
                         	<li><a href="{{ url options="section" }}">Ausgehen</a></li>
                             <li><a href="#">Wetter</a></li>
