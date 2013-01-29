@@ -23,7 +23,7 @@
                     	<div class="box">
                         	
                             <header>
-                        		<h6><a href="#">Pro & Contra</a></h6>
+                        		<h6><a href="{{ url options="article" }}">Pro & Contra</a></h6>
                             	<h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                             </header>
                             
