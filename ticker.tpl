@@ -54,7 +54,7 @@
                             	<p>{{ $gimme->section->name }}</p>
                             </a>
                             <div>
-                                {{ $gimme->article->DataContent }}
+                                <p>{{ $gimme->article->DataContent }}</p>
                             </div>
                         </li>  
                       {{ assign var="artCond" value="number not {{ $gimme->article->number }}" }}                     
