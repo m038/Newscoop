@@ -1,5 +1,5 @@
 {{ if $isMobDevice }}
-				{{ if $gimme->section->number == 10 }}
+				{{ if $gimme->default_section->number == 10 }}
 <script type='text/javascript'><!--// <![CDATA[
     /* [id6] Tablet and mobile Section Politik */
     OA_show(6);
