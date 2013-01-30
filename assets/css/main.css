@@ -3390,11 +3390,25 @@ a.button.center.details-more {display:none;}
   	width: auto !important;
   }
 
+  .article-detail.content .main {
+  	height: auto !important;
+  }
+
   .article-detail.content .main article figure img {
   	width: 100%;
   	max-width: 100%;
   	height: auto !important;
   	max-height: 100%;
+  }
+
+  .article-detail.content .main article .cs_img_caption {
+  	width: 100% !important;
+  }
+
+  .article-detail.content .main article .cs_img img {
+  	width: 100%;
+  	max-width: 100%;
+  	height: auto !important;
   }
 
   .article-detail.inline-box {
