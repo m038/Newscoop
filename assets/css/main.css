@@ -676,7 +676,7 @@ small {
 				background:#fff;
 				}
 		article figure.single-top-figure small {padding-left:376px;}
-		article.single figure.left {margin:0 15px 5px 0;}
+		article.single figure.left {margin:0 15px 5px 0; max-width: 346px}
 		article.single figure.right {margin:0 0 5px 15px;}
 		
 		article.no-content {padding-top:100px; background:url(../img/icon-tag-large.png) 50% 0 no-repeat;}
@@ -2546,6 +2546,7 @@ a.button.center.details-more {display:none;}
 		article.featured {margin:0 -10px 0 -10px; border-bottom:#ccc dashed 1px;}
 			article.featured figure {margin:0;}
 			article figure small {padding:10px;}
+			article.single figure.left small {padding-left: 0;}
 	
 	.aside-overlap {margin-top:0;}
 	
