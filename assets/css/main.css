@@ -342,10 +342,11 @@ small {
 		.gallery-slider article figure img {margin-bottom:10px;}
 
 	
-	.page-content-nav {margin:00; list-style-type:none;}
+	.page-content-nav {margin:00; list-style-type:none; position: relative}
 		.page-content-nav li {font-size:16px; margin-bottom:10px;}
 			.page-content-nav li a {text-decoration:none;}
 			.page-content-nav li.active a {color:#808080;}
+			.page-content-nav li.toggle-paging {text-align: center;}
 		
 	/* Thumbnail gallery */	
 	.thumb-gallery {
