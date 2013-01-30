@@ -1051,13 +1051,30 @@ small {
 		
 		/* Question list */
 		ul.question-list {
-			margin:0 0 20px 0; padding:0 20px 10px 20px;
+			margin:0 0 20px 0; padding:0 20px 16px 20px;
 			list-style-type:none;
 			border-bottom:#ccc dashed 1px;
+			position: relative;
 			}
 			ul.question-list li {margin-bottom:10px; padding-left:24px; position:relative;}
 				ul.question-list li .ui-button {overflow:visible;}
 					ul.question-list li .ui-icon {position:absolute; left:0; top:0;}
+
+				ul.question-list li.total-votes {
+					position: absolute;
+					padding: 0;
+					left: 0;
+					right: 0;
+					text-align: center;
+					margin-top: 6px;
+					}
+					ul.question-list li.total-votes span {
+						background: #fff;
+						display: inline-block;
+						padding: 2px 4px;
+						color: #999;
+						} 	
+
 			.q-score {
 				display:block; clear:both; position:relative;
 				height:6px;
@@ -2689,7 +2706,7 @@ a.button.center.details-more {display:none;}
 
 	p.poll-info {text-align: left; margin-bottom: 10px; font-size: 15px; display: block;}	
 	
-	ul.question-list {padding:0; border-bottom:0;}
+	ul.question-list {padding:0; border-bottom:0; margin-bottom: 40px;}
 	
 	.blog-list article {border:0; border-bottom:#ccc dashed 1px;}
 		.blog-list article h6,
