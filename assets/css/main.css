@@ -1135,7 +1135,7 @@ small {
 			
 			.inner-highlight h3 {margin-bottom:0; color:#B40032;}
 			.inner-highlight p {font-size:14px; line-height:21px;}
-			.inner-highlight figure {float:left; margin-right:15px;}
+			.inner-highlight figure {float:left; margin-right:15px; max-width: 97px;}
 	
 	
 	/* Events */
@@ -2271,6 +2271,9 @@ a.button.center.details-more {display:none;}
 	.content-wrapper {width:748px; padding: 0 10px;}
 	article img,
 	.slide-item figure img {width:100%; height:auto;}
+
+	.fixed-img article .cs_img img,
+	.fixed-img .cs_img img {width: auto !important;}
 	
 	.mobile-border-top {border-top:#ccc dashed 1px; padding-top:15px;}
 	
