@@ -9,6 +9,7 @@
     <script src="{{ uri static_file="assets/js/libs/jquery.tabs2carousel.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/plupload/js/plupload.full.js" }}"></script>
 
+
     <!--[if (gte IE 6)&(lte IE 8)]>
       <script type="text/javascript" src="{{ uri static_file="assets/js/libs/selectivizr-min.js" }}"></script>
     <![endif]-->
@@ -61,6 +62,9 @@
     
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
+
+  {{ include file="_tpl/_foot-openx-code.tpl" }}
+
   <!--
   <script type="text/javascript">
     $(document).ready(function(){

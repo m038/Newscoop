@@ -51,7 +51,6 @@
     {{ /if }}
 {{ /if }}    
     
-    {{ include file="_tpl/_head-openx-code.tpl" }}   
 
     <script src="{{ url static_file="assets/js/libs/extsrc.js" }}"></script>    
     <script src="{{ url static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
