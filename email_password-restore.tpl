@@ -1,8 +1,8 @@
-Hello,
+Guten Tag,
 
-reset your password by clicking on the link below:
+Um Ihr Passwort für zentral+ zurückzusetzen, klicken Sie bitte auf den untenstehenden Link: 
 
 http://{{ $publication }}{{ $view->url(['controller' => 'auth', 'action' => 'password-restore-finish', 'user' => $user, 'token' => $token], 'default') }}
 
-Thanks!
-{{ $view->placeholder('subject')->set(sprintf("Restore password at %s", $site)) }}
+Vielen Dank!
+{{ $view->placeholder('subject')->set(sprintf("Passwort zurücksetzen für %s", $site)) }}
