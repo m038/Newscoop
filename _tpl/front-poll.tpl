@@ -17,6 +17,9 @@
                               <label for="radio{{ $gimme->current_list->index }}">{{ $gimme->debateanswer->answer }}</label>
                               <span class="q-score" style="width:{{ math equation="round(x)" x=$gimme->debateanswer->percentage_overall format="%d" }}%;"> <small>{{ math equation="round(x)" x=$gimme->debateanswer->percentage_overall format="%d" }}%</small></span>
                             </li>
+                            {{ if $gimme->current_list->at_end }}
+                            <li class="total-votes"><span>Total votes: 1034</span></li>
+                            {{ /if }} 
                         {{ /list_debate_answers }}
 
                         </ul>
