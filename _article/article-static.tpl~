@@ -24,7 +24,7 @@
                 
                 </div>
     
-                <div class="main clearfix{{ if $gimme->article->number == 11144 }} fixed-img{{ /if }}">
+                <div class="main clearfix">
             
                     <article class="clearfix">
                     
