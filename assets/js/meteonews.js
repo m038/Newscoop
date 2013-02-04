@@ -486,7 +486,11 @@ var meteonews = {
         item += "<span class='water'>" + slope.precip + " mm</span></li>"
 
         item += "<li><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small' " +
-                "style='-moz-webkit-transform:rotate(" + slope.winddir + "deg)' alt>";
+                "style='-webkit-transform:rotate(" + slope.winddir + "deg); " +
+                "-moz-transform:rotate(" + slope.winddir + "deg); " +
+                "-ms-transform:rotate(" + slope.winddir + "deg); " +
+                "-o-transform:rotate(" + slope.winddir + "deg); " + 
+                "transform:rotate(" + slope.winddir + "deg);' alt>";
         item += "<span>" + slope.windforce + " km/h</span></li>";
 
         $('#mn-wintersport-details-list').append(item);
@@ -733,7 +737,11 @@ var meteonews = {
                 }
                 if (field == 'winddir') {
                     headerRow += "<td><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small'" +
-                        "style='-moz-webkit-transform:rotate(" + value + "deg)'>";
+                        "style='-webkit-transform:rotate(" + slope.winddir + "deg); " +
+                        "-moz-transform:rotate(" + slope.winddir + "deg); " +
+                        "-ms-transform:rotate(" + slope.winddir + "deg); " +
+                        "-o-transform:rotate(" + slope.winddir + "deg); " + 
+                        "transform:rotate(" + slope.winddir + "deg);' alt>";
                 }
                 if (field == 'windforce') {
                     headerRow += value + " " + unit + '</td>';
