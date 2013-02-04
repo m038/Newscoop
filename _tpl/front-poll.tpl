@@ -20,7 +20,7 @@
                             </li>
                             {{ assign var="votes" value=$votes+$gimme->debateanswer->votes }}
                             {{ if $gimme->current_list->at_end }}
-                            <li class="total-votes"><span>Total votes: {{ $votes }}</span></li>
+                            <li class="total-votes"><span>Anzahl der abgegebenen Stimmen: {{ $votes }}</span></li>
                             {{ /if }} 
                         {{ /list_debate_answers }}
 
