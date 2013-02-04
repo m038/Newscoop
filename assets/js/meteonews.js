@@ -733,7 +733,7 @@ var meteonews = {
                 }
                 if (field == 'winddir') {
                     headerRow += "<td><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small'" +
-                        "style='-webkit-transform:rotate(" + value + "deg)'>";
+                        "style='-moz-webkit-transform:rotate(" + value + "deg)'>";
                 }
                 if (field == 'windforce') {
                     headerRow += value + " " + unit + '</td>';
