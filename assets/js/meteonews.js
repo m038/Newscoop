@@ -486,7 +486,7 @@ var meteonews = {
         item += "<span class='water'>" + slope.precip + " mm</span></li>"
 
         item += "<li><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small' " +
-                "style='-webkit-transform:rotate(" + slope.winddir + "deg)' alt>";
+                "style='-moz-webkit-transform:rotate(" + slope.winddir + "deg)' alt>";
         item += "<span>" + slope.windforce + " km/h</span></li>";
 
         $('#mn-wintersport-details-list').append(item);
