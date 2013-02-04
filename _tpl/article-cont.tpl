@@ -63,7 +63,7 @@
                     <ul class="paging center">
             {{ list_subtitles field_name="body" }}  
 {{ if $gimme->current_list->at_beginning }}
-<li class="toggle-paging"><a href="{{ url options="all_subtitles body" }}" class="button white">Show all on one page</a></li> 
+<li class="toggle-paging"><a href="{{ url options="all_subtitles body" }}" class="button white">Artikel auf einer Seite lesen</a></li> 
 {{ if $gimme->article->body->has_previous_subtitles }} 
     <li><a href="{{ url options="previous_subtitle body" }}" class="button white prev">&lsaquo;</a></li> 
 {{ /if }}
