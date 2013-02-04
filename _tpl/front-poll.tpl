@@ -12,13 +12,15 @@
     <p>Sie haben bereits abgestimmt (Sie haben nur eine Stimme.)</p>
     {{ /if }}                        
                         <ul class="question-list">
+                        {{ assign var="counter" value=0 }}
                         {{ list_debate_answers }}
                           <li>
                               <label for="radio{{ $gimme->current_list->index }}">{{ $gimme->debateanswer->answer }}</label>
                               <span class="q-score" style="width:{{ math equation="round(x)" x=$gimme->debateanswer->percentage_overall format="%d" }}%;"> <small>{{ math equation="round(x)" x=$gimme->debateanswer->percentage_overall format="%d" }}%</small></span>
                             </li>
+                            {{ assign var="counter" value=$counter+1 }}
                             {{ if $gimme->current_list->at_end }}
-                            <li class="total-votes"><span>Total votes: 1034</span></li>
+                            <li class="total-votes"><span>Total votes: {{ counter }}</span></li>
                             {{ /if }} 
                         {{ /list_debate_answers }}
 
