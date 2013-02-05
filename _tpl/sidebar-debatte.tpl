@@ -28,7 +28,7 @@
     {{ /list_debates }}                
                 
                     <div class="left-thumb debatte-widget-content">
-                    	<article>
+                    	<article class="clearfix">
                     {{ list_article_authors }}
                     {{ if $gimme->current_list->index == "1" }}                    	
                         	<figure>
@@ -41,7 +41,7 @@
                      {{ /if }}
                      {{ /list_article_authors }}                            
                         </article>
-                    	<article>
+                    	<article class="clearfix">
                     {{ list_article_authors }}
                     {{ if $gimme->current_list->index == "2" }}                     	
                         	<figure>
