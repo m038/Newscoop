@@ -2443,8 +2443,10 @@ a.button.center.details-more {display:none;}
 	
 	.profile-single img {width:auto;}
 	
-	ul.form li .button.center,
+	ul.form li .button.center {width:200px;}
 	.info-tab .button.center {width:130px;}
+
+
 	.form li.side-by-side {padding:0 179px;}
 	
 	.footer-list > li {border:0;}
