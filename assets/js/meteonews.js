@@ -737,11 +737,11 @@ var meteonews = {
                 }
                 if (field == 'winddir') {
                     headerRow += "<td><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small'" +
-                        "style='-webkit-transform:rotate(" + slope.winddir + "deg); " +
-                        "-moz-transform:rotate(" + slope.winddir + "deg); " +
-                        "-ms-transform:rotate(" + slope.winddir + "deg); " +
-                        "-o-transform:rotate(" + slope.winddir + "deg); " + 
-                        "transform:rotate(" + slope.winddir + "deg);' alt>";
+                        "style='-webkit-transform:rotate(" + value + "deg); " +
+                        "-moz-transform:rotate(" + value + "deg); " +
+                        "-ms-transform:rotate(" + value + "deg); " +
+                        "-o-transform:rotate(" + value + "deg); " + 
+                        "transform:rotate(" + value + "deg);' alt>";
                 }
                 if (field == 'windforce') {
                     headerRow += value + " " + unit + '</td>';
