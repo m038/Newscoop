@@ -958,7 +958,9 @@ var meteonews = {
         meteonews.setLocationTitle('Wintersport');
         meteonews.makeActive('mn-wintersport');
         $('#mn-wintersport-important-slopes').show();
-        $('#mn-wintersport-all-regions').show();
+        // hide until meteonews has corrected their
+        // wintersports feed
+        //$('#mn-wintersport-all-regions').show();
         meteonews.getAstronomy();
         $('#mn-sun-and-moon').show();
         meteonews.getAllSlopesMap(name);
