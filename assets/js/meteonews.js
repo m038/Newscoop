@@ -558,6 +558,12 @@ var meteonews = {
                         displayValue = items[item];
                     }
                     
+                    // format time to european format (ugh) 
+                    if (displayItem === "last_snowfall") {
+                        var date = meteonews.getDateObj(displayValue);
+                        var displayDate = meteonews.formatDisplayDate(date, true);
+                        displayValue = displayDate;
+                    } 
                     output += "<th>" + meteonews.translate(displayItem) + "</th>" + "<td>" + meteonews.translate(displayValue) + "</td>";
                     fcount++;
 
@@ -1073,9 +1079,12 @@ var meteonews = {
         return dateString;
     },
 
-    formatDisplayDate: function(date) {
+    formatDisplayDate: function(date, year) {
         dateString = ('0' + date.getDate()).slice(-2) + '.' +
             ('0' + (date.getMonth()+1)).slice(-2);
+        if (year) {
+            dateString += '.'+date.getFullYear();
+        }
         return dateString;
     },
 
