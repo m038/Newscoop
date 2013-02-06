@@ -72,7 +72,11 @@
             {{ list_users length=$length search=$smarty.get.search  }}
                 {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
                 {{ include file="_tpl/pagination.tpl" scope="parent" }}
+                {{ $notEmpty = 1 }}
             {{ /list_users }}
+            {{ if empty($notEmpty) }}
+            <div class="infobox">Kein Benutzer mit diesem Namen gefunden</div>
+            {{ /if }}
         {{ else if isset($smarty.get.filter) }}
             {{ if $smarty.get.filter == 'editors'}}
                 {{ list_users length=$length filter=$smarty.get.filter editor_groups=$groups }}
