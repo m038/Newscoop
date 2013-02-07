@@ -560,9 +560,14 @@ var meteonews = {
                     
                     // format time to european format (ugh) 
                     if (displayItem === "last_snowfall") {
-                        var date = meteonews.getDateObj(displayValue);
-                        var displayDate = meteonews.formatDisplayDate(date, true);
-                        displayValue = displayDate;
+                        if (displayValue) {
+                            var date = meteonews.getDateObj(displayValue);
+                            var displayDate = meteonews.formatDisplayDate(date, true);
+                            displayValue = displayDate;
+                        }
+                    }
+                    if (typeof displayValue === "undefined") {
+                        displayValue = '';
                     } 
                     output += "<th>" + meteonews.translate(displayItem) + "</th>" + "<td>" + meteonews.translate(displayValue) + "</td>";
                     fcount++;
