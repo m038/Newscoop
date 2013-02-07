@@ -58,8 +58,7 @@
 						  {{ if $showStaff }}  
 						  {{ include file="_tpl/article-slideshow.tpl" }}   
 						  {{ /if }}                       
-   
-<p>$smarty.get['st-body']: {{ $smarty.get['st-body'] }}</p>                    
+                    
 {{ if $gimme->article->subtitles_count(body) gt 1 }} 
 {{ if !($smarty.get['st-body'] == "all") }}
                     <ul class="paging center">
