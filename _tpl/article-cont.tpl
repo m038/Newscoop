@@ -78,14 +78,14 @@
 {{ /if }} 
 {{ /if }}
             {{ /list_subtitles }}
-                    </ul>             
-{{ /if }}                    
+                    </ul>                   
                     
                     <ul class="page-content-nav top-line">
             {{ list_subtitles field_name="body" }}                    
                       <li{{ if ($gimme->article->current_subtitle_no(body)+1) == $gimme->current_list->index }} class="active"{{ /if }}><a href="{{ url }}">{{ $gimme->current_list->index }} von {{ $gimme->current_list->count }} - {{ $gimme->subtitle->name }}</a></li>
             {{ /list_subtitles }}                     
                     </ul>                    
+{{ /if }} 
 {{ /if }}                 
 
         {{ if $gimme->article->Kommentar }}<a class="button white center" href="{{ url options="section" }}">Alle Kommentare</a>{{ /if }}
