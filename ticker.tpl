@@ -49,7 +49,7 @@
                       {{ if $gimme->default_article->defined }}
                     	<li>
                         	<a href="#" class="head">
-                            	<time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
+                            	<time>{{ include file="_tpl/relative-date-short.tpl" date=$gimme->article->publish_date }}</time>
                             	<h3>{{ $gimme->article->name }}</h3>
                             	<p>{{ $gimme->section->name }}</p>
                             </a>
@@ -63,7 +63,7 @@
                     
                     	<li>
                         	<a href="#" class="head">
-                            	<time>{{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
+                            	<time>{{ include file="_tpl/relative-date-short.tpl" date=$gimme->article->publish_date }}</time>
                             	<h3>{{ $gimme->article->name }}</h3>
                             	<p>{{ $gimme->section->name }}</p>
                             </a>
