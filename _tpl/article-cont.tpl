@@ -60,6 +60,7 @@
 						  {{ /if }}                       
                     
 {{ if $gimme->article->subtitles_count(body) gt 1 }} 
+{{ if $smarty.get.st-body !== "all" }}
                     <ul class="paging center">
             {{ list_subtitles field_name="body" }}  
 {{ if $gimme->current_list->at_beginning }}
@@ -78,7 +79,7 @@
 {{ /if }}
             {{ /list_subtitles }}
                     </ul>             
-                    
+{{ /if }}                    
                     
                     <ul class="page-content-nav top-line">
             {{ list_subtitles field_name="body" }}                    
