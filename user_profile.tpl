@@ -20,12 +20,12 @@
                             {{ if $user['website'] }}Webseite: <a href="http://{{ $user['website']|escape:url }}" rel="nofollow">{{ $user['website']|escape }}</a><br />{{ /if }}
                             In der zentral+ Community seit: {{ $user->created }}</p>
                         </span>
-                        {{*
+                        {{ if $user->logged_in }}
                         <p>
-                            <a href="#" class="icon-email-big">ulfnotulf eine Nachricht senden</a><br />
-                            <a href="#" class="button white">Pro"l verwalten</a>
+                            {{* <a href="#" class="icon-email-big">ulfnotulf eine Nachricht senden</a><br /> *}}
+                            <a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}" class="button white">Profil verwalten</a>
                         </p>
-                        *}}
+                        {{ /if }}
                     </div>
                 
                 </article>
