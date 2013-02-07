@@ -51,7 +51,7 @@
                         	<a href="#" class="head">
                             	<time>{{ include file="_tpl/relative-date-short.tpl" date=$gimme->article->publish_date }}</time>
                             	<h3>{{ $gimme->article->name }}</h3>
-                            	<p>{{ $gimme->section->name }}</p>
+                            	<p><a href="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</a></p>
                             </a>
                             <div>
                                 <p>{{ $gimme->article->DataContent }}</p>
