@@ -58,8 +58,10 @@
 						  {{ if $showStaff }}  
 						  {{ include file="_tpl/article-slideshow.tpl" }}   
 						  {{ /if }}                       
-                    
+   
+<p>$smarty.get.st-body: {{ $smarty.get.st-body }}</p>                    
 {{ if $gimme->article->subtitles_count(body) gt 1 }} 
+{{* if !($smarty.get.st-body == "all") *}}
                     <ul class="paging center">
             {{ list_subtitles field_name="body" }}  
 {{ if $gimme->current_list->at_beginning }}
@@ -77,14 +79,14 @@
 {{ /if }} 
 {{ /if }}
             {{ /list_subtitles }}
-                    </ul>             
-                    
+                    </ul>                   
                     
                     <ul class="page-content-nav top-line">
             {{ list_subtitles field_name="body" }}                    
                       <li{{ if ($gimme->article->current_subtitle_no(body)+1) == $gimme->current_list->index }} class="active"{{ /if }}><a href="{{ url }}">{{ $gimme->current_list->index }} von {{ $gimme->current_list->count }} - {{ $gimme->subtitle->name }}</a></li>
             {{ /list_subtitles }}                     
                     </ul>                    
+{{* /if *}} 
 {{ /if }}                 
 
         {{ if $gimme->article->Kommentar }}<a class="button white center" href="{{ url options="section" }}">Alle Kommentare</a>{{ /if }}
