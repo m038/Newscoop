@@ -1,9 +1,5 @@
               <article class="bottom-line single">
 
-             <script> 
-                breakJS();
-                console.log('broken');
-            </script>
 
 {{* This is to check if article is divided into pages *}}
 {{ assign var="showStaff" value=0 }}

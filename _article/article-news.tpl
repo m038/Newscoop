@@ -1,7 +1,10 @@
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
-
+  <script> 
+                breakJS();
+                console.log('broken');
+            </script>
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
