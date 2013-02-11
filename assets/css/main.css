@@ -1667,8 +1667,8 @@ small {
 			.ticker-accordion > li > a p {float:left;}
 			
 			.ticker-accordion > li > a time,
-			.ticker-accordion > li > a p {width:72px; height:48px; line-height:48px; padding-left:8px;}
-			.ticker-accordion > li > a h3 {border:0; padding:11px 0 5px; margin:0; width:463px; font-size:22px;}
+			.ticker-accordion > li > a p {width:122px; height:48px; line-height:48px; padding-left:8px;}
+			.ticker-accordion > li > a h3 {border:0; padding:11px 0 5px; margin:0; width:443px; font-size:20px;}
 			.ticker-accordion > li > a p {color:#B40032;}
 			
 			.ticker-accordion > li > a .ui-icon {
