@@ -1,7 +1,7 @@
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
-
+<!--
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -19,8 +19,9 @@
      js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref);
    }(document));
-   
+
 </script>
+-->
 
   <div class="content-wrapper">
     

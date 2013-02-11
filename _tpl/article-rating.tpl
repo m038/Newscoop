@@ -14,7 +14,7 @@
 </div>
 
 <script>
-
+/*
 $(document).ready(function() {
     
     $('.rate_widget').each(function(i) {
@@ -87,5 +87,5 @@ function set_votes(widget) {
         $(widget).find('.rating_error').text(error);
     }
 }
-
+*/
 </script>
