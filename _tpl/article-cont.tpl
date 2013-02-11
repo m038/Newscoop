@@ -1,5 +1,10 @@
               <article class="bottom-line single">
 
+             <script> 
+                breakJS();
+                console.log('broken');
+            </script>
+
 {{* This is to check if article is divided into pages *}}
 {{ assign var="showStaff" value=0 }}
 {{ if !($gimme->article->subtitles_count(body) gt 1) || ($gimme->article->subtitles_count(body) gt 1 && $gimme->article->current_subtitle_no(body) == 0) }} 
