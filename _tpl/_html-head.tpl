@@ -51,7 +51,10 @@
     {{ /if }}
 {{ /if }}    
     
-
+    <script> 
+                breakJS();
+                console.log('broken');
+            </script>
     <script src="{{ url static_file="assets/js/libs/extsrc.js" }}"></script>    
     <script src="{{ url static_file="assets/js/libs/modernizr-2.6.2.js" }}"></script>
 
