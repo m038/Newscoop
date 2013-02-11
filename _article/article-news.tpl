@@ -1,7 +1,7 @@
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
-<!--
+
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -21,7 +21,6 @@
    }(document));
 
 </script>
--->
 
   <div class="content-wrapper">
     
