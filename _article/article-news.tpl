@@ -4,8 +4,6 @@
 
 <div id="fb-root"></div>
 <script>
-
-/*
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '118901678281903',
@@ -21,7 +19,7 @@
      js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref);
    }(document));
-*/
+   
 </script>
 
   <div class="content-wrapper">
