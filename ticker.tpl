@@ -51,7 +51,7 @@
                         	<a href="#" class="head">
                             	<time>{{ include file="_tpl/relative-date-short.tpl" date=$gimme->article->publish_date }}</time>
                             	<h3>{{ $gimme->article->name }}</h3>
-                            	<small target-link="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</small>
+                            	<p target-link="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</p>
                             </a>
                             <div>
                                 <p>{{ $gimme->article->DataContent }}</p>
@@ -65,7 +65,7 @@
                         	<a href="#" class="head">
                             	<time>{{ include file="_tpl/relative-date-short.tpl" date=$gimme->article->publish_date }}</time>
                             	<h3>{{ $gimme->article->name }}</h3>
-                            	<small target-link="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</small>
+                            	<p target-link="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</p>
                             </a>
                             <div>
                                 <p>{{ $gimme->article->DataContent }}</p>
