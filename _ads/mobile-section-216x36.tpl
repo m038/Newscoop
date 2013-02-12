@@ -1,5 +1,5 @@
 {{ if $isMobDevice }}
-				{{ if $gimme->default_section->number == 10 }}
+    {{ if $gimme->section->number == 10 }}
 <div id='openx-6' class="ad bottom-line">
 <script>
     $(document).ready(function() {
@@ -7,6 +7,5 @@
     });
 </script>
 </div>
-
-				{{ /if }}
-{{ /if }}				
+    {{ /if }}
+{{ /if }}
