@@ -147,6 +147,10 @@ $(window).load(function() {
 	
 	/* Accordion */
 	$('.ticker-accordion').accordion({ header: '.head', autoHeight: false});
+	$('.ticker-accordion a.head p').click(function(e){
+		e.preventDefault();
+		window.location.href = $(this).attr('target-link');
+	});
 	
 	/* Poll Ajaxified
 	-------------------------------------------------------*/
