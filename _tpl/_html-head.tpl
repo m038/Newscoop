@@ -15,7 +15,7 @@
     {{ include file="_tpl/_meta-keywords.tpl" }}
 
 {{ dynamic }}
-{{ if isset($smarty.request.mobile) || isset($smarty.request.tablet) || isset($smarty.request.phone) || $gimme->browser->browser_working == "webkit" && $gimme
+{{ if isset($smarty.request.mobile) || isset($smarty.request.tablet) || isset($smarty.request.phone) || $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
     {{ assign var="isMobDevice" value=1 scope="global" }}
 {{ else }}
     {{ assign var="isMobDevice" value=0 scope="global" }}
