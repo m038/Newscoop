@@ -1668,6 +1668,9 @@ small {
 			
 			.ticker-accordion > li > a time,
 			.ticker-accordion > li > a p {width:122px; height:48px; line-height:48px; padding-left:8px;}
+			.ticker-accordion > li > a p {width: 93px;}
+				.ticker-accordion > li > a p:hover {text-decoration: underline;}
+
 			.ticker-accordion > li > a h3 {border:0; padding:11px 0 5px; margin:0; width:443px; font-size:20px;}
 			.ticker-accordion > li > a p {color:#B40032;}
 			
@@ -1679,7 +1682,7 @@ small {
 				}
 				.ticker-accordion > li > a.ui-state-active .ui-icon {background-image:url(../img/icon-arrow-down.png);}
 			
-			.ticker-accordion > li > div {padding:10px 20px 10px 80px;}
+			.ticker-accordion > li > div {padding:10px 20px 10px 130px;}
 				.ticker-accordion > li > div p {margin-bottom:23px;}
 				.ticker-accordion > li > div p:last-child {margin-bottom:0;}
 	
