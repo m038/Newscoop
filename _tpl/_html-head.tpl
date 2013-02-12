@@ -14,6 +14,15 @@
     {{ include file="_tpl/_meta-description.tpl" }}
     {{ include file="_tpl/_meta-keywords.tpl" }}
 
+{{ dynamic }}
+{{ if isset($smarty.request.mobile) || isset($smarty.request.tablet) || isset($smarty.request.phone) || $gimme->browser->browser_working == "webkit" && $gimme->browser->ua_type == 'mobile' }}
+    {{ assign var="isMobDevice" value=1 scope="global" }}
+{{ else }}
+    {{ assign var="isMobDevice" value=0 scope="global" }}
+{{ /if }}
+{{ /dynamic }}
+
+
     <meta name="author" content="zentral+, MMV online AG, Hirschengraben 43, 6003 Luzern">
     <meta name="copyright" content="zentral+, MMV online AG, Hirschengraben 43, 6003 Luzern">
     <meta name="email" content="info@zentralplus.ch">    
@@ -76,5 +85,7 @@
 
   <!-- metoenews weeather widget -->
   <script src="{{ url static_file="assets/js/meteonews.js" }}"></script>
+
+
 
 </head>
