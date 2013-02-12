@@ -3,6 +3,7 @@
 {{ if !$region }}
     {{ $condition = "" }}
 {{ /if }}
+          <!-- p>$isMobDevice = {{ $isMobDevice }}</p -->             
 
 {{ list_articles length="5" constraints="type not newswire `$condition`" }}
 {{ if $gimme->current_list->at_beginning }}
@@ -38,7 +39,7 @@
                     {{ /list_article_topics }}   
                     
                   {{ include file="_ads/section-fullbanner.tpl" }} 
-                  {{ include file="_ads/mobile-section-216x36.tpl" }}                                 
+                  {{ include file="_ads/mobile-section-216x36.tpl" }}
                 
 {{ else }}
 
