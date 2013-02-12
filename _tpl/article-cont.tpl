@@ -1,5 +1,6 @@
               <article class="bottom-line single">
 
+
 {{* This is to check if article is divided into pages *}}
 {{ assign var="showStaff" value=0 }}
 {{ if !($gimme->article->subtitles_count(body) gt 1) || ($gimme->article->subtitles_count(body) gt 1 && $gimme->article->current_subtitle_no(body) == 0) }} 
@@ -58,10 +59,9 @@
 						  {{ if $showStaff }}  
 						  {{ include file="_tpl/article-slideshow.tpl" }}   
 						  {{ /if }}                       
-   
-<p>$smarty.get.st-body: {{ $smarty.get.st-body }}</p>                    
+                    
 {{ if $gimme->article->subtitles_count(body) gt 1 }} 
-{{* if !($smarty.get.st-body == "all") *}}
+{{ if !($smarty.get['st-body'] == "all") }}
                     <ul class="paging center">
             {{ list_subtitles field_name="body" }}  
 {{ if $gimme->current_list->at_beginning }}
@@ -86,7 +86,7 @@
                       <li{{ if ($gimme->article->current_subtitle_no(body)+1) == $gimme->current_list->index }} class="active"{{ /if }}><a href="{{ url }}">{{ $gimme->current_list->index }} von {{ $gimme->current_list->count }} - {{ $gimme->subtitle->name }}</a></li>
             {{ /list_subtitles }}                     
                     </ul>                    
-{{* /if *}} 
+{{ /if }} 
 {{ /if }}                 
 
         {{ if $gimme->article->Kommentar }}<a class="button white center" href="{{ url options="section" }}">Alle Kommentare</a>{{ /if }}

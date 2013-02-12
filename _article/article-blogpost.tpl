@@ -22,6 +22,7 @@
                             <h3><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></h3>
                         </figcaption>
                     </figure>
+                    <p class="time-top">&nbsp;</p>
                     {{ /list_articles }}
 
 {{ count }}
