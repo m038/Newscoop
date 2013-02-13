@@ -16,4 +16,4 @@
         {{ /list_articles }}
         </div><!-- / 4 columns -->
             
-        <a href="{{ local }}{{ set_publication identifier="4" }}{{ url options="publication" }}{{ /local }}" class="button white center">Zu den Blogs</a>
+        <a href="{{ local }}{{ set_publication identifier="4" }}{{ url options="publication" }}{{ /local }}" class="button white center">Zu allen Blogs</a>
