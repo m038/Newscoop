@@ -27,7 +27,7 @@
             
             <div class="aside">
 
-{{* include file="_ads/section-sidebar.tpl" *}}
+{{ include file="_ads/test-expanding-skyscrapper.tpl" }}
 
               <div class="box">
 
