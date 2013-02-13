@@ -1,4 +1,9 @@
 {{ set_default_section }}
+
+{{ if $gimme->section->number == 10 }}
+{{ include file="_ads/test-overlay.tpl" }}
+{{ /if }}
+
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
