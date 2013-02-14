@@ -56,6 +56,7 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ $gimme->article->lede|strip_tags:false }} <a href="{{ url options="article" }}">weiterlesen</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                     </article>
+        {{ include file="_ads/mobile-section-216x36.tpl" }}
 {{ /if }}  
     {{ if $gimme->current_list->at_end && $gimme->current_list->index gt 1 }}
                 </div><!-- / 1 column --> 
