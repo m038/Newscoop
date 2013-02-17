@@ -1,5 +1,5 @@
                   <div class="box" id="polldiv">
-                      <h4 class="box-title"><img src="{{ url static_file="assets/img/logo_zentralplus.png" }}" alt="Zentral+ fragt">Zentral+ fragt</h4>
+                      <h4 class="box-title"><img src="{{ url static_file="assets/img/logo_zentralplus.png" }}" alt="Zentral+ fragt">zentral+ fragt</h4>
 
 {{ list_articles length="1" ignore_issue="true" ignore_section="true" constraints="type is poll" }}
 {{ list_debates length="1" item="article" }}
