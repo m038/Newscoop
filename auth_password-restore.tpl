@@ -16,7 +16,7 @@
             <input id="email" type="text" name="email" value="{{ $form->email->getValue()|escape }}" />
             {{ include file="_tpl/form_error_empty.tpl" field="email" }}
             {{ if $form->email->hasErrors() && $form->email->getValue() }}
-            <div class="infobox error">Email not found.</div>
+            <div class="infobox error">Email-Adresse nicht gefunden</div>
             {{ /if }}
         </li>
         <li>
