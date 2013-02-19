@@ -8,4 +8,13 @@
 </script>
 </div>
 				{{ /if }}
+				   {{ if $gimme->section->number == 10 }}
+<div id='openx-51' class="ad">
+<script>
+    $(document).ready(function() {
+        displayOpenxAd(51);
+    });
+</script>
+</div>
+				{{ /if }}				
 {{ /if }}	                
