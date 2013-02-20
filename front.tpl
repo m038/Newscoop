@@ -4,7 +4,7 @@
 
   <div class="content-wrapper">
 
-{{ include file="_ads/front-leaderboard.tpl" }}
+{{ render file="_ads/front-leaderboard.tpl" }}
     
 {{ include file="_tpl/header-nav.tpl" }}
         

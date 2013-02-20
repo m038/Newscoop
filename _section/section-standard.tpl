@@ -10,7 +10,7 @@
 
   <div class="content-wrapper">
 
-{{ include file="_ads/section-leaderboard.tpl" }}
+{{ render file="_ads/section-leaderboard.tpl" }}
     
 {{ include file="_tpl/header-nav.tpl" }}
         
