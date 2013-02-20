@@ -21,8 +21,9 @@
   * users. 
   */--> 
 
-<script type='text/javascript' src='http://openx.zentralplus.ch/delivery/js/jquery-1.3.2.js'&gt;&lt;/script&gt;&lt;script type='text/javascript'><!--//<![CDATA[ 
-   var m3_u = (location.protocol=='https:'?'https://openx.zentralplus.ch/delivery/oxm_expand.php':'http://openx.zentralplus.ch/delivery/oxm_expand.php'); 
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://openx.zentralplus.ch/delivery/oxm_expand.php':'http://openx.zentralplus.ch/delivery/oxm_expand.php');
    var m3_r = Math.floor(Math.random()*99999999999); 
    if (!document.MAX_used) document.MAX_used = ','; 
    document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u); 
@@ -34,8 +35,10 @@
    if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer)); 
    if (document.context) document.write ("&context=" + escape(document.context)); 
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1"); 
-   document.write ("'><\/scr"+"ipt>"); 
-//]]>--></script><noscript><a href='http://openx.zentralplus.ch/delivery/ck.php?n=a3f9f30e&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=8&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a3f9f30e' border='0' alt='' /></a></noscript>
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script>
+<noscript><a href='http://openx.zentralplus.ch/delivery/ck.php?n=a3f9f30e&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=8&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a3f9f30e' border='0' alt='' /></a></noscript>
 </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 				{{ /if }}
 {{ /if }}	                
