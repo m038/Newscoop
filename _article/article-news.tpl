@@ -43,7 +43,7 @@
 
 {{ include file="_tpl/article-aside.tpl" }}
                 
-{{ include file="_ads/article-skyscrapper.tpl" }}
+{{ render file="_ads/article-skyscrapper.tpl" }}
             
             </div><!-- / Aside -->
         
