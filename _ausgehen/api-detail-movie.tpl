@@ -389,7 +389,7 @@ $(document).ready(function() {
                         var tel_price = "";
                         if (cur_cin_tel_cost) {
                             //tel_title = 'title="' + cur_cin_tel_cost + '"';
-                            tel_price = ' ' + cur_cin_tel_cost;
+                            tel_price = '<br>' + cur_cin_tel_cost;
                         }
 
                         cinema_content += '<div class="movie-table">';
@@ -397,7 +397,7 @@ $(document).ready(function() {
                         cinema_content += '<tr><td class="table-info" rowspan="2"><ul>';
                         cinema_content += '<li><h5>' + cur_cin_name + '</h5></li>';
                         cinema_content += '<li><p>' + cur_cin_addr + '</p><p><a href="' + map_link + '" class="gmap">Google Maps</a></p></li>';
-                        cinema_content += '<li><p ' + tel_title + '>Tel ' + cur_cin_tel + tel_price + '</p></li>';
+                        cinema_content += '<li><p class="cinema_phone_info" ' + tel_title + '>Tel ' + cur_cin_tel + tel_price + '</p></li>';
                         cinema_content += '</ul></td>';
                         for (var date_key in date_arr) {
                             var date_info = get_day_display_info(date_key);
