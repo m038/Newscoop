@@ -46,7 +46,7 @@
                         
    {{ else }}                       
                         <blockquote>{{ $gimme->debate->question }}</blockquote> 
-                        {{ if $gimme->debate->user_vote_count >= $gimme->debate->votes_per_user }}<p>Danke für Ihre Teilnahme!</p>{{ /if }}  
+                        {{ if $gimme->debate->user_vote_count >= $gimme->debate->votes_per_user }}<p class="poll-info">Danke für Ihre Teilnahme!</p>{{ /if }}  
                         <ul class="question-list">
                         {{ list_debate_answers }}
                           <li>
