@@ -12,7 +12,7 @@
 		<div class="photo-blog-top clearfix">
         	<h2>{{ $gimme->article->name }}</h2>
             <p><img src="{{ uri static_file="pictures/title-icons/camera.png" }}" alt="" />{{ $gimme->article->infolong }}</p>
-            {{ if is_object($gimme->user) && $gimme->user->logged_in }}<a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>{{ /if }}
+            <a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>
         </div>
 {{ /list_articles }}
         
