@@ -1114,6 +1114,7 @@ small {
 				.debatte-widget-content article:first-child {padding-bottom:5px; margin-bottom:10px; border-bottom:#e2e2e2 dashed 1px;}
 				.debatte-widget-content article p {margin-bottom:10px;}
 					.debatte-widget-content article p a {text-decoration:none;}
+				.debatte-widget-content article figure img {max-width:48px !important;}	
 			
 			.vote-box {padding:4% 4% 0 4%;}
 				.button-group {overflow:hidden; margin-bottom:7px;}
