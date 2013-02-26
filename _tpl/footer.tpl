@@ -148,6 +148,7 @@
             </div>
         </div>
         <div id="feedback-form" class="popup-form">
+            {{ if $gimme->user->logged_in }}
             <div class="popup-form">
             <form method="POST" id="feedback-form-form" action="/feedback/save?format=json" style="min-width:400px;">
                 <h4>Feedback</h4>
@@ -186,6 +187,9 @@
                 </fieldset>
             </form>
             </div>
+            {{ else }}
+            <h2>Sie müssen eingeloggt sein, um das Feedback-Formular nutzen zu können</h2>
+            {{ /if }}
         </div>
     </div>
     <script type="text/javascript">
