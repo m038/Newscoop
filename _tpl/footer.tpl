@@ -258,7 +258,7 @@
                 success: function(data) {
                     $.fancybox.close()
                     $.fancybox({
-                        'content' : '<h2>{{ getGS('Response') }}</h2><h2>'+ data['response'] +'<h2>'
+                        'content' : '<h2>'+ data['response'] +'<h2>'
                     });
                 }
             });
