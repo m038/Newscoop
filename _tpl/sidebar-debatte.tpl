@@ -31,11 +31,9 @@
                     	<article class="clearfix">
                     {{ list_article_authors }}
                     {{ if $gimme->current_list->index == "1" }}                    	
-                        	<figure>
                           {{ if $gimme->author->user->defined || $gimme->author->picture->imageurl }}
                           {{ include file="_tpl/author-image.tpl" author=$gimme->author width=48 height=48 }}
                           {{ /if }}                        	
-                        	</figure>
                             <p><a href="#">Ja</a>: {{ $gimme->article->pro_text|strip_tags:false|truncate:200:" [...]" }} {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                             <p>{{ $gimme->author->name }}</p>
                      {{ /if }}
@@ -44,11 +42,9 @@
                     	<article class="clearfix">
                     {{ list_article_authors }}
                     {{ if $gimme->current_list->index == "2" }}                     	
-                        	<figure>
                           {{ if $gimme->author->user->defined || $gimme->author->picture->imageurl }}
                           {{ include file="_tpl/author-image.tpl" author=$gimme->author width=48 height=48 }}
                           {{ /if }}
-                        	</figure>
                             <p><a href="#">Nein</a>: {{ $gimme->article->contra_text|strip_tags:false|truncate:200:" [...]" }} {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</p>
                             <p>{{ $gimme->author->name }}</p>
                      {{ /if }}
