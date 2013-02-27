@@ -2488,7 +2488,15 @@ a.button.center.details-more {display:none;}
 		left:auto;
 		right: 14px;
 		}
-	.popup {right:-5px;}	
+	.popup {right:-5px;}
+
+	.debatte-widget-content article:first-child {
+		float:left;
+		width:50%;
+		box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
+		border-bottom: none;
+		border-right: 1px solid #ccc;
+		}	
 	
 }
 
@@ -3054,6 +3062,14 @@ a.button.center.details-more {display:none;}
 		border-bottom: 1px dashed #CCC;
 		padding-bottom: 14px;
 		}
+
+	.debatte-widget-content article:first-child {
+		border-bottom: #e2e2e2 dashed 1px;
+		float:none;
+		width:auto;
+		border-right: none;
+		}
+
 
 }
 
