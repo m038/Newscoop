@@ -1,9 +1,5 @@
 {{ set_default_section }}
 
-{{ if $gimme->section->number == 10 }}
-{{ include file="_ads/test-overlay.tpl" }}
-{{ /if }}
-
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
@@ -31,8 +27,6 @@
             </div><!-- / Main -->
             
             <div class="aside">
-
-{{ include file="_ads/test-expanding-skyscrapper.tpl" }}
 
               <div class="box">
 

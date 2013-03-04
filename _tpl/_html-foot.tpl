@@ -63,8 +63,6 @@
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
 
-  {{ include file="_tpl/_foot-openx-code.tpl" }}
-
   <!--
   <script type="text/javascript">
     $(document).ready(function(){

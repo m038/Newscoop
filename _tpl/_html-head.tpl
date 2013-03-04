@@ -62,8 +62,13 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
-<script type="text/javascript"> 
 
+  <!-- metoenews weeather widget -->
+  <script src="{{ url static_file="assets/js/meteonews.js" }}"></script>
+
+{{ include file="_tpl/_head-openx-code.tpl" }}
+
+<script type="text/javascript"> 
   var _gaq = _gaq || []; 
   _gaq.push(['_setAccount', 'UA-36303130-1']); 
   _gaq.push(['_trackPageview']); 
@@ -73,12 +78,6 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; 
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); 
   })(); 
-
 </script>    
-
-  <!-- metoenews weeather widget -->
-  <script src="{{ url static_file="assets/js/meteonews.js" }}"></script>
-
-
 
 </head>
