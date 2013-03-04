@@ -1,4 +1,5 @@
 {{ set_default_section }}
+
 {{ include file="_tpl/_html-head.tpl" }}
 
 <body>
