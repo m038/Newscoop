@@ -18,7 +18,15 @@
 <atom:link href="{{ url options="root_level" }}de/static/rss_most_popular" rel="self" type="application/rss+xml" />
 {{ assign var="mydate" value=strtotime('-7 days') }} 
 {{ $mydate=$mydate|date_format:'%Y-%m-%d' }}
-{{ list_articles length="5" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypopularity desc" constraints="type is news type is blog type not newswire publish_date greater_equal $mydate" }}
+{{*** Changes introduced according to ticket MOTM-549 - only one blogpost per blog to appear in most read list ***}}
+  {{ $mostReadArticles = array() }}
+  {{ assign var="i" value=0 }}
+  {{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypopularity desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message publish_date greater_equal $mydate" }}
+    {{ assign var="arrayCheck" value=$gimme->publication->identifier*100+$gimme->section->number }}
+    {{ if not $mostReadArticles[$arrayCheck] }}
+      {{ $mostReadArticles[$arrayCheck]=true }}
+      {{ assign var="i" value=$i+1 }}
+      {{ if $i < 7 }}
 <item>
     <title>{{ $gimme->article->name|escape }}</title>
     <link>{{ capture name="link" }}{{ url options="article" }}{{ /capture }}{{ $smarty.capture.link|escape }}</link>
@@ -40,6 +48,8 @@
     <guid isPermaLink="true">{{ capture name="permalink" }}{{ url options="article" }}{{ /capture }}{{ $smarty.capture.permalink|escape }}</guid>
     <summary>{{ $gimme->article->dateline|escape }}</summary>
 </item>
-{{/list_articles}}
+      {{ /if }}
+    {{ /if }}
+  {{ /list_articles }}
 </channel>
 </rss>
