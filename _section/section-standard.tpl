@@ -55,16 +55,11 @@
 {{ include file="_tpl/sidebar-ticker.tpl" }} 
 {{ /if }}
                 
-                <div class="ad bottom-line">
-                  <!--small>Werbung</small-->
-
-                </div>
+{{ include file="_ads/section-wide-skyscrapper.tpl" }}
 
 {{ include file="_tpl/sidebar-section-blog.tpl" }}
-                
-                <div class="ad bottom-line">
 
-                </div>
+{{ include file="_ads/medium-rectangle.tpl" }}
             
             </div><!-- / Aside -->
         

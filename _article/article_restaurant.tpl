@@ -983,9 +983,7 @@ $(document).ready(function() {
 
         </article>
 
-        <div class="ad top-space">
-            {{ include file="_ads/ausgehen-detail-restaurant.tpl" }}
-        </div>
+{{ include file="_ads/medium-rectangle.tpl" }}
 
     </div><!-- /aside -->
 

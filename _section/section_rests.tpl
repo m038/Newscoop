@@ -293,6 +293,8 @@ function show_cuisines() {
 
     <div id="content_wrapper" class="content-wrapper">
 
+{{ render file="_ads/section-leaderboard.tpl" }}
+
 {{ include file="_tpl/header-nav.tpl" }}
 
 {{ include file="_tpl/header.tpl" }}
@@ -728,7 +730,8 @@ function load_events(ev_type) {
             <div class="aside" style="height: auto !important;">
 
                 <div class="ad top-space">
-                    {{ include file="_ads/ausgehen-list-restaurants.tpl" }}
+                    {{* include file="_ads/ausgehen-list-restaurants.tpl" *}}
+                    {{ include file="_ads/section-wide-skyscrapper.tpl" }}
                 </div>
 
             </div><!-- / aside -->

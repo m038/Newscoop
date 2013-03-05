@@ -505,9 +505,7 @@ $(document).ready(function() {
             </article>
         </div>
 
-        <div class="ad">
-            {{ include file="_ads/ausgehen-detail-movie.tpl" }}
-        </div>
+{{ include file="_ads/medium-rectangle.tpl" }}
 
     </div><!-- /aside -->
 

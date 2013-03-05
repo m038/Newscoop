@@ -276,9 +276,7 @@ $(document).ready(function() {
             &nbsp;
         </article>
 
-        <div class="ad">
-            {{ include file="_ads/ausgehen-detail-event.tpl" }}
-        </div>
+{{ include file="_ads/medium-rectangle.tpl" }}
 
     </div><!-- /aside -->
 
