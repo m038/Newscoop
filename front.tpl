@@ -43,6 +43,8 @@
                 </div>
 
 {{ include file="_tpl/sidebar-ticker.tpl" }} 
+
+{{ include file="_ads/section-wide-skyscrapper.tpl" }} 
             
             </div><!-- / Aside -->
         
@@ -79,6 +81,8 @@
 {{ render file="_tpl/sidebar-newsletter.tpl" }}
 
 {{ include file="_tpl/sidebar-debatte.tpl" }}
+
+{{ include file="_ads/medium-rectangle.tpl" }}
             
             </div><!-- / Aside -->
         

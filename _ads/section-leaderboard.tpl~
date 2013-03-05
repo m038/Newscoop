@@ -35,11 +35,4 @@
 // ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=04f3fc5'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=75&amp;n=04f3fc5' /></a></noscript>
 				{{ /if }}					
 
-				{{ if $gimme->template->name == "ausgehen.tpl" }}
-<script type='text/javascript'><!--// <![CDATA[
-    /* [id76] Leaderboard Section Ausgehen */
-    OA_show(76);
-// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=bc987bb'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=76&amp;n=bc987bb' /></a></noscript>
-				{{ /if }}	
-
 {{ /if }}	                
