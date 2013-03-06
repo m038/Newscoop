@@ -44,7 +44,7 @@ var OA_zones = {{ strip }}
  {'75':75,'71':71,'62':62};
 {{ /if }}
 {{* ausgehen page *}}
-{{ if $gimme->template->name == "ausgehen.tpl" || ($gimme->section->number gt 70 && $gimme->section->number lte 80) }}
+{{ if $gimme->template->name == "ausgehen.tpl" }}
  {'76':76,'73':73,'63':63};
 {{ /if }}
 

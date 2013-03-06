@@ -14,6 +14,13 @@
 // ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=7ff7902'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=2&amp;n=7ff7902' /></a></noscript>
 				{{ /if }}
 				
+				{{ if $gimme->publication->identifier == 2 && $gimme->section->number == 30 }}				
+<script type='text/javascript'><!--// <![CDATA[
+    /* [id30] Leaderboard Section Kultur */
+    OA_show(30);
+// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=ccf3fc7'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=30&amp;n=ccf3fc7' /></a></noscript>
+				{{ /if }}				
+				
 				{{ if $gimme->publication->identifier == 2 && $gimme->section->number == 40 }}
 <script type='text/javascript'><!--// <![CDATA[
     /* [id41] Leaderboard Section Gesellschaft */
@@ -35,7 +42,7 @@
 // ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=04f3fc5'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=75&amp;n=04f3fc5' /></a></noscript>
 				{{ /if }}					
 
-				{{ if $gimme->template->name == "ausgehen.tpl" }}
+				{{ if $gimme->template->name == "ausgehen.tpl" || ($gimme->section->number gt 70 && $gimme->section->number lte 80) }}
 <script type='text/javascript'><!--// <![CDATA[
     /* [id76] Leaderboard Section Ausgehen */
     OA_show(76);
