@@ -265,6 +265,8 @@ $(document).ready(function() {
 
 <body>
 
+{{ include file="_ads/section-leaderboard.tpl" }}
+
     <div id="content_wrapper" class="content-wrapper">
 
 {{ include file="_tpl/header-nav.tpl" }}
