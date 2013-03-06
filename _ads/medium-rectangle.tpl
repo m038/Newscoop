@@ -49,7 +49,7 @@
 // ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=5b0c279'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=62&amp;n=5b0c279' /></a></noscript>
 				{{ /if }}					
 
-				{{ if $gimme->template->name == "ausgehen.tpl" }}
+				{{ if $gimme->template->name == "ausgehen.tpl" || ($gimme->section->number gt 70 && $gimme->section->number lte 80) }}
 <script type='text/javascript'><!--// <![CDATA[
     /* [id63] Rectangle \/ Streaming Ad Section Ausgehen */
     OA_show(63);
