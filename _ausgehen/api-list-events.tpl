@@ -312,7 +312,7 @@ function load_events(ev_type) {
             <div class="aside">
 
                 <div class="ad top-space">
-                    {{ include file="_ads/ausgehen-list-events.tpl" }}
+                    {{ include file="_ads/section-wide-skyscrapper.tpl" }}
                 </div>
 
             </div><!-- / aside -->
