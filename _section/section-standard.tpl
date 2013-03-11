@@ -55,11 +55,11 @@
 {{ include file="_tpl/sidebar-ticker.tpl" }} 
 {{ /if }}
                 
-{{ include file="_ads/section-wide-skyscrapper.tpl" }}
+{{ render file="_ads/section-wide-skyscrapper.tpl" }}
 
 {{ include file="_tpl/sidebar-section-blog.tpl" }}
 
-{{ include file="_ads/medium-rectangle.tpl" }}
+{{ render file="_ads/medium-rectangle.tpl" }}
             
             </div><!-- / Aside -->
         

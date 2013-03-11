@@ -39,6 +39,10 @@ var OA_zones = {{ strip }}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 90 }}
  {'77':77,'72':72,'64':64};
 {{ /if }}
+{{* Dossiers page *}}
+{{ if $gimme->template->name == "dossiers.tpl" }}
+ {'78':78,'79':79};
+{{ /if }}
 {{* blogs page *}}
 {{ if $gimme->template->name == "blogs.tpl" }}
  {'75':75,'71':71,'62':62};

@@ -3,6 +3,8 @@
 <body>
 
   <div class="content-wrapper">
+
+{{ render file="_ads/section-leaderboard.tpl" }}
     
 {{ include file="_tpl/header-nav.tpl" }}
         
@@ -47,7 +49,9 @@
             
             <div class="aside">
                 
-{{ include file="_tpl/sidebar-most.tpl" }}  
+{{ include file="_tpl/sidebar-most.tpl" }} 
+
+{{ render file="_ads/medium-rectangle.tpl" }} 
              
 {{ include file="_tpl/sidebar-newsletter.tpl" }}
                 

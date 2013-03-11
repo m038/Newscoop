@@ -41,6 +41,13 @@
     OA_show(64);
 // ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=8f0dd38'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=64&amp;n=8f0dd38' /></a></noscript>
 				{{ /if }}	
+
+				{{ if $gimme->template->name == "dossiers.tpl" }}
+<script type='text/javascript'><!--// <![CDATA[
+    /* [id79] Rectangle \/ Streaming Ad Section Dossier */
+    OA_show(79);
+// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=8977266'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=79&amp;n=8977266' /></a></noscript>
+				{{ /if }}
 				
 				{{ if $gimme->template->name == "blogs.tpl" }}
 <script type='text/javascript'><!--// <![CDATA[
