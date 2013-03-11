@@ -34,6 +34,13 @@
     OA_show(77);
 // ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=5cefb90'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=77&amp;n=5cefb90' /></a></noscript>
 				{{ /if }}	
+
+				{{ if $gimme->template->name == "dossiers.tpl" }}
+<script type='text/javascript'><!--// <![CDATA[
+    /* [id78] Leaderboard Section Dossier */
+    OA_show(78);
+// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=528be3f'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=78&amp;n=528be3f' /></a></noscript>
+				{{ /if }}
 				
 				{{ if $gimme->template->name == "blogs.tpl" }}
 <script type='text/javascript'><!--// <![CDATA[
