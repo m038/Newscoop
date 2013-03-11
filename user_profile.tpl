@@ -31,24 +31,49 @@
                 </article>
                 
                 <div class="comment-content profile-comments">
+
+<div class="slideshow clearfix">
                 
-{{ list_user_comments user=$user->identifier order="bydate desc" length=10 }}                
+{{ assign var="commentNumber" value=$user->posts_count }}                
+                
+{{ list_user_comments user=$user->identifier order="bydate desc" length=100 columns=10 }}                
 
 				    {{ if $gimme->current_list->at_beginning }}
-                	<h3>{{ $user->posts_count }} Beiträge</h3>                
-                	<ol>
+                	<h3>{{ $commentNumber }} Beiträge</h3>                
+                	<ul class="slides">
                 	{{ /if }}
+                	{{ if $gimme->current_list->column == "1" }}
+                          <li class="slide-item">
+                                <ol>
+                      {{ /if }}
                         <li>
                             <h5>{{ $gimme->user_comment->subject }}</h5>
                             <time>{{ $gimme->user_comment->submit_date }}</time>
-                            <p>{{ $gimme->user_comment->content|trim }}</p>
+                            <p>{{ $gimme->user_comment->content|trim|truncate:500 }}</p>
                             <small>zu <a href="{{ $gimme->user_comment->article->url }}">{{ $gimme->user_comment->article->name }}</a></small>
                         </li>
+                        
+                      {{ if $gimme->current_list->column == "10" || $gimme->current_list->at_end }}
+                                </ol>
+                            </li>
+                      {{ /if }}                        
+                        
                     {{ if $gimme->current_list->at_end }}
-                    </ol>
+                    </ul>
                     {{ /if }}
+
+                      {{ if $gimme->current_list->at_end }} 
+                        </ul>
+                        <ul class="paging center">
+                        <li><a href="#" class="button white prev">&lsaquo;</a></li>
+                        <li class="caption">{{ $gimme->current_list->index }} von {{ ceil($commentNumber / 10) }}</li>
+                        <li><a href="#" class="button white next">&rsaquo;</a></li>
+                      </ul>                      
+                      {{ /if }} 
                                             
 {{ /list_user_comments }}
+
+</div>
                 
                 </div>
             
