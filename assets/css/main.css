@@ -89,7 +89,7 @@ a.comm,
 	font-size:12px; color:#666;
 	background:url(../img/icon-comment.png) 0 50% no-repeat;
 	}
-	a.comm {color:#b40032; text-decoration:none; background-image:url(../img/icon-comment-red.png);}
+	a.comm {color:#b40032; text-decoration:none; background-image: url(../img/icon-comment-red.png);}
 .phone-comm {display:none;}
 .print-small {
 	display:inline-block; zoom:1; *display:inline;
@@ -2498,7 +2498,7 @@ a.button.center.details-more {display:none;}
 		border-right: 1px solid #ccc;
 		margin-right: 12px;
 		}
-	.debatte-widget header h3 {margin-bottom: 10px;		
+	.debatte-widget header h3 {margin-bottom: 10px;}		
 	
 }
 
