@@ -12,6 +12,7 @@
 {{ image rendition="artfull" }}                
                   <figure>
               <img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
+              <figcaption class="top-figure">{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}</figcaption>
                   </figure>
 {{ /image }} 
 {{ /capture }}
@@ -27,11 +28,11 @@
                         <p>{{ if $gimme->article->lede }}{{ $gimme->article->lede }}{{ elseif $gimme->article->type_name == "newswire" }}{{ $gimme->article->DataLead }}{{ /if }}</p>
                     {{ if $prazno }}</div>{{ else }}</header>{{ /if }}
 
-{{ if $prazno }}                    
+{{* if $prazno }}                    
 {{ image rendition="artfull" }}                    
                     <p><small>{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}</small></p>
 {{ /image }} 
-{{ /if }}
+{{ /if *}}
                    
                     <p><time>{{ $gimme->article->publish_date|camp_date_format:"%e.%m.%Y, %H:%i" }}</time> {{ if $gimme->article->comment_count  }}<a href="#comments" class="comm">{{ $gimme->article->comment_count }} Kommentare</a>{{ /if }} <a href="#" onclick="window.print();return false" class="right print-small">Print</a></p>            
 
