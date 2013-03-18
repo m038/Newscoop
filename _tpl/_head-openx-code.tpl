@@ -21,7 +21,7 @@ var OA_zones = {{ strip }}
 {{ /if }}
 {{* section Politik *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 10 }}
- {'12':12,'13':13,'51':51,'67':67,'16':16};
+ {'12':12,'13':13,'86':86,'67':67,'16':16};
 {{ /if }}
 {{* section Wirtschaft *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 20 }}
