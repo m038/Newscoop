@@ -81,13 +81,13 @@
             
 {{ include file="_tpl/sidebar-community.tpl" }}
                 
-                {{ list_articles length="3" constraints="type is debatte" }}
+                {{ list_articles length="6" constraints="type is debatte" }}
                 {{ if $gimme->current_list->index gt 1 }}
                 {{ if $gimme->current_list->index == 2 }}
                 <h4 class="center-title">Abgeschlossene Debatten</h4>
                 <div class="clearfix">                
                 {{ /if }}
-                    <article class="mobile-half{{ if $gimme->current_list->index == 3 }} last{{ /if }}">
+                    <article class="mobile-half{{ if $gimme->current_list->index == 6 }} last{{ /if }}">
                         <figure>
               				{{ image rendition="arthalf" }}                
                       		<img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" />     
@@ -96,7 +96,7 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                     </article>
                 {{ /if }}
-                {{ if $gimme->current_list->index == 3 || $gimme->current_list->at_end }}
+                {{ if $gimme->current_list->index == 6 || $gimme->current_list->at_end }}
                 </div>
                 {{ /if }}
                 {{ /list_articles }}
