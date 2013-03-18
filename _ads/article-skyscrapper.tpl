@@ -2,9 +2,9 @@
 
  	    {{ if $gimme->section->number == 10 }}
 <script type='text/javascript'><!--// <![CDATA[
-    /* [id51] Skyscraper Articles Section Politik */
-    OA_show(51);
-// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=e06b2c8'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=51&amp;n=e06b2c8' /></a></noscript>
+    /* [id86] New Skyscraper Articles Section Politik */
+    OA_show(86);
+// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=df463e3'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=86&amp;n=df463e3' /></a></noscript>
 				{{ /if }}
 
   	   {{ if $gimme->section->number == 20 }}
