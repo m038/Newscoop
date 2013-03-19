@@ -666,6 +666,10 @@ small {
 				padding:10px 50px;
 				background:#e5e5e5;
 				}
+			article figure figcaption.top-figure {
+				padding: 10px 0 10px 378px;
+				background: transparent;
+				}	
 			article figure small {
 				display:block;
 				padding-top:10px;
@@ -3113,7 +3117,7 @@ a.button.center.details-more {display:none;}
 	.phone-list-title-only h6 {margin-bottom:3px;}
 	.phone-list-title-only h3 {margin-bottom:0;}
 	.phone-list-title-only article {border-bottom:#ccc dashed 1px; margin:0 -10px; padding:10px;}
-	
+
 	h2 a,
 	h4.center-title {
 		display:block; 
@@ -3129,13 +3133,13 @@ a.button.center.details-more {display:none;}
 	.single blockquote {width:auto;}
 			
 	.single-top-figure small {display:none;}
-	.inline-box.top {width:92%; margin:-40px 2% 10px 2%; padding:10px 2%; background:#fff;}
-		.inline-box.top h6 {text-align:left !important; margin-bottom:3px;}
-		.inline-box.top h3 {text-align:left !important; margin-bottom:0;}
+	.inline-box.top {width:92%; padding:10px 2%; background:#fff;}
+		.inline-box.top h6 {text-align:left !important; margin-bottom:3px; color: #555555;}
+		.inline-box.top h3 {text-align:left !important; margin-bottom:0; font-size: 16px;}
 			.inline-box.top h3 {margin-bottom:10px;}
 	
 	.inline-box {float:none; width:auto; margin:0 0 10px 0 !important;}
-	.inline-box.top {margin:-40px 2% 10px 2% !important;}
+	.inline-box.top {margin:0 0 10px 0 !important;}
 		.inline-box.top p {margin:0 -20px;}
 		
 	.social-bar ul {float:none;}
@@ -3296,6 +3300,11 @@ a.button.center.details-more {display:none;}
 		top:28px;
 		right: 0;
 		}
+
+	article figure figcaption.top-figure {
+		padding: 10px;
+		background: #e5e5e5;
+		}		
 
 }
 
