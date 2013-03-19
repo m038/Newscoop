@@ -21,7 +21,7 @@ var OA_zones = {{ strip }}
 {{ /if }}
 {{* section Politik *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 10 }}
- {'12':12,'13':13,'86':86,'67':67,'16':16,'56':56};
+ {'12':12,'13':13,'86':86,'67':67,'16':16,'56':56,'21':21};
 {{ /if }}
 {{* section Wirtschaft *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 20 }}
@@ -29,15 +29,15 @@ var OA_zones = {{ strip }}
 {{ /if }}
 {{* section Kultur *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 30 }}
- {'30':30,'70':70,'33':33,'58':58};
+ {'30':30,'70':70,'33':33,'58':58,'39':39};
 {{ /if }}
 {{* section Gesellschaft *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 40 }}
- {'41':41,'69':69,'44':44,'57':57};
+ {'41':41,'69':69,'44':44,'57':57,'49':49};
 {{ /if }}
 {{* section Dialog *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 90 }}
- {'77':77,'72':72,'64':64,'59':59};
+ {'77':77,'72':72,'64':64,'59':59,'84':84};
 {{ /if }}
 {{* Dossiers page *}}
 {{ if $gimme->template->name == "dossiers.tpl" }}
@@ -45,7 +45,7 @@ var OA_zones = {{ strip }}
 {{ /if }}
 {{* blogs page *}}
 {{ if $gimme->template->name == "blogs.tpl" }}
- {'75':75,'71':71,'62':62,'60':60};
+ {'75':75,'71':71,'62':62,'60':60,'85':85};
 {{ /if }}
 {{* ausgehen page *}}
 {{ if $gimme->template->name == "ausgehen.tpl" || ($gimme->section->number gt 70 && $gimme->section->number lte 80) }}
