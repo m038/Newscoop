@@ -737,6 +737,9 @@ function load_events(ev_type) {
             </div><!-- / aside -->
 
         </div><!-- / content -->
+        
+{{ render file="_ads/section-billboard.tpl" }}         
+        
         </div><!-- / content_wrapper -->
 
     </div><!-- / wide_wrapper -->

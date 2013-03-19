@@ -88,6 +88,8 @@
         
         </div>
 
+{{ render file="_ads/front-billboard.tpl" }}
+
 {{ include file="_tpl/front-blogs.tpl" }}
     
     </div><!-- / Content Wrapper -->
