@@ -103,10 +103,10 @@
                 </div>
             
             </div><!-- / Aside -->
-
-{{ render file="_ads/section-billboard.tpl" }} 
         
         </div>
+
+{{ render file="_ads/section-billboard.tpl" }} 
     
     </div><!-- / Content Wrapper -->
 
