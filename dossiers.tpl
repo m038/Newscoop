@@ -61,9 +61,7 @@
         
         </div>
         
-        <div class="ad bottom-line">
-            <!--small>Werbung</small-->
-        </div>
+{{ render file="_ads/section-billboard.tpl" }} 
     
     </div><!-- / Content Wrapper -->
 
