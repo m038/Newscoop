@@ -36,7 +36,10 @@
 				{{ /if }}	
 
 				{{ if $gimme->template->name == "dossiers.tpl" }}
-
+<script type='text/javascript'><!--// <![CDATA[
+    /* [id87] Billboard Section Dossier */
+    OA_show(87);
+// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=cc20429'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=87&amp;n=cc20429' /></a></noscript>
 				{{ /if }}
 				
 				{{ if $gimme->template->name == "blogs.tpl" }}
