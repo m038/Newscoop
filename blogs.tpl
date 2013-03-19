@@ -95,8 +95,10 @@
                 <div class="aside">
                 
 {{ include file="_tpl/sidebar-community.tpl" }}
+
+{{ render file="_ads/sidebar-partner-buttons.tpl" }}
                     
-{{ include file="_ads/medium-rectangle.tpl" }}
+{{ render file="_ads/medium-rectangle.tpl" }}
                 
                 </div><!-- / Aside -->
             
