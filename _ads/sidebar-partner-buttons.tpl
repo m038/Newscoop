@@ -11,7 +11,7 @@
 <script type='text/javascript'><!--// <![CDATA[
     /* [id28] Partner Button Section Wirtschaft */
     OA_show(28);
-// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=75d4fb5'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=28&amp;n=75d4fb5' /></a></noscript>
+// ]]> --></script><noscript><a target='_blank' href='http://openx.zentralplus.ch/delivery/ck.php?n=21536af'><img border='0' alt='' src='http://openx.zentralplus.ch/delivery/avw.php?zoneid=28&amp;n=21536af' /></a></noscript>
 				{{ /if }}
 				
 				{{ if $gimme->publication->identifier == 2 && $gimme->section->number == 30 }}				
