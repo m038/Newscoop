@@ -83,7 +83,9 @@
             
 {{ include file="_tpl/sidebar-community.tpl" }}
 
-{{ include file="_ads/section-wide-skyscrapper.tpl" }}
+{{ render file="_ads/section-wide-skyscrapper.tpl" }}
+
+{{ render file="_ads/sidebar-partner-buttons.tpl" }}
                 
                 <div class="box">
                 	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fzentralplus&amp;width=350&amp;height=290&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=true&amp;appId=118901678281903" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:350px; height:290px;" allowTransparency="true"></iframe>
