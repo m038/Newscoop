@@ -25,7 +25,7 @@ var OA_zones = {{ strip }}
 {{ /if }}
 {{* section Wirtschaft *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 20 }}
- {'2':2,'4':4,'5':5,'68':68,'23':23,'55':55};
+ {'2':2,'4':4,'5':5,'68':68,'23':23,'55':55,'28':28};
 {{ /if }}
 {{* section Kultur *}}
 {{ if $gimme->publication->identifier == 2 && $gimme->section->number == 30 }}
