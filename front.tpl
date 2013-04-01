@@ -100,3 +100,5 @@
 
 </body>
 </html>
+<!-- sitemap: {{ url options="template _sitemaps/sitemap.tpl" }} -->
+<!-- sitemap-blog: {{ url options="template _sitemaps/sitemap-blog.tpl" }} -->
