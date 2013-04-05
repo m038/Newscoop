@@ -1,8 +1,8 @@
                 <div class="phone-tabs">
                 
-                	<ul class="hide phone-tab-nav">
-                    	<li><a href="#phone-tab-1">Meistgelesen</a></li>
-                    	<li><a href="#phone-tab-2">Meistkommentiert</a></li>
+                  <ul class="hide phone-tab-nav">
+                      <li><a href="#phone-tab-1">Meistgelesen</a></li>
+                      <li><a href="#phone-tab-2">Meistkommentiert</a></li>
                     </ul>
 
               <div class="two-columns margin-bottom clearfix equal-heights phone-tab-content">
@@ -13,12 +13,10 @@
                   <article id="phone-tab-1">
                       <h4>Meistgelesen</h4>
                         <ol class="short-list">
-                        
-																{{*** Changes introduced according to ticket MOTM-549 - only one post per blog to appear in most read list ***}}
-																
+  {{*** Changes introduced according to ticket MOTM-549 - only one post per blog to appear in most read list ***}}
   {{ $mostReadArticles = array() }}
   {{ assign var="i" value=0 }}
-  {{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypopularity desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message publish_date greater_equal $mydate" }}
+  {{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypopularity desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message type not newswire publish_date greater_equal $mydate" }}
     {{ assign var="arrayCheck" value=$gimme->publication->identifier*100+$gimme->section->number }}
     {{ if not $mostReadArticles[$arrayCheck] }}
       {{ $mostReadArticles[$arrayCheck]=true }}
@@ -28,7 +26,6 @@
       {{ /if }}
     {{ /if }}
   {{ /list_articles }}
-																
                         </ol>
                     </article>
                     
