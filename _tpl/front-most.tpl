@@ -26,15 +26,28 @@
       {{ /if }}
     {{ /if }}
   {{ /list_articles }}
+
                         </ol>
                     </article>
                     
                     <article id="phone-tab-2">
                       <h4>Meistkommentiert</h4>
                       <ol class="short-list">
-                     {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bycomments desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message publish_date greater_equal $mydate" }}
+                      {{ assign var="i" value=0 }}
+                     {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bycomments desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message type not newswire publish_date greater_equal $mydate" }}
+                          {{ if $gimme->article->comment_count gt 0 }}
+                          {{ assign var="i" value=$i+1 }}
                           <li><span>{{ if $gimme->article->dateline|strip !== "" }}{{ $gimme->article->dateline }}{{ else }}{{ $gimme->section->name }}{{ /if }}<span> <a href="{{ url options="article" }}">{{ $gimme->article->name }}</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</li>
+                          {{ /if }}
                      {{ /list_articles }}
+                     {{ if $i < 3 }}
+                     {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message type not newswire" }}
+                         {{ if $i < 4 }}
+                         {{ assign var="i" value=$i+1 }}
+                             <li><span>{{ if $gimme->article->dateline|strip !== "" }}{{ $gimme->article->dateline }}{{ else }}{{ $gimme->section->name }}{{ /if }}<span> <a href="{{ url options="article" }}">{{ $gimme->article->name }}</a> {{ if $gimme->article->comment_count }}<span class="comm">{{ $gimme->article->comment_count }}</span>{{ /if }}</li>
+                         {{ /if }}
+                     {{ /list_articles }}     
+                     {{ /if }}
                         </ol>
                     </article>
                     
