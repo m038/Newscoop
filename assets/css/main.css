@@ -779,6 +779,7 @@ small {
 			.left-thumb figure {float:left; margin:5px 10px 0 0;}
 				.left-thumb h6,
 				.left-thumb h3 {text-align:left;}
+			.aside .box.left-thumb {overflow: hidden;}
 			.right-thumb figure {float:right; margin:5px 0 0 10px;}
 			.highlight-article {background:#e5e5e5;}
 			
