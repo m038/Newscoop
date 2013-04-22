@@ -1,43 +1,51 @@
     <meta name="keywords" content="{{ strip }}
     {{ if $gimme->publication->identifier == 2 }}
     		{{ if $gimme->template->name == "front.tpl" }}
-    		Zentral+, Zentralplus, Luzern, Zug, Zentralschweiz, Hintergrund, Analyse, News, Region, Stadt, Kanton, Nachrichten, Politik, Wirtschaft, Gesellschaft, Sport, Kultur, Freizeit, Wissen, Wetter, Presse, Medien, Online Journal, online Medien, Gemeinde, Blogs, FCL Blog, EVZ Blog, online, Zeitung, Zuger Zeitung, Luzerner Zeitung, neue, aktuell,  Ausgehen, zentral-+, infozentral
+    		zentral+, zentralplus, Luzern, Zug, Zeitung, Nachrichten
     		{{ elseif ($gimme->section->number > 70) && ($gimme->section->number <= 80) }}
 
         {{* AUSGEHEN *}}
         {{ if $gimme->section->number == 71 }}
-        Luzern, Zug, Zentralschweiz, Veranstaltungskalender, Theater, Kino, Ausgang, Party, Club, Musik, Konzert, Orchester, Tipps, was läuft, Ausgehtipps
+        Veranstaltungen, Veranstaltungskalender, Events, Theater, Kino, Konzert
         {{ /if }}
         {{ if $gimme->section->number == 72 }}
-        Luzern, Zug, Zentralschweiz, Kino, Film, Movie, Capitol, Seehof, Lux, Gotthard, Bourbaki, Capitol, Moderne, Stattkino, Maxx, Filmtheater
+        Kino, Film, Bourbaki, Stattkino, Maxx
         {{ /if }}
         {{ if $gimme->section->number == 73 }}
-        Luzern, Zug, Zentralschweiz, Restaurant, Restaurants, Ausgehen, Ausgang, essen, trinken, Wein, Zigarren, Bar, Club, Öffnungszeiten, Angebot, Menü
+        Restaurant, essen, trinken, reservieren, Menü
         {{ /if }}
         {{ if $gimme->section->number == 80 }}
-        Luzern, Zug, Zentralschweiz, Kino, Theater, Musik, Konzerte, Clubs, Bar, Restaurants, Ausgehtipps
+        Ausgehen, Kino, Theater, Musik, Konzerte, Ausgehtipp
         {{ /if }}
+
+      {{* DIALOGUE *}}
+      {{ elseif $gimme->section->number == "90" }}
+        Pro & Contra, Debatte, Dialog, Meinung
+
+        {{* DOSSIER *}}
+      {{ elseif $gimme->section->number == 100 }}
+        Dossier, Verkehr, Asyl, Städtebau, Bildung, Steuern  
 
     		{{ elseif $gimme->template->name == "section.tpl" }}
         {{* STANDARD SECTIONS *}}
         {{ if $gimme->section->number == 10 }}
-        Luzern, Zug, Stadt, Kanton, Gemeinde, Zentralschweiz, Politik, Regierungsrat, Stadtrat, Regierung, Kantonsrat, Grosser Gemeinderat, GGR, Grosser Stadtrat, Steuern, Raumplanung, Verkehr, Sozialwesen, Gesundheit, Asyl, Bildung, Budget, Rechnung, sparen, erhöhen, Kommission, Vorlage, Geschäft, Beschluss, Behörden, Parteien
+        Politik, Steuern, Verkehr, Gesundheit, Bildung, Asyl
         {{ /if }}
 
         {{ if $gimme->section->number == 20 }}
-        Luzern, Zug, Wirtschaft, Steuern, Wirtschaftsstandort, Wettbewerb, Steuerwettbewerb, Zentralschweiz, Nationaler Finanzausgleich, NFA, Armut, Geld, Reichtum, Mittelstand, Oberschicht, Unterschicht 
+        Wirtschaft, Steuern, Arbeit, Armut, Geld 
         {{ /if }}
 
         {{ if $gimme->section->number == 30 }}
-        Luzern, Zug, Kultur, Subvention, Kulturförderung, Kulturkalender, KKL, Theater Casino Zug, Zentralschweiz, Kulturkonkordat, Geld, Aufführungen, Bühne
+        Kultur, Theater, Kino, KKL, Literatur
         {{ /if }}
 
         {{ if $gimme->section->number == 40 }}
-        Luzern, Zug, Gesellschaft, Familie, soziale Durchmischung, soziales Gefüge, Sozialstaat, alleinerziehend, familienergänzende Betreuung, ausserfamiliäre Betreuung, Rentner, Senioren, Jugendgewalt, Jugend, Aggression, Armut, Mittelstand 
+        Gesellschaft, Familie, Jugend, Armut, Mittelstand 
         {{ /if }}
 
         {{ if $gimme->section->number == 50 }}
-        Luzern, Zug, Zentralschweiz, Sport, Fussball, Eishockey, FCL, EVZ, Fan, Chaoten, Krawalle, Ausschreitungen, Stadion, Spiel, Match	
+        Sport, Fussball, Eishockey, FCL, EVZ, tschuttiheftli	
         {{ /if }}
 
         {{ if $gimme->section->number == 60 }}
@@ -45,15 +53,14 @@
         {{ /if }}
 
         {{ if $gimme->section->number == 70 }}
-        Luzern, Zug, Zentralschweiz, Wissen, Hintergrund, Analyse, Industrie, Dienstleistung, Technik, Natur, Ökologie, Umwelt, Energie, sparen, Rohstoffe, Tierwelt, Flora, Fauna, Physik, Chemie, Naturwissenschaften 
+        Wissen, Technik, Natur, Ökologie, Umwelt, Energie 
         {{ /if }}
-
-        {{* DOSSIER *}}
-        {{ if $gimme->section->number == 100 }}
-        Luzern, Zug, Zentralschweiz, Dossier, Verkehr, Asylwesen, Bildung, Steuern, Steuerwettbewerb, Nationaler Finanzausgleich, Raumplanung, Verkehrsplanung, soziale Durchmischung, Sozialstruktur, Kultur, Politik, Gesellschaft, Sport, Wirtschaft  
-        {{ /if }}    		
+    		
     		{{ elseif $gimme->article->defined }}
-    			{{ if $gimme->article->keywords|strip_tags|trim !== "" }}
+    		
+      {{ if $gimme->article->type_name == "static_page" }}    
+        {{ $gimme->article->SEO_keywords|strip_tags|escape:'html'|trim }}    		
+    			{{ elseif $gimme->article->keywords|strip_tags|trim !== "" }}
     				{{ $gimme->article->keywords|strip_tags|escape:'html'|trim }}
 				{{ else }}
     				{{ list_article_topics }}{{ $gimme->topic->name }}{{ if $gimme->current_list->at_end }}{{ else }}, {{ /if }}{{ /list_article_topics }}
@@ -75,7 +82,7 @@
     				{{ /if }}    				
     			{{ /list_articles }}
     		{{ else }}
-    			{{*** here come keywords for blogs overview page ***}}
+    			Blog, Gastrokritik, Literatur, tschuttiheftli, Tourismus, Architektur
     		{{ /if }}
     {{ /if }}
     {{ /strip }}">
