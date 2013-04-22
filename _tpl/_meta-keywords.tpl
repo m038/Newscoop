@@ -58,7 +58,7 @@
     		
     		{{ elseif $gimme->article->defined }}
     		
-      {{ if $gimme->article->type_name == "static_page" && ($gimme->article->SEO_keywords|strip_tags|escape:'html'|trim != "")  }}    
+      {{ if $gimme->article->type_name == "static_page" }}    
         {{ $gimme->article->SEO_keywords|strip_tags|escape:'html'|trim }}    		
     			{{ elseif $gimme->article->keywords|strip_tags|trim !== "" }}
     				{{ $gimme->article->keywords|strip_tags|escape:'html'|trim }}
