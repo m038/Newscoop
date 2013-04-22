@@ -45,6 +45,8 @@
 {{ include file="_tpl/article-aside.tpl" }}
                 
 {{ render file="_ads/article-skyscrapper.tpl" }}
+
+{{ include file="_tpl/sidebar-aktuell.tpl" }}
             
             </div><!-- / Aside -->
         
