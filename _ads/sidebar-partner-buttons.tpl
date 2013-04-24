@@ -1,4 +1,11 @@
 {{ if !$isMobDevice }}
+<div class="ad bottom-line" style="margin: 5px 0 15px 0">
+<small>Zentral+ Partner</small>
+<a href="http://www.3fach.ch/" target="_blank"><img alt="Zentral+ Partner" src="{{ url static_file="assets/img/partnerbutton.png" }}"></a>
+</div>
+{{ /if }}
+
+{{* if !$isMobDevice }}
 
 				{{ if $gimme->publication->identifier == 2 && $gimme->section->number == 10 }}
 <script type='text/javascript'><!--// <![CDATA[
@@ -49,4 +56,4 @@
 				{{ if $gimme->template->name == "ausgehen.tpl" || ($gimme->section->number gt 70 && $gimme->section->number lte 80) }}
 				{{ /if }}	
 
-{{ /if }}	                
+{{ /if *}}	                

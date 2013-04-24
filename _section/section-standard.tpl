@@ -55,7 +55,7 @@
 {{ include file="_tpl/sidebar-ticker.tpl" }} 
 {{ /if }}
 
-{{ render file="_ads/sidebar-partner-buttons.tpl" }}
+{{ include file="_ads/sidebar-partner-buttons.tpl" }}
                 
 {{ render file="_ads/section-wide-skyscrapper.tpl" }}
 
