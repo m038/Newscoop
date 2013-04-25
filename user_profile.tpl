@@ -66,7 +66,7 @@
                         </ul>
                         <ul class="paging center">
                         <li><a href="#" class="button white prev">&lsaquo;</a></li>
-                        <li class="caption">{{ $gimme->current_list->index }} von {{ ceil($commentNumber / 10) }}</li>
+                        <li class="caption">{{ ceil($gimme->current_list->index/10) }} von {{ ceil($commentNumber / 10) }}</li>
                         <li><a href="#" class="button white next">&rsaquo;</a></li>
                       </ul>                      
                       {{ /if }} 

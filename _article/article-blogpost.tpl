@@ -119,6 +119,8 @@
                     <!--small>Werbung</small-->
                 </div>
                 
+                {{ include file="_tpl/sidebar-aktuell.tpl" }}                
+                
             </div><!-- / Aside -->
         
         </div>
