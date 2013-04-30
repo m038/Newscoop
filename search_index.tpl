@@ -14,34 +14,45 @@
     
                 <div class="main left-thumb article-spacing clearfix">
 
- 					<p class="search-info">Suchergebnisse für: {{ $_GET'q' }}{{* $gimme->search_articles_action->search_phrase *}}</p>
+ 					<p class="search-info">Suchergebnisse für: {{ $smarty.get.q|default:''|escape }}</p>
             
-<h1>SEARCH RESULTS SOLR</h1>
-{{ list_search_results_solr fq="type:news" qf="title^5 deck^3 full_text" start=$smarty.get.start }}
-  {{ if $gimme->current_list->at_beginning }}
-  <ul>
-  {{ /if }}
-    <li class="news_item  {{ cycle values="odd,even" }}">
-      {{ image rendition="thumb" }}
-      <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
-      <span>{{$gimme->section->name}}</span>
-      {{/image}}
- 
-      <div class="content">
-        <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->title}}</a></h2>
-        <h5 class="author">{{list_article_authors}}
-        {{$gimme->author->name}}
-        {{/list_article_authors}}</h5>
-        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}} </p>
-      </div>
-    </li>
-  {{ if $gimme->current_list->at_end }}
-  </ul>
-  {{ /if }}
+{{ list_search_results_solr qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
+
+                    <article>
+                        <h6>{{ if $gimme->article->dateline }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ else }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}</h6>
+                        {{ capture name="hasimg" assign="hasimg" }}
+{{ image rendition="artthumb" }}
+                        <figure> 
+                    <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>
+                        </figure>
+{{ /image }}                        
+                        {{ /capture }}
+                        {{ if trim($hasimg) }}{{ $hasimg }}{{ /if }}
+                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->lede|strip_tags:false }}{{ $gimme->article->lede|strip_tags:false }}{{ elseif $gimme->article->body|strip_tags:false }}{{ $gimme->article->body|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->infolong }}{{ $gimme->article->infolong }}{{ elseif $gimme->article->teaser }}{{ $gimme->article->teaser|truncate:200 }}{{ elseif $gimme->article->description }}{{ $gimme->article->description|truncate:200 }}{{ elseif $gimme->article->other }}{{ $gimme->article->other }}{{ /if }} <br />
+                        </p>
+                        <time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
+                    </article>
+
+{{ if $gimme->current_list->at_end }}                            
+                    {{ $curpage=$smarty.get.start/10+1 }}
+                    {{ $nextstart=$curpage*10 }}
+                    {{ $prevstart=($curpage-2)*10 }}
+                    <ul class="paging center top-line">
+                      {{ if $curpage gt 1 }}
+                      <li><a class="button white prev" href="/search?q={{ $smarty.get.q }}&start={{ $prevstart }}">‹</a></li>
+                      {{ /if }}
+                      <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
+                      {{ if $gimme->current_list->has_next_elements }}
+                      <li><a class="button white next" href="/search?q={{ $smarty.get.q }}&start={{ $nextstart }}">›</a></li>
+                      {{ /if }}
+                    </ul>                 
+{{ /if }} 
+
 {{ /list_search_results_solr }}
                  {{ if $gimme->prev_list_empty }}
   							<p>Ihre Suche lieferte keine Treffer</p>
-					  {{ /if *}}
+					  {{ /if }}
                 
                 </div><!-- / Main -->            
                 
@@ -56,22 +67,6 @@
             </div>
     
         </div><!-- / Content Wrapper -->
-                    
-        <div class="hide">
-        
-            <div id="themen-verwalten" class="popup-info-box clearfix">
-            
-                <h4>Themen verwalten</h4>
-                <p>Sie haben folgende Themen abonniert:</p>
-                <ul class="bottom-line">
-                    <li><input type="checkbox" value="1" id="energiepolitk" /><label for="energiepolitk">Energiepolitk</label></li>
-                    <li><input type="checkbox" value="2" id="akw" /><label for="akw">AKW</label></li>
-                </ul>
-                <input type="submit" value="Speichern" class="button red right" />
-            
-            </div>
-        
-        </div><!-- / Popup -->
     
     </div>
 

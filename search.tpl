@@ -14,7 +14,7 @@
     
                 <div class="main left-thumb article-spacing clearfix">
 
- 															<p class="search-info">Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}</p>
+                              <p class="search-info">Suchergebnisse für: {{ $gimme->search_articles_action->search_phrase }}</p>
             
                 {{ list_search_results length="10" }}
                     <article>
@@ -46,8 +46,8 @@
             
                  {{ /list_search_results }}
                  {{ if $gimme->prev_list_empty }}
-  							<p>Ihre Suche lieferte keine Treffer</p>
-					  {{ /if }}
+                <p>Ihre Suche lieferte keine Treffer</p>
+            {{ /if }}
                 
                 </div><!-- / Main -->            
                 
