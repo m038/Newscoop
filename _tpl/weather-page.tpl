@@ -10,6 +10,7 @@
                 <ul>
                     <li id='mn-prognosen' class='mn-menu-item'><a href="#">Prognosen Zentralschweiz</a></li>
                     <li id='mn-lokalwetter' class='mn-menu-item'><a href="#">Lokalwetter</a></li>
+                    <li id='mn-wanderwetter' class='mn-menu-item'><a href="#">Wanderwetter</a></li>
                     <li id='mn-wintersport' class='mn-menu-item'><a href="#">Wintersport</a></li>
                 </ul>
             

@@ -138,6 +138,8 @@
  
                 </div><!-- / forecast details container -->
 
+                {{ include file="_tpl/weather-wanderwetter.tpl" }}
+
                 <div id='mn-lokalwetter-regions-container' class='two-column-tables clearfix'>
                     <div id='mn-primary-regions' class='box left'>
                         <h3>Wichtigste Orte</h3>

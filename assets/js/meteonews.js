@@ -25,6 +25,7 @@ var meteonews = {
     importantWinterRegions: [],
     importantWinterSlopes: [],
     teaserSlopes: [],
+    bergwetter: [],
 
     searchResults: [],
 
@@ -44,7 +45,8 @@ var meteonews = {
         'mn-forecast-overview', 'mn-primary-regions', 'mn-secondary-regions', 'mn-prognosen-regions',
         'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-wintersport-important-slopes',
         'mn-wintersport-all-regions', 'mn-wintersport-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
-        'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-wintersport-details-prognosen' ],
+        'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-wintersport-details-prognosen',
+        'mn-wanderwetter-graph' ],
 
     // map vars
     geocoder: null,
@@ -133,6 +135,7 @@ var meteonews = {
         this.importantWinterRegions = config.important_winter_regions;
         this.importantWinterSlopes = config.important_winter_slopes;
         this.teaserSlopes = config.teaser_slopes;
+        this.bergwetter = config.bergwetter;
 
         cb();
     },
@@ -933,6 +936,18 @@ var meteonews = {
         $('#mn-teaser-slopes').show();
     },
 
+    showWanderwetterPage: function() {
+        meteonews.hideAllElements();
+        meteonews.makeActive('mn-wanderwetter');
+        meteonews.showLocalSearch();
+        meteonews.setLocationTitle('Wanderwetter Zentralschweiz');
+        $('#mn-wanderwetter-graph').show();
+        $('#mn-lokalwetter-regions-container').show();
+        //$('#mn-primary-regions').show();
+        //$('#mn-secondary-regions').show();
+        $('#mn-teaser-slopes').show();
+    },
+
     showPrognosenPage: function() {
         meteonews.hideAllElements();
         $('#mn-searchform').show();
@@ -1205,6 +1220,10 @@ $(function(){
 
     $('#mn-wintersport').live('click', function() {
         meteonews.showWintersportPage();
+    });
+
+    $('#mn-wanderwetter').live('click', function() {
+        meteonews.showWanderwetterPage();
     });
 
     $('.mn-lokalwetter-region-item').live('click', function() {
