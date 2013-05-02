@@ -1,6 +1,7 @@
 			<section class="mobile-hide">
+			    {{ $curArt=$gimme->default_article->number }}
                 <h4 class="box-title">Aktuelles aus den Ressorts</h4>
-                {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is news" order="bypublishdate desc" }}
+                {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is news number not $curArt" order="bypublishdate desc" }}
 
                 <div class="box blog-list single-line left-thumb{{ if $gimme->current_list->index < 3 }} bottom-line{{ /if }}">
                     <article>
@@ -20,8 +21,7 @@
                 {{ /list_articles }}
                 
                 <h4 class="box-title">Aktuelle Blogs</h4>
-                {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is blog" order="bypublishdate desc" }}
-
+                {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is blog number not $curArt" order="bypublishdate desc" }} 
                 <div class="box blog-list single-line left-thumb{{ if $gimme->current_list->index < 3 }} bottom-line{{ /if }}">
                     <article>
                         <h6><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></h6>
