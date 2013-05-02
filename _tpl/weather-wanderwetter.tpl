@@ -280,11 +280,15 @@
               </colgroup>
                 <tbody>
 
+                {{ list_weather_stats location_list="wanderwetter_regions" }}
                   <tr>
-                    <th><p>Ort/Region<strong><br><a href="#">Klewenalp – Stockhütte</a></strong></p></th>
-                    <td><img src="pictures/weather/icon-sun-40.jpg" alt=""> 3°/-2</td>
+                    
+                    <th><p>{{ $gimme->weather_location->region_name }} <strong><br><a href="#" class='mn-lokalwetter-region-item' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong></p></th>
+                    <td>
+                    <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }} / {{ $gimme->weather_location->temperature_min }}
+                    </td>
                   </tr>
-
+                {{ /list_weather_stats }}
                 </tbody>
             </table>
     </div>

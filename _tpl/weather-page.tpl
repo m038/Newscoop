@@ -58,6 +58,8 @@ $(document).ready(function(){
             meteonews.showPrognosenPage();
         } else if (pg == 'wintersport') {
             meteonews.showWintersportPage();
+        } else if (pg == 'wanderwetter') {
+            meteonews.showWanderwetterPage();
         } else if (pg == 'search') {
             meteonews.hideAllElements();
             meteonews.getSearchResults('{{ $smarty.get.q }}');
