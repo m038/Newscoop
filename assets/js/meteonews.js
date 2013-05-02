@@ -24,7 +24,7 @@ var meteonews = {
     localRegions: [],
     importantWinterRegions: [],
     importantWinterSlopes: [],
-    teaserSlopes: [],
+    teaserRegions: [],
     bergwetter: [],
 
     searchResults: [],
@@ -134,7 +134,7 @@ var meteonews = {
         this.importantRegions = config.important_regions;
         this.importantWinterRegions = config.important_winter_regions;
         this.importantWinterSlopes = config.important_winter_slopes;
-        this.teaserSlopes = config.teaser_slopes;
+        this.teaserRegions = config.teaser_regions;
         this.bergwetter = config.bergwetter;
 
         cb();
