@@ -941,6 +941,7 @@ var meteonews = {
         meteonews.makeActive('mn-wanderwetter');
         meteonews.showLocalSearch();
         meteonews.setLocationTitle('Wanderwetter Zentralschweiz');
+        meteonews.getAstronomy();
         $('#mn-wanderwetter-graph').show();
         $('#mn-lokalwetter-regions-container').show();
         //$('#mn-primary-regions').show();
