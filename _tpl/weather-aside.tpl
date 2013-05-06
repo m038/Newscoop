@@ -20,7 +20,7 @@
 
                 <div id='mn-teaser-slopes'>
                     <div class="box">
-                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_wanderwetter.png"}}'> Wanderwetter</h4>
+                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_wanderwetter.png"}}'> Beliebteste Orte</h4>
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
@@ -35,7 +35,6 @@
                                 {{ /list_weather_stats }}
                             </tbody>
                         </table>
-                        <a id='mn-wanderwetter' href="#" class="button white center mn-menu-item">Zum Wanderwetter</a>
                     </div>
                 </div>
                 
