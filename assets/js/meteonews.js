@@ -945,7 +945,9 @@ var meteonews = {
         $('#mn-lokalwetter-regions-container').show();
         //$('#mn-primary-regions').show();
         //$('#mn-secondary-regions').show();
-        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-slopes').show();
+        $('#mn-sun-and-moon').show();
+
     },
 
     showPrognosenPage: function() {
