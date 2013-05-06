@@ -25,6 +25,8 @@
                 <div id='mn-search-results' class='div-table'></div>
 
                 {{ include file="_tpl/weather-prognosen.tpl" }}
+
+                {{ include file="_tpl/weather-wanderwetter.tpl" }}
                 
                 {{ include file="_tpl/weather-lokkalwetter.tpl" }}
 

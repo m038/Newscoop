@@ -1,4 +1,4 @@
-                
+               
                 <!-- lokalwetter page elements -->
                 <div id='mn-lokalwetter-searchform' class="weather-loctions clearfix">
                 
@@ -137,8 +137,6 @@
                     </div><!-- / forecast-details-table -->
  
                 </div><!-- / forecast details container -->
-
-                {{ include file="_tpl/weather-wanderwetter.tpl" }}
 
                 <div id='mn-lokalwetter-regions-container' class='two-column-tables clearfix'>
                     <div id='mn-primary-regions' class='box left'>
