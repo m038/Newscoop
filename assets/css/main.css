@@ -683,6 +683,8 @@ small {
 		article figure.single-top-figure small {padding-left:376px;}
 		article.single figure.left {margin:0 15px 5px 0; max-width: 346px}
 		article.single figure.right {margin:0 0 5px 15px;}
+		.cs_fl_right { float:right; margin-left: 20px;} 
+		.cs_fl_left { float:left; margin-right: 20px;} 
 		
 		article.no-content {padding-top:100px; background:url(../img/icon-tag-large.png) 50% 0 no-repeat;}
 			article.no-content a.icon-tag {padding-left:20px; background-position:0 50%; text-decoration:none;}
