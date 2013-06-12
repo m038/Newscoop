@@ -63,7 +63,7 @@
                           {{ /if }}                            
                             </figure>
                             <h3>Nein</h3>
-                            <p>meint {{ $gimme->author->name }}, {{ $gimme->article->contra_position }}</p>
+                            <p>sagt {{ $gimme->author->name }}, {{ $gimme->article->contra_position }}</p>
                         </div>
                      {{ /if }}
                      {{ /list_article_authors }}
