@@ -7,11 +7,6 @@
 {{ include file="_tpl/header-nav.tpl" }}
         
 {{ include file="_tpl/header.tpl" }}
-    
-
-
-
-
 
     	<div class="content-wrapper top-line events-content">
 
@@ -98,7 +93,7 @@
 
                    
                     
-                    <article>
+                    <article class="search-afix">
                         <h6>{{ if $gimme->article->dateline }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ else }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}</h6>                     
                         {{ capture name="hasimg" assign="hasimg" }}
                         {{ image rendition="artthumb" }}

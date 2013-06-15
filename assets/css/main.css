@@ -3754,3 +3754,7 @@ ul.custom-list.filter-list li, ul.custom-list.filter-list li.active {
 	padding-left: 0px;
 	background-image: none;
 }	
+
+article .search-afix img {
+margin-bottom: 2px;
+}
