@@ -26,69 +26,71 @@
                 	
                     <div class="box desktop-hide">
                         <h4>Type</h4>
-                        <select class="dropdownized">
-                            <option value="Alle">Alle</option>
-                            <option value="Dossiers">Dossiers</option>
-                            <option value="Blogbeitrage">Blogbeitrage</option>
-                            <option value="Kommentare">Kommentare</option>
-                            <option value="Veranstalungen">Veranstalungen</option>
+
+                        <select id="selectboxType" class="dropdownized" onchange="javascript:location.href = this.value;">
+                            <option {{ if $smarty.get.type == ""}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Alle</option>
+                            <option {{ if $smarty.get.type == "news"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">News</option>                            
+                            <option {{ if $smarty.get.type == "dossier"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=dossier{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Dossiers</option>
+                            <option {{ if $smarty.get.type == "blog"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Blogbeitrage</option>
+                            <option {{ if $smarty.get.type == "event"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=event{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Veranstalungen</option>
+                            <option {{ if $smarty.get.type == "restaurant"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=restaurant{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Restaurant</option>
                         </select>
+
                     </div>
 
-                    <div class="box desktop-hide">
+                    <div class="box desktop-hide" onchange="javascript:location.href = this.value;">
                         <h4>Time</h4>
-                        <select class="dropdownized">
-                            <option value="Alle">Alle</option>
-                            <option value="Letze 24 Stunden">Letze 24 Stunden</option>
-                            <option value="Letze 7 Tage">Letze 7 Tage</option>
-                            <option value="Dieses Jahr">Dieses Jahr</option>
+                        <select id="selectboxPublished" class="dropdownized" onchange="javascript:location.href = this.value;">
+                            <option {{ if $smarty.get.published == ""}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</option>
+                            <option {{ if $smarty.get.published == "24h"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=24h">Letze 24 Stunden</option>
+                            <option {{ if $smarty.get.published == "7d"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=7d">Letze 7 Tage</option>
+                            <option {{ if $smarty.get.published == "1y"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</option>
                         </select>
                     </div>
                     
                 	<ul class="custom-list tag-list filter-list">
                         <h4>Suche eingrenzen</h4>
-                    	<li class="active"><a href="#">Alle</a></li>
-                        <li><a href="#">Artikel</a></li>
-                    	<li><a href="#">Dossiers</a></li>
-                        <li><a href="#">Blogbeitrage</a></li>
-                    	<li><a href="#">Kommentare</a></li>
-                        <li><a href="#">Veranstalungen</a></li>
+                    	<li{{ if $smarty.get.type == ""}} class="active"{{ /if }}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Alle</a></li>
+                        <li{{ if $smarty.get.type == "news"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Artikel</a></li>
+                    	<li{{ if $smarty.get.type == "dossier"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=dossier{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Dossiers</a></li>
+                        <li{{ if $smarty.get.type == "blog"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Blogbeitrage</a></li>
+                        <li{{ if $smarty.get.type == "event"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=event{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Veranstalungen</a></li>
+                        <li{{ if $smarty.get.type == "restaurant"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=restaurant{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Restaurant</a></li>
                     </ul>
 
                     <ul class="custom-list tag-list filter-list">
-                        <li class="active"><a href="#">Alle</a></li>
-                        <li><a href="#">Letze 24 Stunden</a></li>
-                        <li><a href="#">Letze 7 Tage</a></li>
-                        <li><a href="#">Dieses Jahr</a></li>
+                        <li{{ if $smarty.get.published == ""}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</a></li>
+                        <li{{ if $smarty.get.published == "24h"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=24h">Letze 24 Stunden</a></li>
+                        <li{{ if $smarty.get.published == "7d"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=7d">Letze 7 Tage</a></li>
+                        <li{{ if $smarty.get.published == "1y"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</a></li>
                     </ul>
 
-                    <form id="date_range" action="#" method="post">
+{{*
+					{{ assign var="solrKeyword" value=$smarty.get.q }}
+                    <form id="date_range" action="/search?{{ urlparameters }}&{{ $solrKeyword }}" method="post">
                         <div class="formbody">
-                            <input type="hidden" name="FORM_SUBMIT" value="je_filter_26">
-                            <input type="hidden" name="REQUEST_TOKEN" value=" ">
+                            <!-- input type="hidden" name="FORM_SUBMIT" value="je_filter_26" -->
+                            <!-- input type="hidden" name="REQUEST_TOKEN" value=" " -->
 
                             <div id="datestart">
                               <label for="ctrl_datestart" class="date startdate">Von</label> 
-                              <input type="text" name="datestart" id="ctrl_datestart" class="datestart" value="" maxlength="10">
+                              <input type="text" name="from" id="ctrl_datestart" class="datestart" value="" maxlength="10">
                             </div>
 
                             <div id="dateend">
                               <label for="ctrl_dateend" class="date enddate">Bis</label> 
-                              <input type="text" name="datestart" id="ctrl_dateend" class="datestart" value="" maxlength="10">
+                              <input type="text" name="to" id="ctrl_dateend" class="datestart" value="" maxlength="10">
                             </div>
 
                             <input class="button white wide" type="submit" name="submit" value="Suche eingrenzen">
                         </div>
                     </form>
-                    <!--
-                    <a href="#themen-verwalten" class="button white wide fancybox phone-hide">Themen verwalten</a>
-                	-->
-                
+*}}                
                 </div>
     
                 <div class="main left-thumb article-spacing clearfix">
-{{ build_solr_fq }}
-{{ list_search_results_solr qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" fq=build_solr_fq rows=10 start=$smarty.get.start }}
+
+{{ list_search_results_solr fq="{{ build_solr_fq }}" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
             
 
                    
@@ -135,11 +137,12 @@
                 
                 <div class="aside">
                     
+                    {{*
                     <div class="ad top-space">
                         <small>Werbung</small>
                         <a href="#"><img alt="" src="pictures/ad-2.jpg"></a>
                     </div>
-                
+                    *}}
                 </div><!-- / Aside -->
             
             </div>
