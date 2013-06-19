@@ -29,10 +29,10 @@
 
                         <select id="selectboxType" class="dropdownized" onchange="javascript:location.href = this.value;">
                             <option {{ if $smarty.get.type == ""}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Alle</option>
-                            <option {{ if $smarty.get.type == "news"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">News</option>                            
+                            <option {{ if $smarty.get.type == "news"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">News</option>   
+                            <option {{ if $smarty.get.type == "event"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=newswire{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Newsticker</option>  
                             <option {{ if $smarty.get.type == "dossier"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=dossier{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Dossiers</option>
-                            <option {{ if $smarty.get.type == "blog"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Blogbeitrage</option>
-                            <option {{ if $smarty.get.type == "event"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=event{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Veranstalungen</option>
+                            <option {{ if $smarty.get.type == "blog"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Blogbeiträge</option>
                             <option {{ if $smarty.get.type == "restaurant"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=restaurant{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Restaurant</option>
                         </select>
 
@@ -42,8 +42,8 @@
                         <h4>Time</h4>
                         <select id="selectboxPublished" class="dropdownized" onchange="javascript:location.href = this.value;">
                             <option {{ if $smarty.get.published == ""}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</option>
-                            <option {{ if $smarty.get.published == "24h"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=24h">Letze 24 Stunden</option>
-                            <option {{ if $smarty.get.published == "7d"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=7d">Letze 7 Tage</option>
+                            <option {{ if $smarty.get.published == "24h"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=24h">Letzte 24 Stunden</option>
+                            <option {{ if $smarty.get.published == "7d"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=7d">Letzte 7 Tage</option>
                             <option {{ if $smarty.get.published == "1y"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</option>
                         </select>
                     </div>
@@ -52,16 +52,16 @@
                         <h4>Suche eingrenzen</h4>
                     	<li{{ if $smarty.get.type == ""}} class="active"{{ /if }}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Alle</a></li>
                         <li{{ if $smarty.get.type == "news"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Artikel</a></li>
+                        <li{{ if $smarty.get.type == "newswire"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=newswire{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Newsticker</a></li>                        
                     	<li{{ if $smarty.get.type == "dossier"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=dossier{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Dossiers</a></li>
-                        <li{{ if $smarty.get.type == "blog"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Blogbeitrage</a></li>
-                        <li{{ if $smarty.get.type == "event"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=event{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Veranstalungen</a></li>
+                        <li{{ if $smarty.get.type == "blog"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Blogbeiträge</a></li>
                         <li{{ if $smarty.get.type == "restaurant"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=restaurant{{ if $smarty.get.published }}&published={{ $smarty.get.published|default:''|escape }}{{ /if }}">Restaurant</a></li>
                     </ul>
 
                     <ul class="custom-list tag-list filter-list">
                         <li{{ if $smarty.get.published == ""}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</a></li>
-                        <li{{ if $smarty.get.published == "24h"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=24h">Letze 24 Stunden</a></li>
-                        <li{{ if $smarty.get.published == "7d"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=7d">Letze 7 Tage</a></li>
+                        <li{{ if $smarty.get.published == "24h"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=24h">Letzte 24 Stunden</a></li>
+                        <li{{ if $smarty.get.published == "7d"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=7d">Letzte 7 Tage</a></li>
                         <li{{ if $smarty.get.published == "1y"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.type }}&type={{ $smarty.get.type|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</a></li>
                     </ul>
 
@@ -106,7 +106,7 @@
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->lede|strip_tags:false }}{{ $gimme->article->lede|strip_tags:false }}{{ elseif $gimme->article->body|strip_tags:false }}{{ $gimme->article->body|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->infolong }}{{ $gimme->article->infolong }}{{ elseif $gimme->article->teaser }}{{ $gimme->article->teaser|truncate:200 }}{{ elseif $gimme->article->description }}{{ $gimme->article->description|truncate:200 }}{{ elseif $gimme->article->other }}{{ $gimme->article->other }}{{ /if }} <br />
                         </p>
-                        <time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeitrage{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
+                        <time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeiträge{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                     </article>
                     
 {{ if $gimme->current_list->at_end }}                   
