@@ -1,12 +1,12 @@
           <ul class="weather">
                 <li class="expandable">
                     <a href="#">
-                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" }}
+                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" length="1" }}
                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                             <span>{{ $gimme->weather_location->temperature }}° {{ $gimme->weather_location->location_name }} </span>
                         {{ /list_weather_stats }}
 
-                        {{ list_weather_stats location_name="Zug" location_list="main_regions" }}
+                        {{ list_weather_stats location_name="Zug" location_list="main_regions" length="1" }}
                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                             <span>{{ $gimme->weather_location->temperature }}° {{ $gimme->weather_location->location_name }} </span>
                         {{ /list_weather_stats }}
@@ -20,35 +20,35 @@
                                 <ul>
                                     <li>
                                         <small>12:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="12" }}
+                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="12" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>15:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="15" }}
+                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="15" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>18:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="18" }}
+                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="18" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>21:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="21" }}
+                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="21" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>00:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="0" }}
+                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="0" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
@@ -60,35 +60,35 @@
                                 <ul>
                                     <li>
                                         <small>12:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="12" }}
+                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="12" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>15:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="15" }}
+                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="15" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>18:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="18" }}
+                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="18" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>21:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="21" }}
+                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="21" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
                                     </li>
                                     <li>
                                         <small>00:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="0" }}
+                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="0" length="1" }}
                                             <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
                                             <p>{{ $gimme->weather_location->temperature }}°</p>
                                         {{ /list_weather_stats }}
@@ -119,6 +119,7 @@
                                     <li><a href='{{ url options="article"}}?pg=prognosen'>Prognosen Zentralschweiz</a></li>
                                     <li><a href="{{ url options="article"}}?pg=local">Lokalwetter</a></li>
                                     <li><a href="{{ url options="article"}}?pg=wanderwetter">Wanderwetter</a></li>
+                                    <li><a href="{{ url options="article"}}?pg=badewetter">Badewetter</a></li>
                                     {{ /list_articles }}
                                 </ul>
                             </div>
