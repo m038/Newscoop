@@ -46,7 +46,7 @@ var meteonews = {
         'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-wintersport-important-slopes',
         'mn-wintersport-all-regions', 'mn-wintersport-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
         'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-wintersport-details-prognosen',
-        'mn-wanderwetter-graph' ],
+        'mn-wanderwetter-graph', 'mn-badewetter-important-baths', 'mn-badewetter-all-regions', 'mn-badewetter-details' ],
 
     // map vars
     geocoder: null,
@@ -301,7 +301,11 @@ var meteonews = {
         var params = [];
 
         this._send(feed, params, function(response) {
-            $('#mn-sun-up').html(response.astronomy.content.day.sunrise + ' Uhr');        
+            if (response.astronomy.content.day.sunrise) {
+                $('#mn-sun-up').html(response.astronomy.content.day.sunrise + ' Uhr');
+            } else {
+                $('#mn-sun-up').html('');
+            }
             $('#mn-sun-down').html(response.astronomy.content.day.sunset + ' Uhr');
             if (response.astronomy.content.day.moonset) { 
                 $('#mn-moon-up').html(response.astronomy.content.day.moonset + ' Uhr');
@@ -987,9 +991,21 @@ var meteonews = {
         meteonews.setLocationTitle('Wintersport');
         meteonews.makeActive('mn-wintersport');
         $('#mn-wintersport-important-slopes').show();
-        // hide until meteonews has corrected their
-        // wintersports feed
-        //$('#mn-wintersport-all-regions').show();
+        $('#mn-badewetter-all-regions').show();
+        meteonews.getAstronomy();
+        $('#mn-sun-and-moon').show();
+        meteonews.getAllSlopesMap(name);
+        $('#mn-slope-map').show();
+    },
+
+    showBadewetterPage: function() {
+        $('#mn-slope-map').show();
+        meteonews.hideAllElements();
+        $('#mn-searchform').show();
+        meteonews.setLocationTitle('Badewetter');
+        meteonews.makeActive('mn-badewetter');
+        $('#mn-badewetter-important-baths').show();
+        $('#mn-badewetter-all-regions').show();
         meteonews.getAstronomy();
         $('#mn-sun-and-moon').show();
         meteonews.getAllSlopesMap(name);
@@ -1046,6 +1062,7 @@ var meteonews = {
     makeActive: function(element) {
         $('.mn-menu-item').removeClass('active');
         $('#'+element).addClass('active');
+        return false;
     },
 
     _send: function(feed, params, cb) {
@@ -1215,29 +1232,43 @@ $(function(){
     /* main menu items */
     $('#mn-lokalwetter').live('click', function() {
         meteonews.showLocalWeatherPage();
+        return false;
     });
 
     $('#mn-prognosen').live('click', function() {
         meteonews.showPrognosenPage()
+        return false;
     });
 
     $('#mn-wintersport').live('click', function() {
         meteonews.showWintersportPage();
+        return false;
+    });
+
+    $('#mn-badewetter').live('click', function() {
+        meteonews.showBadewetterPage();
+        return false;
     });
 
     $('#mn-wanderwetter').live('click', function() {
         meteonews.showWanderwetterPage();
+        return false;
     });
 
     $('.mn-lokalwetter-region-item').live('click', function() {
         var role = $(this).attr('data-role');
+        var type = $(this).attr('data-type');
+        if (type) {
+            meteonews.setLocationType(type);
+        }
         if (role == 'link') {
             meteonews.showFiveDayForecastPage($(this).attr('data-id'), $(this).attr('data-zip'), $(this).attr('data-name'));
         } else {
             meteonews.showSubregions($(this).attr('data-code'), $(this).attr('data-role'));
             $(this).addClass('active');
-            return false;
         }
+        //meteonews.setLocationType('geonames');
+        return false;
     });
 
     $('.mn-wintersport-link').live('click', function() {

@@ -11,6 +11,7 @@
                     <li id='mn-prognosen' class='mn-menu-item'><a href="#">Prognosen Zentralschweiz</a></li>
                     <li id='mn-lokalwetter' class='mn-menu-item'><a href="#">Lokalwetter</a></li>
                     <li id='mn-wanderwetter' class='mn-menu-item'><a href="#">Wanderwetter</a></li>
+                    <li id='mn-badewetter' class='mn-menu-item'><a href="#">Badewetter</a></li>
                     <!-- <li id='mn-wintersport' class='mn-menu-item'><a href="#">Wintersport</a></li> -->
                 </ul>
             
@@ -31,6 +32,8 @@
                 {{ include file="_tpl/weather-lokkalwetter.tpl" }}
 
                 {{ include file="_tpl/weather-wintersport.tpl" }}
+
+                {{ include file="_tpl/weather-badewetter.tpl" }}
 
             </div><!-- / Main -->
             
@@ -60,6 +63,8 @@ $(document).ready(function(){
             meteonews.showPrognosenPage();
         } else if (pg == 'wintersport') {
             meteonews.showWintersportPage();
+        } else if (pg == 'badewetter') {
+            meteonews.showBadewetterPage();
         } else if (pg == 'wanderwetter') {
             meteonews.showWanderwetterPage();
         } else if (pg == 'search') {
