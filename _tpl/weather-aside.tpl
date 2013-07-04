@@ -35,7 +35,7 @@
                                 {{ /list_weather_stats }}
                             </tbody>
                         </table>
-                        <a id='mn-wanderwetter' href="#" class="button white center mn-menu-item">Zum Wanderwetter</a>
+                        <a id='mn-badewetter' href="#" class="button white center mn-menu-item">Zum Badewetter</a>
                     </div>
                 </div>
                 
