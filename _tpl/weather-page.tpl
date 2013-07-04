@@ -29,7 +29,7 @@
 
                 {{ include file="_tpl/weather-wanderwetter.tpl" }}
                 
-                {{ include file="_tpl/weather-lokkalwetter.tpl" }}
+                {{ render file="_tpl/weather-lokkalwetter.tpl" }}
 
                 {{ include file="_tpl/weather-wintersport.tpl" }}
 
@@ -117,7 +117,7 @@ $(document).ready(function(){
         var cTable = $(this);
         var cRows = cTable.find('tr');
         var cRowCount = cRows.size();
-        var cPages = Math.round(cRowCount / maxRows);
+        var cPages = 1 + (Math.round(cRowCount / maxRows));
 
         if (cRowCount < maxRows) {
             return;
