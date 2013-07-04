@@ -20,7 +20,7 @@
 
                 <div id='mn-teaser-slopes'>
                     <div class="box">
-                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_wanderwetter.png"}}'> <span id="teaser-header">Wanderwetter</span></h4>
+                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/beachball.png"}}'> <span id="teaser-header">Badewetter</span></h4>
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
