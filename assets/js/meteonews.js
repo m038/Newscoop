@@ -24,6 +24,7 @@ var meteonews = {
     localRegions: [],
     importantWinterRegions: [],
     importantWinterSlopes: [],
+    importantBaths: [],
     teaserRegions: [],
     bergwetter: [],
 
@@ -134,6 +135,7 @@ var meteonews = {
         this.importantRegions = config.important_regions;
         this.importantWinterRegions = config.important_winter_regions;
         this.importantWinterSlopes = config.important_winter_slopes;
+        this.importantBaths = config.important_baths;
         this.teaserRegions = config.teaser_regions;
         this.bergwetter = config.bergwetter;
 
@@ -375,7 +377,7 @@ var meteonews = {
         });
     },
 
-    getSlopeMap: function(name) {
+    pinMap: function(name) {
         var address = name + ', Schweiz';
 
         // load from google api
@@ -412,7 +414,14 @@ var meteonews = {
     getAllSlopesMap: function() {
         for (var s in meteonews.importantWinterSlopes) {
             var slope = meteonews.importantWinterSlopes[s];
-            meteonews.getSlopeMap(slope.name);
+            meteonews.pinMap(slope.name);
+        }
+    },
+
+    getAllBathsMap: function() {
+        for (var b in meteonews.importantBaths) {
+            var bath = meteonews.importantBaths[b];
+            meteonews.pinMap(bath.name);
         }
     },
 
@@ -1008,7 +1017,7 @@ var meteonews = {
         $('#mn-badewetter-all-regions').show();
         meteonews.getAstronomy();
         $('#mn-sun-and-moon').show();
-        meteonews.getAllSlopesMap(name);
+        meteonews.getAllBathsMap(name);
         $('#mn-slope-map').show();
     },
 
@@ -1022,7 +1031,7 @@ var meteonews = {
         $('#mn-slope-webcam').show();
         $('#mn-region-webcam').show();
         meteonews.clearMapMarkers();
-        meteonews.getSlopeMap(name);
+        meteonews.pinMap(name);
         $('#mn-slope-map').show();
 
         meteonews.getSlopeWebcams(type, id, name);
