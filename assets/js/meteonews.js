@@ -47,7 +47,8 @@ var meteonews = {
         'mn-prognosen-text', 'mn-lokalwetter-searchform', 'mn-wintersport-important-slopes',
         'mn-wintersport-all-regions', 'mn-wintersport-details', 'mn-sun-and-moon', 'mn-teaser-slopes',
         'mn-slope-webcam', 'mn-region-webcam', 'mn-slope-map', 'mn-wintersport-details-prognosen',
-        'mn-wanderwetter-graph', 'mn-badewetter-important-baths', 'mn-badewetter-all-regions', 'mn-badewetter-details' ],
+        'mn-wanderwetter-graph', 'mn-badewetter-important-baths', 'mn-badewetter-all-regions', 
+        'mn-teaser-wander', 'mn-badewetter-details' ],
 
     // map vars
     geocoder: null,
@@ -1019,6 +1020,7 @@ var meteonews = {
         $('#mn-sun-and-moon').show();
         meteonews.getAllBathsMap(name);
         $('#mn-slope-map').show();
+        $('#mn-teaser-wander').show();
     },
 
     showWintersportDetailPage: function(type, id, name) {

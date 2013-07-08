@@ -117,7 +117,7 @@ $(document).ready(function(){
         var cTable = $(this);
         var cRows = cTable.find('tr');
         var cRowCount = cRows.size();
-        var cPages = 1 + (Math.round(cRowCount / maxRows));
+        var cPages = Math.round(cRowCount / maxRows);
 
         if (cRowCount < maxRows) {
             return;
