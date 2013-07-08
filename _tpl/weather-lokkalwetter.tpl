@@ -14,17 +14,17 @@
                         <ul id='mn-region-list-level-3' class="mn-lokalwetter-region-list hide level-3" style="display: none;"></ul>
                     </div>
                     <ul class="map right">
-                        <li class="zug mn-lokalwetter-region-item" data-name="Zug" data-role="link" data-id="2657908"><a href="#">Zug</a></li>
-                        <li class="luzern mn-lokalwetter-region-item" data-name="Luzern" data-role="link" data-id="2659811"><a href="#">Luzern</a></li>
-                        <li class="schwyz mn-lokalwetter-region-item" data-name="Schwyz" data-role="link" data-id="2658665"><a href="#">Schwyz</a></li>
-                        <li class="entlebuch mn-lokalwetter-region-item" data-name="Entlebuch" data-role="link" data-id="2660887"><a href="#">Entlebuch</a></li>
-                        <li class="sarnen mn-lokalwetter-region-item" data-name="Sarnen" data-role="link" data-id="2658786"><a href="#">Sarnen</a></li>
-                        <li class="stans mn-lokalwetter-region-item" data-name="Stans" data-role="link" data-id="2658504"><a href="#">Stans</a></li>
-                        <li class="altdorf mn-lokalwetter-region-item" data-name="Altdorf" data-role="link" data-id="2661780"><a href="#">Altdorf</a></li>
-                        <li class="engelberg mn-lokalwetter-region-item" data-name="Engelberg" data-role="link" data-id="6291961"><a href="#">Engelberg</a></li>
-                        <li class="pfaffnau mn-lokalwetter-region-item" data-name="Pfaffnau" data-role="link" data-id="2659218"><a href="#">Pfaffnau </a></li>
-                        <li class="escholzmatt mn-lokalwetter-region-item" data-name="Escholzmatt" data-role="link" data-id="2660856"><a href="#">Escholzmatt </a></li>
-                        <li class="andermatt mn-lokalwetter-region-item" data-name="Andermatt" data-role="link" data-id="2661750"><a href="#">Andermatt </a></li>
+                        <li class="zug mn-lokalwetter-region-item" data-type='geonames' data-name="Zug" data-role="link" data-id="2657908"><a href="#">Zug</a></li>
+                        <li class="luzern mn-lokalwetter-region-item" data-type='geonames' data-name="Luzern" data-role="link" data-id="2659811"><a href="#">Luzern</a></li>
+                        <li class="schwyz mn-lokalwetter-region-item" data-type='geonames' data-name="Schwyz" data-role="link" data-id="2658665"><a href="#">Schwyz</a></li>
+                        <li class="entlebuch mn-lokalwetter-region-item" data-type='geonames' data-name="Entlebuch" data-role="link" data-id="2660887"><a href="#">Entlebuch</a></li>
+                        <li class="sarnen mn-lokalwetter-region-item" data-type='geonames' data-name="Sarnen" data-role="link" data-id="2658786"><a href="#">Sarnen</a></li>
+                        <li class="stans mn-lokalwetter-region-item" data-type='geonames' data-name="Stans" data-role="link" data-id="2658504"><a href="#">Stans</a></li>
+                        <li class="altdorf mn-lokalwetter-region-item" data-type='geonames' data-name="Altdorf" data-role="link" data-id="2661780"><a href="#">Altdorf</a></li>
+                        <li class="engelberg mn-lokalwetter-region-item" data-type='geonames' data-name="Engelberg" data-role="link" data-id="6291961"><a href="#">Engelberg</a></li>
+                        <li class="pfaffnau mn-lokalwetter-region-item" data-type='geonames' data-name="Pfaffnau" data-role="link" data-id="2659218"><a href="#">Pfaffnau </a></li>
+                        <li class="escholzmatt mn-lokalwetter-region-item" data-type='geonames' data-name="Escholzmatt" data-role="link" data-id="2660856"><a href="#">Escholzmatt </a></li>
+                        <li class="andermatt mn-lokalwetter-region-item" data-type='geonames' data-name="Andermatt" data-role="link" data-id="2661750"><a href="#">Andermatt </a></li>
                     </ul>
                 
                 </div> <!-- / lokal wetter search form -->
@@ -149,7 +149,7 @@
                             <tbody>
                                 {{ list_weather_stats location_list="important_regions" }}
                                    <tr>
-                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->elevation }}m ü.M.</p></th>
+                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-type='geonames' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->elevation }}m ü.M.</p></th>
                                         <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }} / {{ $gimme->weather_location->temperature_min }}</td>
                                     </tr> 
                                 {{ /list_weather_stats }} 
@@ -166,7 +166,7 @@
                             <tbody>
                                 {{ list_weather_stats location_list="important_summer_regions" }}
                                    <tr>
-                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }}</p></th>
+                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-type='geonames' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }}</p></th>
                                         <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }} / {{ $gimme->weather_location->temperature_min }}</td>
                                     </tr> 
                                 {{ /list_weather_stats }} 
