@@ -1,5 +1,5 @@
 <tr>
-    <th>
+    <th style="width: 168px">
         <p>
             <strong>
                 <a href='#' class='mn-lokalwetter-region-item' data-type='mexs' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a>
