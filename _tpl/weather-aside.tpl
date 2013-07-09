@@ -18,9 +18,30 @@
                     </div>
                 </div>
 
-                <div id='mn-teaser-slopes'>
+                <div id='mn-teaser-wander'>
                     <div class="box">
                         <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_wanderwetter.png"}}'> <span id="teaser-header">Wanderwetter</span></h4>
+                        <table id='mn-teaser-wander-table' cellpadding="0" cellspacing="0">
+                            <colgroup>
+                                <col width="">
+                                <col width="105">
+                            </colgroup>
+                            <tbody>
+                                {{ list_weather_stats location_list="wander_teaser_regions" }}
+                                   <tr>
+                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-type='geonames' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }} ({{ $gimme->weather_location->elevation}}m ü.M.)</p></th>
+                                        <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }} / {{ $gimme->weather_location->temperature_min }}</td>
+                                    </tr>  
+                                {{ /list_weather_stats }}
+                            </tbody>
+                        </table>
+                        <a id='mn-wanderwetter' href="#" class="button white center mn-menu-item">Zum Wanderwetter</a>
+                    </div>
+                </div>
+
+                <div id='mn-teaser-slopes'>
+                    <div class="box">
+                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/beachball.png"}}'> <span id="teaser-header">Badewetter</span></h4>
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
@@ -29,13 +50,13 @@
                             <tbody>
                                 {{ list_weather_stats location_list="teaser_regions" }}
                                    <tr>
-                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }} ({{ $gimme->weather_location->elevation}}m ü.M.)</p></th>
+                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-type='mexs' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }} ({{ $gimme->weather_location->elevation}}m ü.M.)</p></th>
                                         <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }} / {{ $gimme->weather_location->temperature_min }}</td>
                                     </tr>  
                                 {{ /list_weather_stats }}
                             </tbody>
                         </table>
-                        <a id='mn-wanderwetter' href="#" class="button white center mn-menu-item">Zum Wanderwetter</a>
+                        <a id='mn-badewetter' href="#" class="button white center mn-menu-item">Zum Badewetter</a>
                     </div>
                 </div>
                 

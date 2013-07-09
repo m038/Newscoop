@@ -11,6 +11,7 @@
                     <li id='mn-prognosen' class='mn-menu-item'><a href="#">Prognosen Zentralschweiz</a></li>
                     <li id='mn-lokalwetter' class='mn-menu-item'><a href="#">Lokalwetter</a></li>
                     <li id='mn-wanderwetter' class='mn-menu-item'><a href="#">Wanderwetter</a></li>
+                    <li id='mn-badewetter' class='mn-menu-item'><a href="#">Badewetter</a></li>
                     <!-- <li id='mn-wintersport' class='mn-menu-item'><a href="#">Wintersport</a></li> -->
                 </ul>
             
@@ -28,9 +29,11 @@
 
                 {{ include file="_tpl/weather-wanderwetter.tpl" }}
                 
-                {{ include file="_tpl/weather-lokkalwetter.tpl" }}
+                {{ render file="_tpl/weather-lokkalwetter.tpl" }}
 
                 {{ include file="_tpl/weather-wintersport.tpl" }}
+
+                {{ include file="_tpl/weather-badewetter.tpl" }}
 
             </div><!-- / Main -->
             
@@ -60,6 +63,8 @@ $(document).ready(function(){
             meteonews.showPrognosenPage();
         } else if (pg == 'wintersport') {
             meteonews.showWintersportPage();
+        } else if (pg == 'badewetter') {
+            meteonews.showBadewetterPage();
         } else if (pg == 'wanderwetter') {
             meteonews.showWanderwetterPage();
         } else if (pg == 'search') {
@@ -122,12 +127,12 @@ $(document).ready(function(){
         cRows.filter(':gt(' + (maxRows - 1) + ')').hide();
 
         /* update caption */
-        $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+        $('#mn-all-baths-caption').html(cPage + ' von '+cPages);
 
-        var cPrev = $('#mn-all-slopes-prev');
-        var cNext = $('#mn-all-slopes-next');
-        var cFirst = $('#mn-all-slopes-first');
-        var cLast = $('#mn-all-slopes-last');
+        var cPrev = $('#mn-all-baths-prev');
+        var cNext = $('#mn-all-baths-next');
+        var cFirst = $('#mn-all-baths-first');
+        var cLast = $('#mn-all-baths-last');
 
         /* start with previous disabled */
         cPrev.addClass('disabled');
@@ -136,7 +141,7 @@ $(document).ready(function(){
             cPage = 1;
             cRows.hide();
             cRows.filter(':lt(' + maxRows + ')' ).show();
-            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            $('#mn-all-baths-caption').html(cPage + ' von '+cPages);
             cPrev.addClass('disabled');
             cNext.removeClass('disabled');
             return false;
@@ -146,7 +151,7 @@ $(document).ready(function(){
             cPage = cPages;
             cRows.hide();
             cRows.filter(':gt(' + (cRowCount - maxRows) + ')' ).show();
-            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            $('#mn-all-baths-caption').html(cPage + ' von '+cPages);
             cPrev.removeClass('disabled');
             cNext.addClass('disabled');
             return false;
@@ -160,7 +165,7 @@ $(document).ready(function(){
             }
 
             cPage--;
-            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            $('#mn-all-baths-caption').html(cPage + ' von '+cPages);
             cRows.hide();
             if (cFirstVisible - maxRows - 1 > 0) {
                 cRows.filter(':lt(' + cFirstVisible + '):gt(' + (cFirstVisible - maxRows - 1) + ')').show();
@@ -185,7 +190,7 @@ $(document).ready(function(){
             }
 
             cPage++;
-            $('#mn-all-slopes-caption').html(cPage + ' von '+cPages);
+            $('#mn-all-baths-caption').html(cPage + ' von '+cPages);
             cRows.hide();
             cRows.filter(':lt(' + (cFirstVisible +2 * maxRows) + '):gt(' + (cFirstVisible + maxRows - 1) + ')').show();
 
