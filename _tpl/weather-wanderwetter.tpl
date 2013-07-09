@@ -4,11 +4,11 @@
                 <div class="spec-tabs">
                 
                 	<ul class="button-nav">
-                        <li><a href="#main-tab-1">Prognose 15.10</a></li>
-                        <li><a href="#main-tab-2">Prognose 16.10</a></li>
-                        <li><a href="#main-tab-3">Prognose 17.10</a></li>
-                        <li><a href="#main-tab-4">Prognose 18.10</a></li>
-                        <li><a href="#main-tab-5">Prognose 19.10</a></li>
+                        <li><a href="#main-tab-1">Prognose {{ $smarty.now|date_format:"%d.%m" }}</a></li>
+                        <li><a href="#main-tab-2">Prognose {{ "+1 days"|date_format:"%d.%m" }}</a></li>
+                        <li><a href="#main-tab-3">Prognose {{ "+2 days"|date_format:"%d.%m" }}</a></li>
+                        <li><a href="#main-tab-4">Prognose {{ "+3 days"|date_format:"%d.%m" }}</a></li>
+                        <li><a href="#main-tab-5">Prognose {{ "+4 days"|date_format:"%d.%m" }}</a></li>
                     </ul>
                     
                     <div id="main-tab-1" class="spec-tabs inner-tabs">
