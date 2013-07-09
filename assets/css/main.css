@@ -2675,7 +2675,10 @@ a.button.center.details-more {display:none;}
 							font-size:16px;
 							box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
 							}
-						.mobile-nav > li .mobile-sub > ul li:nth-child(odd) {border-right:#ccc solid 1px;}
+						.mobile-nav > li .mobile-sub > ul li:nth-child(odd){
+							border-right: #ccc solid 1px;
+							clear: left;
+							}
 							.mobile-nav > li .mobile-sub > ul li a {
 								display:block;
 								padding:2px 0;
