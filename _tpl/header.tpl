@@ -89,7 +89,7 @@
                         {{ set_current_issue }}                        	
                         {{ set_section number="71" }}
                         	<li><a href="{{ url options="section" }}">Ausgehen</a></li>
-                            {{* <li><a href="#">Wetter</a></li> *}}
+                            <li><a href="#">Wetter</a></li>
                         {{ /local }}
                         </ul>
                     </div>
