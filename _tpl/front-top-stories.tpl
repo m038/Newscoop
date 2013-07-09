@@ -44,7 +44,7 @@
                     {{ /list_article_topics }}  
                  
                   {{ render file="_ads/front-fullbanner.tpl" }}
-                  {{* include file="_tpl/weather-mobile-header.tpl" *}}
+                  {{ include file="_tpl/weather-mobile-header.tpl" }}
                                   
 {{ /if }}
 
