@@ -16,6 +16,8 @@
   {{ render file="ticker.tpl" }}
 {{ elseif $gimme->article->type_name == "weather_page" }}
   {{ render file="_article/article-weather.tpl" }}
+{{ elseif $gimme->article->type_name == "archive" }}
+  {{ render file="_article/article-archive.tpl" }}  
 {{ elseif $gimme->article->type_name == "static_page" }}
   {{ render file="_article/article-static.tpl" }}   
 {{ /if }}
