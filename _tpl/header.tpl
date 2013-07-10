@@ -89,7 +89,7 @@
                         {{ set_current_issue }}                        	
                         {{ set_section number="71" }}
                         	<li><a href="{{ url options="section" }}">Ausgehen</a></li>
-                            {{* <li><a href="#">Wetter</a></li> *}}
+                            <li><a href="#">Wetter</a></li>
                         {{ /local }}
                         </ul>
                     </div>
@@ -97,7 +97,7 @@
             </ul>
             
             <!-- weather-header -->
-            {{* render file="_tpl/weather-header.tpl" *}} 
+            {{ render file="_tpl/weather-header.tpl" }} 
 
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
 {{ dynamic }}
