@@ -322,3 +322,100 @@ var windowWidth = $(window).width();
 }
 
 });
+
+// daterange archive
+if ($('.daterange-archive')[0]){
+
+	var month = $('.month');
+	// hide month grid
+	month.css({
+		height: 0
+	});
+
+	// get translated days of the week
+	var makeWeekdays = function(){
+			var weekday = $('#archive_list').data('weekdays');
+			weekday = weekday.split(' ');
+			var i = 0;
+			do {
+				weekday[i] = "<li class='day dotw'>" + weekday[i] + "</li>";
+				weekday[i] = weekday[i].replace('.','');
+				i = i + 1;
+			}
+			while (i < 7);
+			return weekday;
+		};
+
+	// add blank days to beginning of the list if the first isn't a Monday
+	month.each(function(){
+		var monthStart = $(this).find('li').first();
+		var i = 1;
+		var dayCount = $(this).find('li').length;
+		var classes = ($(this).find('li').first().attr('class'));
+		// remove day class
+		classes = classes.replace('day', '');
+		// remove week class
+		function countDays(){
+			var w = 0;
+			var y = 52;
+			var str;
+			do {
+				w = w + 1;
+				str = w;
+				if (w < 10){
+					str = '0' + w;
+				}
+				classes = classes.replace('w' + str, '');
+			}
+			while (w < y);
+		};
+		countDays();
+		// strip 'd' prefix
+		classes = classes.replace('d', '');
+		// remove spaces
+		classes = classes.replace(' ', '').replace(' ', '');
+		// remove the padding zeroes
+		classes = classes.replace('0', '');
+		// assign the result a usable name
+		var iterator = parseInt(classes);
+		matchClass = 'd' + iterator;
+		// create a string for the days
+		var dotw = makeWeekdays();
+		if (monthStart.hasClass('d' + iterator)){
+			iterator = iterator + 1;
+			if (iterator > 7){
+				iterator = 0;
+			} else {
+				do {
+					i = i + 1;
+					$(this).prepend('<li class="day prepend" />');
+				}
+				while (i < iterator);
+			}
+			var i = 0;
+		}
+		$(this).prepend(dotw);
+	});
+
+	var searchUrl = window.location.search;
+
+	$('.daterange-archive h3').each(function(){
+		if ($(this).find('a').attr('href') === searchUrl){
+			$(this).addClass('active');
+		}
+	});
+
+	$('.daterange-archive').find('h3').append('<span />');
+	$('.daterange-archive').find('h3').find('span').bind('click', function(){
+		var sibling = $(this).parent().siblings();
+		if (sibling.attr('style') === null || sibling.attr('style') === undefined ){
+			sibling.css({
+				height: 0
+			});
+		} else {
+			sibling.attr({
+				style: null
+			});
+		}
+	});
+}
