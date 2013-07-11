@@ -159,7 +159,7 @@
 
                 </div>
 
-                <div id="comm2">
+                <div id="comm-2">
 
                 {{ list_search_results_solr fq="type:news" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
                   {{ if $gimme->current_list->at_beginning }}
@@ -200,7 +200,7 @@
 
                 </div>
 
-                <div id="comm3">
+                <div id="comm-3">
 
                 {{ list_search_results_solr fq="type:blog" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
                   {{ if $gimme->current_list->at_beginning }}
@@ -241,7 +241,7 @@
 
                 </div>
 
-                <div id="comm4">
+                <div id="comm-4">
 
                 {{ list_search_results_solr fq="type:dossier" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
                   {{ if $gimme->current_list->at_beginning }}
