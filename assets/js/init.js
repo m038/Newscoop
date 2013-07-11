@@ -343,6 +343,9 @@ if ($('.daterange-archive')[0]){
 				i = i + 1;
 			}
 			while (i < 7);
+			var tmpweekday = weekday[6];
+			weekday.splice(0, 0, tmpweekday);
+			weekday.length = 7;
 			return weekday;
 		};
 
