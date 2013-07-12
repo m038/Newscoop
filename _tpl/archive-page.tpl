@@ -84,7 +84,8 @@
           {{ $then = "2012-01-01" }}
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
           {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
-          {{* daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="EEEE" rangeformatday="dd" locale="de-CH" *}}
+          
+          {{ daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" }}
         </div>
 
       </aside>
@@ -110,13 +111,6 @@
                 {{ $to = $now }}
                 {{ /if }}
 
-                {{*
-                <h3>From:</h3>
-                <p>{{ $from }}</p>
-                <h3>To:</h3>
-                <p>{{ $to }}</p>
-                *}}
-
                 <div id="comm-1">
 
                 {{ list_search_results_solr fq="type:blog and type:debatte and type:news and type:newswire" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
@@ -131,10 +125,12 @@
                  
                       <div class="content">
                         <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->title}}</a></h2>
-                        <h5 class="author">{{list_article_authors}}
-                        {{$gimme->author->name}}
-                        {{/list_article_authors}}</h5>
-                        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}} </p>
+                        <h5 class="author">
+                        {{list_article_authors}}
+                          {{$gimme->author->name}}
+                        {{/list_article_authors}}
+                        </h5>
+                        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}}</p>
                       </div>
                     </li>
                   {{ if $gimme->current_list->at_end }}
@@ -159,7 +155,7 @@
 
                 </div>
 
-                <div id="comm2">
+                <div id="comm-2">
 
                 {{ list_search_results_solr fq="type:news" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
                   {{ if $gimme->current_list->at_beginning }}
@@ -200,7 +196,7 @@
 
                 </div>
 
-                <div id="comm3">
+                <div id="comm-3">
 
                 {{ list_search_results_solr fq="type:blog" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
                   {{ if $gimme->current_list->at_beginning }}
@@ -241,7 +237,7 @@
 
                 </div>
 
-                <div id="comm4">
+                <div id="comm-4">
 
                 {{ list_search_results_solr fq="type:dossier" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
                   {{ if $gimme->current_list->at_beginning }}

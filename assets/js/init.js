@@ -331,6 +331,22 @@ if ($('.daterange-archive')[0]){
 	month.css({
 		height: 0
 	});
+
+	// get translated days of the week
+	var makeWeekdays = function(){
+			var weekday = $('#archive_list').data('weekdays');
+			weekday = weekday.split(' ');
+			var i = 0;
+			do {
+				weekday[i] = "<li class='day dotw'>" + weekday[i] + "</li>";
+				weekday[i] = weekday[i].replace('.','');
+				i = i + 1;
+			}
+			while (i < 7);
+			weekday.splice(0,0,weekday.splice(-1,1)[0]);
+			return weekday;
+		};
+
 	// add blank days to beginning of the list if the first isn't a Monday
 	month.each(function(){
 		var monthStart = $(this).find('li').first();
@@ -365,7 +381,7 @@ if ($('.daterange-archive')[0]){
 		var iterator = parseInt(classes);
 		matchClass = 'd' + iterator;
 		// create a string for the days
-		var dotw = '<li class="day dotw">Su</li><li class="day dotw">Mo</li><li class="day dotw">Tu</li><li class="day dotw">We</li><li class="day dotw">Th</li><li class="day dotw">Fr</li><li class="day dotw">Sa</li>';
+		var dotw = makeWeekdays();
 		if (monthStart.hasClass('d' + iterator)){
 			iterator = iterator + 1;
 			if (iterator > 7){
