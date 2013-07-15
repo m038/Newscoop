@@ -141,10 +141,6 @@
                   <ul>
                   {{ /if }}
                     <li class="news_item  {{ cycle values="odd,even" }}">
-                      {{ image rendition="thumb" }}
-                      <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
-                      <span>{{$gimme->section->name}}</span>
-                      {{/image}}
                       <div class="content">
                         <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->name}}</a></h2>
                       </div>
