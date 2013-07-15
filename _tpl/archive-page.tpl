@@ -141,20 +141,7 @@
                   <ul>
                   {{ /if }}
                     <li class="news_item  {{ cycle values="odd,even" }}">
-                      {{ image rendition="thumb" }}
-                      <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
-                      <span>{{$gimme->section->name}}</span>
-                      {{/image}}
-                 
-                      <div class="content">
-                        <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->title}}</a></h2>
-                        <h5 class="author">
-                        {{list_article_authors}}
-                          {{$gimme->author->name}}
-                        {{/list_article_authors}}
-                        </h5>
-                        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}}</p>
-                      </div>
+                      {{$gimme->article->name}}
                     </li>
                   {{ if $gimme->current_list->at_end }}
                   </ul>
