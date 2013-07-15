@@ -997,7 +997,7 @@ small {
 					border:transparent 1px solid; border-bottom:0;
 					}
 					.tab-nav li a strong {color:#b40032;}
-					.tab-nav li.ui-state-active a {border-color:#ccc; background:#fff;}
+					.tab-nav li.ui-state-active a {border-color:#ccc; background:#fff; outline: none;}
 						.tab-nav li.ui-state-active a strong {color:#000;}
 			.tab-nav.three-tabs li {width:33%;}
 			.tab-nav.three-tabs li:nth-child(2){width:34%;}
