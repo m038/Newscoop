@@ -101,6 +101,7 @@
 
               <div class="tab-content">
 
+                {{*
                 {{ $from = $smarty.get.from }}
                 {{ if ($from === null) }}
                   {{ $from = $now }}
@@ -120,7 +121,9 @@
                 {{ if $query === null }}
                   {{ $query = "blog" }}
                 {{ /if }}
+                *}}
 
+                {{*
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
                 <p>Raw get: {{ $smarty.get|@print_r }}</p>
                 <p>Compiled query: {{ $search_query }}</p>
@@ -129,6 +132,7 @@
                 <p>Raw to: {{ $smarty.get.to }}</p>
                 <p>To: {{ $to }}</p>
                 <p>Query term: {{ $query }}</p>
+                *}}
 
                 <div id="comm-1">
 
@@ -156,21 +160,6 @@
                   </ul>
                   {{ /if }}
                 {{ /list_search_results_solr }}
-
-                {{* pagination *}}
-                {{ if $gimme->current_list->at_end }}
-                  {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id()))/10+1 }}
-                  <ul class="paging center top-line">
-                    {{ if $gimme->current_list->has_previous_elements }}
-                    <li><a class="button white prev" href="{{ url options="previous_items" }}">‹</a></li>
-                    {{ /if }}
-                    <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
-                    {{ if $gimme->current_list->has_next_elements }}
-                    <li><a class="button white next" href="{{ url options="next_items" }}">›</a></li>
-                    {{ /if }}
-                  </ul>
-                {{ /if }}    
-
 
                 </div>
 
