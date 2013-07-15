@@ -136,7 +136,7 @@
 
                 <div id="comm-1">
 
-                {{ list_search_results_solr }}
+                {{ list_search_results_solr length="10" }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
