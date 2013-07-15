@@ -142,6 +142,14 @@
                     <li class="news_item  {{ cycle values="odd,even" }}">
                       <article>
                         <h6><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></h6>
+                        {{ capture name="hasimg" assign="hasimg" }}
+                        {{ image rendition="artthumb" }}
+                        <figure> 
+                          <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>
+                        </figure>
+                        {{ /image }}                        
+                        {{ /capture }}
+                        {{ if trim($hasimg) }}{{ $hasimg }}{{ /if }}
                         <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                         <h5 class="author">
                         {{ list_article_authors }}
