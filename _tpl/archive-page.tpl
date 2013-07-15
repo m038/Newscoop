@@ -123,7 +123,6 @@
                 {{ /if }}
                 *}}
 
-                {{*
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
                 <p>Raw get: {{ $smarty.get|@print_r }}</p>
                 <p>Compiled query: {{ $search_query }}</p>
@@ -132,7 +131,6 @@
                 <p>Raw to: {{ $smarty.get.to }}</p>
                 <p>To: {{ $to }}</p>
                 <p>Query term: {{ $query }}</p>
-                *}}
 
                 <div id="comm-1">
 
