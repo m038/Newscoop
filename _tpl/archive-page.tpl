@@ -132,7 +132,7 @@
 
                 <div id="comm-1">
 
-                {{ list_search_results_solr fq=$search_query qf="title^5 deck^3 full_text" start=$from end=$to }}
+                {{ list_search_results_solr }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
@@ -171,129 +171,6 @@
                   </ul>
                 {{ /if }}    
 
-
-                </div>
-
-                <div id="comm-2">
-
-                {{ list_search_results_solr fq="type:news" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
-                  {{ if $gimme->current_list->at_beginning }}
-                  <ul>
-                  {{ /if }}
-                    <li class="news_item  {{ cycle values="odd,even" }}">
-                      {{ image rendition="thumb" }}
-                      <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
-                      <span>{{$gimme->section->name}}</span>
-                      {{/image}}
-                 
-                      <div class="content">
-                        <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->title}}</a></h2>
-                        <h5 class="author">{{list_article_authors}}
-                        {{$gimme->author->name}}
-                        {{/list_article_authors}}</h5>
-                        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}} </p>
-                      </div>
-                    </li>
-                  {{ if $gimme->current_list->at_end }}
-                  </ul>
-                  {{ /if }}
-                {{ /list_search_results_solr }}
-
-                {{* pagination *}}
-                {{ if $gimme->current_list->at_end }}
-                  {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id()))/10+1 }}
-                  <ul class="paging center top-line">
-                    {{ if $gimme->current_list->has_previous_elements }}
-                    <li><a class="button white prev" href="{{ url options="previous_items" }}">‹</a></li>
-                    {{ /if }}
-                    <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
-                    {{ if $gimme->current_list->has_next_elements }}
-                    <li><a class="button white next" href="{{ url options="next_items" }}">›</a></li>
-                    {{ /if }}
-                  </ul>
-                {{ /if }}    
-
-                </div>
-
-                <div id="comm-3">
-
-                {{ list_search_results_solr fq="type:blog" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
-                  {{ if $gimme->current_list->at_beginning }}
-                  <ul>
-                  {{ /if }}
-                    <li class="news_item  {{ cycle values="odd,even" }}">
-                      {{ image rendition="thumb" }}
-                      <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
-                      <span>{{$gimme->section->name}}</span>
-                      {{/image}}
-                 
-                      <div class="content">
-                        <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->title}}</a></h2>
-                        <h5 class="author">{{list_article_authors}}
-                        {{$gimme->author->name}}
-                        {{/list_article_authors}}</h5>
-                        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}} </p>
-                      </div>
-                    </li>
-                  {{ if $gimme->current_list->at_end }}
-                  </ul>
-                  {{ /if }}
-                {{ /list_search_results_solr }}
-
-                {{* pagination *}}
-                {{ if $gimme->current_list->at_end }}
-                  {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id()))/10+1 }}
-                  <ul class="paging center top-line">
-                    {{ if $gimme->current_list->has_previous_elements }}
-                    <li><a class="button white prev" href="{{ url options="previous_items" }}">‹</a></li>
-                    {{ /if }}
-                    <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
-                    {{ if $gimme->current_list->has_next_elements }}
-                    <li><a class="button white next" href="{{ url options="next_items" }}">›</a></li>
-                    {{ /if }}
-                  </ul>
-                {{ /if }}    
-
-                </div>
-
-                <div id="comm-4">
-
-                {{ list_search_results_solr fq="type:dossier" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
-                  {{ if $gimme->current_list->at_beginning }}
-                  <ul>
-                  {{ /if }}
-                    <li class="news_item  {{ cycle values="odd,even" }}">
-                      {{ image rendition="thumb" }}
-                      <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
-                      <span>{{$gimme->section->name}}</span>
-                      {{/image}}
-                 
-                      <div class="content">
-                        <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->title}}</a></h2>
-                        <h5 class="author">{{list_article_authors}}
-                        {{$gimme->author->name}}
-                        {{/list_article_authors}}</h5>
-                        <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}} </p>
-                      </div>
-                    </li>
-                  {{ if $gimme->current_list->at_end }}
-                  </ul>
-                  {{ /if }}
-                {{ /list_search_results_solr }}
-
-                {{* pagination *}}
-                {{ if $gimme->current_list->at_end }}
-                  {{ $curpage=intval($gimme->url->get_parameter($gimme->current_list_id()))/10+1 }}
-                  <ul class="paging center top-line">
-                    {{ if $gimme->current_list->has_previous_elements }}
-                    <li><a class="button white prev" href="{{ url options="previous_items" }}">‹</a></li>
-                    {{ /if }}
-                    <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
-                    {{ if $gimme->current_list->has_next_elements }}
-                    <li><a class="button white next" href="{{ url options="next_items" }}">›</a></li>
-                    {{ /if }}
-                  </ul>
-                {{ /if }}    
 
                 </div>
 
