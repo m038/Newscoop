@@ -140,7 +140,7 @@
                   {{ /if }}
                     <li class="news_item  {{ cycle values="odd,even" }}">
                       {{ image rendition="thumb" }}
-                        <img src="{{ $image->src }}"  alt="{{ $image->caption }} (photo: {{ $image->photographer }})"  />
+                        <img src="{{ $image->src }}"  alt="{{* $image->caption *}} (photo: {{* $image->photographer *}})"  />
                       {{/image}}
 
                       <div class="content">
