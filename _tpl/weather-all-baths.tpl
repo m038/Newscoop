@@ -4,7 +4,7 @@
             <strong>
                 <a href='#' class='mn-lokalwetter-region-item' data-type='mexs' data-role='link' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a>
             </strong>
-            <br>{{ $gimme->weather_location->region_name }}
+            <br>{{ $gimme->weather_location->description }}
         </p>
     </th>
     <td style="text-align: right">

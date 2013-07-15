@@ -12,22 +12,22 @@
                                 {{ list_weather_stats location_list="all_baths" location_name="Samersee" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" location_name="Zugersee" length="1" }}
+                                {{ list_weather_stats location_list="all_baths" location_name="Zugersee, Zug" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
                                 {{ list_weather_stats location_list="all_baths" location_name="Lauerzersee" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" location_name="Ägerisee" length="1" }}
+                                {{ list_weather_stats location_list="all_baths" location_name="Ägerisee, Oberägeri" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" region_name="Luzern" location_name="Sempachersee" length="1" }}
+                                {{ list_weather_stats location_list="all_baths" region_name="Luzern" location_name="Sempachersee, Sempach" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" region_name="Nidwalden" location_name="Vierwaldstättersee" length="1" }}
+                                {{ list_weather_stats location_list="all_baths" region_name="Nidwalden" location_name="Vierwaldstättersee, Hergiswil" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" region_name="Luzern" location_name="Vierwaldstättersee" length="1" }}
+                                {{ list_weather_stats location_list="all_baths" region_name="Luzern" location_name="Vierwaldstättersee, Luzern" length="1" }}
                                     {{ include file="_tpl/weather-all-baths.tpl" }}
                                 {{ /list_weather_stats }}
                                 {{ list_weather_stats location_list="all_baths" region_name="Schwyz" location_name="Vierwaldstättersee" length="1" }}
