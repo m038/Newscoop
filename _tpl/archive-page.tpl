@@ -181,7 +181,7 @@
                   {{ /if }}
                 {{ /list_search_results_solr }}
                 *}}
-
+                <h2>Pagination:</h2>
                 {{ if $gimme->current_list->at_end }}                   
                   {{ $getType=$smarty.get.type }}
                   {{ $getPublished=$smarty.get.published }}         
