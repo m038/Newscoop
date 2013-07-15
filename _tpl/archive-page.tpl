@@ -147,8 +147,8 @@
                         {{/list_article_authors}}
                         </h5>
                       </div>
+                      <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}}</p>
                     </li>
-                    <p>{{$gimme->article->deck|strip_tags|truncate:200:"...":false}}</p>
                   {{ if $gimme->current_list->at_end }}
                   </ul>
                   {{ /if }}
