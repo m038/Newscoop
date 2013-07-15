@@ -101,19 +101,34 @@
 
               <div class="tab-content">
 
-                {{* build_solr_fq *}}
                 {{ $from = $smarty.get.from }}
                 {{ if ($from === null) }}
-                {{ $from = $now }}
+                  {{ $from = $now }}
                 {{ /if }}
+
                 {{ $to = $smarty.get.to }}
                 {{ if ($to === null) }}
-                {{ $to = $now }}
+                  {{ $to = $now }}
+                {{ /if }}
+                
+                {{ $type = $smarty.get.type }}
+                {{ if ($type === null ) }}
+                  {{ $type = "blog and type:debatte and type:news and type:newswire" }}
+                {{ /if }}
+
+                {{ $query = $smarty.get.q }}
+                {{ if $query === null }}
+                  {{ $query = "blog" }}
                 {{ /if }}
 
                 <div id="comm-1">
 
-                {{ list_search_results_solr fq="type:blog and type:debatte and type:news and type:newswire" qf="title^5 deck^3 full_text" start=$smarty.get.from end=$smarty.get.to }}
+                {{ $search_query = "{{ build_solr_fq type=$type }}" }}
+                <p>Compiled query: {{ $search_query }}</p>
+                <p>From: {{ $from }}</p>
+                <p>To: {{ $to }}</p>
+                <p>Query term: {{ $query }}</p>
+                {{ list_search_results_solr fq=$type qf="title^5 deck^3 full_text" start=$from end=$to }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
