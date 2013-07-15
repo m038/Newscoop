@@ -130,6 +130,7 @@
                 <p>From: {{ $from }}</p>
                 <p>Raw to: {{ $smarty.get.to }}</p>
                 <p>To: {{ $to }}</p>
+                <p>Start pos: {{ $smarty.get.start }}</p>
                 <p>Query term: {{ $query }}</p>
 
                 <div id="comm-1">
