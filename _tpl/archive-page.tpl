@@ -124,6 +124,7 @@
                 <div id="comm-1">
 
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
+                <p>Raw get: {{ $smarty.get|@print_r }}</p>
                 <p>Compiled query: {{ $search_query }}</p>
                 <p>Raw from: {{ $smarty.get.from }}</p>
                 <p>From: {{ $from }}</p>
