@@ -139,22 +139,19 @@
                   <ul>
                   {{ /if }}
                     <li class="news_item  {{ cycle values="odd,even" }}">
-
-                      <div class="content">
-                        <h2 class="title"><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h2>
-                        <h5 class="author">
-                        {{ list_article_authors }}
-                          {{$gimme->author->name }}
-                        {{ /list_article_authors }}
-                        </h5>
-                        <p>{{ $gimme->article->deck }}</p>
-                      </div>
+                      <h6>{{ $gimme->section->name }}</h6>
+                      <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
+                      <h5 class="author">
+                      {{ list_article_authors }}
+                        {{$gimme->author->name }}
+                      {{ /list_article_authors }}
+                      </h5>
+                      <p>{{ $gimme->article->deck }}</p>
                     </li>
                   {{ if $gimme->current_list->at_end }}
                   </ul>
                   {{ /if }}
 
-                  <h2>Pagination:</h2>
                   {{ if $gimme->current_list->at_end }}                   
                     {{ $getType=$smarty.get.type }}
                     {{ $getPublished=$smarty.get.published }}         
