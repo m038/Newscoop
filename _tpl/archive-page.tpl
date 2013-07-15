@@ -181,24 +181,6 @@
                   {{ /if }}
                 {{ /list_search_results_solr }}
                 *}}
-                <h2>Pagination:</h2>
-                {{ if $gimme->current_list->at_end }}                   
-                  {{ $getType=$smarty.get.type }}
-                  {{ $getPublished=$smarty.get.published }}         
-                  {{ $curpage=$smarty.get.start/10+1 }}
-                  {{ $nextstart=$curpage*10 }}
-                  {{ $prevstart=($curpage-2)*10 }}
-                  <ul class="paging center top-line">
-                    {{ if $curpage gt 1 }}
-                    <li><a class="button white prev" href="/search?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $prevstart }}">‹</a></li>
-                    {{ /if }}
-                    <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
-                    {{ if $gimme->current_list->has_next_elements }}
-                    <li><a class="button white next" href="/search?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $nextstart }}">›</a></li>
-                    {{ /if }}
-                  </ul>                 
-                {{ /if }} 
-
 
                 </div>
 
