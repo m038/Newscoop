@@ -148,6 +148,7 @@
                         </h5>
                       </div>
                     </li>
+                    <p>{{$gimme->article->deck|strip_tags|truncate:200:"&hellip;":false}}</p>
                   {{ if $gimme->current_list->at_end }}
                   </ul>
                   {{ /if }}
