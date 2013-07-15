@@ -125,7 +125,9 @@
 
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
                 <p>Compiled query: {{ $search_query }}</p>
+                <p>Raw from: {{ $smarty.get.from }}</p>
                 <p>From: {{ $from }}</p>
+                <p>Raw to: {{ $smarty.get.to }}</p>
                 <p>To: {{ $to }}</p>
                 <p>Query term: {{ $query }}</p>
                 {{ list_search_results_solr fq=$type qf="title^5 deck^3 full_text" start=$from end=$to }}
