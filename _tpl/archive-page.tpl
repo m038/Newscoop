@@ -135,7 +135,7 @@
 
                 <div id="comm-1">
 
-                {{ list_search_results_solr rows=10 start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 fq=$search_query start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
