@@ -131,7 +131,7 @@
                 <p>Raw to: {{ $smarty.get.to }}</p>
                 <p>To: {{ $to }}</p>
                 <p>Query term: {{ $query }}</p>
-                {{ list_search_results_solr fq=$type qf="title^5 deck^3 full_text" start=$from end=$to }}
+                {{ list_search_results_solr fq=$search_query qf="title^5 deck^3 full_text" start=$from end=$to }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
