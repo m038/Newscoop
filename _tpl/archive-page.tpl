@@ -139,7 +139,7 @@
                   <ul>
                   {{ /if }}
                     <li class="news_item  {{ cycle values="odd,even" }}">
-                      <h6>{{ $gimme->section->name }}</h6>
+                      <h6><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></h6>
                       <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
                       <h5 class="author">
                       {{ list_article_authors }}
