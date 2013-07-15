@@ -141,6 +141,11 @@
                     <li class="news_item  {{ cycle values="odd,even" }}">
                       <div class="content">
                         <h2 class="title"><a href="{{url options="article"}}">{{$gimme->article->name}}</a></h2>
+                        <h5 class="author">
+                        {{list_article_authors}}
+                          {{$gimme->author->name}}
+                        {{/list_article_authors}}
+                        </h5>
                       </div>
                     </li>
                   {{ if $gimme->current_list->at_end }}
