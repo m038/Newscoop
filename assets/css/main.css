@@ -3787,7 +3787,10 @@ margin-bottom: 2px;
 		padding: 0;
 		list-style: none;
 		}
-		
+
+	.content .main.archive .tab-content ul.paging {
+		padding: 18px 0 0;
+		}
 .archive-aside {
 	width: 230px;
 	margin-right: 30px;
