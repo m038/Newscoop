@@ -3886,7 +3886,7 @@ margin-bottom: 2px;
 		}
 		.archive_list_wrap > div {
 			background: #f0f0f0;
-			padding: 10px;
+			padding: 10px 10px 1px;
 			margin: 0 0 10px;
 			}
 		.archive_list_wrap .year-list {
