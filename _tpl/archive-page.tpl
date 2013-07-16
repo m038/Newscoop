@@ -103,22 +103,22 @@
 
                 {{*
                 {{ $from = $smarty.get.fqfrom }}
-                {{ if ($from === null) }}
+                {{ if ($from == null) }}
                   {{ $from = $now }}
                 {{ /if }}
 
                 {{ $to = $smarty.get.fqto }}
-                {{ if ($to === null) }}
+                {{ if ($to == null) }}
                   {{ $to = $now }}
                 {{ /if }}
                 
                 {{ $type = $smarty.get.type }}
-                {{ if ($type === null ) }}
+                {{ if ($type == null ) }}
                   {{ $type = "blog and type:debatte and type:news and type:newswire" }}
                 {{ /if }}
 
                 {{ $query = $smarty.get.q|escape }}
-                {{ if $query === null }}
+                {{ if $query == null }}
                   {{ $query = "blog" }}
                 {{ /if }}
                 *}}
@@ -126,9 +126,9 @@
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
                 <p>Raw get: {{ $smarty.get|@print_r }}</p>
                 <p>Compiled query: {{ $search_query }}</p>
-                <p>Raw from: {{ $smarty.get.from }}</p>
+                <p>Raw from: {{ $smarty.get.fqfrom }}</p>
                 <p>From: {{ $from }}</p>
-                <p>Raw to: {{ $smarty.get.to }}</p>
+                <p>Raw to: {{ $smarty.get.fqto }}</p>
                 <p>To: {{ $to }}</p>
                 <p>Start pos: {{ $smarty.get.start }}</p>
                 <p>Query term: {{ $query }}</p>
