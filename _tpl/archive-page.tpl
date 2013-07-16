@@ -83,8 +83,9 @@
         <div class="date_picker_wrap">
           {{ $then = "2012-01-01" }}
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
-          {{ date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" }}
-          {{* daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" *}}
+          {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
+          
+          {{ daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" }}
         </div>
 
       </aside>
