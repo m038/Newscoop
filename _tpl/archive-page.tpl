@@ -172,11 +172,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $prevstart }}">‹</a></li>
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $nextstart }}">›</a></li>
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
@@ -222,11 +222,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $prevstart }}#comm-2">‹</a></li>
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $nextstart }}#comm-2">›</a></li>
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">›</a></li>
                       +and+
                       {{ /if }}
                     </ul>                 
@@ -272,11 +272,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=blog&published={{ $getPublished }}&start={{ $prevstart }}#comm-3">‹</a></li>
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=blog&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-3">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=blog&published={{ $getPublished }}&start={{ $nextstart }}#comm-3">›</a></li>
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=blog&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-3">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
@@ -321,11 +321,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=dossier&published={{ $getPublished }}&start={{ $prevstart }}#comm-4">‹</a></li>
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=dossier&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-4">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=dossier&published={{ $getPublished }}&start={{ $nextstart }}#comm-4">›</a></li>
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=dossier&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-4">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
