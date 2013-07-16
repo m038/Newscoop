@@ -122,16 +122,27 @@
                   {{ $query = "*" }}
                 {{ /if }}
 
-                {{ $search_query = "{{ build_solr_fq type=$type }}" }}
-                <p>GET: {{ $smarty.get|@print_r }}</p>
-                <p>Compiled fq query: {{ $search_query }}</p>
-                <p>GET from: {{ $smarty.get.fqfrom }}</p>
-                <p>From: {{ $from }}</p>
-                <p>GET to: {{ $smarty.get.fqto }}</p>
-                <p>To: {{ $to }}</p>
-                <p>Start pos: {{ $smarty.get.start }}</p>
-                <p>Query term: {{ $query }}</p>
-                <p>Type: {{ $type }}</p>
+                <dt>
+                  <dt>GET:</dt>
+                   <dd>{{ $smarty.get|@print_r }}</dd>
+                  <dt>GET from:</dt>
+                    <dd>{{ $smarty.get.fqfrom }}</dd>
+                  <dt>From:</dt>
+                    <dd>{{ $from }}</dd>
+                  <dt>GET to:</dt>
+                    <dd>{{ $smarty.get.fqto }}</dd>
+                  <dt>To:</dt>
+                    <dd>{{ $to }}</dd>
+                  <dt>Start pos:</dt>
+                    <dd>{{ $smarty.get.start }}</dd>
+                  <dt>Query term:</dt>
+                    <dd>{{ $query }}</dd>
+                  <dt>Type:</dt>
+                    <dd>{{ $type }}</dd>
+                  {{ $search_query = "{{ build_solr_fq type=$type }}" }}
+                  <dt>Compiled fq query:</dt>
+                    <dd>{{ $search_query }}</p>
+                </dt>
 
                 <div id="comm-1">
 
