@@ -3763,6 +3763,7 @@ margin-bottom: 2px;
 
 .content .main.archive {
 	width: 645px;
+	height: auto!important;
 }
 
 .content .main.archive .tab-nav a {
