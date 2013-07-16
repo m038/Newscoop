@@ -121,6 +121,7 @@
                 {{ if $query === null }}
                   {{ $query = "*" }}
                 {{ /if }}
+                {{ $query = $query|escape }}
 
                 <dt>
                   <dt>GET:</dt>
@@ -146,7 +147,7 @@
 
                 <div id="comm-1">
 
-                {{ list_search_results_solr rows=10 q=$query fq={{ $search_query|escape }} qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 q=$query fq={{ $search_query }} qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
