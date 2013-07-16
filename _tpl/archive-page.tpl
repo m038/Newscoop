@@ -141,7 +141,9 @@
                     <dd>{{ $query }}</dd>
                   <dt>Type:</dt>
                     <dd>{{ $type }}</dd>
+                *}}
                   {{ $search_query = "{{ build_solr_fq type=$type }}" }}
+                {{*
                   <dt>Compiled fq query:</dt>
                     <dd>{{ $search_query }}</p>
                 </dt>
