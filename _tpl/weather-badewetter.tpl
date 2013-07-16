@@ -1,7 +1,7 @@
 
                 <!-- badewetter elements -->
                 <div id='mn-badewetter-important-baths'>
-                    <h3 class='top-line'>Beliebte Ziele</h3>
+                    <h3 class='top-line'>Beliebte Badeorte</h3>
                     <table id='mn-wintersport-important-slopes-table' cellpadding='0' cellspacing='0' class='top-line second-row-phone-hide'>
                         <colgroup>
                             <col width>
