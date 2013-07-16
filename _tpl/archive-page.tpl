@@ -117,7 +117,7 @@
                   {{ $type = "blog and type:debatte and type:news and type:newswire" }}
                 {{ /if }}
 
-                {{ $query = $smarty.get.q }}
+                {{ $query = $smarty.get.q|escape }}
                 {{ if $query === null }}
                   {{ $query = "blog" }}
                 {{ /if }}
