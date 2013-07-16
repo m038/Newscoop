@@ -102,12 +102,12 @@
               <div class="tab-content">
 
                 {{*
-                {{ $from = $smarty.get.from }}
+                {{ $from = $smarty.get.fqfrom }}
                 {{ if ($from === null) }}
                   {{ $from = $now }}
                 {{ /if }}
 
-                {{ $to = $smarty.get.to }}
+                {{ $to = $smarty.get.fqto }}
                 {{ if ($to === null) }}
                   {{ $to = $now }}
                 {{ /if }}
