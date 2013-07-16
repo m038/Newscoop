@@ -419,4 +419,14 @@ if ($('.daterange-archive')[0]){
 			});
 		}
 	});
+
+	// check to see if a tab is active
+	// if not set the first one
+	var hash = document.URL.substr(document.URL.indexOf('#')+1)
+	console.log(hash);
+	if ($('.daterange-archive .tab-nav').find('li').find('a').attr(hash)[0]){
+		$('.daterange-archive .tab-nav').find('li').find('#' + hash).parent().addClass('ui-tabs-active ui-state-active');
+	} else {
+		$('.daterange-archive .tab-nav').find('li').first().addClass('ui-tabs-active ui-state-active');
+	}
 }
