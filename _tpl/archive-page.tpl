@@ -132,6 +132,7 @@
                 <p>To: {{ $to }}</p>
                 <p>Start pos: {{ $smarty.get.start }}</p>
                 <p>Query term: {{ $query }}</p>
+                <p>Type: {{ $type }}</p>
 
                 <div id="comm-1">
 
