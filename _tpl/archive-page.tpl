@@ -114,7 +114,7 @@
                 
                 {{ $type = $smarty.get.type }}
                 {{ if ($type === null ) }}
-                  {{ $type = "blog and type:debatte and type:news and type:newswire" }}
+                  {{ $type = "blog and type:debatte and type:news and type:newswire and type:dossier" }}
                 {{ /if }}
 
                 {{ $query = $smarty.get.q }}
