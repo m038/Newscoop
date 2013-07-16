@@ -101,34 +101,33 @@
 
               <div class="tab-content">
 
-                {{*
+                
                 {{ $from = $smarty.get.fqfrom }}
-                {{ if ($from == null) }}
+                {{ if ($from === null) }}
                   {{ $from = $now }}
                 {{ /if }}
 
                 {{ $to = $smarty.get.fqto }}
-                {{ if ($to == null) }}
+                {{ if ($to === null) }}
                   {{ $to = $now }}
                 {{ /if }}
                 
                 {{ $type = $smarty.get.type }}
-                {{ if ($type == null ) }}
+                {{ if ($type === null ) }}
                   {{ $type = "blog and type:debatte and type:news and type:newswire" }}
                 {{ /if }}
 
-                {{ $query = $smarty.get.q|escape }}
-                {{ if $query == null }}
-                  {{ $query = "blog" }}
+                {{ $query = $smarty.get.q }}
+                {{ if $query === null }}
+                  {{ $query = "*" }}
                 {{ /if }}
-                *}}
 
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
-                <p>Raw get: {{ $smarty.get|@print_r }}</p>
-                <p>Compiled query: {{ $search_query }}</p>
-                <p>Raw from: {{ $smarty.get.fqfrom }}</p>
+                <p>GET: {{ $smarty.get|@print_r }}</p>
+                <p>Compiled fq query: {{ $search_query }}</p>
+                <p>GET from: {{ $smarty.get.fqfrom }}</p>
                 <p>From: {{ $from }}</p>
-                <p>Raw to: {{ $smarty.get.fqto }}</p>
+                <p>GET to: {{ $smarty.get.fqto }}</p>
                 <p>To: {{ $to }}</p>
                 <p>Start pos: {{ $smarty.get.start }}</p>
                 <p>Query term: {{ $query }}</p>
@@ -136,7 +135,7 @@
 
                 <div id="comm-1">
 
-                {{ list_search_results_solr rows=10 fq=$search_query qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 fq={{ $search_query|escape }} qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
