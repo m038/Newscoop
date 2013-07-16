@@ -242,7 +242,6 @@
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
                       <li><a class="button white next" href="?q={{ $query }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">›</a></li>
-                      +and+
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
