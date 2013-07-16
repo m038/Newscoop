@@ -83,9 +83,8 @@
         <div class="date_picker_wrap">
           {{ $then = "2012-01-01" }}
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
-          {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
-          
-          {{ daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" }}
+          {{ date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" }}
+          {{* daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" *}}
         </div>
 
       </aside>
@@ -221,11 +220,110 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $prevstart }}#comm-2">‹</a></li>
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $prevstart }}#comm-2">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $nextstart }}#comm-2">›</a></li>
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=news+and+newswire&published={{ $getPublished }}&start={{ $nextstart }}#comm-2">›</a></li>
+                      +and+
+                      {{ /if }}
+                    </ul>                 
+                  {{ /if }} 
+
+                {{ /list_search_results_solr }}
+                </div>
+
+                <div id="comm-3">
+                {{ list_search_results_solr rows=10 fq="type:blog" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                  {{ if $gimme->current_list->at_beginning }}
+                  <ul>
+                  {{ /if }}
+                    <li class="news_item  {{ cycle values="odd,even" }}">
+                      <article>
+                        <h6><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></h6>
+                        {{ capture name="hasimg" assign="hasimg" }}
+                        {{ image rendition="artthumb" }}
+                        <figure> 
+                          <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>
+                        </figure>
+                        {{ /image }}                        
+                        {{ /capture }}
+                        {{ if trim($hasimg) }}{{ $hasimg }}{{ /if }}
+                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
+                        <h5 class="author">
+                        {{ list_article_authors }}
+                          {{$gimme->author->name }}
+                        {{ /list_article_authors }}
+                        </h5>
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->lede|strip_tags:false }}{{ $gimme->article->lede|strip_tags:false }}{{ elseif $gimme->article->body|strip_tags:false }}{{ $gimme->article->body|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->infolong }}{{ $gimme->article->infolong }}{{ elseif $gimme->article->teaser }}{{ $gimme->article->teaser|truncate:200 }}{{ elseif $gimme->article->description }}{{ $gimme->article->description|truncate:200 }}{{ elseif $gimme->article->other }}{{ $gimme->article->other }}{{ /if }}</p>
+                      </article>
+                    </li>
+                  {{ if $gimme->current_list->at_end }}
+                  </ul>
+                  {{ /if }}
+
+                  {{ if $gimme->current_list->at_end }}                   
+                    {{ $getType=$smarty.get.type }}
+                    {{ $getPublished=$smarty.get.published }}         
+                    {{ $curpage=$smarty.get.start/10+1 }}
+                    {{ $nextstart=$curpage*10 }}
+                    {{ $prevstart=($curpage-2)*10 }}
+                    <ul class="paging center top-line">
+                      {{ if $curpage gt 1 }}
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=blog&published={{ $getPublished }}&start={{ $prevstart }}#comm-3">‹</a></li>
+                      {{ /if }}
+                      <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
+                      {{ if $gimme->current_list->has_next_elements }}
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=blog&published={{ $getPublished }}&start={{ $nextstart }}#comm-3">›</a></li>
+                      {{ /if }}
+                    </ul>                 
+                  {{ /if }} 
+
+                {{ /list_search_results_solr }}
+                </div>
+
+                <div id="comm-4">
+                {{ list_search_results_solr rows=10 fq="type:blog" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                  {{ if $gimme->current_list->at_beginning }}
+                  <ul>
+                  {{ /if }}
+                    <li class="news_item  {{ cycle values="odd,even" }}">
+                      <article>
+                        <h6><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></h6>
+                        {{ capture name="hasimg" assign="hasimg" }}
+                        {{ image rendition="artthumb" }}
+                        <figure> 
+                          <a href="{{ url options="article" }}"><img src="{{ $image->src }}" width="{{ $image->width }}" height="{{ $image->height }}" rel="resizable" style="max-width: 100%" alt="{{ $image->caption }} {{ if !($image->photographer == "") }}(Bild: {{ $image->photographer }}){{ /if }}" /></a>
+                        </figure>
+                        {{ /image }}                        
+                        {{ /capture }}
+                        {{ if trim($hasimg) }}{{ $hasimg }}{{ /if }}
+                        <h3><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></h3>
+                        <h5 class="author">
+                        {{ list_article_authors }}
+                          {{$gimme->author->name }}
+                        {{ /list_article_authors }}
+                        </h5>
+                        <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->lede|strip_tags:false }}{{ $gimme->article->lede|strip_tags:false }}{{ elseif $gimme->article->body|strip_tags:false }}{{ $gimme->article->body|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->infolong }}{{ $gimme->article->infolong }}{{ elseif $gimme->article->teaser }}{{ $gimme->article->teaser|truncate:200 }}{{ elseif $gimme->article->description }}{{ $gimme->article->description|truncate:200 }}{{ elseif $gimme->article->other }}{{ $gimme->article->other }}{{ /if }}</p>
+                      </article>
+                    </li>
+                  {{ if $gimme->current_list->at_end }}
+                  </ul>
+                  {{ /if }}
+
+                  {{ if $gimme->current_list->at_end }}                   
+                    {{ $getType=$smarty.get.type }}
+                    {{ $getPublished=$smarty.get.published }}         
+                    {{ $curpage=$smarty.get.start/10+1 }}
+                    {{ $nextstart=$curpage*10 }}
+                    {{ $prevstart=($curpage-2)*10 }}
+                    <ul class="paging center top-line">
+                      {{ if $curpage gt 1 }}
+                      <li><a class="button white prev" href="?q={{ $smarty.get.q|escape }}&type=dossier&published={{ $getPublished }}&start={{ $prevstart }}#comm-4">‹</a></li>
+                      {{ /if }}
+                      <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
+                      {{ if $gimme->current_list->has_next_elements }}
+                      <li><a class="button white next" href="?q={{ $smarty.get.q|escape }}&type=dossier&published={{ $getPublished }}&start={{ $nextstart }}#comm-4">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
