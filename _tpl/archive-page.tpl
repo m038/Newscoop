@@ -123,6 +123,7 @@
                 {{ /if }}
                 {{ $query = $query|escape }}
 
+                {{*
                 <dt>
                   <dt>GET:</dt>
                    <dd>{{ $smarty.get|@print_r }}</dd>
@@ -144,6 +145,7 @@
                   <dt>Compiled fq query:</dt>
                     <dd>{{ $search_query }}</p>
                 </dt>
+                *}}
 
                 <div id="comm-1">
                 {{ list_search_results_solr rows=10 q=$query fq={{ $search_query }} qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
