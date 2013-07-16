@@ -93,7 +93,7 @@
           <div class="main archive left-thumb article-spacing clearfix tabs margin-bottom comment-box ui-tabs ui-widget ui-widget-content ui-corner-all">
 
             <ul class="tab-nav clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
-              <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="comm-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="#comm-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"><strong>Alles</strong> </a></li>
+              <li class="ui-state-default ui-corner-top" role="tab" tabindex="0" aria-controls="comm-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="#comm-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"><strong>Alles</strong> </a></li>
               <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="comm-2" aria-labelledby="ui-id-2" aria-selected="false"><a href="#comm-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2"><strong>Artikel</strong></a></li>
               <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="comm-3" aria-labelledby="ui-id-3" aria-selected="true"><a href="#comm-3" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3"><strong>Blogposts</strong> </a></li>
               <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="comm-4" aria-labelledby="ui-id-4" aria-selected="false"><a href="#comm-4" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4"><strong>Dossiers</strong></a></li>
