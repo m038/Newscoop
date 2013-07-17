@@ -59,7 +59,7 @@
                 <div class="main left-thumb community-list clearfix">
         {{ $length = 5 }}
         {{ $uri = $view->url() }}
-        {{ $groups = "2,3,4" }}
+        {{ $groups = "2,3,4,8" }}
         {{ if isset($smarty.get.search) }}
             {{ list_users length=$length search=$smarty.get.search  }}
                 {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}
