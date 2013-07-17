@@ -90,9 +90,9 @@
     
                 <div class="main left-thumb article-spacing clearfix">
 
-{{ if empty($_GET['type']) }}{{ $_GET['type'] = '(blog OR debatte OR dossier OR news OR newswire)' }}{{ /if }}
+{{* if empty($_GET['type']) }}{{ $_GET['type'] = '(blog OR debatte OR dossier OR news OR newswire)' }}{{ /if *}}
 
-{{ list_search_results_solr fq="{{ build_solr_fq }}" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
+{{ list_search_results_solr fq="{{ build_solr_fq }}" qf="title^5 author^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 body^2 pro_text^2 contra_text^2 description date_time_text other" rows=10 start=$smarty.get.start }}
                     
                     <article class="search-afix">
                         <h6>{{ if $gimme->article->dateline }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ else }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}</h6>                     
