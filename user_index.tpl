@@ -16,19 +16,11 @@
         	<div class="content no-bottom-line equal-heights clearfix">
             
             	<div class="events-aside clearfix info-text">
-                	
-                    <div class="hide">
-                        <select class="dropdownized">
-                            <option value="Alle Themen">Alle Themen</option>
-                            <option value="Energiepolitk">Energiepolitk</option>
-                            <option value="AKW">AKW</option>
-                        </select>
-                    </div>
                     
                 	<ul class="custom-list no-bullet phone-hide">
-                    	<li class="active"><a href="{{ $view->url() }}">Alle Mitglieder</a></li>
-                    	<li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=active">Aktivste</a></li>
-                    	<li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=editors">Redaktion</a></li>
+                    	<li{{ if !$smarty.get.filter }} class="active"{{ /if }}><a href="{{ $view->url() }}">Alle Mitglieder</a></li>
+                    	<li{{ if $smarty.get.filter == "active" }} class="active"{{ /if }}><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=active">Aktivste</a></li>
+                    	<li{{ if $smarty.get.filter == "editors" }} class="active"{{ /if }}><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default', true) }}?filter=editors">Redaktion</a></li>
                     </ul>
 
                     <form id="get-by-alphabet" name="input" action="" method="get">
@@ -67,7 +59,7 @@
                 <div class="main left-thumb community-list clearfix">
         {{ $length = 5 }}
         {{ $uri = $view->url() }}
-        {{ $groups = "2,3,4,8" }}
+        {{ $groups = "2,3,4" }}
         {{ if isset($smarty.get.search) }}
             {{ list_users length=$length search=$smarty.get.search  }}
                 {{ include file="_tpl/user_index_user.tpl" user=$gimme->list_user }}

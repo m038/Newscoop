@@ -997,7 +997,7 @@ small {
 					border:transparent 1px solid; border-bottom:0;
 					}
 					.tab-nav li a strong {color:#b40032;}
-					.tab-nav li.ui-state-active a {border-color:#ccc; background:#fff;}
+					.tab-nav li.ui-state-active a {border-color:#ccc; background:#fff; outline: none;}
 						.tab-nav li.ui-state-active a strong {color:#000;}
 			.tab-nav.three-tabs li {width:33%;}
 			.tab-nav.three-tabs li:nth-child(2){width:34%;}
@@ -3763,6 +3763,7 @@ margin-bottom: 2px;
 
 .content .main.archive {
 	width: 645px;
+	height: auto!important;
 }
 
 .content .main.archive .tab-nav a {
@@ -3774,8 +3775,15 @@ margin-bottom: 2px;
 	background: #fff;
 	border: none;
 	border-top: #ccc solid 1px;
-}
-
+	}
+	.content .main.archive .tab-content ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		}
+	.content .main.archive .tab-content ul.paging {
+		padding: 18px 0 0;
+		}
 .archive-aside {
 	width: 230px;
 	margin-right: 30px;
@@ -3879,7 +3887,7 @@ margin-bottom: 2px;
 		}
 		.archive_list_wrap > div {
 			background: #f0f0f0;
-			padding: 10px;
+			padding: 10px 10px 1px;
 			margin: 0 0 10px;
 			}
 		.archive_list_wrap .year-list {

@@ -19,7 +19,7 @@
 <height>30</height>
 </image>
 <atom:link href="{{ url options="root_level" }}de/static/rss_all" rel="self" type="application/rss+xml" />
-{{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type is news type is blog" }}
+{{ list_articles length="20" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type is news type is blog SMD_export is on" }}
 <item>
     <title>{{ $gimme->article->name|escape }}</title>
     <link>{{ capture name="link" }}{{ url options="article" }}{{ /capture }}{{ $smarty.capture.link|escape }}</link>
