@@ -45,14 +45,25 @@
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
-                                <col width="110">
+                                <col width="70">
+                                <col width="95">
+                                <col width="70">
                             </colgroup>
                             <tbody>
-                                {{ list_weather_stats location_list="teaser_regions" }}
-                                   <tr>
-                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-type='mexs' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }}</p></th>
-                                        <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }}° / {{ $gimme->weather_location->temperature_min }}°</td>
-                                    </tr>  
+                                {{ list_weather_stats location_list="all_baths" location_name="Reuss, Seedorf" length="1"}}
+                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
+                                {{ /list_weather_stats }}
+                                {{ list_weather_stats location_list="all_baths" location_name="Sempachersee, Sursee" length="1"}}
+                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
+                                {{ /list_weather_stats }}
+                                {{ list_weather_stats location_list="all_baths" location_name="Vierwaldstättersee, Küssnacht am Rigi" length="1"}}
+                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
+                                {{ /list_weather_stats }}
+                                {{ list_weather_stats location_list="all_baths" location_name="Lauerzersee, Schwyz" length="1"}}
+                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
+                                {{ /list_weather_stats }}
+                                {{ list_weather_stats location_list="all_baths" location_name="Zugersee, Zug" length="1"}}
+                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
                                 {{ /list_weather_stats }}
                             </tbody>
                         </table>
