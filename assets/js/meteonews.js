@@ -37,7 +37,7 @@ var meteonews = {
 
     startDate: null,
     endDate: null,
-    cumulation: '3h',
+    cumulation: '1h',
 
     // state vars
     cache: {},
@@ -712,7 +712,8 @@ var meteonews = {
         var fields = ['temp_min', 'temp_max', 'gustforce', 'glob_rad', 'hum', 'precip',
             'precip_prob', 'freez_level', 'temp_dew', 'windforce', 'winddir', 'temp_wind', 'pres' ];
 
-        var headerFields = ['temp', 'sun', 'precip', 'precip_prob', 'winddir', 'windforce'];
+        var headerFields = ['temp_avg', 'sun', 'precip', 'precip_prob', 'winddir', 'windforce'];
+        var displayHours = ['0300', '0600', '0900', '1200', '1500', '1800', '2100', '0000'];
 
         // create date row
         var date = meteonews.formatDisplayDate(meteonews.getDateObj(meteonews.startDate));
@@ -736,69 +737,71 @@ var meteonews = {
             var timeId = time.replace(':', ''); 
             var headerRow = '';
 
-            // create header row
-            headerRow += "<tr class='mn-forecast-details-header-row' id='" + timeId + "'>";
-            headerRow += "<td><p><strong>"+time+"</strong></p></td>";
-            for (var f in headerFields) {
-                var field = headerFields[f];
-                var value = (result[field]['@text']) ? result[field]['@text'] : 0;
-                var unit = result[field]['@attributes']['unit'];
+            if (this.inArray(timeId, displayHours)) {
+                // create header row
+                headerRow += "<tr class='mn-forecast-details-header-row' id='" + timeId + "'>";
+                headerRow += "<td><p><strong>"+time+"</strong></p></td>";
+                for (var f in headerFields) {
+                    var field = headerFields[f];
+                    var value = (result[field]['@text']) ? result[field]['@text'] : 0;
+                    var unit = result[field]['@attributes']['unit'];
+                   
+                    // show general 
+                    if (field == 'temp_avg') {
+                        headerRow += "<td><img src='" + this.symbolsPath + result.symb +".png' class='mn-symbol-small' alt>";
+                        headerRow += value + " " + unit + '</td>';
+                    }
+                    // show sun 
+                    if (field == 'sun') {
+                        headerRow += "<td><img src='" + this.symbolsPath + "1.png' class='mn-symbol-small'>";
+                        headerRow += value + " " +unit + '</td>';
+                    }
+                    // show rain 
+                    if (field == 'precip') {
+                        headerRow += "<td><img src='" + this.symbolsPath + "icon-rain-30.png' class='mn-symbol-small'>";
+                        headerRow += value + " " + unit + ' ';
+                    }
+                    // show rain prob
+                    if (field == 'precip_prob') {
+                        headerRow += value + " " + unit + '</td>';
+                    }
+                    if (field == 'winddir') {
+                        headerRow += "<td><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small'" +
+                            "style='-webkit-transform:rotate(" + value + "deg); " +
+                            "-moz-transform:rotate(" + value + "deg); " +
+                            "-ms-transform:rotate(" + value + "deg); " +
+                            "-o-transform:rotate(" + value + "deg); " + 
+                            "transform:rotate(" + value + "deg);' alt>";
+                    }
+                    if (field == 'windforce') {
+                        headerRow += value + " " + unit + '</td>';
+                    }
+                }
+                headerRow += "<td><a href='#' class='trigger active'>Close</a></td></tr>";
+
+                $('.mn-forecast-details-table').each(function() {
+                    $(this).children('tbody:last').append(headerRow);
+                });
                
-                // show general 
-                if (field == 'temp') {
-                    headerRow += "<td><img src='" + this.symbolsPath + result.symb +".png' class='mn-symbol-small' alt>";
-                    headerRow += value + " " + unit + '</td>';
+                // create details row
+                detailRow = "<tr class='inner'><td colspan='6'><div class='inner-table'>";
+                detailRow += "<table id='mn-forecast-details-inner-table' cellpadding='0' cellspacing='0'>";
+                detailRow += "<colgroup><col width='270'><col width></colgroup>";
+                detailRow += "<tbody>";
+
+                for (var f in fields) {
+                    var field = fields[f];
+                    var value = (result[field]['@text']) ? result[field]['@text'] : 0;
+                    detailRow += "<tr><td>" + meteonews.translate(field) + '</td><td>' + value;
+                    detailRow += " " + result[field]['@attributes']['unit'];
+                    detailRow += "</td></tr>";
                 }
-                // show sun 
-                if (field == 'sun') {
-                    headerRow += "<td><img src='" + this.symbolsPath + "1.png' class='mn-symbol-small'>";
-                    headerRow += value + " " +unit + '</td>';
-                }
-                // show rain 
-                if (field == 'precip') {
-                    headerRow += "<td><img src='" + this.symbolsPath + "icon-rain-30.png' class='mn-symbol-small'>";
-                    headerRow += value + " " + unit + ' ';
-                }
-                // show rain prob
-                if (field == 'precip_prob') {
-                    headerRow += value + " " + unit + '</td>';
-                }
-                if (field == 'winddir') {
-                    headerRow += "<td><img src='" + this.symbolsPath + "icon-direction-north-30.png' class='mn-symbol-small'" +
-                        "style='-webkit-transform:rotate(" + value + "deg); " +
-                        "-moz-transform:rotate(" + value + "deg); " +
-                        "-ms-transform:rotate(" + value + "deg); " +
-                        "-o-transform:rotate(" + value + "deg); " + 
-                        "transform:rotate(" + value + "deg);' alt>";
-                }
-                if (field == 'windforce') {
-                    headerRow += value + " " + unit + '</td>';
-                }
+                detailRow += "</tbody></table></tr>";
+
+                $('.mn-forecast-details-table').each(function() {
+                    $(this).children('tbody:last').append(detailRow);
+                });
             }
-            headerRow += "<td><a href='#' class='trigger active'>Close</a></td></tr>";
-
-            $('.mn-forecast-details-table').each(function() {
-                $(this).children('tbody:last').append(headerRow);
-            });
-           
-            // create details row
-            detailRow = "<tr class='inner'><td colspan='6'><div class='inner-table'>";
-            detailRow += "<table id='mn-forecast-details-inner-table' cellpadding='0' cellspacing='0'>";
-            detailRow += "<colgroup><col width='270'><col width></colgroup>";
-            detailRow += "<tbody>";
-
-            for (var f in fields) {
-                var field = fields[f];
-                var value = (result[field]['@text']) ? result[field]['@text'] : 0;
-                detailRow += "<tr><td>" + meteonews.translate(field) + '</td><td>' + value;
-                detailRow += " " + result[field]['@attributes']['unit'];
-                detailRow += "</td></tr>";
-            }
-            detailRow += "</tbody></table></tr>";
-
-            $('.mn-forecast-details-table').each(function() {
-                $(this).children('tbody:last').append(detailRow);
-            });
         }
 
         var dateObj = meteonews.getDateObj(meteonews.startDate);
@@ -1158,6 +1161,14 @@ var meteonews = {
     formatTime: function(date) {
         dateString = ('0' + date.getHours()).slice(-2) + ':00';
         return dateString;
+    },
+
+    inArray: function inArray(needle, haystack) {
+        var length = haystack.length;
+        for(var i = 0; i < length; i++) {
+            if(haystack[i] == needle) return true;
+        }
+        return false;
     },
 
     autoCompleteLookup: function (request, response) {
