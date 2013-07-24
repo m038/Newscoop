@@ -117,6 +117,10 @@
                   {{ $type = "blog and type:debatte and type:news and type:newswire and type:dossier" }}
                 {{ /if }}
 
+                {{ if $issue === null }}
+                  {{ $issue = "10" }}
+                {{ /if }}
+
                 {{ $query = $smarty.get.q }}
                 {{ if $query === null }}
                   {{ $query = "*" }}
@@ -142,7 +146,7 @@
                   <dt>Type:</dt>
                     <dd>{{ $type }}</dd>
                 *}}
-                  {{ $search_query = "{{ build_solr_fq type=$type issue=10 }}" }}
+                  {{ $search_query = "{{ build_solr_fq issue_number=$issue type=$type }}" }}
                 {{*
                   <dt>Compiled fq query:</dt>
                     <dd>{{ $search_query }}</p>
