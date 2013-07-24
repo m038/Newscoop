@@ -115,7 +115,7 @@
                 {{* build_solr_fq *}}
 
                 <div id="comm-1">
-                {{ list_search_results_solr rows=10 q="*|* AND -title:Archive" sort="number desc" fq="type:(blog OR debatte OR news OR newswire OR dossier)" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 q="-title:Archive" sort="number desc" fq="type:(blog OR debatte OR news OR newswire OR dossier)" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
@@ -151,11 +151,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=type:blog+OR+type:debatte+OR+type:news+OR+type:newswire+OR+type:dossier&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">‹</a></li>
+                      <li><a class="button white prev" href="?q=-title:Archive&sort=number+desc&type=type:blog+OR+type:debatte+OR+type:news+OR+type:newswire+OR+type:dossier&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=type:blog+OR+type:debatte+OR+type:news+OR+type:newswire+OR+type:dossier&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">›</a></li>
+                      <li><a class="button white next" href="?q=-title:Archive&sort=number+desc&type=type:blog+OR+type:debatte+OR+type:news+OR+type:newswire+OR+type:dossier&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
@@ -165,7 +165,7 @@
                 </div>
 
                 <div id="comm-2">
-                {{ list_search_results_solr rows=10 q="*:* AND -title:Archive" sort="number desc" fq="type:(news or newswire)" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 q="-title:Archive" sort="number desc" fq="type:(news or newswire)" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
@@ -201,11 +201,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=news+OR+newswire&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">‹</a></li>
+                      <li><a class="button white prev" href="?q=-title:Archive&sort=number+desc&type=news+OR+newswire&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=news+OR+newswire&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">›</a></li>
+                      <li><a class="button white next" href="?q=-title:Archive&sort=number+desc&type=news+OR+newswire&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-2">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
@@ -214,7 +214,7 @@
                 </div>
 
                 <div id="comm-3">
-                {{ list_search_results_solr rows=10 q="*:* AND -title:Archive" sort="number desc" fq="type:blog" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 q="-title:Archive" sort="number desc" fq="type:blog" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
@@ -250,11 +250,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=blog&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-3">‹</a></li>
+                      <li><a class="button white prev" href="?q=-title:Archive&sort=number+desc&type=blog&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-3">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=blog&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-3">›</a></li>
+                      <li><a class="button white next" href="?q=-title:Archive&sort=number+desc&type=blog&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-3">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
@@ -263,7 +263,7 @@
                 </div>
 
                 <div id="comm-4">
-                {{ list_search_results_solr rows=10 q='*:* AND -title:Archive' sort="number desc" fq="type:dossier" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
+                {{ list_search_results_solr rows=10 q='-title:Archive' sort="number desc" fq="type:dossier" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
                   {{ if $gimme->current_list->at_beginning }}
                   <ul>
                   {{ /if }}
@@ -299,11 +299,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=dossier&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-4">‹</a></li>
+                      <li><a class="button white prev" href="?q=-title:Archive&sort=number+desc&type=dossier&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-4">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q=*:*+AND+-title:Archive&sort=number+desc&sort='number+desc'&type=dossier&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-4">›</a></li>
+                      <li><a class="button white next" href="?q=-title:Archive&sort=number+desc&sort='number+desc'&type=dossier&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-4">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
