@@ -127,6 +127,8 @@
                 {{ /if }}
                 {{ $query = $query|escape }}
 
+                {{ $query }}
+
                 {{*
                 <dt>
                   <dt>GET:</dt>
