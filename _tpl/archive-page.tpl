@@ -112,10 +112,7 @@
                   {{ $to = $now }}
                 {{ /if }}
                 
-                {{ $type = $smarty.get.type }}
-                {{ if ($type === null ) }}
-                  {{ $type = "blog and type:debatte and type:news and type:newswire" }}
-                {{ /if }}
+                {{ $type = "blog and type:debatte and type:news and type:newswire and type:dossier" }}
 
                 {{ $search_query = "{{ build_solr_fq type=$type }}" }}
 
