@@ -125,7 +125,7 @@
                 {{ if $query === null }}
                   {{ $query = "*" }}
                 {{ /if }}
-                {{ $query = $query&issue_number=10|escape }}
+                {{ $query = $query|escape }}
 
                 {{*
                 <dt>
