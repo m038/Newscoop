@@ -1,15 +1,11 @@
           <ul class="weather">
                 <li class="expandable">
                     <a href="#">
-                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" length="1" length = 1  }}
-                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                            <span>{{ $gimme->weather_location->temperature }}° {{ $gimme->weather_location->location_name }} </span>
-                        {{ /list_weather_stats }}
+                            <img id="luzern-img-now" src='' class='mn-symbol-small' alt>
+                            <span id="luzern-temp-now"></span>
 
-                        {{ list_weather_stats location_name="Zug" location_list="main_regions" length="1" length = 1  }}
-                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                            <span>{{ $gimme->weather_location->temperature }}° {{ $gimme->weather_location->location_name }} </span>
-                        {{ /list_weather_stats }}
+                            <img id="zug-img-now" src='' class='mn-symbol-small' alt>
+                            <span id="zug-temp-now"></span>
                     </a>
                     <div class="popup">
                         <div class="weather-popup clearfix">
@@ -20,38 +16,28 @@
                                 <ul>
                                     <li>
                                         <small>12:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="12" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="luzern-img-1200" src='' class='mn-symbol-small' alt>
+                                            <p id="luzern-temp-1200"></p>
                                     </li>
                                     <li>
                                         <small>15:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="15" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="luzern-img-1500" src='' class='mn-symbol-small' alt>
+                                            <p id="luzern-temp-1500"></p>
                                     </li>
                                     <li>
                                         <small>18:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="18" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="luzern-img-1800" src='' class='mn-symbol-small' alt>
+                                            <p id="luzern-temp-1800"></p>
                                     </li>
                                     <li>
                                         <small>21:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="21" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="luzern-img-2100" src='' class='mn-symbol-small' alt>
+                                            <p id="luzern-temp-2100"></p>
                                     </li>
                                     <li>
                                         <small>00:00</small>
-                                        {{ list_weather_stats location_name="Luzern" location_list="main_regions" hour="0" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="luzern-img-0000" src='' class='mn-symbol-small' alt>
+                                            <p id="luzern-temp-0000"></p>
                                     </li>
                                 </ul>
                                 {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
@@ -60,38 +46,28 @@
                                 <ul>
                                     <li>
                                         <small>12:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="12" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="zug-img-1200" src='' class='mn-symbol-small' alt>
+                                            <p id="zug-temp-1200"></p>
                                     </li>
                                     <li>
                                         <small>15:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="15" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="zug-img-1500" src='' class='mn-symbol-small' alt>
+                                            <p id="zug-temp-1500"></p>
                                     </li>
                                     <li>
                                         <small>18:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="18" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="zug-img-1800" src='' class='mn-symbol-small' alt>
+                                            <p id="zug-temp-1800"></p>
                                     </li>
                                     <li>
                                         <small>21:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="21" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="zug-img-2100" src='' class='mn-symbol-small' alt>
+                                            <p id="zug-temp-2100"></p>
                                     </li>
                                     <li>
                                         <small>00:00</small>
-                                        {{ list_weather_stats location_name="Zug" location_list="main_regions" hour="0" length="1" }}
-                                            <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small' alt>
-                                            <p>{{ $gimme->weather_location->temperature }}°</p>
-                                        {{ /list_weather_stats }}
+                                            <img id="zug-img-0000" src='' class='mn-symbol-small' alt>
+                                            <p id="zug-temp-0000"></p>
                                     </li>
                                 </ul>
                             </div>
