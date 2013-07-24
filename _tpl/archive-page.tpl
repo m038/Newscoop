@@ -125,7 +125,7 @@
                 {{ if $query === null }}
                   {{ $query = "*" }}
                 {{ /if }}
-                {{ $query = $query|escape }}
+                {{ $query = $query&issue_number=10|escape }}
 
                 {{*
                 <dt>
@@ -146,7 +146,7 @@
                   <dt>Type:</dt>
                     <dd>{{ $type }}</dd>
                 *}}
-                  {{ $search_query = "{{ build_solr_fq issue_number=$issue type=$type }}" }}
+                  {{ $search_query = "{{ build_solr_fq type=$type }}" }}
                 {{*
                   <dt>Compiled fq query:</dt>
                     <dd>{{ $search_query }}</p>
