@@ -252,10 +252,14 @@
                         if (thisHour === "0000") {
                             $('#luzern-temp-now').text(tempAvg+'° Luzern'); 
                             $('#luzern-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                            $('#luzern-temp-now-mobile').text(tempAvg+'° Luzern'); 
+                            $('#luzern-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
                         }
                     } else {
                         $('#luzern-temp-now').text(tempAvg+'° Luzern'); 
                         $('#luzern-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                        $('#luzern-temp-now-mobile').text(tempAvg+'° Luzern'); 
+                        $('#luzern-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
                     }
                 }
                 $('#luzern-temp-' + timeId).text(tempAvg+'°'); 
@@ -275,10 +279,14 @@
                         if (thisHour === "0000") {
                             $('#zug-temp-now').text(tempAvg+'° Zug'); 
                             $('#zug-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                            $('#zug-temp-now-mobile').text(tempAvg+'° Zug'); 
+                            $('#zug-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
                         }
                     } else {
                         $('#zug-temp-now').text(tempAvg+'° Zug'); 
                         $('#zug-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                        $('#zug-temp-now-mobile').text(tempAvg+'° Zug'); 
+                        $('#zug-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
                     }
                 }
                 $('#zug-temp-' + timeId).text(tempAvg+'°'); 
