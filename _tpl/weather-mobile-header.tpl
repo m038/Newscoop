@@ -6,8 +6,8 @@
                                     <img id="luzern-img-now-mobile" src='' class='mn-symbol-small' alt>
                                     <span id="luzern-temp-now-mobile"></span>
 
-                                    <img id="zug-img-now" src='' class='mn-symbol-small' alt>
-                                    <span id="zug-temp-now"></span>
+                                    <img id="zug-img-now-mobile" src='' class='mn-symbol-small' alt>
+                                    <span id="zug-temp-now-mobile"></span>
                             </a>
                         </li>
                     </ul>
