@@ -83,9 +83,9 @@
         <div class="date_picker_wrap">
           {{ $then = "2012-01-01" }}
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
-          {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
+          {{ date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" }}
           
-          {{ daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" }}
+          {{* daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" *}}
         </div>
 
       </aside>
@@ -142,7 +142,7 @@
                   <dt>Type:</dt>
                     <dd>{{ $type }}</dd>
                 *}}
-                  {{ $search_query = "{{ build_solr_fq type=$type }}" }}
+                  {{ $search_query = "{{ build_solr_fq type=$type issue=10 }}" }}
                 {{*
                   <dt>Compiled fq query:</dt>
                     <dd>{{ $search_query }}</p>
