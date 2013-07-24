@@ -151,11 +151,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="?q=*:*+AND+-title:Archive&sort=number+desc&type={{ $getType }}&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">‹</a></li>
+                      <li><a class="button white prev" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=type:blog+AND+type:debatte+AND+type:news+AND+type:newswire+AND+type:dossier&published={{ $getPublished }}&start={{ $prevstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="?q=*:*+AND+-title:Archive&sort=number+desc&type={{ $getType }}&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">›</a></li>
+                      <li><a class="button white next" href="?q=*:*+AND+-title:Archive&sort=number+desc&type=type:blog+AND+type:debatte+AND+type:news+AND+type:newswire+AND+type:dossier&published={{ $getPublished }}&start={{ $nextstart }}&fqfrom={{ $from }}&fqto={{ $to }}#comm-1">›</a></li>
                       {{ /if }}
                     </ul>                 
                   {{ /if }} 
