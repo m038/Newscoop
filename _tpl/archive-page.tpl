@@ -126,6 +126,8 @@
                 {{ $query = $query|escape }}
                 {{ $query = $query$issue}}
 
+                {{ $query }}
+
                 {{*
                 <dt>
                   <dt>GET:</dt>
