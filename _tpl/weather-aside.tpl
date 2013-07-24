@@ -46,7 +46,6 @@
                             <colgroup>
                                 <col width="">
                                 <col width="70">
-                                <col width="110">
                                 <col width="70">
                             </colgroup>
                             <tbody>
