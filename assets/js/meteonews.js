@@ -37,7 +37,7 @@ var meteonews = {
 
     startDate: null,
     endDate: null,
-    cumulation: '1h',
+    cumulation: '3h',
 
     // state vars
     cache: {},
@@ -1083,7 +1083,7 @@ var meteonews = {
         var proxy = this.proxyUrl;
         var url = this.domain + '/' + feed
 
-        meteonews.showLoading();
+        //meteonews.showLoading();
 
         params['lang'] = this.lang;
 
@@ -1095,7 +1095,7 @@ var meteonews = {
         }
 
         if (this.cache[url]) {
-            meteonews.hideLoading();
+            //meteonews.hideLoading();
             cb(this.cache[url]);
         } else {
             $.ajax({
@@ -1103,11 +1103,11 @@ var meteonews = {
                 type: 'get',
                 success: function(response) {
                     meteonews.cache[url] = response
-                    meteonews.hideLoading();
+                    //meteonews.hideLoading();
                     cb(response);
                 },
                 error: function(errorObj, textStatus, errorMsg) {
-                    meteonews.hideLoading();
+                    //meteonews.hideLoading();
                     console.log(JSON.stringify(errorMsg));
                 }
             });
