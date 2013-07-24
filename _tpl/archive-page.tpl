@@ -112,7 +112,7 @@
                   {{ $to = $now }}
                 {{ /if }}
                 
-                {{ build_solr_fq }}
+                {{* build_solr_fq *}}
 
                 <div id="comm-1">
                 {{ list_search_results_solr rows=10 q="*|* AND -title:Archive" sort="number desc" fq="type:blog and type:debatte and type:news and type:newswire and type:dossier" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
