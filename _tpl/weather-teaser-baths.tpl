@@ -4,7 +4,7 @@
         </p>
     </th>
     <td style="text-align: right">
-        <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature }}°
+        <img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }}°/{{ $gimme->weather_location->temperature_min }}°
     </td>
     <td>
         <img src='{{ url static_file="assets/img/"}}icon-water-30.png' class='mn-symbol-small'>
