@@ -104,13 +104,10 @@
                 
                 {{ $from = $smarty.get.fqfrom }}
                 {{ if ($from === null) }}
-                  {{ $from = $now }}
+                  {{ $from = date('Y-01-01') }}
                 {{ /if }}
 
                 {{ $to = $smarty.get.fqto }}
-                {{ if ($to === null) }}
-                  {{ $to = $now }}
-                {{ /if }}
 
                 {{ $query = {{ build_solr_fq fqfrom=$from fqto=$to}} }}
 
