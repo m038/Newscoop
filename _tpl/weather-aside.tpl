@@ -45,7 +45,7 @@
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
-                                <col width="70">
+                                <col width="100">
                                 <col width="70">
                             </colgroup>
                             <tbody>
