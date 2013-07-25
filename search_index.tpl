@@ -56,15 +56,20 @@
 			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
 			{{ foreach $options as $val => $title }}
 				{{ $params['type'] = $val }}
-                        <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
+                    <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
 			{{ /foreach }}
                     </ul>
 
                     <ul class="custom-list tag-list filter-list">
-                        <li{{ if $smarty.get.fqpublished == ""}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</a></li>
-                        <li{{ if $smarty.get.fqpublished == "24h"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=24h">Letzte 24 Stunden</a></li>
-                        <li{{ if $smarty.get.fqpublished == "7d"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=7d">Letzte 7 Tage</a></li>
-                        <li{{ if $smarty.get.fqpublished == "1y"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</a></li>
+
+			{{ $params['type'] = $smarty.get.type }}
+			{{ $active = $smarty.get.published }}
+			{{ $options = ['' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
+			{{ foreach $options as $val => $title }}
+				{{ $params['published'] = $val }}
+                    <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
+			{{ /foreach }}
+
                     </ul>
 
 
