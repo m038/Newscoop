@@ -67,7 +67,7 @@
                         <li{{ if $smarty.get.fqpublished == "1y"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</a></li>
                     </ul>
 
-
+{{*
 					{{ assign var="solrKeyword" value=$smarty.get.q }}
                     <form id="date_range" action="/search?{{ urlparameters }}&{{ $solrKeyword }}" method="post">
                         <div class="formbody">
@@ -87,7 +87,7 @@
                             <input class="button white wide" type="submit" name="submit" value="Suche eingrenzen">
                         </div>
                     </form>
-                
+*}}                
                 </div>
     
                 <div class="main left-thumb article-spacing clearfix">
