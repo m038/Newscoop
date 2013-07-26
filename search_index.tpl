@@ -48,17 +48,83 @@
                         </select>
                     </div>
                     
+                    <!--
+
                 	<ul class="custom-list tag-list filter-list">
                         <h4>Suche eingrenzen</h4>
 
-			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
-			{{ $active = $smarty.get.type }}
-			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
-			{{ foreach $options as $val => $title }}
-				{{ $params['type'] = $val }}
-                    <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
-			{{ /foreach }}
+            			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
+            			{{ $active = $smarty.get.type }}
+            			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
+            			{{ foreach $options as $val => $title }}
+            				{{ $params['type'] = $val }}
+                                <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
+            			{{ /foreach }}
+
                     </ul>
+
+                    -->
+
+
+<ul class="custom-list tag-list filter-list">
+    <h4>Suche eingrenzen</h4>
+
+    <li class="li_all" id="li_all">
+
+    <input class="all_check ui-helper-hidden-accessible" name="all" value="off" type="checkbox" id="filter_all" onchange="show_cuisines();return true;">
+    <label for="filter_all" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
+    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
+    <span class="ui-button-text">All</span>
+
+    </label>
+
+    </li>
+
+    <li class="li_newsticker" id="li_newsticker">
+
+    <input class="newsticker_check ui-helper-hidden-accessible" name="newsticker" value="off" type="checkbox" id="filter_newsticker" onchange="show_cuisines();return true;">
+    <label for="filter_newsticker" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
+    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
+    <span class="ui-button-text">Newsticker</span>
+
+    </label>
+
+    </li>
+
+    <li class="li_dossiers" id="li_dossiers">
+
+    <input class="dossiers_check ui-helper-hidden-accessible" name="dossiers" value="off" type="checkbox" id="filter_dossiers" onchange="show_cuisines();return true;">
+    <label for="filter_dossiers" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
+    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
+    <span class="ui-button-text">Dossiers</span>
+
+    </label>
+
+    </li>
+
+    <li class="li_blogbeitrag" id="li_blogbeitrag">
+
+    <input class="blogbeitrag_check ui-helper-hidden-accessible" name="blogbeitrag" value="off" type="checkbox" id="filter_blogbeitrag" onchange="show_cuisines();return true;">
+    <label for="filter_blogbeitrag" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
+    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
+    <span class="ui-button-text">Blogbeiträg</span>
+
+    </label>
+
+    </li>
+
+    <li class="li_restaurant" id="li_restaurant">
+
+    <input class="restaurant_check ui-helper-hidden-accessible" name="restaurant" value="off" type="checkbox" id="filter_restaurant" onchange="show_cuisines();return true;">
+    <label for="filter_restaurant" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
+    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
+    <span class="ui-button-text">Restaurant</span>
+
+    </label>
+
+    </li>
+
+</ul>
 
                     <ul class="custom-list tag-list filter-list">
 
