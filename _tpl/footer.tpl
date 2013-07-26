@@ -221,4 +221,78 @@
             });
         });
     });
+
+    // initialize weather widget
+    // and request data from meteonews 3h forecast feeds
+    meteonews.init(function() {
+        meteonews.setSymbolsPath('{{ url static_file="assets/img/meteonews/symb/" }}');
+        meteonews.hideLoading();
+
+        var luzernFeed = 'forecasts/geonames/2659810.xml';
+        var zugFeed = 'forecasts/geonames/2657907.xml';
+        var params = [];
+        params.cumulation = "3h";
+        params.begin = meteonews.startDate;
+        params.end = meteonews.startDate;
+        var date = new Date();
+        var thisHour = ('0' + date.getHours()).slice(-2) + '00';
+        date.setHours(date.getHours() +2); 
+        var maxHour = ('0' + date.getHours()).slice(-2) + '00';
+
+        meteonews._send(luzernFeed, params, function(response) {
+            var results = response.forecasts.content.timeperiod;
+            for (var r in results) {
+                var result = results[r];
+                var time = meteonews.formatTime(meteonews.getDateObj(result['@attributes']['end_datetime']));
+                var timeId = time.replace(':', ''); 
+                var tempAvg = result['temp_avg']['@text'];
+                
+                if ((timeId === thisHour) || (timeId < maxHour)){
+                    if (timeId === "0000") {
+                        if (thisHour === "0000") {
+                            $('#luzern-temp-now').text(tempAvg+'° Luzern'); 
+                            $('#luzern-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                            $('#luzern-temp-now-mobile').text(tempAvg+'° Luzern'); 
+                            $('#luzern-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                        }
+                    } else {
+                        $('#luzern-temp-now').text(tempAvg+'° Luzern'); 
+                        $('#luzern-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                        $('#luzern-temp-now-mobile').text(tempAvg+'° Luzern'); 
+                        $('#luzern-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                    }
+                }
+                $('#luzern-temp-' + timeId).text(tempAvg+'°'); 
+                $('#luzern-img-' + timeId).attr('src',meteonews.symbolsPath + result.symb + '.png');
+            } 
+        });
+        meteonews._send(zugFeed, params, function(response) {
+            var results = response.forecasts.content.timeperiod;
+            for (var r in results) {
+                var result = results[r];
+                var time = meteonews.formatTime(meteonews.getDateObj(result['@attributes']['end_datetime']));
+                var timeId = time.replace(':', ''); 
+                var tempAvg = result['temp_avg']['@text'];
+
+                if ((timeId === thisHour) || (timeId < maxHour)){
+                    if (timeId === "0000") {
+                        if (thisHour === "0000") {
+                            $('#zug-temp-now').text(tempAvg+'° Zug'); 
+                            $('#zug-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                            $('#zug-temp-now-mobile').text(tempAvg+'° Zug'); 
+                            $('#zug-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                        }
+                    } else {
+                        $('#zug-temp-now').text(tempAvg+'° Zug'); 
+                        $('#zug-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                        $('#zug-temp-now-mobile').text(tempAvg+'° Zug'); 
+                        $('#zug-img-now-mobile').attr('src',meteonews.symbolsPath + result.symb + '.png');
+                    }
+                }
+                $('#zug-temp-' + timeId).text(tempAvg+'°'); 
+                $('#zug-img-' + timeId).attr('src',meteonews.symbolsPath + result.symb + '.png');
+            } 
+
+        });
+    });
     </script>

@@ -50,47 +50,60 @@
                     
                 	<ul class="custom-list tag-list filter-list">
                         <h4>Suche eingrenzen</h4>
-                    	<li{{ if $smarty.get.fqtype == ""}} class="active"{{ /if }}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Alle</a></li>
-                        <li{{ if $smarty.get.fqtype == "news"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Artikel</a></li>
-                        <li{{ if $smarty.get.fqtype == "newswire"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=newswire{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Newsticker</a></li>                        
-                    	<li{{ if $smarty.get.fqtype == "dossier"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=dossier{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Dossiers</a></li>
-                        <li{{ if $smarty.get.fqtype == "blog"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Blogbeiträge</a></li>
-                        <li{{ if $smarty.get.fqtype == "restaurant"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=restaurant{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Restaurant</a></li>
+
+			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
+			{{ $active = $smarty.get.type }}
+			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
+			{{ foreach $options as $val => $title }}
+				{{ $params['type'] = $val }}
+                    <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
+			{{ /foreach }}
                     </ul>
 
                     <ul class="custom-list tag-list filter-list">
-                        <li{{ if $smarty.get.fqpublished == ""}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</a></li>
-                        <li{{ if $smarty.get.fqpublished == "24h"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=24h">Letzte 24 Stunden</a></li>
-                        <li{{ if $smarty.get.fqpublished == "7d"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=7d">Letzte 7 Tage</a></li>
-                        <li{{ if $smarty.get.fqpublished == "1y"}} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</a></li>
+
+			{{ $params['type'] = $smarty.get.type }}
+			{{ $active = $smarty.get.published }}
+			{{ $options = ['' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
+			{{ foreach $options as $val => $title }}
+				{{ $params['published'] = $val }}
+                    <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
+			{{ /foreach }}
+
                     </ul>
 
-{{*
-					{{ assign var="solrKeyword" value=$smarty.get.q }}
-                    <form id="date_range" action="/search?{{ urlparameters }}&{{ $solrKeyword }}" method="post">
+					{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type] }}
+
+                    <form id="date_range" action="/search?{{ http_build_query($params) }}" method="get">
                         <div class="formbody">
-                            <!-- input type="hidden" name="FORM_SUBMIT" value="je_filter_26" -->
-                            <!-- input type="hidden" name="REQUEST_TOKEN" value=" " -->
+                            <input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
+                            <input type="hidden" name="type" value="{{ $smarty.get.type|escape }}" />
 
                             <div id="datestart">
                               <label for="ctrl_datestart" class="date startdate">Von</label> 
-                              <input type="text" name="from" id="ctrl_datestart" class="datestart" value="" maxlength="10">
+                              <input type="text" name="from" id="ctrl_datestart" class="datestart" placeholder="JJJJ-MM-TT" maxlength="10" />
                             </div>
 
                             <div id="dateend">
                               <label for="ctrl_dateend" class="date enddate">Bis</label> 
-                              <input type="text" name="to" id="ctrl_dateend" class="datestart" value="" maxlength="10">
+                              <input type="text" name="to" id="ctrl_dateend" class="datestart" placeholder="JJJJ-MM-TT" maxlength="10" />
                             </div>
 
-                            <input class="button white wide" type="submit" name="submit" value="Suche eingrenzen">
+                            <input class="button white wide" type="submit" value="Suche eingrenzen">
                         </div>
                     </form>
-*}}                
+                
                 </div>
     
                 <div class="main left-thumb article-spacing clearfix">
 
-{{ list_search_results_solr fq="{{ build_solr_fq }}" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
+                {{ $fqtype = $smarty.get.type }}
+                {{ if !$fqtype }}
+                    {{ $types = ['news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
+                    {{ $fqtype = sprintf('(%s)', implode(' OR ', $types)) }}
+                {{ /if }}
+
+{{ list_search_results_solr fq="{{ build_solr_fq fqpublished=$smarty.get.published fqtype=$fqtype fqfrom=$smarty.get.from fqto=$smarty.get.to }}" qf="title^5 authors^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
                     
                     <article class="search-afix">
                         <h6>{{ if $gimme->article->dateline }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ else }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}</h6>                     
