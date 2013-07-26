@@ -73,7 +73,6 @@
 
     <input class="all_check ui-helper-hidden-accessible" name="all" value="off" type="checkbox" id="filter_all" onchange="show_cuisines();return true;">
     <label for="filter_all" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
     <span class="ui-button-text">All</span>
 
     </label>
@@ -84,7 +83,6 @@
 
     <input class="newsticker_check ui-helper-hidden-accessible" name="newsticker" value="off" type="checkbox" id="filter_newsticker" onchange="show_cuisines();return true;">
     <label for="filter_newsticker" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
     <span class="ui-button-text">Newsticker</span>
 
     </label>
@@ -95,7 +93,6 @@
 
     <input class="dossiers_check ui-helper-hidden-accessible" name="dossiers" value="off" type="checkbox" id="filter_dossiers" onchange="show_cuisines();return true;">
     <label for="filter_dossiers" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
     <span class="ui-button-text">Dossiers</span>
 
     </label>
@@ -106,7 +103,6 @@
 
     <input class="blogbeitrag_check ui-helper-hidden-accessible" name="blogbeitrag" value="off" type="checkbox" id="filter_blogbeitrag" onchange="show_cuisines();return true;">
     <label for="filter_blogbeitrag" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
     <span class="ui-button-text">Blogbeiträg</span>
 
     </label>
@@ -117,7 +113,6 @@
 
     <input class="restaurant_check ui-helper-hidden-accessible" name="restaurant" value="off" type="checkbox" id="filter_restaurant" onchange="show_cuisines();return true;">
     <label for="filter_restaurant" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-icon-primary ui-icon ui-icon-checkbox"></span>
     <span class="ui-button-text">Restaurant</span>
 
     </label>
