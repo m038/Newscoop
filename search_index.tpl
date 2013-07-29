@@ -52,23 +52,35 @@
 			{{ if !$types }}
 				{{ $types = ['news', 'dossier', 'blog'] }} 
 			{{ /if }}
-			{{ if in_array('*', $types) }}
-				{{ $types = ['*', 'news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
+			{{ if in_array('x', $types) }}
+				{{ $types = ['x', 'news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
 			{{ /if }}
 					<form id="searchFilters" action="/search" method="get">
                         			<input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
  					<ul class="custom-list tag-list filter-list">
     				<h4>Suche eingrenzen</h4>
-            			{{ $options = ['*' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
+            			{{ $options = ['x' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
             			{{ foreach $options as $val => $title }}
             			<li class="li_{{ $val }}" id="li_{{ $val }}">
-            				<input{{ if in_array($val, $types) }} checked{{ /if}} class="{{ $val }}_check ui-helper-hidden-accessible" name="type[]" value="{{ $val|escape }}" type="checkbox" id="filter_{{ $val }}" onchange="this.form.submit();">
+            				<input{{ if in_array($val, $types) }} checked{{ /if}} class="{{ $val }}_check ui-helper-hidden-accessible type-check" name="type[]" value="{{ $val|escape }}" type="checkbox" id="filter_{{ $val }}" {{ if $val == 'x' }}onchange="this.form.submit();"{{ /if }}>
             				<label for="filter_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
     <span class="ui-button-text">{{ $title }}</span>
                                </label>
                             </li>
             			{{ /foreach }}
             		</ul>
+
+			<script type="text/javascript">
+			$(function() {
+				var toggleCheckbox = $('.type-check').first();
+				$('.type-check').not(':first').change(function(e) {
+					if (!$(this).prop('checked')) {
+						$(toggleCheckbox).prop('checked', false).change();
+					}
+					$(this).closest('form').submit();
+				});
+			});
+			</script>
 
                     <ul class="custom-list tag-list filter-list">
 
