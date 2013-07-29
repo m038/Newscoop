@@ -65,61 +65,23 @@
 
                     -->
 
-
-<ul class="custom-list tag-list filter-list">
-    <h4>Suche eingrenzen</h4>
-
-    <li class="li_all" id="li_all">
-
-    <input class="all_check ui-helper-hidden-accessible" name="all" value="off" type="checkbox" id="filter_all" onchange="show_cuisines();return true;">
-    <label for="filter_all" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-text">All</span>
-
-    </label>
-
-    </li>
-
-    <li class="li_newsticker" id="li_newsticker">
-
-    <input class="newsticker_check ui-helper-hidden-accessible" name="newsticker" value="off" type="checkbox" id="filter_newsticker" onchange="show_cuisines();return true;">
-    <label for="filter_newsticker" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-text">Newsticker</span>
-
-    </label>
-
-    </li>
-
-    <li class="li_dossiers" id="li_dossiers">
-
-    <input class="dossiers_check ui-helper-hidden-accessible" name="dossiers" value="off" type="checkbox" id="filter_dossiers" onchange="show_cuisines();return true;">
-    <label for="filter_dossiers" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-text">Dossiers</span>
-
-    </label>
-
-    </li>
-
-    <li class="li_blogbeitrag" id="li_blogbeitrag">
-
-    <input class="blogbeitrag_check ui-helper-hidden-accessible" name="blogbeitrag" value="off" type="checkbox" id="filter_blogbeitrag" onchange="show_cuisines();return true;">
-    <label for="filter_blogbeitrag" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-text">Blogbeiträg</span>
-
-    </label>
-
-    </li>
-
-    <li class="li_restaurant" id="li_restaurant">
-
-    <input class="restaurant_check ui-helper-hidden-accessible" name="restaurant" value="off" type="checkbox" id="filter_restaurant" onchange="show_cuisines();return true;">
-    <label for="filter_restaurant" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="all" aria-pressed="false">
-    <span class="ui-button-text">Restaurant</span>
-
-    </label>
-
-    </li>
-
-</ul>
+					<form id="searchFilters" action="/search?{{ http_build_query($params) }}" method="get">
+ 					<ul class="custom-list tag-list filter-list">
+    				<h4>Suche eingrenzen</h4>
+            			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
+            			{{ $active = $smarty.get.type }}
+            			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
+                        <input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
+            			{{ foreach $options as $val => $title }}
+            				{{ $params['type'] = $val }}
+            				<li class="li_{{ $val }}" id="li_{{ $val }}">
+            				   <input{{ if $active == $val }} checked{{ /if}} class="{{ $val }}_check ui-helper-hidden-accessible" name="type" value="{{ $val }}" type="checkbox" id="filter_{{ $val }}" onchange="this.form.submit();">
+            				   <label for="filter_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
+    <span class="ui-button-text">{{ $title }}</span>
+                               </label>
+                            </li>
+            			{{ /foreach }}
+            		</ul>
 
                     <ul class="custom-list tag-list filter-list">
 
@@ -128,10 +90,23 @@
 			{{ $options = ['' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
 			{{ foreach $options as $val => $title }}
 				{{ $params['published'] = $val }}
-                    <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
+				
+				
+            				<li class="li_pub_{{ $val }}" id="li_pub_{{ $val }}">
+            				   <input{{ if $active == $val }} checked{{ /if}} class="pub_{{ $val }}_check ui-helper-hidden-accessible" name="published" value="{{ $val }}" type="checkbox" id="filter_pub_{{ $val }}" onchange="this.form.submit();">
+            				   <label for="filter_pub_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
+    <span class="ui-button-text">{{ $title }}</span>
+                               </label>
+                            </li>				
+				
+				
+				
+                    <!--li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li-->
 			{{ /foreach }}
 
                     </ul>
+
+            		</form>
 
 					{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type] }}
 
@@ -142,12 +117,12 @@
 
                             <div id="datestart">
                               <label for="ctrl_datestart" class="date startdate">Von</label> 
-                              <input type="text" name="from" id="ctrl_datestart" class="datestart" placeholder="JJJJ-MM-TT" maxlength="10" />
+                              <input type="text" name="from" id="ctrl_datestart" class="datestart" {{ if $smarty.get.from }}value="{{ $smarty.get.from }}"{{ else }}placeholder="JJJJ-MM-TT"{{ /if}} maxlength="10" />
                             </div>
 
                             <div id="dateend">
                               <label for="ctrl_dateend" class="date enddate">Bis</label> 
-                              <input type="text" name="to" id="ctrl_dateend" class="datestart" placeholder="JJJJ-MM-TT" maxlength="10" />
+                              <input type="text" name="to" id="ctrl_dateend" class="datestart" {{ if $smarty.get.to }}value="{{ $smarty.get.to }}"{{ else }}placeholder="JJJJ-MM-TT"{{ /if}} maxlength="10" />
                             </div>
 
                             <input class="button white wide" type="submit" value="Suche eingrenzen">
