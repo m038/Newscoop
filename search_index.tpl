@@ -154,19 +154,30 @@
                         <time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeiträge{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                     </article>
                     
-{{ if $gimme->current_list->at_end }}                   
-					{{ $getType=$smarty.get.fqtype }}
-					{{ $getPublished=$smarty.get.fqpublished }}         
+{{ if $gimme->current_list->at_end }}   
+					{{ $types = $smarty.get.type }}         
+					{{ assign var="getTypes" value="&type=" }}       
+					{{ foreach $types as $type name="tipovi" }}
+					{{ if $smarty.foreach.tipovi.last }}
+					{{ assign var="getTypes" value="{{ $getTypes }}"+"&type={{ $type }}" }}
+					{{ else }}
+					{{ assign var="getTypes" value="{{ $getTypes }}"+"&type={{ $type }}"+"&type=" }}
+					{{ /if }}
+				    {{ /foreach }}
+					{{ $getPublished=$smarty.get.published }} 
+					{{ $getFrom=$smarty.get.from }}
+					{{ $getTo=$smarty.get.to }}
+					{{ if $getTo || $getFrom }}{{ $getPublished="" }}{{ /if }}    
                     {{ $curpage=$smarty.get.start/10+1 }}
                     {{ $nextstart=$curpage*10 }}
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="/search?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $prevstart }}">‹</a></li>
+                      <li><a class="button white prev" href="/search?q={{ $smarty.get.q|escape }}{{ $getTypes }}&published={{ $getPublished }}&to={{ $getTo }}&from={{ $getFrom }}&start={{ $prevstart }}">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="/search?q={{ $smarty.get.q|escape }}&type={{ $getType }}&published={{ $getPublished }}&start={{ $nextstart }}">›</a></li>
+                      <li><a class="button white next" href="/search?q={{ $smarty.get.q|escape }}{{ $getTypes }}&published={{ $getPublished }}&to={{ $getTo }}&from={{ $getFrom }}&start={{ $nextstart }}">›</a></li>
                       {{ /if }}
                     </ul>                 
 {{ /if }} 
