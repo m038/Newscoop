@@ -47,30 +47,13 @@
                             <option {{ if $smarty.get.fqpublished == "1y"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</option>
                         </select>
                     </div>
-                    
-                    <!--
-
-                	<ul class="custom-list tag-list filter-list">
-                        <h4>Suche eingrenzen</h4>
-
-            			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
-            			{{ $active = $smarty.get.type }}
-            			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
-            			{{ foreach $options as $val => $title }}
-            				{{ $params['type'] = $val }}
-                                <li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li>
-            			{{ /foreach }}
-
-                    </ul>
-
-                    -->
 
 					<form id="searchFilters" action="/search?{{ http_build_query($params) }}" method="get">
  					<ul class="custom-list tag-list filter-list">
     				<h4>Suche eingrenzen</h4>
             			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
             			{{ $active = $smarty.get.type }}
-            			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträg', 'restaurant' => 'Restaurant'] }}
+            			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
                         <input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
             			{{ foreach $options as $val => $title }}
             				{{ $params['type'] = $val }}
@@ -99,9 +82,6 @@
                                </label>
                             </li>				
 				
-				
-				
-                    <!--li{{ if $active == $val }} class="active"{{ /if}}><a href="{{ url options="root_level" }}search?{{ http_build_query($params) }}">{{ $title }}</a></li-->
 			{{ /foreach }}
 
                     </ul>
