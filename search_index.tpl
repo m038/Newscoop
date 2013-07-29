@@ -48,18 +48,22 @@
                         </select>
                     </div>
 
-					<form id="searchFilters" action="/search?{{ http_build_query($params) }}" method="get">
+			{{ $types = $smarty.get.type }}
+			{{ if !$types }}
+				{{ $types = ['news', 'dossier', 'blog'] }} 
+			{{ /if }}
+			{{ if in_array('*', $types) }}
+				{{ $types = ['*', 'news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
+			{{ /if }}
+					<form id="searchFilters" action="/search" method="get">
+                        			<input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
  					<ul class="custom-list tag-list filter-list">
     				<h4>Suche eingrenzen</h4>
-            			{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type, 'published' => $smarty.get.published] }}
-            			{{ $active = $smarty.get.type }}
-            			{{ $options = ['' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
-                        <input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
+            			{{ $options = ['*' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
             			{{ foreach $options as $val => $title }}
-            				{{ $params['type'] = $val }}
-            				<li class="li_{{ $val }}" id="li_{{ $val }}">
-            				   <input{{ if $active == $val }} checked{{ /if}} class="{{ $val }}_check ui-helper-hidden-accessible" name="type" value="{{ $val }}" type="checkbox" id="filter_{{ $val }}" onchange="this.form.submit();">
-            				   <label for="filter_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
+            			<li class="li_{{ $val }}" id="li_{{ $val }}">
+            				<input{{ if in_array($val, $types) }} checked{{ /if}} class="{{ $val }}_check ui-helper-hidden-accessible" name="type[]" value="{{ $val|escape }}" type="checkbox" id="filter_{{ $val }}" onchange="this.form.submit();">
+            				<label for="filter_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
     <span class="ui-button-text">{{ $title }}</span>
                                </label>
                             </li>
@@ -68,15 +72,12 @@
 
                     <ul class="custom-list tag-list filter-list">
 
-			{{ $params['type'] = $smarty.get.type }}
 			{{ $active = $smarty.get.published }}
-			{{ $options = ['' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
+			{{ $options = ['*' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
 			{{ foreach $options as $val => $title }}
-				{{ $params['published'] = $val }}
-				
 				
             				<li class="li_pub_{{ $val }}" id="li_pub_{{ $val }}">
-            				   <input{{ if $active == $val }} checked{{ /if}} class="pub_{{ $val }}_check ui-helper-hidden-accessible" name="published" value="{{ $val }}" type="checkbox" id="filter_pub_{{ $val }}" onchange="this.form.submit();">
+            				   <input{{ if $active == $val }} checked{{ /if}} class="pub_{{ $val }}_check ui-helper-hidden-accessible" name="published" value="{{ $val }}" type="radio" id="filter_pub_{{ $val }}" onchange="this.form.submit();">
             				   <label for="filter_pub_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
     <span class="ui-button-text">{{ $title }}</span>
                                </label>
@@ -84,16 +85,23 @@
 				
 			{{ /foreach }}
 
+		     {{ if !$smarty.get.published && $smarty.get.from }}
+			<input type="hidden" name="from" value="{{ $smarty.get.from|escape }}" />
+		     {{ /if }}
+		     {{ if !$smarty.get.published && $smarty.get.to }}
+			<input type="hidden" name="to" value="{{ $smarty.get.to|escape }}" />
+		     {{ /if }}
+
                     </ul>
 
             		</form>
 
-					{{ $params = ['q' => $smarty.get.q, 'type' => $smarty.get.type] }}
-
-                    <form id="date_range" action="/search?{{ http_build_query($params) }}" method="get">
+                    <form id="date_range" action="/search" method="get">
                         <div class="formbody">
                             <input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
-                            <input type="hidden" name="type" value="{{ $smarty.get.type|escape }}" />
+				{{ foreach $types as $type }}
+				<input type="hidden" name="type[]" value="{{ $type|escape }}" />
+				{{ /foreach }}
 
                             <div id="datestart">
                               <label for="ctrl_datestart" class="date startdate">Von</label> 
@@ -113,11 +121,7 @@
     
                 <div class="main left-thumb article-spacing clearfix">
 
-                {{ $fqtype = $smarty.get.type }}
-                {{ if !$fqtype }}
-                    {{ $types = ['news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
-                    {{ $fqtype = sprintf('(%s)', implode(' OR ', $types)) }}
-                {{ /if }}
+                {{ $fqtype = sprintf('(%s)', implode(' OR ', $types)) }}
 
 {{ list_search_results_solr fq="{{ build_solr_fq fqpublished=$smarty.get.published fqtype=$fqtype fqfrom=$smarty.get.from fqto=$smarty.get.to }}" qf="title^5 authors^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
                     
