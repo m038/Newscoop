@@ -154,14 +154,13 @@
                         <time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeiträge{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                     </article>
                     
-{{ if $gimme->current_list->at_end }}   
-					{{ $types = $smarty.get.type }}        
-					{{ $getTypes="&type=" }}       
+{{ if $gimme->current_list->at_end }}          
 					{{ foreach $types as $type name="tipovi" }}
-					{{ if $smarty.foreach.tipovi.last }}
-					{{ $getTypes="{{ $getTypes }}&type={{ $type }}" }}
+					{{ if $smarty.foreach.tipovi.first }}
+					{{ $types = $smarty.get.type }}        
+					{{ $getTypes="&type={{ $type }}" }}
 					{{ else }}
-					{{ $getTypes="{{ $getTypes }}&type={{ $type }}&type=" }}
+					{{ $getTypes="{{ $getTypes }}&type={{ $type }}" }}
 					{{ /if }}
 				    {{ /foreach }}
 					{{ $getPublished=$smarty.get.published }} 
