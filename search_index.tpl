@@ -25,7 +25,7 @@
             	<div class="events-aside info-text clearfix">
                 	
                     <div class="box desktop-hide">
-                        <h4>Type</h4>
+                        <h4>Typ</h4>
 
                         <select id="selectboxType" class="dropdownized" onchange="javascript:location.href = this.value;">
                             <option {{ if $smarty.get.fqtype == ""}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Alle</option>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="box desktop-hide" onchange="javascript:location.href = this.value;">
-                        <h4>Time</h4>
+                        <h4>Zeit</h4>
                         <select id="selectboxPublished" class="dropdownized" onchange="javascript:location.href = this.value;">
                             <option {{ if $smarty.get.fqpublished == ""}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</option>
                             <option {{ if $smarty.get.fqpublished == "24h"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=24h">Letzte 24 Stunden</option>
