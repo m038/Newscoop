@@ -155,7 +155,8 @@
                     </article>
                     
 {{ if $gimme->current_list->at_end }}   
-					{{ $types = $smarty.get.type }}         
+					{{ $types = $smarty.get.type }} 
+					<p>Smarty get type: {{ $types }}</p>        
 					{{ assign var="getTypes" value="&type=" }}       
 					{{ foreach $types as $type name="tipovi" }}
 					{{ if $smarty.foreach.tipovi.last }}
