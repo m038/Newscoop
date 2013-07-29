@@ -155,14 +155,13 @@
                     </article>
                     
 {{ if $gimme->current_list->at_end }}   
-					{{ $types = $smarty.get.type }} 
-					<p>Smarty get type: {{ $types }}</p>        
-					{{ assign var="getTypes" value="&type=" }}       
+					{{ $types = $smarty.get.type }}        
+					{{ $getTypes="&type=" }}       
 					{{ foreach $types as $type name="tipovi" }}
 					{{ if $smarty.foreach.tipovi.last }}
-					{{ assign var="getTypes" value="{{ $getTypes }}"+"&type={{ $type }}" }}
+					{{ $getTypes="{{ $getTypes }}&type={{ $type }}" }}
 					{{ else }}
-					{{ assign var="getTypes" value="{{ $getTypes }}"+"&type={{ $type }}"+"&type=" }}
+					{{ $getTypes="{{ $getTypes }}&type={{ $type }}&type=" }}
 					{{ /if }}
 				    {{ /foreach }}
 					{{ $getPublished=$smarty.get.published }} 
