@@ -3389,6 +3389,8 @@ a.button.center.details-more {display:none;}
 		margin-left: 0px !important;
 	}
 
+	.search_results_wrap .search {clear: both; display: block; padding-bottom: 10px;}
+
 	#date_range {width: auto;}
 	#date_range label {width: 20%;}
 	#date_range .button {margin-left: 21%;}
