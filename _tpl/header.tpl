@@ -60,9 +60,14 @@
                 	<div class="mobile-sub">
                         
                     <fieldset class="search">
-                    {{ search_form template="search.tpl" submit_button="Go" }} 
+                    {{* search_form template="search.tpl" submit_button="Go" }} 
                     {{ camp_edit object="search" attribute="keywords" html_code="placeholder=\"Suchbegriff\"" }}
-                    {{ /search_form }} 
+                    {{ /search_form *}}
+                    
+                    {{ form_search_solr id="search" class="desktop-hide" }}
+  					{{ form_text name="q" value=$smarty.get.q placeholder="Suchbegriff" }}
+  					{{ form_submit name="" value="Go" }}
+					{{ /form_search_solr }}      
                     </fieldset>
                         
                         <ul>
@@ -193,9 +198,6 @@
           <h2>{{block page_name}}{{ if $gimme->template->name == "front.tpl" }}<a href="{{ url options="root_level" }}">Aktuell</a>{{ elseif $smarty.get.q }}Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}Ticker{{ elseif $gimme->template->name == "404.tpl" }}Server Error 404{{ elseif $gimme->topic->defined }}Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "2" }}{{ if $gimme->article->type_name == "weather_page" }}<a href="/de/static/pages/11177/">Wetter{{ elseif $gimme->section->defined }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}{{ else }}<a href="{{ url options="issue" }}">Blogs</a>{{ /if }}{{/block}}</h2>
 
                     <fieldset class="search">
-                    {{* search_form template="search.tpl" submit_button="Go" }} 
-                    {{ camp_edit object="search" attribute="keywords" html_code="placeholder=\"Suchbegriff\"" }}
-                    {{ /search_form *}} 
                     
 {{ form_search_solr id="search" class="hidden-phone" }}
   {{ form_text name="q" value=$smarty.get.q placeholder="Suchbegriff" }}

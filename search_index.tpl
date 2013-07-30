@@ -26,14 +26,20 @@
                 	
                     <div class="box desktop-hide">
                         <h4>Typ</h4>
-
                         <select id="selectboxType" class="dropdownized" onchange="javascript:location.href = this.value;">
-                            <option {{ if $smarty.get.fqtype == ""}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Alle</option>
-                            <option {{ if $smarty.get.fqtype == "news"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=news{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">News</option>   
-                            <option {{ if $smarty.get.fqtype == "event"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=newswire{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Newsticker</option>  
-                            <option {{ if $smarty.get.fqtype == "dossier"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=dossier{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Dossiers</option>
-                            <option {{ if $smarty.get.fqtype == "blog"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=blog{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Blogbeiträge</option>
-                            <option {{ if $smarty.get.fqtype == "restaurant"}} selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}&type=restaurant{{ if $smarty.get.fqpublished }}&published={{ $smarty.get.fqpublished|default:''|escape }}{{ /if }}">Restaurant</option>
+			{{ $types = $smarty.get.type }}
+			{{ if !$types }}
+				{{ $types = ['news', 'dossier', 'blog'] }} 
+			{{ /if }}
+			{{ if in_array('x', $types) }}
+				{{ $types = ['x', 'news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
+			{{ /if }}
+			{{ $options = ['x' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
+			
+			{{ foreach $options as $val => $title }}                  
+                            <option{{ if in_array($val, $types) }} selected{{ /if }} value="/search?q={{ $smarty.get.q|escape }}&type[]={{ $val|escape }}{{ if $smarty.get.published }}&published={{ $smarty.get.published|escape }}{{ /if }}">{{ $title }}</option>
+            {{ /foreach }}
+            
                         </select>
 
                     </div>
@@ -41,10 +47,22 @@
                     <div class="box desktop-hide" onchange="javascript:location.href = this.value;">
                         <h4>Zeit</h4>
                         <select id="selectboxPublished" class="dropdownized" onchange="javascript:location.href = this.value;">
-                            <option {{ if $smarty.get.fqpublished == ""}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}">Alle</option>
-                            <option {{ if $smarty.get.fqpublished == "24h"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=24h">Letzte 24 Stunden</option>
-                            <option {{ if $smarty.get.fqpublished == "7d"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=7d">Letzte 7 Tage</option>
-                            <option {{ if $smarty.get.fqpublished == "1y"}}selected{{ /if }} value="{{ url options="root_level" }}search?q={{ $smarty.get.q|default:''|escape }}{{ if $smarty.get.fqtype }}&type={{ $smarty.get.fqtype|default:''|escape }}{{ /if }}&published=1y">Dieses Jahr</option>
+
+					{{ $getTypes="" }}       
+					{{ foreach $types as $type name="tipovi" }}
+					{{ if $smarty.foreach.tipovi.first }}
+					{{ $types = $smarty.get.type }}        
+					{{ $getTypes="&type[]={{ $type }}" }}
+					{{ else }}
+					{{ $getTypes="{{ $getTypes }}&type[]={{ $type }}" }}
+					{{ /if }}
+				    {{ /foreach }}                        
+			{{ $active = $smarty.get.published }}
+			{{ $options = ['*' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
+			{{ foreach $options as $val => $title }}                        
+                          <option{{ if $active == $val }} selected{{ /if }} value="/search?q={{ $smarty.get.q|default:''|escape }}{{ $getTypes }}&published={{ $val }}">{{ $title }}</option>
+			{{ /foreach }}
+
                         </select>
                     </div>
 
@@ -62,7 +80,7 @@
             			{{ $options = ['x' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
             			{{ foreach $options as $val => $title }}
             			<li class="li_{{ $val }}" id="li_{{ $val }}">
-            				<input{{ if in_array($val, $types) }} checked{{ /if}} class="{{ $val }}_check ui-helper-hidden-accessible type-check" name="type[]" value="{{ $val|escape }}" type="checkbox" id="filter_{{ $val }}" {{ if $val == 'x' }}onchange="this.form.submit();"{{ /if }}>
+            				<input{{ if in_array($val, $types) }} checked{{ /if }} class="{{ $val }}_check ui-helper-hidden-accessible type-check" name="type[]" value="{{ $val|escape }}" type="checkbox" id="filter_{{ $val }}" {{ if $val == 'x' }}onchange="this.form.submit();"{{ /if }}>
             				<label for="filter_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
     <span class="ui-button-text">{{ $title }}</span>
                                </label>
@@ -86,10 +104,11 @@
 
 			{{ $active = $smarty.get.published }}
 			{{ $options = ['*' => 'Alle', '24h' => 'Letzte 24 Stunden', '7d' => 'Letzte 7 Tage', '1y' => 'Dieses Jahr'] }}
+			
 			{{ foreach $options as $val => $title }}
 				
             				<li class="li_pub_{{ $val }}" id="li_pub_{{ $val }}">
-            				   <input{{ if $active == $val }} checked{{ /if}} class="pub_{{ $val }}_check ui-helper-hidden-accessible" name="published" value="{{ $val }}" type="radio" id="filter_pub_{{ $val }}" onchange="this.form.submit();">
+            				   <input{{ if $active == $val }} checked{{ /if }} class="pub_{{ $val }}_check ui-helper-hidden-accessible" name="published" value="{{ $val }}" type="radio" id="filter_pub_{{ $val }}" onchange="this.form.submit();">
             				   <label for="filter_pub_{{ $val }}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" aria-disabled="false" title="{{ $val }}" aria-pressed="false">
     <span class="ui-button-text">{{ $title }}</span>
                                </label>
