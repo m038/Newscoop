@@ -154,13 +154,14 @@
                         <time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeiträge{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                     </article>
                     
-{{ if $gimme->current_list->at_end }}          
+{{ if $gimme->current_list->at_end }}   
+					{{ $getTypes="" }}       
 					{{ foreach $types as $type name="tipovi" }}
 					{{ if $smarty.foreach.tipovi.first }}
 					{{ $types = $smarty.get.type }}        
-					{{ $getTypes="&type={{ $type }}" }}
+					{{ $getTypes="&type[]={{ $type }}" }}
 					{{ else }}
-					{{ $getTypes="{{ $getTypes }}&type={{ $type }}" }}
+					{{ $getTypes="{{ $getTypes }}&type[]={{ $type }}" }}
 					{{ /if }}
 				    {{ /foreach }}
 					{{ $getPublished=$smarty.get.published }} 
@@ -172,11 +173,11 @@
                     {{ $prevstart=($curpage-2)*10 }}
                     <ul class="paging center top-line">
                       {{ if $curpage gt 1 }}
-                      <li><a class="button white prev" href="/search?q={{ $smarty.get.q|escape }}{{ $getTypes }}&published={{ $getPublished }}&to={{ $getTo }}&from={{ $getFrom }}&start={{ $prevstart }}">‹</a></li>
+                      <li><a class="button white prev" href="/search?q={{ $smarty.get.q|escape }}{{ $getTypes }}{{ if $getPublished }}&published={{ $getPublished }}{{ /if }}{{ if $getTo }}&to={{ $getTo }}{{ /if }}{{ if $getFrom }}&from={{ $getFrom }}{{ /if }}&start={{ $prevstart }}">‹</a></li>
                       {{ /if }}
                       <li class="caption">{{ $curpage }} von {{ ceil($gimme->current_list->count / 10) }}</li>
                       {{ if $gimme->current_list->has_next_elements }}
-                      <li><a class="button white next" href="/search?q={{ $smarty.get.q|escape }}{{ $getTypes }}&published={{ $getPublished }}&to={{ $getTo }}&from={{ $getFrom }}&start={{ $nextstart }}">›</a></li>
+                      <li><a class="button white next" href="/search?q={{ $smarty.get.q|escape }}{{ $getTypes }}{{ if $getPublished }}&published={{ $getPublished }}{{ /if }}{{ if $getTo }}&to={{ $getTo }}{{ /if }}{{ if $getFrom }}&from={{ $getFrom }}{{ /if }}&start={{ $nextstart }}">›</a></li>
                       {{ /if }}
                     </ul>                 
 {{ /if }} 
