@@ -22,7 +22,7 @@
         
         	<div class="content no-bottom-line equal-heights clearfix">
             
-            	<div class="events-aside info-text clearfix">
+            	<div class="events-aside info-text search_filters clearfix">
 
 {{*                	
                     <div class="box desktop-hide">
