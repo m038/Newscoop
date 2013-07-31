@@ -20,7 +20,7 @@
  
 {{ assign var="condition" value="Front is on" }}
 
-{{ list_articles length="1" ignore_issue="true" ignore_section="true" constraints="section is 200 type is editor_message $condition active is on" }}
+{{ list_articles length="1" ignore_issue="true" ignore_section="true" constraints="section is 202 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
               <div class="box">                   
                   <h4 class="box-title icon-cross">In eigener Sache</h4>
