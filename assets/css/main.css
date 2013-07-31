@@ -3389,7 +3389,7 @@ a.button.center.details-more {display:none;}
 		margin-left: 0px !important;
 	}
 
-	.search_results_wrap .search {clear: both; display: block; padding-bottom: 10px;}
+	.search_results_wrap .search {clear: both; display: block; padding-bottom: 10px; width: 100% !important;}
 
 	#date_range {width: auto;}
 	#date_range label {width: 20%;}
