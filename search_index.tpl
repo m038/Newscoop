@@ -70,10 +70,10 @@
 
 			{{ $types = $smarty.get.type }}
 			{{ if !$types }}
-				{{ $types = ['news', 'dossier', 'blog'] }} 
+				{{ $types = ['news', 'dossier', 'blog', 'static_page'] }} 
 			{{ /if }}
 			{{ if in_array('x', $types) }}
-				{{ $types = ['x', 'news', 'newswire', 'dossier', 'blog', 'restaurant'] }}
+				{{ $types = ['x', 'news', 'newswire', 'dossier', 'blog', 'restaurant', 'static_page'] }}
 			{{ /if }}
 					<form id="searchFilters" action="/search" method="get">
                         			<input type="hidden" name="q" value="{{ $smarty.get.q|escape }}" />
