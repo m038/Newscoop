@@ -2438,6 +2438,10 @@ a.button.center.details-more {display:none;}
 	
 	.events-aside .custom-list,
 	.events-aside.info-text > h4 {display:none;}
+
+	.search_filters .custom-list {display:block;}
+	.search_filters .custom-list li {display: inline-block; width: 100%; max-width: 138px;}
+
 	.events-aside.info-text a.button {float:right; width:200px; margin-bottom:0;}
 	.events-aside.info-text .box {width:50%;}
 		.events-aside.info-text .box h4 {width:auto; margin-right:10px;}
@@ -3384,6 +3388,8 @@ a.button.center.details-more {display:none;}
 	.search_results_wrap p {
 		margin-left: 0px !important;
 	}
+
+	.search_results_wrap .search {clear: both; display: block; padding-bottom: 10px; width: 100% !important;}
 
 	#date_range {width: auto;}
 	#date_range label {width: 20%;}
