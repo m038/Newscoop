@@ -31,7 +31,7 @@
               <div class="box">
 
 {{ assign var="secname" value=$gimme->section->name }}
-{{ assign var="condition" value="$secname is on" }}
+{{ assign var="condition" value="{{ $secname }} is on" }}
 
 {{ list_articles ignore_issue="true" ignore_section="true" constraints="section is 202 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
