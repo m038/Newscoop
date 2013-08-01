@@ -30,10 +30,10 @@
                         <select id="selectboxType" class="dropdownized" onchange="javascript:location.href = this.value;">
 			{{ $types = $smarty.get.type }}
 			{{ if !$types }}
-				{{ $types = ['news', 'dossier', 'blog', 'Static_page'] }} 
+				{{ $types = ['news', 'dossier', 'blog', 'static_page'] }} 
 			{{ /if }}
 			{{ if in_array('x', $types) }}
-				{{ $types = ['x', 'news', 'newswire', 'dossier', 'blog', 'restaurant', 'Static_page'] }}
+				{{ $types = ['x', 'news', 'newswire', 'dossier', 'blog', 'restaurant', 'static_page'] }}
 			{{ /if }}
 			{{ $options = ['x' => 'Alle', 'news' => 'Artikel', 'newswire' => 'Newsticker', 'dossier' => 'Dossiers', 'blog' => 'Blogbeiträge', 'restaurant' => 'Restaurants'] }}
 			
