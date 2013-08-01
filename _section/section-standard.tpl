@@ -33,7 +33,7 @@
 {{ assign var="secname" value=$gimme->section->name }}
 {{ assign var="condition" value="{{ $secname }} is on" }}
 
-{{ list_articles ignore_issue="true" ignore_section="true" constraints="section is 202 type is editor_message $condition active is on" }}
+{{ list_articles ignore_issue="true" ignore_section="true" constraints="issue is 10 section is 202 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
               <div class="box">                   
                   <h4 class="box-title icon-cross"><a href="#">In eigener Sache</a></h4>
