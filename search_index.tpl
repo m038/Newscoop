@@ -14,6 +14,9 @@
                     <p>Suchresultate für</p>
                     <fieldset class="search">
                     {{ form_search_solr class="hidden-phone" }}
+                      {{ foreach $smarty.get.type as $type }} 
+    					 <input type="hidden" name="type[]" value="{{ $type|escape }}"> 
+					  {{ /foreach }}
                       {{ form_text name="q" value=$smarty.get.q placeholder="{{ $smarty.get.q|default:''|escape }}" }}
                       {{ form_submit name="" value="Go" }}
                     {{ /form_search_solr }}

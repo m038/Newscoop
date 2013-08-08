@@ -59,12 +59,11 @@
                 	<a href="#">Menu</a>
                 	<div class="mobile-sub">
                         
-                    <fieldset class="search">
-                    {{* search_form template="search.tpl" submit_button="Go" }} 
-                    {{ camp_edit object="search" attribute="keywords" html_code="placeholder=\"Suchbegriff\"" }}
-                    {{ /search_form *}}
-                    
+                    <fieldset class="search">                   
                     {{ form_search_solr id="search" class="desktop-hide" }}
+                    {{ foreach $smarty.get.type as $type }} 
+    					 <input type="hidden" name="type[]" value="{{ $type|escape }}"> 
+					{{ /foreach }}
   					{{ form_text name="q" value=$smarty.get.q placeholder="Suchbegriff" }}
   					{{ form_submit name="" value="Go" }}
 					{{ /form_search_solr }}      
@@ -200,6 +199,9 @@
                     <fieldset class="search">
                     
 {{ form_search_solr id="search" class="hidden-phone" }}
+  {{ foreach $smarty.get.type as $type }} 
+  	  <input type="hidden" name="type[]" value="{{ $type|escape }}"> 
+  {{ /foreach }}
   {{ form_text name="q" value=$smarty.get.q placeholder="Suchbegriff" }}
   {{ form_submit name="" value="Go" }}
 {{ /form_search_solr }}                    
