@@ -141,12 +141,12 @@
 
                             <div id="datestart">
                               <label for="ctrl_datestart" class="date startdate">Von</label> 
-                              <input type="text" name="from" id="ctrl_datestart" class="datestart" {{ if $smarty.get.from }}value="{{ $smarty.get.from }}"{{ else }}placeholder="TT-MM-JJJJ"{{ /if}} maxlength="10" />
+                              <input type="text" name="from" id="ctrl_datestart" class="datestart" {{ if $smarty.get.from }}value="{{ $smarty.get.from }}"{{ else }}placeholder="TT.MM.JJJJ"{{ /if}} maxlength="10" />
                             </div>
 
                             <div id="dateend">
                               <label for="ctrl_dateend" class="date enddate">Bis</label> 
-                              <input type="text" name="to" id="ctrl_dateend" class="datestart" {{ if $smarty.get.to }}value="{{ $smarty.get.to }}"{{ else }}placeholder="TT-MM-JJJJ"{{ /if}} maxlength="10" />
+                              <input type="text" name="to" id="ctrl_dateend" class="datestart" {{ if $smarty.get.to }}value="{{ $smarty.get.to }}"{{ else }}placeholder="TT.MM.JJJJ"{{ /if}} maxlength="10" />
                             </div>
 
                             <input class="button white wide" type="submit" value="Suche eingrenzen">
