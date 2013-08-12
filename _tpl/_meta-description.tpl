@@ -59,7 +59,7 @@
 
     {{ elseif $gimme->article->defined }}    
     
-      {{ if $gimme->article->type_name == "static_page" && ($gimme->article->SEO_description|strip_tags|escape:'html'|trim != "") }}    
+      {{ if ($gimme->article->type_name == "static_page" || $gimme->article->type_name == "archive") && ($gimme->article->SEO_description|strip_tags|escape:'html'|trim != "") }}    
         {{ $gimme->article->SEO_description|strip_tags|escape:'html'|trim }}
     		{{ elseif $gimme->article->lede|strip_tags:false !== "" }}
     			{{ $gimme->article->lede|strip_tags|escape:'html'|trim }}

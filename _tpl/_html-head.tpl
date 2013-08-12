@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>{{ strip }}zentral+{{ if !$gimme->article->defined }}&nbsp;|&nbsp;Das unabhängige Online-Magazin der Zentralschweiz{{ /if }}
-    {{ if $gimme->article->defined }}&nbsp;|&nbsp;{{ $gimme->article->name|escape:'html'|trim }}
+    {{ if $gimme->article->defined }}&nbsp;|&nbsp;{{ if $gimme->article->name == "Archiv" }}{{ include file="_tpl/archive-date.tpl" }}{{ else }}{{ $gimme->article->name|escape:'html'|trim }}{{ /if }}
 	 {{ elseif $gimme->section->defined }}
     &nbsp;|&nbsp;{{ $gimme->section->name|escape:'html'|trim }}    
     {{ elseif $gimme->template->name == "search.tpl" }}&nbsp;|&nbsp;Suchergebnisse{{ elseif $gimme->template->name == "ticker.tpl" }}&nbsp;|&nbsp;Ticker{{ elseif $gimme->topic->defined }}&nbsp;|&nbsp;Thema: {{ $gimme->topic->name }}{{ elseif $gimme->publication->identifier == "4" }}&nbsp;|&nbsp;Blogs{{ /if }} 
