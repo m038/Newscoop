@@ -423,8 +423,14 @@ if ($('.daterange-archive')[0]){
 			$('#archive_list > ol > li h2').each(function(){
 				if (this.innerHTML === yearInt){
 					$(this).parent().show();
+				} else {
+					$(this).parent().hide();
 				}
 			});
+		}
+		console.log(searchUrl);
+		if (searchUrl === "" || searchUrl === undefined || searchUrl === null) {
+			$('#archive_list > ol > li h2').last().parent().show();
 		}
 	});
 
