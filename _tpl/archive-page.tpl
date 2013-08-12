@@ -84,7 +84,7 @@
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
           {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
           
-          {{ daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" }}
+          {{* daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" *}}
         </div>
 
       </aside>
@@ -101,14 +101,15 @@
               <div class="tab-content">
 
                 
-                {{ $from = $smarty.get.fqfrom }}
+                {{ $fromDate = $smarty.get.fqfrom|camp_date_format:"%Y-%m-%d" }}
                 {{ if ($from === null) }}
                   {{ $from = date('Y-01-01') }}
                 {{ /if }}
 
-                {{ $to = $smarty.get.fqto }}
+                {{ $toDate = $smarty.get.fqto|camp_date_format:"%Y-%m-%d" }}
+                {{ if !$smarty.get.fqto }}{{ assign var="toDate" value=$smarty.now|camp_date_format:"%Y-%m-%d" }}{{ /if }}
 
-                {{ $query = {{ build_solr_fq fqfrom=$from fqto=$to}} }}
+                {{ $query = {{ build_solr_fq fqfrom=$fromDate fqto=$toDate }} }}
 
                 <div id="comm-1">
                 {{ list_search_results_solr rows=10 q="*:*" sort="number desc" fq="$query AND type:(blog OR debatte OR news OR dossier)" qf="title^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" start=$smarty.get.start }}
