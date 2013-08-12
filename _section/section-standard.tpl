@@ -31,12 +31,12 @@
               <div class="box">
 
 {{ assign var="secname" value=$gimme->section->name }}
-{{ assign var="condition" value="$secname is on" }}
+{{ assign var="condition" value="{{ $secname }} is on" }}
 
-{{ list_articles ignore_issue="true" ignore_section="true" constraints="section is 202 type is editor_message $condition active is on" }}
+{{ list_articles ignore_issue="true" ignore_section="true" constraints="issue is 10 section is 202 type is editor_message activated is on" }}
                {{ if $gimme->current_list->at_beginning }}
               <div class="box">                   
-                  <h4 class="box-title icon-cross"><a href="#">In eigener Sache</a></h4>
+                  <h4 class="box-title icon-cross">In eigener Sache</h4>
                   {{ /if }}         
                     <article>
                       <h3>{{ if $gimme->article->body|strip !== "" }}<a href="{{ url options="article" }}">{{ $gimme->article->name }}</a>{{ else }}{{ $gimme->article->name }}{{ /if }}</h3>

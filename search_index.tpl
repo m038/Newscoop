@@ -14,6 +14,9 @@
                     <p>Suchresultate für</p>
                     <fieldset class="search">
                     {{ form_search_solr class="hidden-phone" }}
+                      {{ foreach $smarty.get.type as $type }} 
+    					 <input type="hidden" name="type[]" value="{{ $type|escape }}"> 
+					  {{ /foreach }}
                       {{ form_text name="q" value=$smarty.get.q placeholder="{{ $smarty.get.q|default:''|escape }}" }}
                       {{ form_submit name="" value="Go" }}
                     {{ /form_search_solr }}
@@ -138,12 +141,12 @@
 
                             <div id="datestart">
                               <label for="ctrl_datestart" class="date startdate">Von</label> 
-                              <input type="text" name="from" id="ctrl_datestart" class="datestart" {{ if $smarty.get.from }}value="{{ $smarty.get.from }}"{{ else }}placeholder="JJJJ-MM-TT"{{ /if}} maxlength="10" />
+                              <input type="text" name="from" id="ctrl_datestart" class="datestart" {{ if $smarty.get.from }}value="{{ $smarty.get.from }}"{{ else }}placeholder="TT.MM.JJJJ"{{ /if}} maxlength="10" />
                             </div>
 
                             <div id="dateend">
                               <label for="ctrl_dateend" class="date enddate">Bis</label> 
-                              <input type="text" name="to" id="ctrl_dateend" class="datestart" {{ if $smarty.get.to }}value="{{ $smarty.get.to }}"{{ else }}placeholder="JJJJ-MM-TT"{{ /if}} maxlength="10" />
+                              <input type="text" name="to" id="ctrl_dateend" class="datestart" {{ if $smarty.get.to }}value="{{ $smarty.get.to }}"{{ else }}placeholder="TT.MM.JJJJ"{{ /if}} maxlength="10" />
                             </div>
 
                             <input class="button white wide" type="submit" value="Suche eingrenzen">
@@ -156,7 +159,7 @@
 
                 {{ $fqtype = sprintf('(%s)', implode(' OR ', $types)) }}
 
-{{ list_search_results_solr fq="{{ build_solr_fq fqpublished=$smarty.get.published fqtype=$fqtype fqfrom=$smarty.get.from fqto=$smarty.get.to }}" qf="title^4.9 authors^4.9 town^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
+{{ list_search_results_solr fq="{{ build_solr_fq fqdateformat="d.m.Y" fqpublished=$smarty.get.published fqtype=$fqtype fqfrom=$smarty.get.from fqto=$smarty.get.to }}" qf="title^4.9 authors^4.9 town^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
                     
                     <article class="search-afix">
                         <h6>{{ if $gimme->article->dateline }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ else }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}</h6>                     
@@ -172,7 +175,7 @@
                         <h3><a href="{{ url options="article" }}">{{ if $gimme->article->type_name == "restaurant" }}{{ $gimme->article->headline|replace:'\\\'':'\'' }}{{ else }}{{ $gimme->article->name }}{{ /if }}</a></h3>
                         <p>{{ include file="_tpl/_admin-edit.tpl" }}{{ if $gimme->article->lede|strip_tags:false }}{{ $gimme->article->lede|strip_tags:false }}{{ elseif $gimme->article->body|strip_tags:false }}{{ $gimme->article->body|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ $gimme->article->dataContent|strip_tags:false|truncate:200 }}{{ elseif $gimme->article->infolong }}{{ $gimme->article->infolong }}{{ elseif $gimme->article->teaser }}{{ $gimme->article->teaser|truncate:200 }}{{ elseif $gimme->article->description }}{{ $gimme->article->description|truncate:200 }}{{ elseif $gimme->article->other }}{{ $gimme->article->other }}{{ /if }} <br />
                         </p>
-                        {{ if $gimme->article->type_name !== "restaurant" }}<time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeiträge{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>{{ /if }}
+                        {{ if ($gimme->article->type_name == "restaurant") || ($gimme->article->type_name == "static_page") }}{{ else }}<time>{{ if $gimme->article->type_name == "newswire" }}Von Swiss txt{{ elseif $gimme->article->type_name == "blog" }}Blogbeiträge{{ elseif $gimme->article->type_name == "dossier" }}Dossier{{ else }}Artikel{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>{{ /if }}
                     </article>
                     
 {{ if $gimme->current_list->at_end }}   
