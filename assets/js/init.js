@@ -428,7 +428,6 @@ if ($('.daterange-archive')[0]){
 				}
 			});
 		}
-		console.log(searchUrl);
 		if (searchUrl === "" || searchUrl === undefined || searchUrl === null) {
 			$('#archive_list > ol > li h2').last().parent().show();
 		}
