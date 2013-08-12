@@ -406,12 +406,28 @@ if ($('.daterange-archive')[0]){
 		}
 	});
 
+	// only show this year's months
+	$('#archive_list > ol > li').hide();
+
 	$('.year-list ol li').each(function(){
 		if ($(this).find('a').attr('href') === searchUrl){
 			$(this).parent().find('.active').removeClass('active');
 			$(this).addClass('active');
+			var yearInt = searchUrl;
+			yearInt = yearInt.replace('&','');
+			yearInt = yearInt.replace('?','');
+			yearInt = yearInt.replace('fqfrom=','');
+			yearInt = yearInt.replace('fqto=','');
+			yearInt = yearInt.split('-');
+			yearInt = yearInt[0];
+			$('#archive_list > ol > li h2').each(function(){
+				if (this.innerHTML === yearInt){
+					$(this).parent().show();
+				}
+			});
 		}
 	});
+
 
 	$('.daterange-archive').find('h3').append('<span />');
 	$('.daterange-archive').find('h3').find('span').bind('click', function(){
@@ -438,4 +454,5 @@ if ($('.daterange-archive')[0]){
 			$('.daterange-archive .tab-nav').find('li').first().addClass('ui-tabs-active ui-state-active');
 		}
 	}
+
 }
