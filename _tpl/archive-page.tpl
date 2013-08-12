@@ -73,7 +73,7 @@
             {{ $now = $smarty.now|camp_date_format:"%Y" }}
             {{ $now = $now + 1 }}
             {{ while $year < $now }}
-              <li{{ if $year === ($now - 1) }} class="active"{{ /if }}><a href="?fqfrom={{ $year }}-01-01&fqto={{ $year }}-12-31">{{ $year }}</a></li>
+              <li{{ if $smarty.get.fqfrom|camp_date_format:"%Y" == $year }} class="active"{{ /if }}><a href="?fqfrom={{ $year }}-01-01&fqto={{ $year }}-12-31">{{ $year }}</a></li>
               {{ $year = $year + 1 }}
             {{ /while }}
           </span>
@@ -83,7 +83,7 @@
         <div class="date_picker_wrap">
           {{ $then = "2012-01-01" }}
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
-          {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
+          {{ date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" }}
           
           {{ daterange_calendar_html rangestart="$then" rangeend="$now" rangeformatmonth="MMMM" rangeformatday="dd" locale="de-CH" }}
         </div>
