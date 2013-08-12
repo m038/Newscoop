@@ -1,6 +1,7 @@
                 <div class="box{{ if !($gimme->template->name == "front.tpl") }} bottom-line{{ /if }}"> 
                 
                   <h4 class="box-title"><img src="{{ uri static_file="pictures/title-icons/globe.png" }}" alt="" />Ticker</h4>
+                  {{ dynamic }}
                     <div class="slideshow clearfix">
                       
                       {{ assign var="columnsNo" value=5 }}
@@ -50,5 +51,6 @@
 
                       <a href="{{ url options="template ticker.tpl" }}{{ if $gimme->default_section->defined }}&sec={{ $gimme->default_section->name }}{{ /if }}" class="button white right">Alle News</a>
                     </div>
+                    {{ /dynamic }}
                 
                 </div>
