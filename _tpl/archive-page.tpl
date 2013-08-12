@@ -71,8 +71,7 @@
             {{ $launch = 2012}}
             {{ $year = $launch }}
             {{ $now = $smarty.now|camp_date_format:"%Y" }}
-            {{ $now = $now + 1 }}
-            {{ while $year < $now }}
+            {{ while $year <= $now }}
               <li{{ if $smarty.get.fqfrom|camp_date_format:"%Y" == $year }} class="active"{{ /if }}><a href="?fqfrom={{ $year }}-01-01&fqto={{ $year }}-12-31">{{ $year }}</a></li>
               {{ $year = $year + 1 }}
             {{ /while }}
