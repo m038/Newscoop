@@ -736,8 +736,8 @@ small {
 			background:#e5e5e5;
 			}
 			.inline-box.left {margin:0 15px 15px 0;}
-			.inline-box.right {margin:0 0 15px 15px;}
-			.inline-box.top {position:relative; z-index:5; margin:-105px 15px 14px 15px;}
+			.inline-box.right {margin:18px 0 15px 15px;}
+			.inline-box.top {position:relative; z-index:5; margin:-105px 15px 5px 15px;}
 			
 			.inline-box h6,
 			.inline-box h3 {text-align:center !important;}
