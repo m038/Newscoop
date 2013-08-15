@@ -102,8 +102,8 @@
 
                 
                 {{ $fromDate = $smarty.get.fqfrom|camp_date_format:"%Y-%m-%d" }}
-                {{ if ($from === null) }}
-                  {{ $from = date('Y-01-01') }}
+                {{ if ($fromDate === null) }}
+                  {{ $fromDate = date('Y-01-01') }}
                 {{ /if }}
 
                 {{ $toDate = $smarty.get.fqto|camp_date_format:"%Y-%m-%d" }}
