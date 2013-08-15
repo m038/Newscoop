@@ -106,8 +106,6 @@
 
                 {{ $toDate = $smarty.get.fqto|camp_date_format:"%Y-%m-%d" }}
                 {{ if !$smarty.get.fqto }}{{ assign var="toDate" value=$smarty.now|camp_date_format:"%Y-%m-%d" }}{{ /if }}
-                <p>$fromDate: {{ $fromDate }}</p>
-                <p>$toDate: {{ $toDate }}</p>
 
                 {{ $query = {{ build_solr_fq fqfrom=$fromDate fqto=$toDate }} }}
 
