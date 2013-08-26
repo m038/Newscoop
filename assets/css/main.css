@@ -2291,7 +2291,10 @@ a.button.center.details-more {display:none;}
 = Mobile devices
 -------------------------------------------------------------------------------------- */
 @media screen and (max-width: 1100px) {
-	
+
+	.phone-tabs article small {text-align: center !important; margin-bottom: 10px}
+		
+	.tablet-hide {display:none;}
 	.desktop-hide {display:block;}
 	.mobile-hide {display:none;}
 	
@@ -2519,6 +2522,10 @@ a.button.center.details-more {display:none;}
 	#date_range label { display: inline-block; width:20%; text-align: left;}
 	#date_range input {width: 70%;}	
 }
+
+@media screen and (min-width: 768px) and  {
+	
+} 	
 
 @media screen and (max-width: 767px) {
 	
@@ -3302,6 +3309,8 @@ a.button.center.details-more {display:none;}
 	.phone-tabs {margin-bottom:20px;}
 		.phone-tabs .two-columns {margin:0;}
 		.phone-tab-content article {padding-top:10px !important;}
+	
+		.phone-tabs article small {text-align: center !important; display: block; margin-bottom: 10px}
 	
 	.gallery-slider {margin-bottom:0;}
 	

@@ -4,14 +4,15 @@
                       <li><a href="#phone-tab-1">Meistgelesen</a></li>
                       <li><a href="#phone-tab-2">Meistkommentiert</a></li>
                     </ul>
-
+					
               <div class="two-columns margin-bottom clearfix equal-heights phone-tab-content">
                 
 {{ assign var="mydate" value=strtotime('-14 days') }} 
 {{ $mydate=$mydate|date_format:'%Y-%m-%d' }} 
 
                   <article id="phone-tab-1">
-                      <h4>Meistgelesen</h4>
+                  	  <small class="phone-show desktop-hide tablet-hide">in den letzten 14 Tagen</small>
+                      <h4>Meistgelesen in den letzten 14 Tagen</h4>
                         <ol class="short-list">
   {{*** Changes introduced according to ticket MOTM-549 - only one post per blog to appear in most read list ***}}
   {{ $mostReadArticles = array() }}
@@ -31,7 +32,8 @@
                     </article>
                     
                     <article id="phone-tab-2">
-                      <h4>Meistkommentiert</h4>
+                      <small class="phone-show desktop-hide tablet-hide">in den letzten 14 Tagen</small>
+                      <h4>Meistkommentiert in den letzten 14 Tagen</h4>
                       <ol class="short-list">
                       {{ assign var="i" value=0 }}
                      {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bycomments desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message type not newswire publish_date greater_equal $mydate" }}
