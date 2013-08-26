@@ -15,12 +15,10 @@
 {{ include file="_tpl/front-top-stories.tpl" }}
                                        
             <div class="aside">
-            
-              <div class="box">
  
 {{ assign var="condition" value="Front is on" }}
 
-{{ list_articles length="1" ignore_issue="true" ignore_section="true" constraints="section is 202 type is editor_message $condition activated is on" }}
+{{ list_articles length="1" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="section is 200 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
               <div class="box">                   
                   <h4 class="box-title icon-cross">In eigener Sache</h4>
@@ -39,8 +37,6 @@
   {{ include file="_tpl/sidebar-comment.tpl" }}
     {{ assign var="noshow" value=1 scope="global" }}
 {{ /if }}
-                
-                </div>
 
 {{ include file="_tpl/sidebar-ticker.tpl" }} 
 
