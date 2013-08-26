@@ -38,25 +38,38 @@
 
                     {{ include file="_tpl/_admin-edit.tpl" }}
 
-{{ if $gimme->article->greybox|strip !== "" && $showStaff }}                    
-{{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
-{{ if empty($bodyAry[1]) }}
-{{ $bodyAry=explode("</p>", $gimme->article->body, 2) }}
-{{ $bodyAryP=true }}
-{{ /if }}
-                     
-{{ $bodyAry[0] }}</p>
+{{ if $gimme->article->greybox|strip !== "" && $showStaff }} 
 
+	{{* if greybox is defined, check if shortcode is inserted in body field (exploding and testing if second part of the text is defined; if it is, it means that shortcode '[box]' was found) *}}
+	
+	{{ $boxCheck=explode("[box]", $gimme->article->body, 2) }}
+	{{ if empty($boxCheck[1]) }}
+	          
+		{{ $bodyAry=explode("<br />", $gimme->article->body, 2) }}
+		{{ if empty($bodyAry[1]) }}
+			{{ $bodyAry=explode("</p>", $gimme->article->body, 2) }}
+			{{ $bodyAryP=true }}
+		{{ /if }}
+		{{ $bodyAry[0] }}</p>
                     <div class="inline-box right">
                         <h3>{{ if $gimme->article->greybox_title }}{{ $gimme->article->greybox_title }}{{ /if }}</h3>
                         {{ $gimme->article->greybox }}
-                    </div>
-{{ if empty($bodyAryP) }}<p>{{ /if }}{{ $bodyAry[1] }}                     
+                    </div>		
+		{{ if empty($bodyAryP) }}
+			<p>
+		{{ /if }}
+		{{ $bodyAry[1] }}
 
-{{ else }}
-{{ $gimme->article->body }}
-{{ /if }} 
-						  {{ if $showStaff }}  
+	{{ else }}
+
+		{{* now - if '[box]' is found, then do the replacement *}}
+		{{ $gimme->article->body|replace:"[box]":"<div class='inline-box right'><h3>{{ if $gimme->article->greybox_title }}{{ $gimme->article->greybox_title }}{{ /if }}</h3>{{ $gimme->article->greybox }}</div><p>" }}
+
+	{{ /if }} 
+ {{ else }}
+ 	{{ $gimme->article->body }}
+ {{ /if }}
+	{{ if $showStaff }}  
 						  {{ include file="_tpl/article-slideshow.tpl" }}   
 						  {{ /if }}                       
                     
