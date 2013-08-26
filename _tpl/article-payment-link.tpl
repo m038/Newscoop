@@ -15,7 +15,7 @@
         </div>
                 
         <div class="box bottom-line centered-list">
-          <p><a id="micropayment_button" class="icon-heart">Spenden an zentral+</a></p>
+          <p><a id="micropayment_button" class="icon-heart">Unterstützen Sie zentral+</a></p>
         </div>   
 
     </div>
