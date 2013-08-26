@@ -31,6 +31,15 @@
     <link rel="stylesheet" href="{{ url static_file="assets/css/jquery.fancybox.css" }}">
     <!--link rel="stylesheet" href="{{ url static_file="assets/js/libs/helpers/jquery.fancybox-thumbs.css?v=1.0.7" }}" /-->    
     
+    {{* Google News Metatag *}}
+    {{ if $gimme->article->defined }}
+    {{ if $gimme->article->type_name == "news" }}
+    {{ if $gimme->article->news_keywords|strip }}
+	<meta name="news_keywords" content="{{ $gimme->article->news_keywords }}">
+	{{ /if }}
+	{{ /if }}
+	{{ /if }}    
+    
 {{*  OPEN GRAPH TAGS FOR FACEBOOK  *}}
 {{ if $gimme->article->defined }}
   {{*<meta property="og:locale" content="de_CH" /> *}}
