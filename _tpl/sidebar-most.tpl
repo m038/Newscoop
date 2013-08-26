@@ -4,7 +4,7 @@
 {{ $mydate=$mydate|date_format:'%Y-%m-%d' }} 
                     
                   <article class="top-line bottom-line mobile-half">
-                      <h4>Meistgelesen</h4>
+                      <h4>Meistgelesen in den letzten 14 Tagen</h4>
                         <ol class="short-list">
                         
                         
@@ -28,7 +28,7 @@
                     
                     
                     <article class="margin-bottom mobile-half last">
-                      <h4>Meistkommentiert</h4>
+                      <h4>Meistkommentiert in den letzten 14 Tagen</h4>
                       <ol class="short-list">
                       {{ assign var="i" value=0 }}
                      {{ list_articles length="3" ignore_publication="true" ignore_issue="true" ignore_section="true" order="bycomments desc" constraints="type not bloginfo type not dossier type not event type not poll type not restaurant type not screening type not static_page type not editor_message type not newswire publish_date greater_equal $mydate" }}

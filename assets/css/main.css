@@ -2536,6 +2536,10 @@ a.button.center.details-more {display:none;}
 	#date_range input {width: 70%;}	
 }
 
+@media screen and (min-width: 768px) and  {
+	
+} 	
+
 @media screen and (max-width: 767px) {
 	
 	.phone-show {display:block;}
