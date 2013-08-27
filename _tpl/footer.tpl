@@ -247,7 +247,7 @@
                 var timeId = time.replace(':', ''); 
                 var tempAvg = result['temp_avg']['@text'];
                 
-                if ((timeId === thisHour) || (timeId < maxHour)){
+                if ((timeId === thisHour) || (timeId < maxHour) || (timeId == maxHour)){
                     if (timeId === "0000") {
                         if (maxHour === "0000") {
                             $('#luzern-temp-now').text(tempAvg+'° Luzern'); 
@@ -274,7 +274,7 @@
                 var timeId = time.replace(':', ''); 
                 var tempAvg = result['temp_avg']['@text'];
 
-                if ((timeId === thisHour) || (timeId < maxHour)){
+                if ((timeId === thisHour) || (timeId < maxHour) || (timeId == maxHour)){
                     if (timeId === "0000") {
                         if (maxHour === "0000") {
                             $('#zug-temp-now').text(tempAvg+'° Zug'); 
