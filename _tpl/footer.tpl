@@ -249,7 +249,7 @@
                 
                 if ((timeId === thisHour) || (timeId < maxHour) || (timeId == maxHour)){
                     if (timeId === "0000") {
-                        if (maxHour === "0000") {
+                        if ((maxHour === "0000") || (maxHour == "0100")) {
                             $('#luzern-temp-now').text(tempAvg+'° Luzern'); 
                             $('#luzern-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
                             $('#luzern-temp-now-mobile').text(tempAvg+'° Luzern'); 
@@ -276,7 +276,7 @@
 
                 if ((timeId === thisHour) || (timeId < maxHour) || (timeId == maxHour)){
                     if (timeId === "0000") {
-                        if (maxHour === "0000") {
+                        if ((maxHour === "0000") || (maxHour == "0100")) {
                             $('#zug-temp-now').text(tempAvg+'° Zug'); 
                             $('#zug-img-now').attr('src',meteonews.symbolsPath + result.symb + '.png');
                             $('#zug-temp-now-mobile').text(tempAvg+'° Zug'); 
