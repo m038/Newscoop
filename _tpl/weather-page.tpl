@@ -57,7 +57,12 @@ $(document).ready(function(){
             if ((locationId.length > 0) && (locationName.length > 0)) {
                 meteonews.showFiveDayForecastPage(locationId, '', locationName);
             } else {
-                meteonews.showLocalWeatherPage();
+                //meteonews.showLocalWeatherPage();
+                meteonews.hideAllElements();
+                setTimeout(function() {
+                    meteonews.showLocalWeatherPage();
+                }, 2500);
+                
             }
         } else if (pg == 'prognosen') {
             meteonews.showPrognosenPage();
@@ -205,5 +210,93 @@ $(document).ready(function(){
     });
     /* end pagination */
 
+    // meteonews event handlers
+    $('#mn-search-btn').live('click', function() {
+        meteonews.hideAllElements();
+        meteonews.getSearchResults($('#mn-search-text').val());
+    });
+
+    $('#mn-lokalwetter-search-btn').live('click', function() {
+        meteonews.hideAllElements();
+        meteonews.getSearchResults($('#mn-lokalwetter-search-text').val());
+    });
+
+    $('.mn-search-result').live('click', function() {
+        meteonews.showFiveDayForecastPage($(this).attr('data-id'), $(this).attr('data-zip'), $(this).attr('data-name'));
+    });
+
+    $('.mn-forecast-details-btn').live('click', function() {
+        var date = meteonews.getDateObj($(this).attr('data-date'));
+        meteonews.getDailyForecastDetails(date);
+        return false;
+    });
+
+    /* main menu items */
+    $('#mn-lokalwetter').live('click', function() {
+        meteonews.showLocalWeatherPage();
+        return false;
+    });
+
+    $('#mn-prognosen').live('click', function() {
+        meteonews.showPrognosenPage()
+        return false;
+    });
+
+    $('#mn-wintersport').live('click', function() {
+        meteonews.showWintersportPage();
+        return false;
+    });
+
+    $('#mn-badewetter').live('click', function() {
+        meteonews.showBadewetterPage();
+        return false;
+    });
+
+    $('#mn-wanderwetter').live('click', function() {
+        meteonews.showWanderwetterPage();
+        return false;
+    });
+
+    $(document).on("click", ".mn-lokalwetter-region-item", function() {
+        var role = $(this).attr('data-role');
+        var type = $(this).attr('data-type');
+        if (type) {
+            meteonews.setLocationType(type);
+        }
+        if (role == 'link') {
+            meteonews.showFiveDayForecastPage($(this).attr('data-id'), $(this).attr('data-zip'), $(this).attr('data-name'));
+        } else {
+            meteonews.showSubregions($(this).attr('data-code'), $(this).attr('data-role'));
+            $(this).addClass('active');
+        }
+        return false;
+    });
+
+    $('.mn-wintersport-link').live('click', function() {
+        meteonews.showWintersportDetailPage($(this).attr('data-type'), $(this).attr('data-id'), $(this).attr('data-name'));
+    });
+
+
+    $('.weather-loctions p.close-search a').live('click', function(){
+            $('.weather-loctions').removeClass('no-map');
+            $('.weather-loctions ul.level-2, .weather-loctions ul.level-3').hide();
+            $('.weather-loctions ul li').removeClass('active');
+            $('.weather-loctions p.info').show();
+            $(this).parent().hide();
+            return false;
+    });
+
+    /* Table triggers */
+    $('table a.trigger').live('click', function(){
+        $(this).toggleClass('active');
+        $(this).parent().parent().next('tr.inner').find('.inner-table').slideToggle('fast');
+        return false;
+    });
+
+    $('.table-collapse-trigger a').live('click', function(){
+        $(this).parent().toggleClass('active');
+        $(this).parent().next('div').slideToggle('fast');
+        return false;
+    });
 });
 </script>
