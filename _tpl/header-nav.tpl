@@ -17,6 +17,9 @@
               {{ set_publication identifier="4" }}
               {{ set_current_issue }}
               <li><a href="{{ url options="issue" }}">Blogs</a></li>
+              {{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is archive" }}
+              <li><a href="{{ url options="article" }}">Archiv</a></li>
+              {{ /list_articles }}
             </ul>            
             <ul class="right">
               {{ set_publication identifier="2" }}
