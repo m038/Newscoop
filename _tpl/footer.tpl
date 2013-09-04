@@ -26,9 +26,12 @@
                     		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80 number not 50" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
-                        {{ list_articles ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
+                        {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
                         <li><a href="{{ url options="article"}}?pg=prognosen">Wetter</a></li>
                         {{ /list_articles }}
+                        {{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is archive" }}
+              			<li><a href="{{ url options="article" }}">Archiv</a></li>
+              			{{ /list_articles }}
                     </ul>
                 </li>               
                 <li>
