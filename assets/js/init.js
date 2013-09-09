@@ -403,37 +403,36 @@ if ($('.daterange-archive')[0]){
     // only show this year's months
     $('#archive_list > ol > li').hide();
 
-        var singleDay = false;
-        var pattern = new RegExp('.+fqfrom\=(.+)\&fqto\=(.+)', 'i');
-        var matches = pattern.exec(searchUrl);
-        if (matches) {
-                var searchFrom = (matches[1]) ? matches[1] : null;
-                var searchTo = (matches[2]) ? matches[2] : null;
-                var fromParts = searchFrom.split('-'); // format is YYYY-M-D
-                var toParts = searchTo.split('-'); // format is YYYY-M-D
+    var singleDay = false;
+    var pattern = new RegExp('.+fqfrom\=(.+)\&fqto\=(.+)', 'i');
+    var matches = pattern.exec(searchUrl);
+    if (matches) {
+        var selectedFromDate = (matches[1]) ? matches[1] : null;
+        var selectedToDate = (matches[2]) ? matches[2] : null;
+        var fromParts = selectedFromDate.split('-'); // format is YYYY-M-D
+        var toParts = selectedToDate.split('-'); // format is YYYY-M-D
 
-                if ((fromParts[2] > 1) || (toParts[2] == fromParts[2])){
-                        var newFrom = fromParts[0] + "-" + fromParts[1] + "-1";
-                        var newTo = fromParts[0] + "-" + fromParts[1] + "-31";
-                        var modSearchUrl = "?fqfrom=" + newFrom + "&fqto=" + newTo;
-                        singleDay = true;
-                } else {
-                        var modSearchUrl = searchUrl;
-                }
-                console.log(modSearchUrl);
+        if ((fromParts[2] == toParts[2])) {
+            singleDay = true;
         } 
+    }
 
     $('.daterange-archive h3').each(function(){
-        if ($(this).find('a').attr('href') === modSearchUrl){
-            $(this).addClass('active');
-            $(this).parent().parent().parent().show();
-            // if its a single day selection, expand the calender
-            if (singleDay) {
-                $(this).next('ol').height("auto");
+        var archiveDate = pattern.exec($(this).find('a').attr('href'));
+        if (archiveDate[1]) {
+            var archiveDateParts = archiveDate[1].split('-');
+
+            if ((archiveDateParts[0] === fromParts[0]) && (archiveDateParts[1] === fromParts[1])) {   
+                $(this).addClass('active');
+                $(this).parent().parent().parent().show();
+                // if its a single day selection, expand the calender
+                if (singleDay) {
+                    $(this).next('ol').height("auto");
+                }
             }
         }
     });
-
+   
 	$('.year-list ol li').each(function(){
 		if ($(this).find('a').attr('href') === searchUrl){
 			$(this).parent().find('.active').removeClass('active');
