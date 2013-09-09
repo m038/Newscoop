@@ -417,6 +417,20 @@ if ($('.daterange-archive')[0]){
         } 
     }
 
+	$('.daterange-archive').find('h3').append('<span />');
+	$('.daterange-archive').find('h3').find('span').bind('click', function(){
+		var sibling = $(this).parent().siblings();
+		if (sibling.attr('style') === null || sibling.attr('style') === undefined ){
+			sibling.css({
+				height: 0
+			});
+		} else {
+			sibling.attr({
+				style: null
+			});
+		}
+	});
+
     $('.daterange-archive h3').each(function(){
         var archiveDate = pattern.exec($(this).find('a').attr('href'));
         if (archiveDate[1]) {
@@ -457,20 +471,6 @@ if ($('.daterange-archive')[0]){
 		}
 	});
 
-
-	$('.daterange-archive').find('h3').append('<span />');
-	$('.daterange-archive').find('h3').find('span').bind('click', function(){
-		var sibling = $(this).parent().siblings();
-		if (sibling.attr('style') === null || sibling.attr('style') === undefined ){
-			sibling.css({
-				height: 0
-			});
-		} else {
-			sibling.attr({
-				style: null
-			});
-		}
-	});
 
 	// check to see if a tab is active
 	// if not set the first one
