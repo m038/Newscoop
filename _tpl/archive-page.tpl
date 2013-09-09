@@ -68,7 +68,7 @@
             <h4>Archiv</h4>
             <ol class="custom-list archive_list">
             {{* this is the year of publication launch *}}
-            {{ $launch = 2012}}
+            {{ $launch = 2013}}
             {{ $year = $launch }}
             {{ $now = $smarty.now|camp_date_format:"%Y" }}
             {{ while $year <= $now }}
@@ -80,7 +80,7 @@
         </div>
 
         <div class="date_picker_wrap">
-          {{ $then = "2012-01-01" }}
+          {{ $then = "2013-01-01" }}
           {{ $now = $smarty.now|camp_date_format:"%Y-%m-%d" }}
           {{* date_filter rangestart="$then" rangeend="$now" rangeformatmonth="F" rangeformatday="d" *}}
           
