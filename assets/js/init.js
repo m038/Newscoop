@@ -401,7 +401,9 @@ if ($('.daterange-archive')[0]){
 	var searchUrl = window.location.search;
 
     // only show this year's months
-    $('#archive_list > ol > li').hide();
+    if (searchUrl) {
+        $('#archive_list > ol > li').hide();
+    }
 
     var singleDay = false;
     var pattern = new RegExp('.+fqfrom\=(.+)\&fqto\=(.+)', 'i');
