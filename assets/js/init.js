@@ -412,7 +412,7 @@ if ($('.daterange-archive')[0]){
                 var fromParts = searchFrom.split('-'); // format is YYYY-M-D
                 var toParts = searchTo.split('-'); // format is YYYY-M-D
 
-                if (fromParts[2] > 1) {
+                if ((fromParts[2] > 1) || (toParts[2] === 1)){
                         var newFrom = fromParts[0] + "-" + fromParts[1] + "-1";
                         var newTo = fromParts[0] + "-" + fromParts[1] + "-31";
                         var modSearchUrl = "?fqfrom=" + newFrom + "&fqto=" + newTo;
