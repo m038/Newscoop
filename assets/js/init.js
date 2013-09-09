@@ -403,10 +403,34 @@ if ($('.daterange-archive')[0]){
     // only show this year's months
     $('#archive_list > ol > li').hide();
 
+        var singleDay = false;
+        var pattern = new RegExp('.+fqfrom\=(.+)\&fqto\=(.+)', 'i');
+        var matches = pattern.exec(searchUrl);
+        if (matches) {
+                var searchFrom = (matches[1]) ? matches[1] : null;
+                var searchTo = (matches[2]) ? matches[2] : null;
+                var fromParts = searchFrom.split('-'); // format is YYYY-M-D
+                var toParts = searchTo.split('-'); // format is YYYY-M-D
+
+                if (fromParts[2] > 1) {
+                        var newFrom = fromParts[0] + "-" + fromParts[1] + "-1";
+                        var newTo = fromParts[0] + "-" + fromParts[1] + "-31";
+                        var modSearchUrl = "?fqfrom=" + newFrom + "&fqto=" + newTo;
+                        singleDay = true;
+                } else {
+                        var modSearchUrl = searchUrl;
+                }
+                console.log(modSearchUrl);
+        } 
+
     $('.daterange-archive h3').each(function(){
-        if ($(this).find('a').attr('href') === searchUrl){
+        if ($(this).find('a').attr('href') === modSearchUrl){
             $(this).addClass('active');
             $(this).parent().parent().parent().show();
+            // if its a single day selection, expand the calender
+            if (singleDay) {
+                $(this).next('ol').height("auto");
+            }
         }
     });
 
