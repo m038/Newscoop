@@ -400,14 +400,15 @@ if ($('.daterange-archive')[0]){
 
 	var searchUrl = window.location.search;
 
-	$('.daterange-archive h3').each(function(){
-		if ($(this).find('a').attr('href') === searchUrl){
-			$(this).addClass('active');
-		}
-	});
+    // only show this year's months
+    $('#archive_list > ol > li').hide();
 
-	// only show this year's months
-	$('#archive_list > ol > li').hide();
+    $('.daterange-archive h3').each(function(){
+        if ($(this).find('a').attr('href') === searchUrl){
+            $(this).addClass('active');
+            $(this).parent().parent().parent().show();
+        }
+    });
 
 	$('.year-list ol li').each(function(){
 		if ($(this).find('a').attr('href') === searchUrl){
