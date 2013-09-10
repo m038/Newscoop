@@ -3808,6 +3808,7 @@ margin-bottom: 2px;
 			margin: 0;
 			}
 			#archive_list ol li {
+				display: list-item !important;
 				}
 			#archive_list h2,
 			#archive_list h3 {
