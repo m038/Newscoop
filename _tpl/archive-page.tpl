@@ -210,6 +210,10 @@
                   {{ /if }} 
 
                 {{ /list_search_results_solr }}
+
+                {{ if $gimme->prev_list_empty }}
+                            <p>Zu Ihrer Auswahl konnten keine Artikel gefunden werden.</p>
+                {{ /if }}
                 </div>
 
                 <div id="comm-3">
@@ -259,6 +263,10 @@
                   {{ /if }} 
 
                 {{ /list_search_results_solr }}
+
+                {{ if $gimme->prev_list_empty }}
+                            <p>Zu Ihrer Auswahl konnten keine Artikel gefunden werden.</p>
+                {{ /if }}
                 </div>
 
                 <div id="comm-4">
@@ -308,6 +316,10 @@
                   {{ /if }} 
 
                 {{ /list_search_results_solr }}
+
+                {{ if $gimme->prev_list_empty }}
+                            <p>Zu Ihrer Auswahl konnten keine Artikel gefunden werden.</p>
+                {{ /if }}
                 </div>
                 {{* set_default_issue *}}
 
