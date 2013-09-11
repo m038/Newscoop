@@ -438,7 +438,7 @@ if ($('.daterange-archive')[0]){
     var target = $(this).find('a').attr('href');
     window.location = target;
   });
-  console.log(searchUrl);
+
 	$('.year-list').find('a').each(function(){
 		if ($(this).attr('href') === searchUrl || searchUrl === null || searchUrl === undefined || searchUrl === '') {
       // true: make all months active
