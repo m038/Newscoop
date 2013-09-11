@@ -213,7 +213,6 @@
   {{ if $qVal === "-title:Archive" }}
     {{ $qVal = "" }}
   {{ /if }}
-    <input type="hidden" name="q[]" value="{{ $q|escape }}">
   
   {{ form_text name="q" value=$qVal placeholder="Suchbegriff" }}
   {{ form_submit name="" value="Go" }}
