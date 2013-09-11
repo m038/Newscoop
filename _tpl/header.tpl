@@ -210,7 +210,7 @@
   	  <input type="hidden" name="type[]" value="{{ $type|escape }}">
   {{ /foreach }}
   {{ $qVal = $smarty.get.q }}
-  {{ if $qVal === "-title:Archive" }}
+  {{ if $qVal == "-title:Archive" }}
     {{ $qVal = "" }}
   {{ /if }}
   
