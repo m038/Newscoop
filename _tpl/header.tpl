@@ -64,6 +64,10 @@
                     {{ foreach $smarty.get.type as $type }} 
     					 <input type="hidden" name="type[]" value="{{ $type|escape }}"> 
 					{{ /foreach }}
+            {{ $qVal = $smarty.get.q }}
+            {{ if $qVal === "-title:Archive" }}
+              {{ $qVal = "" }}
+            {{ /if }}
   					{{ form_text name="q" value=$smarty.get.q placeholder="Suchbegriff" }}
   					{{ form_submit name="" value="Go" }}
 					{{ /form_search_solr }}      
@@ -202,10 +206,16 @@
                     <fieldset class="search">
                     
 {{ form_search_solr id="search" class="hidden-phone" }}
-  {{ foreach $smarty.get.type as $type }} 
-  	  <input type="hidden" name="type[]" value="{{ $type|escape }}"> 
+  {{ foreach $smarty.get.type as $type }}
+  	  <input type="hidden" name="type[]" value="{{ $type|escape }}">
   {{ /foreach }}
-  {{ form_text name="q" value=$smarty.get.q placeholder="Suchbegriff" }}
+  {{ $qVal = $smarty.get.q }}
+  {{ if $qVal === "-title:Archive" }}
+    {{ $qVal = "" }}
+  {{ /if }}
+    <input type="hidden" name="q[]" value="{{ $q|escape }}">
+  
+  {{ form_text name="q" value=$qVal placeholder="Suchbegriff" }}
   {{ form_submit name="" value="Go" }}
 {{ /form_search_solr }}                    
                     </fieldset>
