@@ -49,7 +49,7 @@
 {{ list_related_articles }}                   
 {{ if $gimme->current_list->index gt 4 }}  
 {{ if $gimme->current_list->index == 5 }}                  
-                    <h4 class="center-title"><a href="#">Weitere Artikel aus dem Dossier</a></h4>                    
+                    <h4 class="center-title">Weitere Artikel aus dem Dossier</h4>                    
                     <div class="slideshow headline-slider">                 
                         <ul class="slides">
 {{ /if }}       
