@@ -433,12 +433,6 @@ if ($('.daterange-archive')[0]){
 		}
 	});
 
-  // open window even if month parent h3 is clicked
-  // $('.daterange-archive h3').bind('click', function(){
-  //   var target = $(this).find('a').attr('href');
-  //   window.location = target;
-  // });
-
 	$('.year-list').find('a').each(function(){
 		if ($(this).attr('href') === searchUrl || searchUrl === null || searchUrl === undefined || searchUrl === '') {
       // true: make all months active
