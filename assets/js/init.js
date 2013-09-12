@@ -408,6 +408,18 @@ if ($('.daterange-archive')[0]){
     var singleDay = false;
     var pattern = new RegExp('.+fqfrom\=(.+)\&fqto\=(.+)', 'i');
     var matches = pattern.exec(searchUrl);
+    // if the url is full of cruft then strip it back to just the from and to ranges
+    if (searchUrl != null && searchUrl != undefined && searchUrl != ""){
+      $.urlParam = function(name){
+          var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+      }
+      // reconstruct the format needed to match
+      var reconRange = '?fqfrom=' + $.urlParam('fqfrom') + '&fqto=' + $.urlParam('fqto');
+    } else {
+      var reconRange = null;
+    }
+
     if (matches) {
         var selectedFromDate = (matches[1]) ? matches[1] : null;
         var selectedToDate = (matches[2]) ? matches[2] : null;
@@ -434,7 +446,8 @@ if ($('.daterange-archive')[0]){
 	});
 
 	$('.year-list').find('a').each(function(){
-		if ($(this).attr('href') === searchUrl || searchUrl === null || searchUrl === undefined || searchUrl === '') {
+
+		if ($(this).attr('href') == reconRange || reconRange == null || reconRange == undefined || reconRange == '') {
       // true: make all months active
       $('.daterange-archive h3').each(function(){
         $(this).addClass('active');
@@ -460,7 +473,7 @@ if ($('.daterange-archive')[0]){
   });
    
 	$('.year-list ol li').each(function(){
-		if ($(this).find('a').attr('href') === searchUrl){
+		if ($(this).find('a').attr('href') === reconRange){
 			$(this).parent().find('.active').removeClass('active');
 			$(this).addClass('active');
 			var yearInt = searchUrl;
@@ -468,7 +481,7 @@ if ($('.daterange-archive')[0]){
 			yearInt = yearInt.replace('?','');
 			yearInt = yearInt.replace('fqfrom=','');
 			yearInt = yearInt.replace('fqto=','');
-			yearInt = yearInt.split('-');
+      yearInt = yearInt.split('-');
 			yearInt = yearInt[0];
 			$('#archive_list > ol > li h2').each(function(){
 				if (this.innerHTML === yearInt){
@@ -478,7 +491,7 @@ if ($('.daterange-archive')[0]){
 				}
 			});
 		}
-		if (searchUrl === "" || searchUrl === undefined || searchUrl === null) {
+		if (reconRange === "" || reconRange === undefined || reconRange === null) {
 			$('#archive_list > ol > li h2').last().parent().show();
 		}
 	});
