@@ -4058,4 +4058,7 @@ margin-bottom: 2px;
 		width: 100%;
 		float: none;
 	}
+	ul.place-date li > span {
+		font-size: 12px;
+	}
 }
