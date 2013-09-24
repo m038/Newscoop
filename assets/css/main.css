@@ -4008,6 +4008,8 @@ margin-bottom: 2px;
 		border: 0;
 		height: auto;
 	}
+
+	.aside .most-viewed { padding-top: 0px !important; }
 }
 
 @media screen and (max-width: 767px) {

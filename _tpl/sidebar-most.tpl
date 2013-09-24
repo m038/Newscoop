@@ -27,7 +27,7 @@
                     </article>                    
                     
                     
-                    <article class="margin-bottom mobile-half last">
+                    <article class="margin-bottom mobile-half most-viewed last">
                       <h4>Meistkommentiert in den letzten 14 Tagen</h4>
                       <ol class="short-list">
                       {{ assign var="i" value=0 }}
