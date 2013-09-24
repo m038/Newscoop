@@ -4029,4 +4029,7 @@ margin-bottom: 2px;
 	ul.place-date li > span {
 		font-size: 12px;
 	}
+	.archive-top h2 {
+		width: 50%;	
+	}
 }
