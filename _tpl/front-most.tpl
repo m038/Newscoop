@@ -11,7 +11,7 @@
 {{ $mydate=$mydate|date_format:'%Y-%m-%d' }} 
 
                   <article id="phone-tab-1">
-                  	  <small class="phone-show desktop-hide tablet-hide">in den letzten 14 Tagen</small>
+
                       <h4>Meistgelesen in den letzten 14 Tagen</h4>
                         <ol class="short-list">
   {{*** Changes introduced according to ticket MOTM-549 - only one post per blog to appear in most read list ***}}
@@ -32,7 +32,7 @@
                     </article>
                     
                     <article id="phone-tab-2">
-                      <small class="phone-show desktop-hide tablet-hide">in den letzten 14 Tagen</small>
+
                       <h4>Meistkommentiert in den letzten 14 Tagen</h4>
                       <ol class="short-list">
                       {{ assign var="i" value=0 }}
