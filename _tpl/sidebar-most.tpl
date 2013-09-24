@@ -3,7 +3,7 @@
 {{ assign var="mydate" value=strtotime('-14 days') }} 
 {{ $mydate=$mydate|date_format:'%Y-%m-%d' }} 
                     
-                  <article class="top-line bottom-line mobile-half">
+                  <article class="top-line bottom-line most-viewed mobile-half">
                       <h4>Meistgelesen in den letzten 14 Tagen</h4>
                         <ol class="short-list">
                         
@@ -27,7 +27,7 @@
                     </article>                    
                     
                     
-                    <article class="margin-bottom mobile-half most-viewed last">
+                    <article class="margin-bottom mobile-half last">
                       <h4>Meistkommentiert in den letzten 14 Tagen</h4>
                       <ol class="short-list">
                       {{ assign var="i" value=0 }}
