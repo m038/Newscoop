@@ -173,7 +173,7 @@
         
 
 {{ dynamic }}
-        <div class="content-top">
+        <div class="content-top{{ if $gimme->article->type_name == "archive" }} archive-top{{ /if }}">
           
             <ul class="place-date">
               <li class="mobile-hide">
