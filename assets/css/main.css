@@ -4023,6 +4023,15 @@ margin-bottom: 2px;
 	}
 
 	.aside .most-viewed { padding-top: 0px !important; }
+
+	.most-viewed.two-columns article {
+	border-top: none;
+	width: 50%;
+	border-right: #e2e2e2 solid 1px;
+	}
+	.most-viewed.two-columns article:nth-child(2n) {
+	border-right: 0px;
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -4033,14 +4042,6 @@ margin-bottom: 2px;
 	}
 	.archive-aside .date_picker_wrap .archive_list:nth-child(2n+0) {
 		margin-right: 0px;
-	}
-	.most-viewed.two-columns article {
-	border-top: none;
-	width: 50%;
-	border-right: #e2e2e2 solid 1px;
-	}
-	.most-viewed.two-columns article:nth-child(2n) {
-	border-right: 0px;
 	}
 
 }
