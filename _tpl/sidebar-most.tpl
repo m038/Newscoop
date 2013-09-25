@@ -5,7 +5,7 @@
                       <li><a href="#phone-tab-2">Meistkommentiert</a></li>
                     </ul>
           
-              <div class="margin-bottom clearfix equal-heights phone-tab-content most-viewed">
+              <div class="two-columns margin-bottom clearfix equal-heights phone-tab-content most-viewed">
                 
 {{ assign var="mydate" value=strtotime('-14 days') }} 
 {{ $mydate=$mydate|date_format:'%Y-%m-%d' }} 
