@@ -16,8 +16,8 @@
                 
 {{ if $gimme->publication->identifier == "2" }}
     {{ if ($gimme->section->number <= 70) || ($gimme->section->number > 90) }}
-                
-		{{ include file="_tpl/article-payment-link.tpl" }}
+        {{ include file="_tpl/article-getunik.tpl" }}        
+		{{* include file="_tpl/article-payment-link.tpl" *}}
                 
                 <div class="article-border-bottom short-article-list margin-bottom clearfix">
 
@@ -36,5 +36,6 @@
                 </div>
     {{ /if }}
 {{ elseif $gimme->publication->identifier == "4" }}    
-		{{ include file="_tpl/article-payment-link.tpl" }}
+		{{* include file="_tpl/article-payment-link.tpl" *}}
+        {{ include file="_tpl/article-getunik.tpl" }}
 {{ /if }}

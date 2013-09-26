@@ -8,6 +8,8 @@
     <script src="{{ uri static_file="assets/js/libs/jquery.ui.accordion.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/jquery.tabs2carousel.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/plupload/js/plupload.full.js" }}"></script>
+    <!-- getunik -->
+    <script language="javascript" src="https://dds-widget.getunik.net/widgets/plain/moaz-q8tch/js/dds-init-widget-de.js" type="text/javascript"></script>
 
 
     <!--[if (gte IE 6)&(lte IE 8)]>
