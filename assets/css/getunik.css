@@ -2,6 +2,14 @@
 .dds-image {
   }
 
+.payment-box p {
+  font-size: 14px;
+  }
+
+#dds-container-id.dds-container .dds-popup p {
+  color: #fff;
+  }
+
 /* footer */
 .dds-footer {
   position: relative;
