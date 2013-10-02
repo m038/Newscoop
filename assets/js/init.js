@@ -19,8 +19,7 @@ $(window).load(function() {
       $(cap).html(caption);
     }
     });
-  
-  
+
   /* Popups
   ---------------------------------------------------------------- */
   $('ul.header-menu > li.expandable').hover(function(){
@@ -90,22 +89,42 @@ $(window).load(function() {
   });
 
   /* Micropayment article button */
+  if ($('#micropayment_button')[0]){
+    $('.main > article > p:nth-child(5)').append('<div class="box bottom-line centered-list" style="margin-top: 15px;"><p><a href="#micropayment_button" class="icon-heart redirect-donation">Unterstützen Sie zentral+</a></p></div>');
+  }
+
+
+  function scrollToElement(selector, time, verticalOffset) {
+    time = typeof(time) != 'undefined' ? time : 1000;
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $(selector);
+    offset = element.offset();
+    offsetTop = offset.top + verticalOffset;
+    $('html, body').animate({
+      scrollTop: offsetTop
+    }, time);
+  }
+
   var startHeight= 0;
   var main = $(".main").first();
-  $("#micropayment_button").click(function(){
+  $("#micropayment_button, .redirect-donation").click(function(){
 
-   startHeight = main.height();
-   $(".main").css("height","auto");
+    startHeight = main.height();
+    $(".main").css("height","auto");
 
-   $(this).parent().parent().hide();
-   $("#payment-box").show();
 
-   var newHeight = main.height();
-   if (newHeight>startHeight) {
-     main.css("height",newHeight+"px");
-   } else
-     main.css("height",startHeight+"px");
+    $('#payment-box').next('div').hide();
+    $("#payment-box").show();
+
+    scrollToElement('#payment-box');
+
+    var newHeight = main.height();
+    if (newHeight>startHeight) {
+      main.css("height", newHeight+"px");
+    } else
+      main.css("height", startHeight+"px");
   });
+
   $("#close_micropayment").click(function(){
    $("#payment-box").hide();
    $("#micropayment_button").parent().parent().show();
