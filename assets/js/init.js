@@ -90,7 +90,7 @@ $(window).load(function() {
 
   /* Micropayment article button */
   if ($('#micropayment_button')[0]){
-    $('.main > article > p:nth-child(5)').append('<div class="box centered-list" style="margin: 15px 0;"><p><a href="#micropayment_button" class="icon-heart redirect-donation">Unterstützen Sie zentral+</a></p></div>');
+    $('.main > article > p:nth-of-type(3)').append('<div class="box centered-list" style="margin: 15px 0;"><p><a href="#micropayment_button" class="icon-heart redirect-donation">Unterstützen Sie zentral+</a></p></div>');
   }
 
 
