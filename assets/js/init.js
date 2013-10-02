@@ -19,49 +19,48 @@ $(window).load(function() {
 			$(cap).html(caption);
 		}
     });
-	
-	
-	/* Popups
-	---------------------------------------------------------------- */
-	$('ul.header-menu > li.expandable').hover(function(){
-		$(this).children('a').addClass('active');
-		$(this).children('.popup').show();
-	},
-	function(){
-		$(this).children('a').removeClass('active');
-		$(this).children('.popup').hide();
-	});
-	$('ul.place-date > li').hover(function(){
-		$(this).children('a').addClass('active');
-		$(this).children('.popup').show();
-	},
-	function(){
-		$(this).children('a').removeClass('active');
-		$(this).children('.popup').hide();
-	});
-	
-	$('ul.weather > li.expandable > a').toggle(function(){
-		$(this).addClass('active');
-		$(this).next('.popup').show();
-	},
-	function(){
-		$(this).removeClass('active');
-		$(this).next('.popup').hide();
-	});
-	
-	$('a.mobile-nav-trigger').toggle(function(){
-		$(this).addClass('active');
-		$('#top ul.left').slideDown('fast');
-	},
-	function(){
-		$(this).removeClass('active');
-		$('#top ul.left').slideUp('fast');
-	});
-	
-	/* Tabs
-	---------------------------------------------------------------- */
-	$('.tabs').tabs();
-	$('.spec-tabs').tabs2carousel();
+
+  /* Popups
+  ---------------------------------------------------------------- */
+  $('ul.header-menu > li.expandable').hover(function(){
+    $(this).children('a').addClass('active');
+    $(this).children('.popup').show();
+  },
+  function(){
+    $(this).children('a').removeClass('active');
+    $(this).children('.popup').hide();
+  });
+  $('ul.place-date > li').hover(function(){
+    $(this).children('a').addClass('active');
+    $(this).children('.popup').show();
+  },
+  function(){
+    $(this).children('a').removeClass('active');
+    $(this).children('.popup').hide();
+  });
+  
+  $('ul.weather > li.expandable > a').toggle(function(){
+    $(this).addClass('active');
+    $(this).next('.popup').show();
+  },
+  function(){
+    $(this).removeClass('active');
+    $(this).next('.popup').hide();
+  });
+  
+  $('a.mobile-nav-trigger').toggle(function(){
+    $(this).addClass('active');
+    $('#top ul.left').slideDown('fast');
+  },
+  function(){
+    $(this).removeClass('active');
+    $('#top ul.left').slideUp('fast');
+  });
+  
+  /* Tabs
+  ---------------------------------------------------------------- */
+  $('.tabs').tabs();
+  $('.spec-tabs').tabs2carousel();
 
 	//restaurant tabs with dropdown
     $("#rest_menu_sel").change(function () {
@@ -69,95 +68,68 @@ $(window).load(function() {
 	var indx = tabs_tag.find(".article-tabs-holder div").index($("#"+$("#rest_menu_sel").val()));
         tabs_tag.tabs("option", "active",indx);
     });
-	
-	
-	/* Carousel
-	---------------------------------------------------------------- */
-	$('.carousel').jcarousel();
-	
-	
-	/* Datepicker
-	---------------------------------------------------------------- */
-	$( "#ausgehen-datepicker" ).datepicker({
-		numberOfMonths: 3,
-		prevText: "‹",
-		nextText: "›"
-		});
-	$('#datapicker-trigger').click(function(){
-		$(this).toggleClass('active');
-		$('#wann-calendar').toggle();
-		$('.popup-overlay').fadeToggle();
-		return false;
-	});
-	
+  
+  
+  /* Carousel
+  ---------------------------------------------------------------- */
+  $('.carousel').jcarousel();
 
-	/* Micropayment article button */
-	var startHeight= 0;
-	var main = $(".main").first();
-	$("#micropayment_button").click(function(){
+  /* Datepicker
+  ---------------------------------------------------------------- */
+  $( "#ausgehen-datepicker" ).datepicker({
+    numberOfMonths: 3,
+    prevText: "‹",
+    nextText: "›"
+    });
+  $('#datapicker-trigger').click(function(){
+    $(this).toggleClass('active');
+    $('#wann-calendar').toggle();
+    $('.popup-overlay').fadeToggle();
+    return false;
+  });
 
-		startHeight = main.height();
-		$(".main").css("height","auto");
+  /* Micropayment article button */
+  if ($('#micropayment_button')[0]){
+    $('.main > article > p:nth-child(5)').append('<div class="box bottom-line centered-list" style="margin-top: 15px;"><p><a href="#micropayment_button" class="icon-heart redirect-donation">Unterstützen Sie zentral+</a></p></div>');
+  }
 
-		$(this).parent().parent().hide();
-		$("#payment-box").show();
-		
-		var newHeight = main.height();
-		if (newHeight>startHeight) { 
-			main.css("height",newHeight+"px");
-		} else
-			main.css("height",startHeight+"px");
-	});
-	$("#close_micropayment").click(function(){
-		$("#payment-box").hide();
-		$("#micropayment_button").parent().parent().show();
-		main.css("height",startHeight+"px");
-	});
-	
-	/* Fancybox
-	---------------------------------------------------------------- */
-	$('.fancybox').fancybox();
-	$('.fancybox-gallery').fancybox({type: 'inline'});
-	$(".fancybox-thumb").fancybox({
-		prevEffect	: 'none',
-		nextEffect	: 'none',
-		helpers	: {
-			title	: {
-				type: 'outside'
-			},
-			thumbs	: {
-				width	: 50,
-				height	: 50
-			}
-		}
-	});
-	
-	$('.dropdownized').dropdownized();
-	
-	$('.close-box').click(function(){
-		$(this).parent().parent().hide();
-		return false;
-	});
-	
-	$('input.upload').change(function(e){
-	  $in=$(this);
-	  $in.prev().html($in.val());
-	});
-	
-	
-	/* Accordion */
-	$('.ticker-accordion').accordion({ header: '.head', autoHeight: false});
-	$('.ticker-accordion a.head p').click(function(e){
-		e.preventDefault();
-		window.location.href = $(this).attr('target-link');
-	});
-	
-	/* Poll Ajaxified
-	-------------------------------------------------------*/
-	$('#poll-button').click(function(){
-		$.post($('form[name=debate]').attr("action"),$('form[name=debate]').serialize(),function(data){$('#polldiv').html(data);});
-		return false;
-	}); 
+
+  function scrollToElement(selector, time, verticalOffset) {
+    time = typeof(time) != 'undefined' ? time : 1000;
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $(selector);
+    offset = element.offset();
+    offsetTop = offset.top + verticalOffset;
+    $('html, body').animate({
+      scrollTop: offsetTop
+    }, time);
+  }
+
+  var startHeight= 0;
+  var main = $(".main").first();
+  $("#micropayment_button, .redirect-donation").click(function(){
+
+    startHeight = main.height();
+    $(".main").css("height","auto");
+
+
+    $('#payment-box').next('div').hide();
+    $("#payment-box").show();
+
+    scrollToElement('#payment-box');
+
+    var newHeight = main.height();
+    if (newHeight>startHeight) {
+      main.css("height", newHeight+"px");
+    } else
+      main.css("height", startHeight+"px");
+  });
+
+  $("#close_micropayment").click(function(){
+   $("#payment-box").hide();
+   $("#micropayment_button").parent().parent().show();
+   main.css("height",startHeight+"px");
+  });
 
 	/* Locations search
 	---------------------------------------------------------------- */
