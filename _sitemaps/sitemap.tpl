@@ -8,7 +8,7 @@
     </url>
 {{ set_publication identifier="2" }}
 {{ set_current_issue }}    
-{{ list_sections constraints="number not 71 number not 72 number not 73 number not 80 number not 200 number not 210 number not 220 number not 300 number not 500" }}
+{{ list_sections constraints="number not 71 number not 72 number not 80 number not 200 number not 210 number not 220 number not 300 number not 500" }}
     <url>
         <loc>http://{{ $gimme->publication->site }}{{ uri options="section" }}</loc>
         <changefreq>daily</changefreq>
@@ -54,5 +54,13 @@
         <priority>0.9</priority>
     </url>
     {{ /if }}
+{{ /list_articles }}
+{{ list_articles ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="type is restaurant" }}
+    <url>
+        <loc>http://{{ $gimme->publication->site }}{{ uri options="article" }}</loc>
+        <lastmod>{{ $gimme->article->publish_date|camp_date_format:"%Y-%m-%d" }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
 {{ /list_articles }}
 </urlset>
