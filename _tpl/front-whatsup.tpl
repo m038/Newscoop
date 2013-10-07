@@ -1,10 +1,10 @@
                     <div class="box left-thumb">
-                    {{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo section is 25" }}
+                    {{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo Featured_Blog_On_Front is on" }}
                     {{ local }}
                     {{ unset_article }}                    
                     {{ assign var="sectionUrl" value="{{ url }}" }}
                     {{ /local }}
-                    	<h4 class="box-title"><img src="{{ uri static_file="pictures/title-icons/bag.png" }}" alt="" />{{ $gimme->section->name }}</h4>
+                    	<h4 class="box-title">{{ if $gimme->section->number == 25 }}<img src="{{ uri static_file="pictures/title-icons/bag.png" }}" alt="" />{{ /if }}{{ $gimme->section->name }}</h4>
                     	   {{ list_articles length="1" constraints="type is blog" }}
                         <article class="bottom-line">
                         	<figure>
@@ -18,7 +18,8 @@
                         {{ /list_articles }}
                         
                         <div class="two-columns clearfix equal-heights">
-                        
+                
+                {{ if $gimme->section->number == 25 }}        
             	{{ set_topic name="Was gibts wo Blog:de" }}
             	{{ list_subtopics }}
                     <div class="box">
@@ -31,6 +32,7 @@
                     </div>
                {{ /list_subtopics }}
 					{{ unset_topic }}
+				{{ /if }}
                         
                         </div>
                       {{ /list_articles }}  
