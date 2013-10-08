@@ -1,9 +1,3 @@
-{{* provide hooks for the css *}}
-<script type="text/javascript">
-    var ddsWidgetConfig = {};
-    ddsWidgetConfig.css = "{{ uri static_file='assets/css/getunik.css' }}";
-</script>
-
 <div class="payment-box-outer">
 
   <div class="box bottom-line" id="payment-box" style="display:none;">
