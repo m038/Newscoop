@@ -11,7 +11,7 @@
                         <div class="weather-popup clearfix">
                             <div class="info">
                                 {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
-                                <p><strong>Das Wetter heute in Luzern</strong> <a href="{{ url options="article" }}?pg=local&location_id=2659810&location_name=Luzern" class="button white">Details</a></p>
+                                <p><strong>Das Wetter heute in Luzern</strong> <a href="{{ url options="article" }}?pg=local&location_id=2659811&location_name=Luzern" class="button white">Details</a></p>
                                 {{ /list_articles }}
                                 <ul>
                                     <li>
