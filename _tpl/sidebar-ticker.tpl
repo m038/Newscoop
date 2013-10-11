@@ -26,7 +26,7 @@
                                     <li class="cross">
                                         <h3><a href="{{ url options="article" }}{{ if $gimme->default_section->defined }}?sec={{ $gimme->section->name }}{{ /if }}">{{ $gimme->article->name }}</a></h3>
                                         <p>{{ $gimme->article->body|strip_tags:false|truncate:50 }}</p>
-                                        <time>Von Swiss txt, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
+                                        <time>Von {{ if $gimme->article->NewsProduct == "infosperber" }}infosperber{{ else }}Swiss txt{{ /if }}, {{ include file="_tpl/relative-date.tpl" date=$gimme->article->publish_date }}</time>
                                     </li>
                                     
                       {{ if $gimme->current_list->column == "5" || $gimme->current_list->at_end }}
