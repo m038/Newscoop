@@ -95,7 +95,6 @@
                                     <li><a href='{{ url options="article"}}?pg=prognosen'>Prognosen Zentralschweiz</a></li>
                                     <li><a href="{{ url options="article"}}?pg=local">Lokalwetter</a></li>
                                     <li><a href="{{ url options="article"}}?pg=wanderwetter">Wanderwetter</a></li>
-                                    <li><a href="{{ url options="article"}}?pg=badewetter">Badewetter</a></li>
                                     {{ /list_articles }}
                                 </ul>
                             </div>
