@@ -104,16 +104,18 @@ var meteonews = {
     },
 
     initMap: function() {
-        this.geocoder = new google.maps.Geocoder();
-        var latlng = new google.maps.LatLng(47.378, 8.539);
-        var mapOptions = {
-          zoom: 9,
-          center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+        if (document.getElementById('mn-slope-map')) {
+            this.geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(47.378, 8.539);
+            var mapOptions = {
+              zoom: 9,
+              center: latlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            this.map = new google.maps.Map(document.getElementById('mn-slope-map'), mapOptions);
+            $('#mn-slope-map').show();
+            console.log('map initalized');
         }
-        this.map = new google.maps.Map(document.getElementById('mn-slope-map'), mapOptions);
-        $('#mn-slope-map').show();
-        console.log('map initalized');
     },
 
     setConfig: function(config, cb) {
