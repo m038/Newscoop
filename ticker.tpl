@@ -54,7 +54,7 @@
                             	<p target-link="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</p>
                             </a>
                             <div>
-                                <p>{{ $gimme->article->DataContent|strip_tags:false }}{{ if $gimme->article->DataLink != "" }}<br /><a target="_blank" href="{{ $gimme->article->DataLink }}">Weiterlesen</a>{{ /if }}</p>
+                                <p>{{ $gimme->article->DataContent|strip_tags:false }}{{ if $gimme->article->DataLink != "" }}<br /><a target="_blank" href="{{ $gimme->article->DataLink }}">weiterlesen</a>{{ /if }}</p>
                             </div>
                         </li>  
                       {{ assign var="artCond" value="number not {{ $gimme->article->number }}" }}                     
@@ -68,7 +68,7 @@
                             	<p target-link="{{ $gimme->url->reset_parameter(issue) }}{{ $gimme->url->reset_parameter(sec) }}{{ url options="template ticker.tpl" }}&sec={{ $gimme->section->name }}">{{ $gimme->section->name }}</p>
                             </a>
                             <div>
-                                <p>{{ $gimme->article->DataContent|strip_tags:false }}{{ if $gimme->article->DataLink != "" }}<br /><a target="_blank" href="{{ $gimme->article->DataLink }}">Weiterlesen</a>{{ /if }}</p>
+                                <p>{{ $gimme->article->DataContent|strip_tags:false }}{{ if $gimme->article->DataLink != "" }}<br /><a target="_blank" href="{{ $gimme->article->DataLink }}">weiterlesen</a>{{ /if }}</p>
                             </div>
                         </li>
 
