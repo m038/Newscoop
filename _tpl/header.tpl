@@ -97,7 +97,7 @@
                         {{ set_current_issue }}                        	
                         {{ set_section number="71" }}
                         	<li><a href="{{ url options="section" }}">Ausgehen</a></li>
-                            <li><a href="#">Wetter</a></li>
+                            <li><a href="/de/static/pages/11177/">Wetter</a></li>
 						{{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is archive" }}
               				<li><a href="{{ url options="article" }}">Archiv</a></li>
               			{{ /list_articles }}                            
