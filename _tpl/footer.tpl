@@ -231,8 +231,8 @@
         meteonews.setSymbolsPath('{{ url static_file="assets/img/meteonews/symb/" }}');
         meteonews.hideLoading();
 
-        var luzernFeed = 'forecasts/geonames/2659810.xml';
-        var zugFeed = 'forecasts/geonames/2657907.xml';
+        var luzernFeed = 'forecasts/geonames/2659811.xml';
+        var zugFeed = 'forecasts/geonames/2657908.xml';
         var params = [];
         params.cumulation = "3h";
         params.begin = meteonews.startDate;
