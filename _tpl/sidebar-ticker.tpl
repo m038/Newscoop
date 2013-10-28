@@ -15,7 +15,7 @@
                       {{ else }}
                       {{ assign var="secCond" value="" }}
                       {{ /if }}  
-                      {{ list_articles columns=$columnsNo length="50" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate $secCond" }}
+                      {{ list_articles columns=$columnsNo length="10" order="bypublishdate desc" ignore_section="true" constraints="type is newswire publish_date greater_equal $mydate $secCond" }}
                       {{ if $gimme->current_list->at_beginning }}
                       <ul class="slides">
                       {{ /if }}
