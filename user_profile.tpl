@@ -5,7 +5,7 @@
 {{block content_wrapper}}
 		<div class="content no-bottom-line equal-heights clearfix">
         
-        	<div class="main">
+        	<div class="main profile-single-wrap">
             
             	<article class="profile-single clearfix">
                     {{ include file="_tpl/user-image.tpl" size="big" class="left" }}
@@ -194,6 +194,7 @@
 </div>
                 
                 </div>
+*}}                
             
             </div><!-- / Main -->
             

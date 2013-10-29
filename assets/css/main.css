@@ -4065,3 +4065,33 @@ margin-bottom: 2px;
 		width: 50%;	
 	}
 }
+
+/* author profile page - added tabs oct. 2013 */
+.profile-page-tabs article {
+	border-bottom: #ccc dashed 1px;
+	padding: 0 0 10px 0px;
+	margin-bottom: 10px;
+}
+
+.profile-page-tabs h4 {
+  text-align: left;
+  margin: 8px 0px;
+}
+
+.profile-page-tabs h4 a {
+  color: #1a1a1a;
+}
+
+.profile-page-tabs .slide-item {
+	width: 100% !important;
+}
+
+.profile-page-tabs a {
+	display: block;
+}
+
+@media screen and (max-width: 640px) {
+	.profile-page-tabs article {
+		margin: 10px;
+	}
+}
