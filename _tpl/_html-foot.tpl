@@ -62,7 +62,13 @@
     
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
-  <script language="javascript" src="https://dds-widget.getunik.net/widgets/plain/moaz-q8tch/js/dds-init-widget-de.js" type="text/javascript"></script>
+  <!-- load Getunik after the entire page and libraries have loaded  -->
+  <script>
+  $(window).bind("load", function() {
+    var script = "<script src='https://dds-widget.getunik.net/widgets/plain/moaz-q8tch/js/dds-init-widget-de.js'><\/script>";
+    $("head").append(script);
+  });
+  </script>
 
   <!--
   <script type="text/javascript">
