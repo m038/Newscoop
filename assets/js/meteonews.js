@@ -104,16 +104,18 @@ var meteonews = {
     },
 
     initMap: function() {
-        this.geocoder = new google.maps.Geocoder();
-        var latlng = new google.maps.LatLng(47.378, 8.539);
-        var mapOptions = {
-          zoom: 9,
-          center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+        if (document.getElementById('mn-slope-map')) {
+            this.geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(47.378, 8.539);
+            var mapOptions = {
+              zoom: 9,
+              center: latlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            this.map = new google.maps.Map(document.getElementById('mn-slope-map'), mapOptions);
+            $('#mn-slope-map').show();
+            console.log('map initalized');
         }
-        this.map = new google.maps.Map(document.getElementById('mn-slope-map'), mapOptions);
-        $('#mn-slope-map').show();
-        console.log('map initalized');
     },
 
     setConfig: function(config, cb) {
@@ -950,7 +952,8 @@ var meteonews = {
         $('#mn-lokalwetter-regions-container').show();
         $('#mn-primary-regions').show();
         $('#mn-secondary-regions').show();
-        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-slopes').show();
+        $('#mn-teaser-wander').show();
     },
 
     showWanderwetterPage: function() {
@@ -963,7 +966,7 @@ var meteonews = {
         $('#mn-lokalwetter-regions-container').show();
         //$('#mn-primary-regions').show();
         //$('#mn-secondary-regions').show();
-        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-slopes').show();
         $('#mn-sun-and-moon').show();
 
     },
@@ -978,7 +981,8 @@ var meteonews = {
         meteonews.getPrognosenText();
         $('#mn-prognosen-regions').show();
         $('#mn-sun-and-moon').show();
-        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-slopes').show();
+        $('#mn-teaser-wander').show();
     },
 
     showFiveDayForecastPage: function(id, zip, name) {
@@ -993,7 +997,8 @@ var meteonews = {
         $('#mn-secondary-regions').show();
         $('#mn-lokalwetter-regions-container').show();
         $('#mn-sun-and-moon').show();
-        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-slopes').show();
+        $('#mn-teaser-wander').show();
         $('#mn-search-text').val('');
     },
 

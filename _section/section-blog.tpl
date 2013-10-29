@@ -123,7 +123,7 @@ Und wie immer gilt: Die Zentralschweiz steht dabei voll und ganz im Mittelpunkt.
                 {{ /local }} 
                 
             	<div class="box top-line bottom-line">
-                	<iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.de/maps/ms?msa=0&amp;msid=218370746519352749238.0004d368be2d403db700b&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=47.109392,8.330383&amp;spn=0.654265,0.961304&amp;z=9&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.de/maps/ms?msa=0&amp;msid=218370746519352749238.0004d368be2d403db700b&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=47.109392,8.330383&amp;spn=0.654265,0.961304&amp;z=9&amp;source=embed" style="color:#0000FF;text-align:left">Was gibt's wo</a> in a larger map</small>
+                	<iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.de/maps/ms?msa=0&msid=218370746519352749238.0004d368be2d403db700b&hl=en&ie=UTF8&t=m&ll=47.103784,8.313904&spn=0.654334,0.961304&z=9&output=embed"></iframe><br /><small>Die Karte<a href="https://maps.google.de/maps/ms?msa=0&msid=218370746519352749238.0004d368be2d403db700b&hl=en&ie=UTF8&t=m&ll=47.103784,8.313904&spn=0.654334,0.961304&z=9&source=embed" style="color:#0000FF;text-align:left">Was gibt's wo</a> vergrössert ansehen</small>
                 </div>               
 {{ /if }}
         
