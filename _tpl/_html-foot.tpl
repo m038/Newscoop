@@ -9,8 +9,6 @@
     <script src="{{ uri static_file="assets/js/libs/jquery.tabs2carousel.js" }}"></script>
     <script src="{{ uri static_file="assets/js/libs/plupload/js/plupload.full.js" }}"></script>
     <!-- getunik -->
-    <script language="javascript" src="https://dds-widget.getunik.net/widgets/plain/moaz-q8tch/js/dds-init-widget-de.js" type="text/javascript"></script>
-
 
     <!--[if (gte IE 6)&(lte IE 8)]>
       <script type="text/javascript" src="{{ uri static_file="assets/js/libs/selectivizr-min.js" }}"></script>
@@ -26,11 +24,11 @@
     jQuery(document).ready(function($){
       if($('#social_bookmarks').length > 0){
         $('#social_bookmarks').socialSharePrivacy({
-		        services: {
-			        	  facebook: {
+            services: {
+                  facebook: {
                         'app_id': '204329636307540',
-			            	'dummy_img': '{{ uri static_file="assets/img/icon-soc-bar-fb.png" }}'
-			        	  }, 
+                    'dummy_img': '{{ uri static_file="assets/img/icon-soc-bar-fb.png" }}'
+                  }, 
                     twitter: {
                         'dummy_img': '{{ uri static_file="assets/img/icon-soc-bar-tw.png" }}',
                         'related': {{ json_encode(implode(',', $related)) }}
@@ -39,7 +37,7 @@
                         'display_name': 'Google Plus',
                         'dummy_img': '{{ uri static_file="assets/img/icon-soc-bar-gplus.png" }}'
                     }
-		        },
+            },
                 'cookie_path': '/',
                 'cookie_domain': document.location.host,
                 'cookie_expires': 365,
@@ -64,6 +62,7 @@
     
 
   <script src="{{ uri static_file="assets/js/init.js" }}"></script>
+  <script language="javascript" src="https://dds-widget.getunik.net/widgets/plain/moaz-q8tch/js/dds-init-widget-de.js" type="text/javascript"></script>
 
   <!--
   <script type="text/javascript">
