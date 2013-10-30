@@ -26,7 +26,7 @@
     
     <link rel="apple-touch-icon" href="touch-icon.png">
 
-    <link rel="stylesheet" href="{{ url static_file="assets/css/main.css?v=1.0.1" }}">
+    <link rel="stylesheet" href="{{ url static_file="assets/css/main.css?v=1.0.2" }}">
     <link rel="stylesheet" href="{{ url static_file="assets/css/skin.css?v=1.0.1" }}">
     <link rel="stylesheet" href="{{ url static_file="assets/css/jquery.fancybox.css?v=1.0.1" }}">
     <!--link rel="stylesheet" href="{{ url static_file="assets/js/libs/helpers/jquery.fancybox-thumbs.css?v=1.0.7" }}" /-->    
