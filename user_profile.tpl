@@ -112,7 +112,7 @@
                                 <div class="slide-item" >
 {{ /if }}                                
                                     <article>
-                                        <time>{{ $gimme->user_comment->submit_date }}{{*17.10.2013, 06:55*}}</time>
+                                        <time>{{ $gimme->user_comment->submit_date|camp_date_format:"%d.%m.%Y um %H:%i" }}</time>
                                         <h4>{{ $gimme->user_comment->subject }}</h4>
                                         <p>
                                         {{ $gimme->user_comment->content|trim|truncate:500 }}
