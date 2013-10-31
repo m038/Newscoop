@@ -1520,6 +1520,7 @@ small {
 				.profile-comments ol li small a {color:#b40032;}
 			.profile-comments ol li time {display:block; margin-bottom:10px;}
 	
+	.profile-single-wrap { height: auto !important; }
 	.profile-single {
 		padding:15px 0 30px; margin-bottom:30px;
 		border-bottom:#dadada dashed 1px; border-top:#dadada dashed 1px;
