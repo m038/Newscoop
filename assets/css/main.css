@@ -861,6 +861,19 @@ small {
 			
 			.gallery-slider {background:#e5e5e5; padding-bottom:15px;}
 				.gallery-slider h4.box-title {margin-bottom:0;}
+
+			.box.gallery-slider article figure a:before {
+				content: ' ';
+				background: url(../img/fundstucke_icon.png) 0px 0px no-repeat;
+				width: 60px;
+				height: 60px;
+				position: absolute;
+				top: 0px;
+				right: 1px;
+			}
+			.box.gallery-slider article figure a:hover:before {
+				background: url(../img/fundstucke_icon.png) 0px -60px no-repeat;
+			}
 		
 		/* Advertisement */
 		.ad {position:relative;}
