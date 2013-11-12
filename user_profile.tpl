@@ -116,7 +116,7 @@
                                         <h4>{{ $gimme->user_comment->subject }}</h4>
                                         <p>
                                         {{ $gimme->user_comment->content|trim|truncate:500 }}
-                                        <a href="{{ $gimme->user_comment->article->url }}">{{ $gimme->user_comment->article->name }}</a>
+                                        <a class="article_url" href="{{ $gimme->user_comment->article->url }}">{{ $gimme->user_comment->article->name }}</a>
                                         </p>
                                     </article>
 {{ if $gimme->current_list->column == "10" || $gimme->current_list->at_end }}
