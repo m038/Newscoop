@@ -433,6 +433,21 @@ small {
 		.phone-weather-box {display:none;}
 								
 		.header-menu {float:right; position:relative}
+		.header-menu .fb_header a { background-image: url(../img/icons-footer-social.png);
+									background-repeat: no-repeat;
+									text-indent: -9999px;
+									background-position: 0px 10px;
+									opacity: 0.8;
+									}
+									.header-menu .fb_header a:hover { opacity: 1; }
+		.header-menu .tw_header a {
+									background-image: url(../img/icons-footer-social.png);
+									background-repeat: no-repeat;
+									text-indent: -9999px;
+									background-position: 0px -18px;
+									opacity: 0.8;
+									}
+									.header-menu .tw_header a:hover { opacity: 1; }
 			.header-menu > li > a,
 			.weather > li > a {
 				display:block;
