@@ -109,6 +109,8 @@
             <h1><a href="{{ local }}{{ set_publication identifier="2" }}{{ url options="publication" }}{{ /local }}">Das unabhängige Online-Magazin der Zentralschweiz</a></h1>
 {{ dynamic }}
             <ul class="header-menu">
+            <li class="fb_header"><a target="_blank" href="https://www.facebook.com/zentralplus">Facebook</a></li>
+            <li class="tw_header"><a target="_blank" href="https://twitter.com/zentralplus">Twitter</a></li>
             {{ if $gimme->user->logged_in }}
               <li><a href="{{ $view->url(['controller' => 'my-topics', action => 'index'], 'default') }}" class="icon-tag">Meine Themen</a></li>
               <li><a href="{{ $view->url(['controller' => 'dashboard', 'action' => 'index'], 'default') }}">Profil</a></li>
