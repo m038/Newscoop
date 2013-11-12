@@ -4096,7 +4096,7 @@ margin-bottom: 2px;
 	width: 100% !important;
 }
 
-.profile-page-tabs a {
+.profile-page-tabs .article_url {
 	display: block;
 }
 
