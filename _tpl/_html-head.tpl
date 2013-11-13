@@ -24,6 +24,7 @@
     <link href="{{ url static_file="assets/img/favicon2.ico" }}" rel="SHORTCUT ICON" type="image/x-icon" > 
     <link href="{{ url static_file="assets/img/favicon2.ico" }}" rel="icon" media="all" type="image/x-icon" >
     
+    {{ if $gimme->article->defined }}<link rel="canonical" href="http://{{ url options="article" }}">{{ elseif $gimme->section->defined }}<link rel="canonical" href="http://{{ url options="section" }}">{{ elseif $gimme->template->name == "front.tpl" }}<link rel="canonical" href="http://{{ $gimme->publication->site }}">{{ elseif $gimme->template->name == "blogs.tpl" }}<link rel="canonical" href="http://{{ $gimme->publication->site }}">{{ /if }}
     <link rel="apple-touch-icon" href="touch-icon.png">
 
     <link rel="stylesheet" href="{{ url static_file="assets/css/main.css?v=1.0.3" }}">
