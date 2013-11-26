@@ -248,7 +248,7 @@
                 var result = results[r];
                 var time = meteonews.formatTime(meteonews.getDateObj(result['@attributes']['end_datetime']));
                 var timeId = time.replace(':', ''); 
-                var tempAvg = result['temp_avg']['@text'];
+                var tempAvg = (result['temp_avg']['@text']) ? result['temp_avg']['@text'] : 0;
                 
                 if ((timeId === thisHour) || (timeId < maxHour) || (timeId == maxHour)){
                     if (timeId === "0000") {
@@ -275,7 +275,7 @@
                 var result = results[r];
                 var time = meteonews.formatTime(meteonews.getDateObj(result['@attributes']['end_datetime']));
                 var timeId = time.replace(':', ''); 
-                var tempAvg = result['temp_avg']['@text'];
+                var tempAvg = (result['temp_avg']['@text']) ? result['temp_avg']['@text'] : 0;
 
                 if ((timeId === thisHour) || (timeId < maxHour) || (timeId == maxHour)){
                     if (timeId === "0000") {
