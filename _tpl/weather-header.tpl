@@ -94,7 +94,7 @@
                                     {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
                                     <li><a href='{{ url options="article"}}?pg=prognosen'>Prognosen Zentralschweiz</a></li>
                                     <li><a href="{{ url options="article"}}?pg=local">Lokalwetter</a></li>
-                                    <li><a href="{{ url options="article"}}?pg=wanderwetter">Wanderwetter</a></li>
+                                    <li><a href="{{ url options="article"}}?pg=wintersport">Wintersport</a></li>
                                     {{ /list_articles }}
                                 </ul>
                             </div>

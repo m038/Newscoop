@@ -952,8 +952,8 @@ var meteonews = {
         $('#mn-lokalwetter-regions-container').show();
         $('#mn-primary-regions').show();
         $('#mn-secondary-regions').show();
-        //$('#mn-teaser-slopes').show();
-        $('#mn-teaser-wander').show();
+        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-wander').show();
     },
 
     showWanderwetterPage: function() {
@@ -981,8 +981,8 @@ var meteonews = {
         meteonews.getPrognosenText();
         $('#mn-prognosen-regions').show();
         $('#mn-sun-and-moon').show();
-        //$('#mn-teaser-slopes').show();
-        $('#mn-teaser-wander').show();
+        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-wander').show();
     },
 
     showFiveDayForecastPage: function(id, zip, name) {
@@ -997,8 +997,8 @@ var meteonews = {
         $('#mn-secondary-regions').show();
         $('#mn-lokalwetter-regions-container').show();
         $('#mn-sun-and-moon').show();
-        //$('#mn-teaser-slopes').show();
-        $('#mn-teaser-wander').show();
+        $('#mn-teaser-slopes').show();
+        //$('#mn-teaser-wander').show();
         $('#mn-search-text').val('');
     },
 
@@ -1009,7 +1009,7 @@ var meteonews = {
         meteonews.setLocationTitle('Wintersport');
         meteonews.makeActive('mn-wintersport');
         $('#mn-wintersport-important-slopes').show();
-        $('#mn-badewetter-all-regions').show();
+        //$('#mn-badewetter-all-regions').show();
         meteonews.getAstronomy();
         $('#mn-sun-and-moon').show();
         meteonews.getAllSlopesMap(name);

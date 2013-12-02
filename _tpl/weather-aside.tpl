@@ -41,32 +41,23 @@
 
                 <div id='mn-teaser-slopes'>
                     <div class="box">
-                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/beachball.png"}}'> <span id="teaser-header">Badewetter</span></h4>
+                        <h4 class="box-title"><img alt="" src='{{ url static_file="assets/img/icon_wintersport.png"}}'> <span id="teaser-header">Wintersport</span></h4>
                         <table id='mn-teaser-slopes-table' cellpadding="0" cellspacing="0">
                             <colgroup>
                                 <col width="">
-                                <col width="100">
+                                <col width="110">
                                 <col width="70">
                             </colgroup>
                             <tbody>
-                                {{ list_weather_stats location_list="all_baths" location_name="Reuss, Seedorf" length="1"}}
-                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
-                                {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" location_name="Sempachersee, Sursee" length="1"}}
-                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
-                                {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" location_name="Vierwaldstättersee, Küssnacht am Rigi" length="1"}}
-                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
-                                {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" location_name="Lauerzersee, Schwyz" length="1"}}
-                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
-                                {{ /list_weather_stats }}
-                                {{ list_weather_stats location_list="all_baths" location_name="Zugersee, Zug" length="1"}}
-                                    {{ include file="_tpl/weather-teaser-baths.tpl" }}
-                                {{ /list_weather_stats }}
+                                  {{ list_weather_stats location_list="teaser_slopes" }}
+                                   <tr>
+                                        <th><p><strong><a href='#'  class='mn-lokalwetter-region-item' data-role='link' data-type='geonames' data-id='{{ $gimme->weather_location->location_id }}' data-name='{{ $gimme->weather_location->location_name }}'>{{ $gimme->weather_location->location_name }}</a></strong><br>{{ $gimme->weather_location->region_name }}</p></th>
+                                        <td><img src='{{ url static_file="assets/img/meteonews/symb/"}}{{ $gimme->weather_location->symbol }}.png' class='mn-symbol-small'> {{ $gimme->weather_location->temperature_max }}° / {{ $gimme->weather_location->temperature_min }}°</td>
+                                    </tr>  
+                                   {{ /list_weather_stats }}
                             </tbody>
                         </table>
-                        <a id='mn-badewetter' href="#" class="button white center mn-menu-item">Zum Badewetter</a>
+                        <a id='mn-wintersport' href="#" class="button white center mn-menu-item">Zum Wintersport</a>
                     </div>
                 </div>
                 
