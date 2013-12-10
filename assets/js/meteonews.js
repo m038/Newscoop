@@ -498,7 +498,7 @@ var meteonews = {
         $('#mn-wintersport-details-list').empty();
 
         item += "<img src='" + this.symbolsPath + slope.symb + ".png' class='mn-symbol-medium' alt>";
-        item += "<span>" + slope.temp + "° , ";
+        item += "<span>" + slope.temp + ", ";
         item += "<small>" + slope.txt + "</small></span></li>";
 
         item += "<li><img src='" + this.symbolsPath + "icon-rain-30.png' class='mn-symbol-small' alt>";
@@ -521,7 +521,7 @@ var meteonews = {
         var sections = ['ski', 'crosscountry', 'toboggan', 'avalanches', 'general'];
         for (var s in sections) {
             var section = sections[s];
-            var items = slope.slope_results[section];
+            var items = (slope.slope_results[section]) ? slope.slope_results[section] : null;
             if (section != '@attributes') {
                 output += "<h4 class='table-collapse-trigger'>";
                 output += "<a href='#'>" + meteonews.translate(section) + "</a></h4>";
@@ -531,6 +531,13 @@ var meteonews = {
                 output += "<colgroup> <col width> <col width='135'> <col width='232'> <col width='130'> </colgroup>";
                 output += "<tbody>";
                 var fcount = 0;
+
+                if (section == 'avalanches') {
+                    if (items === null) {
+                        output += "<tr><th>" + meteonews.translate('alarm') + "</th>" + "<td></td><td></td></tr>";
+                    }
+                }
+
                 for (var item in items) {
                     if (fcount == 0) {
                         output += "<tr>";
@@ -612,7 +619,7 @@ var meteonews = {
             $('#mn-wintersport-prognosen-table-' + i + ' tbody').empty();
             $('#mn-wintersport-prognosen-table-' + i + ' tbody').append(headerRow);
         }
-        var rowTemplate = "<tr><td><p><strong>$name</strong><br>$text</p></td><td>$image $temp° </td></tr>";
+        var rowTemplate = "<tr><td><p><strong>$name</strong><br>$text</p></td><td>$image $temp</td></tr>";
 
         for (s in slope.all_slope_results) {
             var areaSlope = slope.all_slope_results[s];
@@ -638,7 +645,7 @@ var meteonews = {
                         var displayDate = meteonews.formatDisplayDate(date);
                         var image = "<img src='" + meteonews.symbolsPath + result.symb +".png' class='mn-symbol-small' alt>";
                         var link = "<a href='#'  class='mn-wintersport-link' data-type='mexs' data-id='" + slopeId + "' data-name='" + slopeName + "'>"
-                        var row = "<td><p><strong>" + link + slopeName + "</a></strong><br>" + txt + "</p></td><td>" + image + " " +  temp + "° </td>";
+                        var row = "<td><p><strong>" + link + slopeName + "</a></strong><br>" + txt + "</p></td><td>" + image + " " +  temp + "</td>";
                         day++;
                         var matchRowId = "#mn-slope-tbl" + day + "-" + slopeId;
                         var buttonText = "<span class='mobile-hide'>Details</span> "+displayDate;
