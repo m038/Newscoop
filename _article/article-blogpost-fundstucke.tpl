@@ -15,8 +15,6 @@
             <a href="#" class="button show-feedback-form red right">Bild vorschlagen</a>
         </div>
 {{ /list_articles }}
-
-{{ count }}
         
         <div class="content clearfix photo-blog-single">
         

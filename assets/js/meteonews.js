@@ -498,7 +498,7 @@ var meteonews = {
         $('#mn-wintersport-details-list').empty();
 
         item += "<img src='" + this.symbolsPath + slope.symb + ".png' class='mn-symbol-medium' alt>";
-        item += "<span>" + slope.temp + "° , ";
+        item += "<span>" + slope.temp + ", ";
         item += "<small>" + slope.txt + "</small></span></li>";
 
         item += "<li><img src='" + this.symbolsPath + "icon-rain-30.png' class='mn-symbol-small' alt>";
@@ -619,7 +619,7 @@ var meteonews = {
             $('#mn-wintersport-prognosen-table-' + i + ' tbody').empty();
             $('#mn-wintersport-prognosen-table-' + i + ' tbody').append(headerRow);
         }
-        var rowTemplate = "<tr><td><p><strong>$name</strong><br>$text</p></td><td>$image $temp° </td></tr>";
+        var rowTemplate = "<tr><td><p><strong>$name</strong><br>$text</p></td><td>$image $temp</td></tr>";
 
         for (s in slope.all_slope_results) {
             var areaSlope = slope.all_slope_results[s];
@@ -645,7 +645,7 @@ var meteonews = {
                         var displayDate = meteonews.formatDisplayDate(date);
                         var image = "<img src='" + meteonews.symbolsPath + result.symb +".png' class='mn-symbol-small' alt>";
                         var link = "<a href='#'  class='mn-wintersport-link' data-type='mexs' data-id='" + slopeId + "' data-name='" + slopeName + "'>"
-                        var row = "<td><p><strong>" + link + slopeName + "</a></strong><br>" + txt + "</p></td><td>" + image + " " +  temp + "° </td>";
+                        var row = "<td><p><strong>" + link + slopeName + "</a></strong><br>" + txt + "</p></td><td>" + image + " " +  temp + "</td>";
                         day++;
                         var matchRowId = "#mn-slope-tbl" + day + "-" + slopeId;
                         var buttonText = "<span class='mobile-hide'>Details</span> "+displayDate;
