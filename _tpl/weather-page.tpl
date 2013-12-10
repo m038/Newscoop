@@ -28,7 +28,7 @@
 
                 {{ include file="_tpl/weather-wanderwetter.tpl" }}
                 
-                {{ include file="_tpl/weather-lokkalwetter.tpl" }}
+                {{ render file="_tpl/weather-lokkalwetter.tpl" }}
 
                 {{ include file="_tpl/weather-wintersport.tpl" }}
 

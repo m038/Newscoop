@@ -159,7 +159,7 @@
 
                 {{ $fqtype = sprintf('(%s)', implode(' OR ', $types)) }}
 
-{{ list_search_results_solr fq="{{ build_solr_fq fqpublished=$smarty.get.published fqtype=$fqtype fqfrom=$smarty.get.from fqto=$smarty.get.to }}" qf="title^4.9 authors^4.9 town^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
+{{ list_search_results_solr fq="{{ build_solr_fq fqdateformat="d.m.Y" fqpublished=$smarty.get.published fqtype=$fqtype fqfrom=$smarty.get.from fqto=$smarty.get.to }}" qf="title^4.9 authors^4.9 town^5 greybox_title^4 motto^4 infolong^3 teaser^3 pro_title^3 contra_title^3 lede^3 greybox^2 description date_time_text other body pro_text contra_text" rows=10 start=$smarty.get.start }}
                     
                     <article class="search-afix">
                         <h6>{{ if $gimme->article->dateline }}<a href="{{ url options="article" }}">{{ $gimme->article->dateline }}</a>{{ else }}<a href="{{ url options="section" }}">{{ $gimme->section->name }}</a>{{ /if }}</h6>                     

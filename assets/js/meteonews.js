@@ -521,7 +521,7 @@ var meteonews = {
         var sections = ['ski', 'crosscountry', 'toboggan', 'avalanches', 'general'];
         for (var s in sections) {
             var section = sections[s];
-            var items = slope.slope_results[section];
+            var items = (slope.slope_results[section]) ? slope.slope_results[section] : null;
             if (section != '@attributes') {
                 output += "<h4 class='table-collapse-trigger'>";
                 output += "<a href='#'>" + meteonews.translate(section) + "</a></h4>";
@@ -531,6 +531,13 @@ var meteonews = {
                 output += "<colgroup> <col width> <col width='135'> <col width='232'> <col width='130'> </colgroup>";
                 output += "<tbody>";
                 var fcount = 0;
+
+                if (section == 'avalanches') {
+                    if (items === null) {
+                        output += "<tr><th>" + meteonews.translate('alarm') + "</th>" + "<td></td><td></td></tr>";
+                    }
+                }
+
                 for (var item in items) {
                     if (fcount == 0) {
                         output += "<tr>";

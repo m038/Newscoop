@@ -1,5 +1,6 @@
               <article class="bottom-line single">
 
+
 {{* This is to check if article is divided into pages *}}
 {{ assign var="showStaff" value=0 }}
 {{ if !($gimme->article->subtitles_count(body) gt 1) || ($gimme->article->subtitles_count(body) gt 1 && $gimme->article->current_subtitle_no(body) == 0) }} 
@@ -58,7 +59,7 @@
 		{{ if empty($bodyAryP) }}
 			<p>
 		{{ /if }}
-		{{ $bodyAry[1] }}
+		{{ $bodyAry[1] }}                    
 
 	{{ else }}
 

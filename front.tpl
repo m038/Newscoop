@@ -18,7 +18,6 @@
  
 {{ assign var="condition" value="Front is on" }}
 
-
 {{ list_articles length="1" ignore_issue="true" ignore_section="true" order="bypublishdate desc" constraints="section is 200 type is editor_message $condition active is on" }}
                {{ if $gimme->current_list->at_beginning }}
               <div class="box">                   
