@@ -1,71 +1,71 @@
-	<div class="wide-wrapper">
-    
-    	<div class="content-wrapper" id="footer">
+  <div class="wide-wrapper">
+    {{ include file="_tpl/newsletter-form.tpl" }}
+      <div class="content-wrapper" id="footer">
 
 {{ local }}
 {{ unset_topic }}     
 
-        	<ul class="footer-list equal-heights clearfix">        	
-            	<li>
-            		{{ set_publication identifier="2" }}
-            		{{ set_current_issue }}
-            		{{ set_section number="300" }}
-                	<h3>{{ $gimme->section->name }}</h3>
+          <ul class="footer-list equal-heights clearfix">         
+              <li>
+                {{ set_publication identifier="2" }}
+                {{ set_current_issue }}
+                {{ set_section number="300" }}
+                  <h3>{{ $gimme->section->name }}</h3>
                     <ul>
                      {{ list_articles }}
-                    	   <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
-                    	{{ /list_articles }}
+                         <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+                      {{ /list_articles }}
                     </ul>
 
                 </li>
                 <li>
-                	<h3>Themen</h3>
+                  <h3>Themen</h3>
                     <ul>
-                    		<!-- Delete asterisk (*) when link is created dynamically -->
-                    	   <li><a href="/my-topics">Meine Themen</a></li>
-                    		{{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80 number not 50" }}
+                        <!-- Delete asterisk (*) when link is created dynamically -->
+                         <li><a href="/my-topics">Meine Themen</a></li>
+                        {{ list_sections constraints="number smaller_equal 100 number not 71 number not 72 number not 73 number not 80 number not 50" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->section->name }}</a></li>
                         {{ /list_sections }}
                         {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" length="1" constraints="type is weather_page" }}
                         <li><a href="{{ url options="article"}}?pg=prognosen">Wetter</a></li>
                         {{ /list_articles }}
                         {{ list_articles length="1" ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is archive" }}
-              			<li><a href="{{ url options="article" }}">Archiv</a></li>
-              			{{ /list_articles }}
+                    <li><a href="{{ url options="article" }}">Archiv</a></li>
+                    {{ /list_articles }}
                     </ul>
                 </li>               
                 <li>
-                	<h3>Dialog</h3>
+                  <h3>Dialog</h3>
                     <ul>
-                    		{{ list_articles length="1" ignore_section="true" constraints="type is debatte" }}
-                    		<li><a href="{{ url options="article" }}">Pro + Contra</a></li>
-                    		{{ /list_articles }}
-                 		   {{ set_publication identifier="4" }}
-            				{{ set_current_issue }}
-            				{{ set_section number="100" }}
+                        {{ list_articles length="1" ignore_section="true" constraints="type is debatte" }}
+                        <li><a href="{{ url options="article" }}">Pro + Contra</a></li>
+                        {{ /list_articles }}
+                       {{ set_publication identifier="4" }}
+                    {{ set_current_issue }}
+                    {{ set_section number="100" }}
                         <li><a href="{{ url options="section" }}">Fundstücke</a></li>
                         <li><a href="{{ $view->url(['controller' => 'user', 'action' => 'index'], 'default') }}">Community</a></li>
                     </ul>
                 </li>                 
                 <li>
-                	<h3>Blogs</h3>
+                  <h3>Blogs</h3>
                     <ul>
-                    		{{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo" }}
+                        {{ list_articles ignore_publication="true" ignore_issue="true" ignore_section="true" constraints="type is bloginfo" }}
                         <li><a href="{{ url options="section" }}">{{ $gimme->article->name }}</a></li>
-								{{ /list_articles }}
+                {{ /list_articles }}
                     </ul>
                 </li>              
-				{{ /local }}                
-				{{ local }}        	
+        {{ /local }}                
+        {{ local }}         
                 <li>
-                	<h3>Ausgehen</h3>
+                  <h3>Ausgehen</h3>
                     <ul>
 
 {{* events *}}
 {{ set_publication identifier="2" }}
 {{ set_issue number="10" }}
 {{ set_section number="71" }}
-                    	<li><a id="footer_all_link" href="{{ url options="section" }}?type=event&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Alles</a></li>
+                      <li><a id="footer_all_link" href="{{ url options="section" }}?type=event&date={{ $smarty.now|camp_date_format:"%Y-%m-%d" }}&region=region-zentralschweiz">Alles</a></li>
 {{* movies *}}
 {{ set_publication identifier="2" }}
 {{ set_issue number="10" }}
@@ -88,11 +88,12 @@
                     </ul>
                 </li>                
                 <li>
-                	<h3>Folgen Sie uns</h3>
+                  <h3>Folgen Sie uns</h3>
                     <ul class="social">
-                    	<li class="facebook"><a target="_blank" href="http://www.facebook.com/zentralplus">Facebook</a></li>
+                      <li class="facebook"><a target="_blank" href="http://www.facebook.com/zentralplus">Facebook</a></li>
                         <li class="twitter"><a target="_blank" href="https://twitter.com/zentralplus">Twitter</a></li>
                         <li class="vimeo"><a target="_blank" href="https://vimeo.com/zentralplus">Vimeo</a></li>
+                         <li><a class="show-newsletter-form" href="#">Newsletter PopUp</a></li>
                     </ul>
                 </li>
             </ul><!-- / Footer list -->
@@ -100,11 +101,11 @@
 
             <ul class="phone-footer-nav">
                {{ set_article number="11143" }}
-            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
-            	{{ set_article number="11141" }}
-            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
-            	{{ set_article number="11147" }}
-            	<li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+              <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+              {{ set_article number="11141" }}
+              <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
+              {{ set_article number="11147" }}
+              <li><a href="{{ url options="article" }}">{{ $gimme->article->name }}</a></li>
             </ul>
 
 {{ /local }}
@@ -131,6 +132,12 @@
                 'transitionOut'     : 'none',
                 href: '{{ $view->baseUrl("/contact/index") }}'
             });
+        });
+
+        $('a.close-newsletter').live('click', function(e){
+            e.preventDefault();
+
+             $.fancybox.close()
         });
 
         $('form#feedback-form-form').live('submit', function(e) {
@@ -166,6 +173,22 @@
                         'content' : '<h2>'+ data['response'] +'<h2>'
                     });
                 }
+            });
+        });
+
+
+ $('a.show-newsletter-form').live('click', function(e){
+            e.preventDefault();
+
+            $.fancybox({
+                'content' : $("#newsletter-form").html(),
+                type: 'iframe',
+                width: 520,
+                'autoScale'         : false,
+                'autoDimensions'    : false,
+                'scrolling'         : 'no',
+                'transitionIn'      : 'none',
+                'transitionOut'     : 'none'
             });
         });
 
