@@ -13,10 +13,11 @@ namespace Newscoop\Search;
 interface QueryInterface
 {
     // TODO: Add basic stuff here
+    public function encodeParameters(array $parameters);
 
+    public function decodeParameters(array $parameters);
 
-    public function encodeParameters();
+    public function decodeResponse($responseBody);
 
-    public function decodeParameters();
-
+    public function find(array $filter = array());
 }
