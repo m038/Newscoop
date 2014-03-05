@@ -7,6 +7,7 @@
 
 namespace Newscoop\Tools\Console\Command;
 
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console;
@@ -14,7 +15,7 @@ use Symfony\Component\Console;
 /**
  * Base Index Command
  */
-abstract class AbstractIndexCommand extends Console\Command\Command
+abstract class AbstractIndexCommand extends ContainerAwareCommand
 {
     /**
      * Get all search services for indexable documents

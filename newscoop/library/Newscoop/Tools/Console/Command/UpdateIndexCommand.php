@@ -38,6 +38,12 @@ class UpdateIndexCommand extends AbstractIndexCommand
         // This is needed to surpress STRICT errors, else everything will FAIL :'(
         error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE & ~E_STRICT);
 
+        $em = $this->getContainer()->get('doctrine')->getManager();
+
+        $sqlLogger = new \Doctrine\DBAL\Logging\DebugStack();
+        $sqlLogger->enabled;
+        $em->getConnection()->getConfiguration()->setSQLLogger($sqlLogger);
+
         global $g_ado_db;
         $container = $this->getApplication()->getKernel()->getContainer();
         $g_ado_db = $container->get('doctrine.adodb');
@@ -63,5 +69,10 @@ class UpdateIndexCommand extends AbstractIndexCommand
 
             $output->writeln('Search Index updated.');
         }
+
+        $sqlDump = \Doctrine\Common\Util\Debug::export($sqlLogger, 5);
+        $debugDump = var_export($sqlDump, true);
+
+        file_put_contents('log/doctrine_mischa_bug_'.date('Ymd').'.log', $debugDump, FILE_APPEND);
     }
 }
