@@ -221,7 +221,6 @@ $().ready(function() {
         // General options
         language : "<?php p($p_editorLanguage); ?>",
         theme : "advanced",
-        // elements : "<?php p($textareas); ?>",
         plugins : "<?php p($plugins_list); ?>",
 
         forced_root_block : "",
