@@ -289,8 +289,6 @@ $().ready(function() {
         delete tinyMceOptions.max_chars;
     }
  
-    console.log($('<?php echo $textareas;?>'));
-
     // Default skin
     $('<?php echo $textareas;?>').tinymce(tinyMceOptions);
 
