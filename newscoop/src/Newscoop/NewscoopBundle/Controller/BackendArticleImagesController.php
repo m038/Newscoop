@@ -79,7 +79,7 @@ class BackendArticleImagesController extends Controller
 
             ob_start();
             require_once($GLOBALS['g_campsiteDir']."/admin-files/media-archive/editor_load_tinymce.php");
-            editor_load_tinymce('article_image_caption, article_image_description', $userService->getCurrentUser(), $editorLanguage, $editorOptions);
+            editor_load_tinymce(array('article_image_caption', 'article_image_description'), $userService->getCurrentUser(), $editorLanguage, $editorOptions);
             $editor = ob_get_contents();
             ob_end_clean();
         }
