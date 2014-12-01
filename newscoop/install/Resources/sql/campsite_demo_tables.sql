@@ -2130,7 +2130,7 @@ CREATE TABLE `package_item` (
   `package_id` int(11) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
   `offset` int(11) NOT NULL,
-  `caption` varchar(255) DEFAULT NULL,
+  `caption` text DEFAULT NULL,
   `coords` varchar(255) DEFAULT NULL,
   `video_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
