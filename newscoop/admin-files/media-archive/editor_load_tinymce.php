@@ -243,6 +243,15 @@ $().ready(function() {
         theme_advanced_resizing : false,
         theme_advanced_statusbar_location: "<?php p($statusbar_location); ?>",
 
+        // Restrict usage of certain valid_elements
+        invalid_elements: "html,head,body,title,base,link,meta,style,script,"+
+            "noscript,template,section,nav,article,aside,header,footer,"+
+            "address,main,figure,figcaption,div,data,time,code,car,samp,kbd,"+
+            "mark,ruby,rt,rp,ins,del,img,map,area,svg,math,table,caption,"+
+            "colgroup,col,tbody,thead,tfoor,tr,td,th,form,fieldset,legend,"+
+            "label,input,button,select,datalist,optgroup,option,textarea,"+
+            "keygen,output,progress,meter,details,summary,menuitem,menu",
+
         // Limit characters
         max_chars : 0,
         max_chars_indicator : ".maxCharsSpan",
