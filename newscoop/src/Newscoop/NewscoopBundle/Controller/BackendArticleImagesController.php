@@ -72,7 +72,7 @@ class BackendArticleImagesController extends Controller
             $editorLanguage = $request->getLocale();
             $editorOptions  = array(
                 'max_chars' => $preferencesService->MediaCaptionLength,
-                'toolbar_length' => 10,
+                'toolbar_length' => 8,
             );
 
             $userService = $this->container->get('user');

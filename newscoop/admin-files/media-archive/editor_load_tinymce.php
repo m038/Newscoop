@@ -187,8 +187,13 @@ function editor_load_tinymce($p_dbColumns, $p_user, $p_editorLanguage, $options=
     }
 
     if ($p_user->hasPermission('EditorFontFace')) {
-        $toolbar2[] = "|";
-        $toolbar2[] = "formatselect";
+        if (count($toolbar2) > 6 && $toolbarlength <=9) {
+            $toolbar3[] = "|";
+            $toolbar3[] = "formatselect";
+        } else {
+            $toolbar2[] = "|";
+            $toolbar2[] = "formatselect";
+        }
     }
     if ($p_user->hasPermission('EditorFontSize')) {
         $toolbar2[] = "fontsizeselect";
@@ -210,6 +215,8 @@ function editor_load_tinymce($p_dbColumns, $p_user, $p_editorLanguage, $options=
 <!-- Load TinyMCE -->
 <script type="text/javascript" src="<?php echo $Campsite['WEBSITE_URL']; ?>/js/tinymce/jquery.tinymce.js"></script>
 <script type="text/javascript">
+
+var validateTinyMCEEditors = function() { return true; };
 
 $().ready(function() {
 
@@ -304,7 +311,7 @@ $().ready(function() {
         if ($prefService->MediaRichTextCaptions == 'Y') {
     ?>
 
-    function validateTinyMCEEditors() {
+    validateTinyMCEEditors = function() {
 
         if (typeof(tinyMceOptions.max_chars) == 'undefined') {
             return true;
@@ -333,12 +340,6 @@ $().ready(function() {
         return valid;
     }
 
-    <?php
-        } else {
-    ?>
-        function validateTinyMCEEditors() {
-            return true;
-        }
     <?php
         }
     ?>
