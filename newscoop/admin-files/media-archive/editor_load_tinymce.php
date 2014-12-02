@@ -230,7 +230,7 @@ $().ready(function() {
         theme : "advanced",
         plugins : "<?php p($plugins_list); ?>",
 
-        forced_root_block : "",
+        forced_root_block : "p",
         relative_urls : false,
 
         // Theme options
