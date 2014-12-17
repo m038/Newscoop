@@ -305,7 +305,7 @@ echo camp_html_breadcrumbs($crumbs);
     <tr>
       <td align="right"><?php echo $translator->trans("Publication"); ?>:</td>
       <td>
-        <?php if ($f_article_language_id > 0 && count($allPublications) > 1) { ?>
+        <?php if ($f_article_language_id > 0 && count($allPublications) > 0) { ?>
         <select name="f_publication_id" id="f_publication_id" class="input_select" alt="select" emsg="<?php echo $translator->trans('You must select a publication.', array(), 'articles') ?>" onchange="if (this.options[this.selectedIndex].value != <?php p($f_publication_id); ?>) {this.form.submit();}">
         <option value=""><?php echo $translator->trans('---Select publication---'); ?></option>
         <?php
