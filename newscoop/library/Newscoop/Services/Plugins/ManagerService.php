@@ -407,6 +407,55 @@ class ManagerService
     }
 
     /**
+     * Reinstall plugins after Newscoop upgrade (re-add them to composer)
+     */
+    public function getPluginData()
+    {
+        $newPlugins = array();
+        $allPlugins = $this->pluginsService->getAllAvailablePlugins();
+        foreach ($allPlugins as $plugin) {
+            if (strpos($plugin->getName(), '/') !== false) {
+                $newPlugins[] = $plugin;
+            }
+        }
+        return $newPlugins;
+    }
+
+    /**
+     * Update installed plugin
+     *
+     * @param  string          $pluginName
+     * @param  string          $version
+     * @param  OutputInterface $output
+     * @param  boolean         $notify
+     */
+    public function updatePluginData($plugins)
+    {
+        $this->saveAvaiablePluginsToCacheFile();
+        $this->prepareCacheDir();
+
+        foreach ($plugins as $plugin) {
+
+            // Try to use update cache file, since data would be more recent
+            // $cachedPluginMeta = $this->newsoopDir.'/plugins/cache/update_'.str_replace('/', '-', $plugin).'_package.json';
+            // if (!file_exists($cachedPluginMeta)) {
+                $cachedPluginMeta = $this->newsoopDir.'/plugins/cache/add_'.str_replace('/', '-', $plugin).'_package.json';
+            // }
+
+            if (file_exists($cachedPluginMeta)) {
+                $pluginMeta = json_decode(file_get_contents($cachedPluginMeta), true);
+                $pluginDetails = file_get_contents($this->pluginsDir.'/'.$pluginMeta['targetDir'].'/composer.json');
+
+                $this->em->getRepository('Newscoop\Entity\Plugin')->updatePlugin($pluginMeta, $pluginDetails);
+
+                // clear cache files
+                // $filesystem = new Filesystem();
+                // $filesystem->remove($cachedPluginMeta);
+            }
+        }
+    }
+
+    /**
      * Get installed plugins
      * @return array Array with installed plugins info
      */
