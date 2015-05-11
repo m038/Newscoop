@@ -28,7 +28,8 @@ class InfoPluginsCommand extends Console\Command\Command
             ->setName('plugins:info')
             ->setDescription('Lists all installed plugins and version.')
             ->addArgument('format', InputArgument::OPTIONAL, 'Output format for the information.')
-            ->addOption('all-data', null, InputOption::VALUE_NONE, 'List all data for table and nice formats.');
+            ->addOption('all-data', null, InputOption::VALUE_NONE, 'List all data for table and nice formats.')
+            ->addOption('no-version', null, InputOption::VALUE_NONE, 'Hide version from output, not for nice or table format.');
     }
 
     /**
@@ -39,6 +40,7 @@ class InfoPluginsCommand extends Console\Command\Command
         $pluginsManager = $this->getApplication()->getKernel()->getContainer()->getService('newscoop.plugins.manager');
         $plugins = $pluginsManager->getPluginData();
         $format = $input->getArgument('format');
+        $showVersion = $input->getOption('no-version');
         $outputString = '';
 
         if (count($plugins) > 0) {
@@ -50,7 +52,7 @@ class InfoPluginsCommand extends Console\Command\Command
                     $outputList = array();
                     $seperator = ($format=='composer') ? ':' : ' ';
                     foreach ($plugins as $plugin) {
-                        $outputList[] = sprintf('%s%s%s', $plugin->getName(), $seperator, $plugin->getVersion());
+                        $outputList[] = sprintf('%s%s%s', $plugin->getName(), $seperator, ($showVersion ? '' : $plugin->getVersion()));
                     }
                     $seperator = ($format == 'short') ? "\n" : ' ';
                     $outputString = implode($seperator, $outputList);
