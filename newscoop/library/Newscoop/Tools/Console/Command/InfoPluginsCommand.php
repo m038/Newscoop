@@ -55,6 +55,7 @@ class InfoPluginsCommand extends Console\Command\Command
                         $outputList[] = sprintf('%s%s%s', $plugin->getName(), $seperator, ($showVersion ? '' : $plugin->getVersion()));
                     }
                     $seperator = ($format == 'short') ? "\n" : ' ';
+                    $seperator = ($format == 'oneline') ? ' - ' : $format;
                     $outputString = implode($seperator, $outputList);
                 break;
                 case 'nice':
