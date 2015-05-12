@@ -29,7 +29,8 @@ class InfoPluginsCommand extends Console\Command\Command
             ->setDescription('Lists all installed plugins and version.')
             ->addArgument('format', InputArgument::OPTIONAL, 'Output format for the information.')
             ->addOption('all-data', null, InputOption::VALUE_NONE, 'List all data for table and nice formats.')
-            ->addOption('no-version', null, InputOption::VALUE_NONE, 'Hide version from output, not for nice or table format.');
+            ->addOption('no-version', null, InputOption::VALUE_NONE, 'Hide version from output, not for nice or table format.')
+            ->addOption('silent', null, InputOption::VALUE_NONE, 'Don\'t give any output if there is nothing to report.');
     }
 
     /**
@@ -96,7 +97,7 @@ class InfoPluginsCommand extends Console\Command\Command
                 break;
             }
         } else {
-            if (in_array($format, array('oneline', 'composer'))) {
+            if ($input->getOption('silent') || in_array($format, array('oneline', 'composer'))) {
                 $outputString = '';
             } else {
                 $outputString = 'There are no plugins installed.';
