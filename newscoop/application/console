@@ -55,7 +55,6 @@ $cli->addCommands(array(
     new \Newscoop\Tools\Console\Command\DispatchEventForPluginCommand(),
     new \Newscoop\Tools\Console\Command\UpgradePluginsCommand(),
     new \Newscoop\Tools\Console\Command\InfoPluginsCommand(),
-    new \Newscoop\Tools\Console\Command\UpdatePluginsDataCommand(),
     new \Newscoop\Tools\Console\Command\ReloadRenditionsCommand(),
     new \Newscoop\Tools\Console\Command\GenerateWebcodeCommand(),
     new \Newscoop\Tools\Console\Command\InstallNewscoopCommand(),
