@@ -317,7 +317,7 @@ class ManagerService
         $composerList = array();
         $eventList = array();
         foreach ($plugins as $plugin) {
-            if ($this->isInstalled($plugin)) {
+            if ($this->isInstalled($plugin['name'])) {
                 $composerList[] = sprintf('%s:%s', $plugin['name'], $plugin['version']);
                 $eventList[] = $plugin['name'];
             } else {
