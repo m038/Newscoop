@@ -102,6 +102,8 @@ class InfoPluginsCommand extends Console\Command\Command
                 $outputString = 'There are no plugins installed.';
             }
         }
-        $output->writeln($outputString);
+        if (trim($outputString) != '') {
+            $output->writeln($outputString);
+        }
     }
 }
