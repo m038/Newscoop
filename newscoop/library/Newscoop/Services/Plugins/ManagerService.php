@@ -151,7 +151,12 @@ class ManagerService
         }
 
         if ($notify) {
-
+            $process = new Process(sprintf(
+                'cd %s && php -d memory_limit=%s application/console plugins:dispatch "%s" install',
+                $this->newsoopDir,
+                $this->config['internal_memory_limit'],
+                $eventList
+            ));
             $process->setTimeout(3600);
             $process->run(function ($type, $buffer) use ($output) {
                 if (Process::ERR === $type) {
