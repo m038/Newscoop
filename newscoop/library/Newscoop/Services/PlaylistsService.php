@@ -278,6 +278,10 @@ class PlaylistsService
 
     private function buildNewThemePlaylists($themePlaylists)
     {
+        if (!array_key_exists('list', $themePlaylists)) {
+            return null;
+        }
+
         $newThemePlaylists = array();
         if (array_key_exists('template', $themePlaylists['list'])) {
             $bakThemePlaylists = $themePlaylists;
