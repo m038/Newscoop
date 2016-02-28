@@ -26,6 +26,8 @@ class UpdatePluginCommand extends Console\Command\Command
             ->setName('plugins:update')
             ->setDescription('Update Newscoop Plugin.')
             ->addArgument('list', InputArgument::REQUIRED, 'List of one or more plugins, format: vendor/plugin-name:version');
+            // ->addArgument('name', InputArgument::REQUIRED, 'Composer package name, ex. "vendor/plugin-name"')
+            // ->addArgument('version', InputArgument::OPTIONAL, 'Composer package version, ex. "dev-master"', "*");
     }
 
     /**

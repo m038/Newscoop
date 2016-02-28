@@ -89,6 +89,7 @@ class ManagerService
      * @param boolean          $clearCache
      */
     public function installPlugin($plugins, $output, $notify = true, $clearCache = true)
+    // public function installPlugin($pluginName, $version, $output, $notify = true)
     {
         $this->installComposer();
         $this->prepareCacheDir();
@@ -171,6 +172,7 @@ class ManagerService
             }
         }
 
+        // TODO: make sure this works with multiple plugins
         $output->writeln('<info>Plugin(s) installed: '.$eventList.'</info>');
     }
 
@@ -311,6 +313,7 @@ class ManagerService
      * @param  boolean         $clearCache
      */
     public function updatePlugin($plugins, OutputInterface $output, $notify = true, $clearCache = true)
+    // public function updatePlugin($pluginName, $version, OutputInterface $output, $notify = true)
     {
         $this->installComposer();
 

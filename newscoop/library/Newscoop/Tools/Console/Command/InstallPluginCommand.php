@@ -26,6 +26,8 @@ class InstallPluginCommand extends Console\Command\Command
             ->setName('plugins:install')
             ->setDescription('Install Newscoop Plugins.')
             ->addArgument('list', InputArgument::REQUIRED, 'List of one or more plugins, format: vendor/plugin-name:version');
+            // ->addArgument('name', InputArgument::REQUIRED, 'Composer package name, ex. "vendor/plugin-name"')
+            // ->addArgument('version', InputArgument::OPTIONAL, 'Composer package version, ex. "dev-master"', "*");
     }
 
     /**
